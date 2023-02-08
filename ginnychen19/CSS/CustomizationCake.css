@@ -1,0 +1,140 @@
+@import url("https://www.w3schools.com/w3css/4/w3.css");
+@import "main.css";
+
+#workShow{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    /* 水平置中 */
+    justify-content: center;
+    /* 垂直置中 */
+    align-items: center;
+    opacity: 100%;
+
+    padding: 120px 0;
+    margin: 80px 0 0 0;
+    /* transition: 1.0 ease; */
+
+    background-color: var(--color01); 
+}
+ul.CZcake{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 150px;
+
+    position: relative;
+    
+    list-style:none;
+
+    background-color: rgb(25, 141, 102);
+}
+li.item_CZcake{
+    width: 150px;
+    height: 150px;
+
+    margin: 10px;
+}
+
+.item_CZcake img{
+    position: absolute;
+
+    width: 150px;
+    border-radius: 50%;
+    border: 1px solid rebeccapurple;
+
+
+    background-image: url(../Style/IMG/mimisbakehouse-website-8-web.jpg);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;   
+}
+
+#CZ_introduce{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction:column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 120px 0;
+    /* transition: 1.0 ease; */
+
+    background-color: var(--color03);
+}
+
+
+.Feature_ITD{
+    display: flex;
+    flex-direction:column;
+
+    justify-content: center;
+    align-items: center;
+    padding: 20px 100px;
+    
+}
+.Feature_ITD>h2{
+    text-align: center;
+}
+.Feature_ITD>h6{
+    text-align: justify;
+}
+.process_ITD{
+    display: flex;
+    flex-direction:column;
+
+    justify-content: center;
+    align-items: center;
+    padding: 20px 100px;
+}
+.stap{
+    display: flex;
+    flex-direction:row;
+
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: var(--color04);
+
+}
+
+.IsLogin{
+    position: absolute;
+    bottom: -40px;
+    background-color: var(--color04);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+.IsLoginThen{
+    display: flex;
+    flex-direction:row;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: violet;
+
+}
+
+form{
+    flex: 1;
+    display: flex;
+    flex-direction:column;
+
+    justify-content: center;
+    align-items: center;
+}
+game{
+    flex: 1;
+    display: flex;
+    flex-direction:column;
+
+    justify-content: center;
+    align-items: center;
+}
