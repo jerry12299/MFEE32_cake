@@ -1,0 +1,6 @@
+新增蛋糕 id 名稱 價格
+INSERT INTO `commodity` (`c_id`, `c_name`, `price`) VALUES ('bd0001', '生日蛋糕01', '300')
+
+
+查詢主題蛋糕訂單
+select co_id,m_id,co_upload_date,pick_up_date,c_name,quantity,co_state,method,remark FROM cake_order,commodity WHERE cake_order.c_id = commodity.c_id

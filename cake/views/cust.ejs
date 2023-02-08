@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/jquery-3.6.0.js"></script>
+    <script src="../js/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="../css/jquery.modal.min.css" />
+    <title>首頁</title>
+</head>
+<body>
+   
+    <% if(!session.user) { %>  <!-- 如果沒登入(沒session.user) -->
+    <a href="/login">登入</a> 
+    <% }else if(session.user.rights) { %>
+    <a href="/add">管理表單</a> <a href="/1">蛋糕訂單</a>
+    <% }else { %>
+    <a href="/buy">購物車</a>
+    <% } %>
+    <table>
+        <thead>
+            <th>#</th>
+            <th>訂單編號</th>
+            <th>會員編號</th>
+            <th>下訂日期</th>
+            <th>需求</th>
+            <th>狀態</th>
+            <th>圖片</th>
+          
+        </thead>
+        <tbody>
+            <% data.forEach((item ,index) => { %> <!--forEach迴圈顯示資料庫內容-->
+                <% var cuYY = item.cust_upload_date.getFullYear()%>
+                <% var cuMM = (item.cust_upload_date.getMonth())+1%>
+                <% var cuDD = item.cust_upload_date.getDate()%>
+                <% var cuHr = item.cust_upload_date.getHours()%>
+                <% var cuMi = item.cust_upload_date.getMinutes()%>
+                <tr>
+                    <td><%= index+1%></td> <!--編號 -->
+                    <td><%= item.cust_id%></td> 
+                    <td><%= item.m_id%></td>
+                    <td><%= `${cuYY}年${cuMM}月${cuDD}日${cuHr}點${cuMi}分` %></td>
+                   
+                    <td><%= item.cust_form%></td>
+                    <td><%= item.cust_state%></td>
+                    <td><%= item.picture%></td>
+                    <!-- 有權限 -->
+                    <% if(session.user) { %>
+                    <td>
+                        <a href="#divEditData" rel="modal:open">
+                            <button onclick="Edit(<%= item.id%>)">編輯</button>
+                        </a>
+                        <button onclick="Delete(<%= item.id%>)">刪除</button>
+                    </td>
+                    <% } %>
+                </tr>
+            <% }) %>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" style="text-align: center;">
+                    <% for(var i = 1; i <= last_page; i++) { %>
+                    <span ><a href="/<%= i%>"><%= i%></a></span>
+                    <% } %>
+                </td colspan="2">
+                <td><p>總數 <%= total_nums%> 筆，共 <%= curr_page%>/<%= last_page%> 頁</p></td>
+            </tr>
+        </tfoot>
+    </table>
+    <div id="divEditData" class="modal">
+        <form id="formEdit">
+            <input type="hidden" name="id">
+            藥局名稱: <input type="text" name="name"><br>
+            電話: <input type="text" name="phone"><br>
+            地址: <input type="text" name="address"><br>
+            成人口罩庫存: <input type="text" name="adult_mask"><br>
+            孩童口罩庫存: <input type="text" name="child_mask"><br>
+            <button type="button" id="submit">更新</button>
+        </form>
+    </div>
+
+    <script>
+
+        function Edit(id) {
+            $.ajax({
+                url: "/detail/"+id, //獲得資料庫資料
+                type: "GET",
+                success: function(data) {
+                    var res = JSON.parse(data);
+                    $("input[name='id']").val(res.id)
+                    $("input[name='name']").val(res.name)
+                    $("input[name='phone']").val(res.phone)
+                    $("input[name='address']").val(res.address)
+                    $("input[name='adult_mask']").val(res.adult_mask)
+                    $("input[name='child_mask']").val(res.child_mask)
+                },
+                error: function() {
+                    alert("系統錯誤!")
+                },
+            })
+        }
+
+        function Delete(id) {
+            $.ajax({
+                url: "/delete",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({"id": id}),
+                success: function(res) {
+                    alert(res);
+                    location.reload();
+                },
+                error: function(err) {
+                    alert("Delete 系統錯誤! 請看log" );
+                    console.log(err);
+                }
+            })
+        }
+
+        $('#submit').on('click', function() {
+            
+            var data = $('#formEdit').serializeArray();
+
+            var JSONData = {};
+            for(index in data){
+                JSONData[data[index].name] = data[index].value;
+            }
+                     
+            $.ajax({
+                url: "/update",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(JSONData),
+                success: function(res) {
+                    alert(res);
+                    location.reload(); //刷新
+                },
+                error: function() {
+                    alert("系統錯誤!")
+                }
+            })
+        })
+
+    </script>
+</body>
+</html>
