@@ -1,0 +1,7 @@
+git config --global user.name "你的帳號" 
+git config --global user.email "你的email" 
+git add 檔案名稱.副檔名  ====> 單一檔案/購物車 
+git commit -m "記錄一下這次的提交是為了什麼"   ====> 結帳 
+git push -u 儲存庫名稱 分支名稱     ====>  git push -u Pokemon master
+
+git clone https://github.com/jerry12299/MFEE32_cake.git  ====> 下載整個資料夾
