@@ -1,0 +1,24 @@
+/* 字型引用 */
+@font-face {
+    font-family: 'GenJyuuGothic-Heavy';
+    src: local("GenJyuuGothic-Heavy"),
+        url('../fort/GenJyuuGothic-Heavy.woff') format("woff"),
+        url('../fonts/GenJyuuGothic-Heavy.ttf') format("opentype"),
+        url('../fonts/GenJyuuGothic-Heavy..eot') format("embedded-opentype");
+}
+
+/* 字型套用 */
+body {
+    font-family: GenJyuuGothic-Heavy;
+}
+
+nav{
+    display: flex;
+
+
+}
+
+nav>li{
+    list-style: none;
+    
+}
