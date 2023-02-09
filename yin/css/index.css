@@ -14,11 +14,14 @@ body {
 
 nav{
     display: flex;
-
+    justify-content: space-between;
 
 }
 
-nav>li{
-    list-style: none;
-    
+#navlist>a{
+    padding: 0px 10px;
 }
+
+/* #ChatBtn{
+   
+} */
