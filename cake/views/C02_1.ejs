@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.js"></script>
+</head>
+<body>
+
+    <form id="test" enctype="multipart/form-data">
+        
+        
+        <input type="text" name="size" value="8吋">
+        <input type="text" name="taste" value="巧克力">
+        <input type="file" name="img" id="imgFile" accept="image/*" >
+        <input type="button" id="submit" value="上傳檔案">
+    </form>
+    
+    <script>
+       $('#submit').on('click', function() {
+            var data = $('#test').serializeArray();
+            let file = $('#imgFile')[0].files[0]
+            // console.log(file)
+            let formData = new FormData();
+          
+            
+            var JSONData = {m_id:<%=
+                 session.user.m_id  //注意!!! 需先登入!!!!不然報錯!!!!!!
+                 %>};
+            for (index in data) {
+                JSONData[data[index].name] = data[index].value;
+            }
+              formData.append("img", file);
+              formData.append("data", JSON.stringify(JSONData));
+                    
+            $.ajax({
+                url: "/test",
+                type: "POST", 
+                // contentType: "application/json; charset=utf-8",
+                contentType: false,
+                processData: false,
+                // data: JSON.stringify(JSONData),
+                data:formData,
+                success: function(res) {
+                    alert("ok");
+                    location.href = '/';
+                },
+                error: function() {
+                    alert("login 系統錯誤!")
+                }
+            })
+        })
+    </script>
+</body>
+</html>

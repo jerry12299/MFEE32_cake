@@ -3,14 +3,14 @@ var multer = require('multer'); //上傳檔案
 var index = express.Router(); //路由
 var db = require('../db.js');//讀取資料庫
 
-function login_api(req, res, next) { //判斷是否登入
+function rights_api(req, res, next) { //判斷是否為管理者
     if (req.session.user.rights) {
         next();  //有登入繼續執行function
     } else {
         res.end('permission deined');
     }
 }
-function member_api(req, res, next) { //判斷是否登入
+function login_api(req, res, next) { //判斷是否登入
     if (req.session.user) {
         next();  //有登入繼續執行function
     } else {
@@ -19,11 +19,59 @@ function member_api(req, res, next) { //判斷是否登入
 }
 
 index.get('/', function (req, res) {
-    res.redirect('/1') //.redirect 重新導向 '本機'+'/1'
+    // res.redirect('/') //.redirect 重新導向 
+    res.render('index.ejs')
 })
 
+
+index.get('/C01',function(req,res){ //主題蛋糕頁
+    res.render('C01.ejs')
+})
+index.get('/C02',function(req,res){ //客制蛋糕頁
+    res.render('C02.ejs')
+})
+index.get('/C03',function(req,res){ //餡料介紹
+    res.render('C03.ejs')
+})
+index.get('/C04',function(req,res){ //常見問題
+    res.render('C04.ejs')
+})
+index.get('/C05',function(req,res){ //登入頁
+    res.render('C05.ejs')
+})
+
+index.post('/C05', function (req, res) {
+    var sql = `SELECT * FROM member WHERE email=? and pwd=?;` //查詢使用者帳密
+    var data = [req.body.account, req.body.password] //2個?
+    db.exec(sql, data, function (results, fields) {
+        if (results[0]) { //結果成立
+            req.session.user = {    //紀錄session.user
+
+                m_id: results[0].m_id,
+                rights: results[0].rights,
+
+            }
+            // console.log(req.session.user);
+            res.end('login success')
+        } else {
+            res.end('login failed')
+        }
+    })
+})
+
+
+
+index.get('/C06',function(req,res){ //購物車
+    res.render('C06.ejs')
+})
+
+
+
+
+
+//--------------------- 主題蛋糕
 //([0-9]+) 0-9 不限數量
-index.get('/:page([0-9]+)', function (req, res) {
+index.get('/C05_2/:page([0-9]+)',rights_api, function (req, res) {
     var page = req.params.page   //page=網址列的page數字
     var nums_per_page = 10
     var offset = (page - 1) * nums_per_page
@@ -42,11 +90,11 @@ index.get('/:page([0-9]+)', function (req, res) {
                     var last_page = Math.ceil(nums[0].COUNT / nums_per_page) // 無條件進位  28/10 = 3
 
                     if (page > last_page) { //如果大於最大頁數
-                        res.redirect('/' + last_page) //跳轉到最後一頁
+                        res.redirect('/C05_2/' + last_page) //跳轉到最後一頁
                         return
                     }
 
-                    res.render('index.ejs', { //跳轉到index.ejs
+                    res.render('C05_2.ejs', { //跳轉到index.ejs
                         data: data,                   //data:資料庫傳來的內容 10筆1頁
                         curr_page: page,              //curr_page:網址列的page數字
                         total_nums: nums[0].COUNT,    //total_nums: 28
@@ -55,8 +103,8 @@ index.get('/:page([0-9]+)', function (req, res) {
                 })     //第二個db.exec的()尾 
         })        //function()的{}尾  第一個db.exec的()尾 
 })
-//客製化頁面
-index.get('/cust/:page([0-9]+)', function (req, res) {
+//-------------------------客製化頁面
+index.get('/C05_3/:page([0-9]+)',rights_api, function (req, res) {
     var page = req.params.page   //page=網址列的page數字
     var nums_per_page = 10
     var offset = (page - 1) * nums_per_page
@@ -74,11 +122,11 @@ index.get('/cust/:page([0-9]+)', function (req, res) {
                     var last_page = Math.ceil(nums[0].COUNT / nums_per_page) // 無條件進位  28/10 = 3
 
                     if (page > last_page) { //如果大於最大頁數
-                        res.redirect('/cust/' + last_page) //跳轉到最後一頁
+                        res.redirect('/C05_3/' + last_page) //跳轉到最後一頁
                         return
                     }
 
-                    res.render('cust.ejs', { //跳轉到index.ejs
+                    res.render('C05_3.ejs', { //跳轉到index.ejs
                         data: data,                   //data:資料庫傳來的內容 10筆1頁
                         curr_page: page,              //curr_page:網址列的page數字
                         total_nums: nums[0].COUNT,    //total_nums: 28
@@ -89,54 +137,20 @@ index.get('/cust/:page([0-9]+)', function (req, res) {
 })
 
 
-//                               先做登入確認
-index.get('/detail/:id([0-9]+)', login_api, function (req, res) {
-    var sql = `SELECT * FROM inventory WHERE id = ?;`
-    var data = [req.params.id]     //網址列送來的id
-    db.exec(sql, data, function (results, fields) {
-        console.log('/detail/:', results[0]);  //藥局資料
-        if (results[0]) {
 
-            res.end(JSON.stringify(results[0])) //顯示藥局資料
-        } else {
-            res.end('no result')
-        }
-    })
+
+
+
+//-----------------------註冊
+index.get('/C05_1', function (req, res) {
+    res.render('C05_1.ejs') //跳轉註冊頁
 })
 
 
-//新增
-index.get('/add', login_api, function (req, res) {
-    res.render('add.ejs') //跳轉到add.ejs
-})
-
-
-//從add.ejs傳回來
-index.post('/insert', login_api, function (req, res) {
+// //從C05_1.ejs傳回來
+index.post('/C05_1', function (req, res) {
     var body = req.body      //回傳的 post 資料
-    var sql = `INSERT INTO inventory(name, phone, address, adult_mask, child_mask) VALUES(?,?,?,?,?);`
-    // post資料做成陣列 傳來的必為字串
-    //parseInt 轉數字
-    var data = [body.name, body.phone, body.address, parseInt(body.adult_mask), parseInt(body.child_mask)]
-    db.exec(sql, data, function (results, fields) {
-        //results.insertId 新id
-        if (results.insertId) {
-            res.end('insert success: ' + results.insertId);
-        } else {
-            res.end('insert failed');
-        }
-    })
-})
-//註冊
-index.get('/member', function (req, res) {
-    res.render('member.ejs') //跳轉到member.ejs
-})
-
-
-//從member.ejs傳回來
-index.post('/member', function (req, res) {
-    var body = req.body      //回傳的 post 資料
-    console.log('body-t:', body);
+    // console.log('body-t:', body);
     var emailCheck = `SELECT email FROM member WHERE email = ?;` //查詢是否有資料
     var eData = [body.email]
 
@@ -166,71 +180,13 @@ index.post('/member', function (req, res) {
 
         }
     })
-
-
-
-
-
-})
-
-
-//從index.ejs傳來
-// index.post('/update', login_api, function (req, res) {
-//     var body = req.body //接收資料
-//     var sql = `UPDATE inventory SET name = ?, phone = ?, address = ?, adult_mask = ?, child_mask = ? WHERE id = ?`;
-//     var data = [body.name, body.phone, body.address, parseInt(body.adult_mask), parseInt(body.child_mask), parseInt(body.id)]
-//     db.exec(sql, data, function (results, fields) {
-//         if (results.affectedRows) {
-//             res.end('update success')
-//         } else {
-//             res.end('update failed')
-//         }
-//     })
-// })
-
-
-
-// index.post('/delete', login_api, function (req, res) {
-//     var body = req.body
-//     var sql = `DELETE FROM inventory WHERE id = ?;`
-//     var data = [parseInt(body.id)]
-//     db.exec(sql, data, function (results, fields) {
-//         if (results.affectedRows) {
-//             res.end('delete success')
-//         } else {
-//             res.end('delete failed')
-//         }
-//     })
-// })
-
-
-
-index.get('/login', function (req, res) {
-    res.render('login')
 })
 
 
 
-index.post('/login', function (req, res) {
-    var sql = `SELECT * FROM member WHERE email=? and pwd=?;` //紀錄登入時間 和 查詢使用者帳密
-    var data = [req.body.account, req.body.password] //2個?
-    db.exec(sql, data, function (results, fields) {
-        if (results[0]) { //結果成立
-            req.session.user = {    //紀錄session.user
 
-                m_id: results[0].m_id,
-                rights: results[0].rights,
+//---------------上傳檔案
 
-            }
-            // console.log(req.session.user);
-            res.end('login success')
-        } else {
-            res.end('login failed')
-        }
-    })
-})
-
-//---------------
 var rabbit = multer.diskStorage({
     destination: function (req, file, cb) {  //固定，不能改
         cb(null, "./media/upload");  //儲存路徑
@@ -255,11 +211,11 @@ var cat = multer({ storage: rabbit
 });
 
 
-index.get('/test', function (req, res) {
-    res.render('test.ejs') //跳轉到test.ejs
+index.get('/C02_1', function (req, res) {
+    res.render('C02_1.ejs') //跳轉到客制化.ejs
 })
 
-index.post('/test', member_api,cat.single('img'), function (req, res) {
+index.post('/C02_1', login_api,cat.single('img'), function (req, res) {
     var body = JSON.parse(req.body.data)       //回傳的 post 資料
     var form = `${body.size},${body.taste}口味`
     // console.log(req.file.filename); //檔名
