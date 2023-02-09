@@ -25,9 +25,8 @@
             let formData = new FormData();
           
             
-            var JSONData = {m_id:<%=
-                 session.user.m_id  //注意!!! 需先登入!!!!不然報錯!!!!!!
-                 %>};
+            var JSONData = {m_id: <%= session.user.m_id %> }; //注意!!! 需先登入!!!!不然報錯!!!!!!
+                  
             for (index in data) {
                 JSONData[data[index].name] = data[index].value;
             }
@@ -35,7 +34,7 @@
               formData.append("data", JSON.stringify(JSONData));
                     
             $.ajax({
-                url: "/test",
+                url: "/C02_1",
                 type: "POST", 
                 // contentType: "application/json; charset=utf-8",
                 contentType: false,
