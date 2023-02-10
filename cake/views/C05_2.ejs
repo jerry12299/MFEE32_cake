@@ -14,9 +14,11 @@
     <a href="/login">登入</a>
     <% }else if(session.user.rights) { %>
     <a href="/add">管理表單</a> <a href="/C05_3/1">客製化表單</a>
-    <% }else { %>
-    <a href="/buy">購物車</a>
     <% } %>
+
+    <form action="/logout">
+        <input type="submit" value="登出">
+    </form>
     <table>
         <thead>
             <th>#</th>

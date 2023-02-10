@@ -13,10 +13,12 @@
     <% if(!session.user) { %>  <!-- 如果沒登入(沒session.user) -->
     <a href="/login">登入</a> 
     <% }else if(session.user.rights) { %>
-    <a href="/add">管理表單</a> <a href="/1">蛋糕訂單</a>
-    <% }else { %>
-    <a href="/buy">購物車</a>
+    <a href="/add">管理表單</a> <a href="/C05_2/1">蛋糕訂單</a>
     <% } %>
+
+    <form action="/logout">
+        <input type="submit" value="登出">
+    </form>
     <table>
         <thead>
             <th>#</th>
