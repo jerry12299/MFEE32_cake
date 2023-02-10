@@ -16,14 +16,15 @@
         <% } %>
         <a href="/C03">C03餡料介紹</a>
         <a href="/C04">C04常見問題</a>
-        <a href="/C05">C05登入/註冊</a>
+        <% if(!session.user) { %>  <!-- 如果沒登入(沒session.user) -->
+          <a href="/C05">C05登入/註冊</a>
+          <%} else if(session.user.rights) { %> <!-- 如果有權限者登入 -->
+          <a href="/C05_2/1">C05_2管理者</a>
+            <%} else{  %>
+            <a href="/C05_4/1">C05會員</a>
+            <% } %>
         <a href="/C06">C06購物車</a>
     </div>
-    <div>
-        <% if(!session.user) { %>  <!-- 如果沒登入(沒session.user) -->
-        <%} else if(session.user.rights) { %>  <!-- 如果有權限者登入 -->
-        <a href="/C05_2/1">C05_2管理者(需登入)</a>
-        <%} %>
-    </div>
+    
 </body>
 </html>

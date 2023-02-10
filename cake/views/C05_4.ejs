@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>會員介面</div>
+    <form action="/logout">
+        <input type="submit" value="登出">
+    </form>
+    <table>
+        <thead>
+            <th>#</th>
+            <th>訂單編號</th>
+            <th>會員編號</th>
+            <th>下訂日期</th>
+            <th>取貨日期</th>
+            <th>蛋糕名稱</th>
+            <th>數量</th>
+            <th>狀態</th>
+            <th>取貨方式</th>
+            <th>備註</th>
+        </thead>
+        <tbody>
+            <% data.forEach((item ,index) => { %> <!--forEach迴圈顯示資料庫內容-->
+                <% var upYY = item.co_upload_date.getFullYear()%>
+                <% var upMM = (item.co_upload_date.getMonth())+1%>
+                <% var upDD = item.co_upload_date.getDate()%>
+                <% var upHr = item.co_upload_date.getHours()%>
+                <% var upMi = item.co_upload_date.getMinutes()%>
+                <% var puYY = item.pick_up_date.getFullYear()%>
+                <% var puMM = (item.pick_up_date.getMonth())+1%>
+                <% var puDD = item.pick_up_date.getDate()%>
+                <% var puHr = item.pick_up_date.getHours()%>
+                <% var puMi = item.pick_up_date.getMinutes()%>
+                <tr>
+                    <td><%= index+1%></td> <!--編號 -->
+                    <td><%= item.co_id%></td> 
+                    <td><%= item.m_id%></td>
+                    <td><%= `${upYY}年${upMM}月${upDD}日${upHr}點${upMi}分` %></td>
+                    <td><%= `${puYY}年${puMM}月${puDD}日${puHr}點${puMi}分` %></td>
+                    <td><%= item.c_name%></td>
+                    <td><%= item.quantity%></td>
+                    <td><%= item.co_state%></td>
+                    <td><%= item.method%></td>
+                    <td><%= item.remark%></td>
+                </tr>
+            <% }) %>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" style="text-align: center;">
+                    <% for(var i = 1; i <= last_page; i++) { %>
+                    <span ><a href="/C05_4/<%= i%>"><%= i%></a></span>
+                    <% } %>
+                </td colspan="2">
+                <td><p>總數 <%= total_nums%> 筆，共 <%= curr_page%>/<%= last_page%> 頁</p></td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
