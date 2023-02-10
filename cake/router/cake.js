@@ -235,12 +235,10 @@ index.post('/C02_1', login_api,cat.single('img'), function (req, res) {
     
 })
 
-//-------------會員介面
-// index.get('/C05_4',login_api,function(req,res){ //主題蛋糕頁
-//     res.render('C05_4.ejs')
-// })
+//-----------------------------會員介面
 
-index.get('/C05_4/:page([0-9]+)',login_api, function (req, res) {
+//---------------主題蛋糕訂單頁
+index.get('/C05_4/:page([0-9]+)',login_api, function (req, res) { 
     var page = req.params.page   //page=網址列的page數字
     var nums_per_page = 10
     var offset = (page - 1) * nums_per_page
@@ -263,7 +261,7 @@ index.get('/C05_4/:page([0-9]+)',login_api, function (req, res) {
                         return
                     }
 
-                    res.render('C05_4.ejs', { //跳轉到index.ejs
+                    res.render('C05_4.ejs', { //跳轉到主題蛋糕訂單頁ejs
                         data: data,                   //data:資料庫傳來的內容 10筆1頁
                         curr_page: page,              //curr_page:網址列的page數字
                         total_nums: nums[0].COUNT,    //total_nums: 28
@@ -278,21 +276,21 @@ index.get('/C05_4/:page([0-9]+)',login_api, function (req, res) {
 index.get('/logout', function (req, res) {
     req.session.destroy() // 刪光session 
     res.redirect('/')
-    // res.render('.ejs') //跳轉到客制化.ejs
+    
 })
 //---------------會員資料修改
 index.get('/C05_4_1',login_api, function (req, res) {
     var sql = `SELECT * FROM member WHERE m_id = ?`;
     var data = [req.session.user.m_id];
     db.exec(sql,data,function(data, fields){
-        console.log(data[0]);
+        // console.log(data[0]); //資料是[{}]形式
     res.render('C05_4_1.ejs',{
-        data: data[0]
+        data: data[0]  
     })
     })
     
 })
-
+ //更新資料
 index.post('/C05_4_2',login_api,function(req, res){
     var sql = `UPDATE member SET pwd =?,m_name	= ?,birthday= ? ,gender= ?, phone = ?, address = ? WHERE member.m_id = ?;`;
     var data = [req.body.pwd,
@@ -311,6 +309,53 @@ index.post('/C05_4_2',login_api,function(req, res){
         }
     })
 })
+//----------------------客製蛋糕頁面
+
+index.get('/C05_4_2/:page([0-9]+)',login_api, function (req, res) { 
+    var page = req.params.page   //page=網址列的page數字
+    var nums_per_page = 10
+    var offset = (page - 1) * nums_per_page
+    // 使用db.js裡的exec函式，也就是apple函式                                // 給函式3個參數
+    // db.exec(`SELECT * FROM cake_order LIMIT ${offset}, ${nums_per_page};`,  //sql指令 顯示10筆1頁
+    db.exec(`SELECT * FROM customized WHERE m_id = ? LIMIT ${offset}, ${nums_per_page};`,  //sql指令 顯示10筆1頁
+        [req.session.user.m_id],                                                                   //有?時填的資料，沒有就給空[]
+        function (data, fields) {             //function()的{}頭                                
+            // console.log('mask_js_data:',data);  //資料庫傳來的內容 10筆1頁
+
+            db.exec(`SELECT COUNT(*) AS COUNT FROM cake_order`, //sql指令 資料總和
+                [],
+                function (nums, fields) {
+                    // console.log('mask_js_nums:',nums); // [COUNT:28]
+                    // console.log('mask_js_nums[0].COUNT:',nums[0].COUNT); // 28
+                    var last_page = Math.ceil(nums[0].COUNT / nums_per_page) // 無條件進位  28/10 = 3
+
+                    if (page > last_page) { //如果大於最大頁數
+                        res.redirect('/C05_4_2/' + last_page) //跳轉到最後一頁
+                        return
+                    }
+
+                    res.render('C05_4_2.ejs', { //跳轉到客製蛋糕訂單頁ejs
+                        data: data,                   //data:資料庫傳來的內容 10筆1頁
+                        curr_page: page,              //curr_page:網址列的page數字
+                        total_nums: nums[0].COUNT,    //total_nums: 28
+                        last_page: last_page          //last_page: 3
+                    })
+                })     //第二個db.exec的()尾 
+        })        //function()的{}尾  第一個db.exec的()尾 
+})
+
+//---------------------------顯示圖片
+index.get('/picture/:pname',login_api, function (req, res) { 
+    // console.log(req.params.pname)
+    var url = '/upload/'+req.params.pname
+    
+   res.render('picture.ejs',{
+    pUrl:url
+   })
+   
+})
+
+
 
 module.exports = index;
 

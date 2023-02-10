@@ -43,7 +43,7 @@
                    
                     <td><%= item.cust_form%></td>
                     <td><%= item.cust_state%></td>
-                    <td><%= item.picture%></td>
+                    <td><a href=<%= `/picture/${item.picture}` %>>圖片</a></td>
                     <!-- 有權限 -->
                     <% if(session.user) { %>
                     <td>
@@ -67,17 +67,7 @@
             </tr>
         </tfoot>
     </table>
-    <div id="divEditData" class="modal">
-        <form id="formEdit">
-            <input type="hidden" name="id">
-            藥局名稱: <input type="text" name="name"><br>
-            電話: <input type="text" name="phone"><br>
-            地址: <input type="text" name="address"><br>
-            成人口罩庫存: <input type="text" name="adult_mask"><br>
-            孩童口罩庫存: <input type="text" name="child_mask"><br>
-            <button type="button" id="submit">更新</button>
-        </form>
-    </div>
+    
 
     <script>
 
