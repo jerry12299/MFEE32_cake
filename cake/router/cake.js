@@ -280,6 +280,37 @@ index.get('/logout', function (req, res) {
     res.redirect('/')
     // res.render('.ejs') //跳轉到客制化.ejs
 })
+//---------------會員資料修改
+index.get('/C05_4_1',login_api, function (req, res) {
+    var sql = `SELECT * FROM member WHERE m_id = ?`;
+    var data = [req.session.user.m_id];
+    db.exec(sql,data,function(data, fields){
+        console.log(data[0]);
+    res.render('C05_4_1.ejs',{
+        data: data[0]
+    })
+    })
+    
+})
+
+index.post('/C05_4_2',login_api,function(req, res){
+    var sql = `UPDATE member SET pwd =?,m_name	= ?,birthday= ? ,gender= ?, phone = ?, address = ? WHERE member.m_id = ?;`;
+    var data = [req.body.pwd,
+                req.body.m_name,
+                req.body.birthday,
+                req.body.gender,
+                req.body.phone,
+                req.body.address,
+                req.session.user.m_id];
+     console.log(data);           
+    db.exec(sql,data,function(result, fields){
+        if (result.affectedRows) {
+            res.end('update success')
+        } else {
+            res.end('update failed')
+        }
+    })
+})
 
 module.exports = index;
 
