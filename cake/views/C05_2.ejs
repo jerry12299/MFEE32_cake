@@ -85,65 +85,65 @@
 
     <script>
         
-        function Edit(id) {
-            $.ajax({
-                url: "/detail/"+id, //獲得資料庫資料
-                type: "GET",
-                success: function(data) {
-                    var res = JSON.parse(data);
-                    $("input[name='id']").val(res.id)
-                    $("input[name='name']").val(res.name)
-                    $("input[name='phone']").val(res.phone)
-                    $("input[name='address']").val(res.address)
-                    $("input[name='adult_mask']").val(res.adult_mask)
-                    $("input[name='child_mask']").val(res.child_mask)
-                },
-                error: function() {
-                    alert("系統錯誤!")
-                },
-            })
-        }
+        // function Edit(id) {
+        //     $.ajax({
+        //         url: "/detail/"+id, //獲得資料庫資料
+        //         type: "GET",
+        //         success: function(data) {
+        //             var res = JSON.parse(data);
+        //             $("input[name='id']").val(res.id)
+        //             $("input[name='name']").val(res.name)
+        //             $("input[name='phone']").val(res.phone)
+        //             $("input[name='address']").val(res.address)
+        //             $("input[name='adult_mask']").val(res.adult_mask)
+        //             $("input[name='child_mask']").val(res.child_mask)
+        //         },
+        //         error: function() {
+        //             alert("系統錯誤!")
+        //         },
+        //     })
+        // }
 
-        function Delete(id) {
-            $.ajax({
-                url: "/delete",
-                type: "POST",
-                contentType: "application/json; charset=utf-8",
-                data: JSON.stringify({"id": id}),
-                success: function(res) {
-                    alert(res);
-                    location.reload();
-                },
-                error: function(err) {
-                    alert("Delete 系統錯誤! 請看log" );
-                    console.log(err);
-                }
-            })
-        }
+        // function Delete(id) {
+        //     $.ajax({
+        //         url: "/delete",
+        //         type: "POST",
+        //         contentType: "application/json; charset=utf-8",
+        //         data: JSON.stringify({"id": id}),
+        //         success: function(res) {
+        //             alert(res);
+        //             location.reload();
+        //         },
+        //         error: function(err) {
+        //             alert("Delete 系統錯誤! 請看log" );
+        //             console.log(err);
+        //         }
+        //     })
+        // }
 
-        $('#submit').on('click', function() {
+        // $('#submit').on('click', function() {
             
-            var data = $('#formEdit').serializeArray();
+        //     var data = $('#formEdit').serializeArray();
 
-            var JSONData = {};
-            for(index in data){
-                JSONData[data[index].name] = data[index].value;
-            }
+        //     var JSONData = {};
+        //     for(index in data){
+        //         JSONData[data[index].name] = data[index].value;
+        //     }
                      
-            $.ajax({
-                url: "/update",
-                type: "POST",
-                contentType: "application/json; charset=utf-8",
-                data: JSON.stringify(JSONData),
-                success: function(res) {
-                    alert(res);
-                    location.reload(); //刷新
-                },
-                error: function() {
-                    alert("系統錯誤!")
-                }
-            })
-        })
+        //     $.ajax({
+        //         url: "/update",
+        //         type: "POST",
+        //         contentType: "application/json; charset=utf-8",
+        //         data: JSON.stringify(JSONData),
+        //         success: function(res) {
+        //             alert(res);
+        //             location.reload(); //刷新
+        //         },
+        //         error: function() {
+        //             alert("系統錯誤!")
+        //         }
+        //     })
+        // })
 
     </script>
 </body>

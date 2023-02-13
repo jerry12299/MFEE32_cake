@@ -9,11 +9,7 @@
 <body>
     <div>
         <a href="/C01">C01主題蛋糕</a>
-        <% if(!session.user) { %>  <!-- 如果沒登入(沒session.user) -->
         <a href="/C02">C02客制蛋糕</a>
-        <%} else{  %>
-        <a href="/C02_1">C02客制蛋糕</a>
-        <% } %>
         <a href="/C03">C03餡料介紹</a>
         <a href="/C04">C04常見問題</a>
         <% if(!session.user) { %>  <!-- 如果沒登入(沒session.user) -->

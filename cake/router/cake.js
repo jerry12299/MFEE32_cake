@@ -182,6 +182,22 @@ index.post('/C05_1', function (req, res) {
     })
 })
 
+//-----------驗證
+index.post('/email', function (req, res) {
+        var email = req.body.email;
+        
+        var sql = `SELECT email FROM member WHERE email = ?;`
+        db.exec(sql, [email], function (results, fields) {
+        //    console.log(results[0]) 
+            if(results[0]){
+                res.end('0');
+            }else{
+                res.end('1');
+            }
+
+
+        })
+})
 
 
 
@@ -211,11 +227,11 @@ var cat = multer({ storage: rabbit
 });
 
 
-index.get('/C02_1', function (req, res) {
-    res.render('C02_1.ejs') //跳轉到客制化.ejs
+index.get('/C02', function (req, res) {
+    res.render('C02.ejs') //跳轉到客制化.ejs
 })
 
-index.post('/C02_1', login_api,cat.single('img'), function (req, res) {
+index.post('/C02', login_api,cat.single('img'), function (req, res) {
     var body = JSON.parse(req.body.data)       //回傳的 post 資料
     var form = `${body.size},${body.taste}口味`
     // console.log(req.file.filename); //檔名
