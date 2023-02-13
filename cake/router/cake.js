@@ -20,12 +20,17 @@ function login_api(req, res, next) { //判斷是否登入
 
 index.get('/', function (req, res) {
     // res.redirect('/') //.redirect 重新導向 
+    
     res.render('index.ejs')
 })
 
 
 index.get('/C01',function(req,res){ //主題蛋糕頁
     res.render('C01.ejs')
+})
+
+index.get('/C01_2',function(req,res){ //主題蛋糕頁
+    res.render('C01_2.ejs')
 })
 index.get('/C02',function(req,res){ //客制蛋糕頁
     res.render('C02.ejs')
@@ -371,7 +376,19 @@ index.get('/picture/:pname',login_api, function (req, res) {
    
 })
 
+//-----------------加入購物車
+// console.log(req.session.buy);
+index.post('/buy',function(req,res){
+var data = req.body;
+// console.log(data.name)
+var sql = `SELECT c_name FROM commodity WHERE c_id = ?`
 
+db.exec(sql,[data.name],function(result, fields){
+    // console.log(result[0].c_name) 
+    res.end(result[0].c_name)
+})
+})
+//-------------------
 
 module.exports = index;
 

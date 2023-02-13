@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,22 +7,21 @@
     <title>Document</title>
     <script src="js/jquery-3.6.0.js"></script>
 </head>
-
 <body>
-    <a href="/C01_2">2</a>
+    <a href="C01">1</a>
     <div>
         主題蛋糕頁
     </div>
-    <div>生日蛋糕</div>
-    <input type="radio" name="cakeSize" value="bd0106" checked> 6 吋<br>
-    <input type="radio" name="cakeSize" value="bd0108"> 8 吋<br>
+    <div>聖誕蛋糕</div>
+    <input type="radio" name="cakeSize" value="cm0106" checked> 6 吋<br>
+    <input type="radio" name="cakeSize" value="cm0108"> 8 吋<br>
     <select name="" id="number">
         <option value="1">1</option>
         <option value="2">2</option>
     </select>
     <button id="buy">加入購物車</button>
     <script>
-        $('#buy').on('click', function () {
+        $('#buy').on('click',function(){
             var num = parseInt($('#number').val()) ;
             var cId = $("input[type=radio]:checked").val();
             var cart = {
@@ -67,23 +65,7 @@
                 localStorage.setItem("carts", JSON.stringify(newcarts))
                 console.log(localStorage)
             }
-            // quantity = $("input.quantity").val(1)
-
-
-            //     $.ajax({
-            //     url: "/buy", //cake.js 的buy 
-            //     type: "POST",
-            //     contentType: "application/json; charset=utf-8",
-            //     data: JSON.stringify(data),
-            //     success: function(res) {
-            //     },
-            //     error: function() {
-            //         alert("系統錯誤!");
-
-            //     }
-            // })
         })
     </script>
 </body>
-
 </html>
