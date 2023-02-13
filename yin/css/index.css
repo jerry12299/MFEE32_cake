@@ -1,15 +1,15 @@
 /* 字型引用 */
 @font-face {
-    font-family: 'GenJyuuGothic-Heavy';
-    src: local("GenJyuuGothic-Heavy"),
-        url('../fort/GenJyuuGothic-Heavy.woff') format("woff"),
-        url('../fonts/GenJyuuGothic-Heavy.ttf') format("opentype"),
-        url('../fonts/GenJyuuGothic-Heavy..eot') format("embedded-opentype");
+    font-family: 'GenSenRounded-B';
+    src: local("GenSenRounded-B"),
+        url('../ttc/GenSenRounded-B.ttc') format("woff"),
+        url('../ttc/GenSenRounded-B.ttc') format("opentype"),
+        url('../ttc/GenSenRounded-B.ttc') format("embedded-opentype");
 }
 
 /* 字型套用 */
 body {
-    font-family: GenJyuuGothic-Heavy;
+    font-family: GenSenRounded-B;
 }
 
 .page {
