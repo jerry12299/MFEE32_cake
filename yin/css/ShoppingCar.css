@@ -12,6 +12,7 @@ body {
     font-family: GenSenRounded-B;
 }
 
+/* --------------------nav--------------- */
 nav {
     display: flex;
     justify-content: space-between;
@@ -27,14 +28,45 @@ nav {
     padding: 0px 10px;
 }
 
+/* -----------------section------------- */
+
 section {
     background-color: lightgray;
     display: flex;
     flex-direction: column;
     align-items: center;
-
-
 }
+
+/* -----------step--------------- */
+
+#Step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+#Step>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 40px 5px 30px;
+}
+
+.circle {
+    width: 75px;
+    height: 75px;
+    border-radius: 75px;
+    background-color: rgb(255, 223, 109);
+    border: 5px solid rgb(255, 255, 255);
+    color: white;
+    text-align: center;
+    line-height: 80px;
+
+    font-size: 2em;
+}
+
+/* ----------------shopping--------------------- */
 
 #Shopping_body {
     background-color: rgb(79, 80, 78);
@@ -90,13 +122,28 @@ section {
 .btn {
     border-radius: 10px;
     padding: 20px;
-    margin: 0 10px;
     border: none;
     font-size: 1.2em;
 }
 
+/* ---------------------------------------- */
+/* page2  start */
+
+#Shopping_Check>div:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80vw;
+    background-color: palevioletred;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+
 footer {
     width: 100%;
-    background-color:burlywood;
+    background-color: burlywood;
     height: 300px;
 }

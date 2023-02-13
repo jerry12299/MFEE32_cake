@@ -26,7 +26,25 @@
     </nav>
     <section>
         <img src="https://dummyimage.com/1400x400/38ffeb/fff" alt="廣告輪播" width="100%">
-        <img src="" alt="購物流程圖">
+        <div id="Step">
+            <div>
+                <div class="circle">1</div>
+                <p>選購商品</p>
+            </div>
+            <div>
+                <div class="circle">2</div>
+                <p>登入會員</p>
+            </div>
+            <div>
+                <div class="circle">3</div>
+                <p>確認資料</p>
+            </div>
+            <div>
+                <div class="circle">4</div>
+                <p>購物完成</p>
+            </div>
+
+        </div>
         <div id="Shopping_body">
             <div>
                 <img src="" alt="購物車icon">
@@ -86,14 +104,33 @@
                 </div>
                 <div>
                     <a href=""><button class="btn">回上頁繼續購物</button></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <a href=""><button class="btn">我要結帳</button></a>
                 </div>
             </div>
         </div>
-        <footer>
-            <div>footer</div>
-        </footer>
     </section>
+    <section id="Shopping_Check">
+        <div>
+            <label for="transport">取件方式</label>
+            <select id="transport">
+                <option>黑貓冷凍宅配---運費270元</option>
+                <option>來店自取</option>
+            </select>
+
+            <label for="">付款方式</label>
+            <select id="transport">
+                <option>銀行轉帳</option>
+                <option>黑貓貨到付款</option>
+                <option>來店付款(限來店自取)</option>
+            </select>
+
+            
+        </div>
+    </section>
+    <footer>
+        <div>footer</div>
+    </footer>
 </body>
 
 </html>
