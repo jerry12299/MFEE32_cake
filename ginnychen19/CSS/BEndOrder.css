@@ -147,14 +147,13 @@ tr.detail>td{
 tr.detail>td>div{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content:space-between;
     padding: 0 10px ;
 }
 
 
 
 .items{
-    flex: 1;
     width: 40%;
     padding: 0 10px ;
     /* background-color: aqua; */
@@ -169,6 +168,7 @@ tr.detail>td>div{
 }
 .items>table>tbody>tr>td{
     text-align: center;
+    color: var(--color06);
     /* background-color: blueviolet; */
 }
 .items>table>tbody>tr>td>div{
@@ -197,7 +197,7 @@ tr.detail>td>div{
 
 .contact{
     display: flex;
-    flex: 2;
+    width: fit-content;
     align-items: flex-start;
     justify-content: center;
     margin: 0 0 0 10px;

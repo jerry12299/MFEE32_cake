@@ -76,7 +76,95 @@
                     <tr class="detail">
                         <td colspan="9">
                             <div>
-                                #123456
+                                <div class="items">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <td>訂購內容</td>
+                                                <td>單價</td>
+                                                <td>小計</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><div>
+                                                    訂購內容001
+                                                    <div class="itemsSizeFlavorCount">
+                                                        <div>F</div>
+                                                        <div>葡萄</div>
+                                                        <div>x1</div>
+                                                    </div>
+                                                </div></td>
+                                                <td>250</td>
+                                                <td>250*1</td>
+                                            </tr>
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td><div>
+                                                    訂購內容001
+                                                    <div class="itemsSizeFlavorCount">
+                                                        <div>8吋</div>
+                                                        <div>桃子</div>
+                                                        <div>x1</div>
+                                                    </div>
+                                                </div></td>
+                                                <td>250</td>
+                                                <td>250*1</td>
+                                            </tr>
+                                        </tbody>
+                                        <tbody>
+                                            <tr>
+                                                <td><div>
+                                                    訂購內容001
+                                                    <div class="itemsSizeFlavorCount">
+                                                        <div>6吋</div>
+                                                        <div>F</div>
+                                                        <div>x1</div>
+                                                    </div>
+                                                </div></td>
+                                                <td>300</td>
+                                                <td>300*2</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="contact">
+                                    <table class="contactLeft">
+                                        <tr>
+                                            <td>連絡電話</td>
+                                            <td>0912-345-678</td>
+                                        </tr>
+                                        <tr>
+                                            <td>電子信箱</td>
+                                            <td>abcdefg<br>@gmail.com</td>
+                                        </tr>
+                                        <tr>
+                                            <td>付款方式</td>
+                                            <td>線上轉帳</td>
+                                        </tr>
+                                        <tr>
+                                            <td>取貨方式</td>
+                                            <td>冷凍宅配<br>台中市南屯區公益路二段51號18樓</td>
+                                        </tr>
+                                        <tr>
+                                            <td>取貨時間</td>
+                                            <td>上午</td>
+                                        </tr>
+                                    </table>
+                                    <table class="contactRight">
+                                        <tr>
+                                            <td><div>取貨備註
+                                                <div>(若是非勾同收件人，則把內容存進這裡取貨備註欄裡)無備註</div>
+                                            </div></td>
+                                        </tr>
+                                        <tr>
+                                            <td><div>訂單備註
+                                                <div>無備註</div>
+                                            </div></td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                         </td>
                     </tr>
@@ -141,19 +229,7 @@
         </div>
     </div>
     <script src="../js/BEndOrder.js">
-        function openDetail(element) {
-            console.log(element)
-            const detail = $('tr.detail');
-            $(element).toggle(
-                function () {
-                    detail.show();
-                },
-                function () {
-
-                    detail.hide();
-                });
-            // 其他程式碼
-        }
+        
     </script>
 </body>
 
