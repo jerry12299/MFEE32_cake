@@ -1,0 +1,282 @@
+@import url("https://www.w3schools.com/w3css/4/w3.css");
+@import "main.css";
+
+body {
+    width: 100vw;
+    flex-direction: row;
+}
+
+#BEndleft {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    flex: 1;
+
+
+    /* 水平置中 */
+    justify-content: center;
+    /* 垂直置中 */
+    align-items: center;
+}
+
+#BEndright {
+    flex: 4;
+}
+
+#PMcakeOrder {
+    display: flex;
+    flex-direction: column;
+
+    padding: 5%;
+}
+
+#PMcakeOrder>div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 2px solid var(--color04);
+}
+
+#PMcakeOrder>div>h6 {
+    padding: 0 30%;
+    margin: 0;
+    height: fit-content;
+    color: var(--color06);
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background: url(../Style/SVG/search.svg) no-repeat center;
+    background-size: contain ;
+}
+
+.search-input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding:  2px 10px;
+}
+
+#PMcakeOrder>table {
+    text-align: center;
+    font-family: "GenJyuuGothic-B";
+    border-collapse: collapse;
+    
+
+}
+
+
+
+
+table>thead{
+    font-size: var(--pContent);
+    color: var(--color06);   
+}
+tr>td{
+    padding: 10px 0;
+    
+}
+.Order select{
+    background-color: transparent;
+    border: none;
+    color: var(--color06);
+}
+.Order>tbody:not(:first-of-type)::before{
+  content: '';
+  display: block;
+  height: 15px;
+}
+
+
+
+
+table>tbody>tr.list{
+    font-size: var(--pSContent);
+    color: var(--color06);
+}
+
+tr.list{
+    background-color: var(--color04);
+}
+tr.list>td:first-child{
+    border-radius: 12px 0 0 12px;
+    
+}
+tr.list>td:last-child{
+    border-radius: 0 12px 12px 0;
+}
+tr.list>td>button{
+    border: none;
+    border-radius: 5px;
+    background-color: var(--color06);
+    color: var(--color01);
+}
+tr.list>td>button:hover{
+    background-color: var(--color01);
+    color: var(--color06);
+}
+button#open{
+    background-color: var(--color01);
+    color: var(--color06);
+}
+
+
+
+
+
+
+tr.detail>td{
+    background-color: var(--color01);
+    border-radius: 12px;
+    width: 100%;
+    height: 250px;
+}
+
+tr.detail>td>div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 10px ;
+}
+
+
+
+.items{
+    flex: 1;
+    width: 40%;
+    padding: 0 10px ;
+    /* background-color: aqua; */
+}
+.items>table{
+    border-collapse: collapse;
+    width:100%;
+}
+.items>table>thead td{
+    text-align: center;
+    border-bottom: 2px solid var(--color04);
+}
+.items>table>tbody>tr>td{
+    text-align: center;
+    /* background-color: blueviolet; */
+}
+.items>table>tbody>tr>td>div{
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    align-items: center;
+
+    
+}
+.itemsSizeFlavorCount{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* background-color: blue; */
+}
+.itemsSizeFlavorCount>div{
+    margin: 0 5px;
+
+}
+
+
+
+
+
+.contact{
+    display: flex;
+    flex: 2;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 0 0 10px;
+    padding: 0 10px;
+    border-radius: 12px;
+    background-color: var(--color04);
+    
+}
+.contact>table.contactLeft{
+    color: var(--color01);
+     
+}
+.contact>table.contactLeft tr{
+    vertical-align: top;
+}
+.contact>table.contactLeft td:nth-child(2){
+    padding: 10px;
+    text-align: start;
+    min-width:150px;
+    /* background-color: aquamarine; */
+}
+.contact>table.contactRight{
+    color: var(--color01);
+    text-align: start;
+}
+.contact>table.contactRight div>div{
+    padding: 10px;
+    text-align: start;
+    min-width:200px;
+    background-color: var(--color01);
+    color: var(--color06);
+    border-radius: 8px;
+}
+
+tfoot>tr>td>div{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 0 0 ;
+}
+
+tfoot>tr>td>div>div{
+    width: 100%;
+    display: flex;
+    
+
+    justify-content: center;
+}
+tfoot>tr>td>div>div button{
+    font-family: "GenJyuuGothic-B";
+    background-color: var(--color06);
+    border: none;
+    border-radius: 5px;
+    color: var(--color01);
+    letter-spacing:2px;
+    margin: 0 5px;
+    padding: 5px;
+}
+tfoot>tr>td>div>div button:hover{
+    font-family: "GenJyuuGothic-B";
+    background-color: var(--color01);
+    border: none;
+    border-radius: 5px;
+    color: var(--color06);
+    letter-spacing:2px;
+    margin: 0 5px;
+    padding: 5px;
+}
+tfoot>tr>td>div>div>p{
+    margin: 0;
+
+}
+#pageList{
+    display: flex;
+    /* background-color: aqua; */
+}
+#pageList p{
+    margin: 0 1px;
+    padding: 5px;
+}

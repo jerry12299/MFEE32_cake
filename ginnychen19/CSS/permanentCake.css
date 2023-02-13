@@ -1,6 +1,10 @@
 @import url("https://www.w3schools.com/w3css/4/w3.css");
 @import "main.css";
 
+body{
+    flex-direction: column;
+}
+
 #permanentCake {
     display: flex;
     flex-direction: row;
@@ -54,7 +58,7 @@
     align-items: center;
 
 
-    padding: 20px;
+    padding: 10px;
 }
 
 
