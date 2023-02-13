@@ -381,11 +381,12 @@ index.get('/picture/:pname',login_api, function (req, res) {
 index.post('/buy',function(req,res){
 var data = req.body;
 // console.log(data.name)
-var sql = `SELECT c_name FROM commodity WHERE c_id = ?`
+var sql = `SELECT c_name,price FROM commodity WHERE c_id = ?`
 
 db.exec(sql,[data.name],function(result, fields){
-    // console.log(result[0].c_name) 
-    res.end(result[0].c_name)
+    // console.log(result[0]) 
+
+    res.end(JSON.stringify(result[0]))
 })
 })
 //-------------------
