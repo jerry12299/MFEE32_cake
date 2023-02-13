@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/ShoppingCar.css">
 </head>
+
 <body>
     <nav>
         <div>
@@ -21,5 +24,76 @@
             <img src="https://dummyimage.com/30x30/38afeb/fff" alt="ShoppingLogo">
         </div>
     </nav>
+    <section>
+        <img src="https://dummyimage.com/1400x400/38ffeb/fff" alt="廣告輪播" width="100%">
+        <img src="" alt="購物流程圖">
+        <div id="Shopping_body">
+            <div>
+                <img src="" alt="購物車icon">
+                <span>購物車(商品數量)</span>
+            </div>
+            <div>
+                <table id="ShoppingList">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>商品名稱</th>
+                            <th></th>
+                            <th>價格</th>
+                            <th>數量</th>
+                            <th>小計</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="https://dummyimage.com/100x100/54f291/fff" alt="商品圖">
+                            </td>
+                            <td>
+                                <p>商品名稱</p>
+                                <p>商品規格</p>
+                            </td>
+                            <td></td>
+                            <td>
+                                <p>NT$350</p>
+                            </td>
+                            <td>
+                                <select>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                </select>
+                            </td>
+                            <td>
+                                <span>$350</span>
+                            </td>
+                            <td>
+                                <button>刪除</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="Totle">
+                    <h3>訂單總金額：</h3>
+                    <div>
+                        <h1>NT$350</h1>
+                        <span>(此金額不含運費)</span>
+                    </div>
+                </div>
+                <div>
+                    <a href=""><button class="btn">回上頁繼續購物</button></a>
+                    <a href=""><button class="btn">我要結帳</button></a>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div>footer</div>
+        </footer>
+    </section>
 </body>
+
 </html>
