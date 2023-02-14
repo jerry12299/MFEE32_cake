@@ -43,19 +43,19 @@
 
                 var carts = JSON.parse(localStorage.getItem("carts")) //現有資料
 
-                var test = $.map(carts, function (item, index) {
+                var alike = $.map(carts, function (item, index) {
                     return item.name;
                 }).indexOf(cart.name);
 
-                if (test === -1) {//判斷如果有相同物件
+                if (alike === -1) {//判斷如果沒有相同物件
                     console.log("沒有相同物件，將新物件推入陣列中")
                     carts.push(cart)
                     localStorage.setItem("carts", JSON.stringify(carts))
                     console.log(localStorage)
                  
-                } else {//判斷如果沒有相同物件
+                } else {//判斷如果有相同物件
                     console.log("有相同物件，物件內數量加上新物件數量")
-                    carts[test].quantity += cart.quantity
+                    carts[alike].quantity += cart.quantity
                     localStorage.setItem("carts", JSON.stringify(carts))
                     console.log(localStorage)
                 }
