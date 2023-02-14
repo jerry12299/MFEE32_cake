@@ -103,15 +103,23 @@ section {
 
 }
 
+#transport {
+    background-color: beige;
+    border-radius: 10px;
+    padding: 15px;
+}
+
 th {
     border-bottom: 2px solid rgb(81, 58, 22);
     height: 40px;
     font-size: 1.2em;
 }
 
-td{
+td {
     height: 150px;
 }
+
+
 
 #Totle {
     width: 18vw;
@@ -155,9 +163,18 @@ td{
     margin: 10px 20px;
 }
 
-#Shopping_order>div {
-    width: 80%;
+#Shopping_order {
     display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 50px;
+
+}
+
+#Shopping_order>div {
+    display: flex;
+    width: 50%;
     flex-direction: column;
     background-color: rgb(238, 226, 118);
     padding: 30px 20px;
@@ -166,6 +183,29 @@ td{
 
 #Shopping_order div {
     margin: 10px 20px;
+}
+
+#address>div {
+    width: 100%;
+}
+
+#address input:nth-child(1){
+    width: 20%;
+}
+
+#address input:nth-child(2){
+    width: 75%;
+}
+
+#Page_note>div{
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 30px 20px;
+    border-radius: 10px;
+    
+
 }
 
 #note {
@@ -180,11 +220,6 @@ td{
 
 }
 
-#recipient>div:nth-child(6) {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
 
 #hit {
     padding-top: 50px;

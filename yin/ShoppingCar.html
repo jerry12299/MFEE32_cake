@@ -51,55 +51,62 @@
                 <span>購物車(商品數量)</span>
             </div>
             <div>
-                <table id="ShoppingList">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>商品名稱</th>
-                            <th></th>
-                            <th>價格</th>
-                            <th>數量</th>
-                            <th>小計</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <img src="https://dummyimage.com/100x100/54f291/fff" alt="商品圖">
-                            </td>
-                            <td>
-                                <p>商品名稱</p>
-                                <p>商品規格</p>
-                            </td>
-                            <td></td>
-                            <td>
-                                <p>NT$350</p>
-                            </td>
-                            <td>
-                                <select>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                </select>
-                            </td>
-                            <td>
-                                <span>$350</span>
-                            </td>
-                            <td>
-                                <button>刪除</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div>
+                    <table id="ShoppingList">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>商品名稱</th>
+                                <th></th>
+                                <th>價格</th>
+                                <th>數量</th>
+                                <th>小計</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="https://dummyimage.com/100x100/54f291/fff" alt="商品圖">
+                                </td>
+                                <td>
+                                    <p>商品名稱</p>
+                                    <p>商品規格</p>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <p>NT$350</p>
+                                </td>
+                                <td>
+                                    <select>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <span>$350</span>
+                                </td>
+                                <td>
+                                    <button>刪除</button>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                    <div id="transport">
+                        <label>請選擇取件方式(請擇一)：</label>
+                        <input type="radio" name="transport">來店自取
+                        <input type="radio" name="transport">黑貓冷凍宅配---運費270元
+                    </div>
+                </div>
                 <div id="Totle">
                     <h3>訂單總金額：</h3>
                     <div>
                         <h1>NT$350</h1>
-                        <span>(此金額不含運費)</span>
                     </div>
                 </div>
                 <div>
@@ -112,13 +119,7 @@
     </section>
     <section id="Shopping_Check">
         <div>
-            <!-- <div>
-                <label for="transport">取件方式</label>
-                <select class="text_W" id="transport">
-                    <option>黑貓冷凍宅配---運費270元</option>
-                    <option>來店自取</option>
-                </select>
-            </div> -->
+
             <div>
                 <label for="pay" class="title">付款方式</label>
                 <select class="text_W" id="pay">
@@ -159,6 +160,13 @@
             <div>
                 <label for="">電子郵件：</label>
                 <input class="text_W" type="email" placeholder="請輸入電子信箱" required>
+            </div>
+            <div id="address">
+                <label for="">收件地址：</label>
+                <div>
+                    <input type="text" placeholder="請輸入3+2郵遞區號" required>
+                    <input type="text" placeholder="請填入地址" required>
+                </div>
             </div>
             <div>
                 <label for="">備註：</label>
@@ -218,9 +226,24 @@
                 <input class="text_W" type="tel" placeholder="0900-000-000" required>
             </div>
             <div>
+                <label for="">電子郵件：</label>
+                <input class="text_W" type="email" placeholder="請輸入電子信箱" required>
+            </div>
+            <div id="address">
+                <label for="">收件地址：</label>
+                <div>
+                    <input type="text" placeholder="請輸入3+2郵遞區號" required>
+                    <input type="text" placeholder="請填入地址" required>
+                </div>
+            </div>
+            <div>
                 <label for="">宅配備註：</label>
                 <input id="note" type="text" placeholder="其他需求/警衛室代收..." required>
             </div>
+        </div>
+    </section>
+    <section id="Page_note">
+        <div>
             <div id="hit">
                 <span class="title">訂購注意事項</span>
                 <hr>
@@ -240,8 +263,6 @@
                 </div>
             </div>
         </div>
-
-
     </section>
     <footer>
         <div>footer</div>
