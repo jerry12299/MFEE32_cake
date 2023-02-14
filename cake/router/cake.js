@@ -82,7 +82,7 @@ index.get('/C05_2/:page([0-9]+)',rights_api, function (req, res) {
     var offset = (page - 1) * nums_per_page
     // 使用db.js裡的exec函式，也就是apple函式                                // 給函式3個參數
     // db.exec(`SELECT * FROM cake_order LIMIT ${offset}, ${nums_per_page};`,  //sql指令 顯示10筆1頁
-    db.exec(`select co_id,m_id,co_upload_date,pick_up_date,c_name,quantity,co_state,method,remark FROM cake_order,commodity WHERE cake_order.c_id = commodity.c_id LIMIT ${offset}, ${nums_per_page};`,  //sql指令 顯示10筆1頁
+    db.exec(`select co_id,m_name,co_upload_date,pick_up_date,c_name,price,quantity,co_state,method,remark,email,phone,price*quantity as amount FROM cake_order,commodity,member WHERE cake_order.c_id = commodity.c_id and cake_order.m_id = member.m_id LIMIT ${offset}, ${nums_per_page};`,  //sql指令 顯示10筆1頁
         [],                                                                   //有?時填的資料，沒有就給空[]
         function (data, fields) {             //function()的{}頭                                
             // console.log('mask_js_data:',data);  //資料庫傳來的內容 10筆1頁
@@ -94,7 +94,7 @@ index.get('/C05_2/:page([0-9]+)',rights_api, function (req, res) {
                     // console.log('mask_js_nums[0].COUNT:',nums[0].COUNT); // 28
                     var last_page = Math.ceil(nums[0].COUNT / nums_per_page) // 無條件進位  28/10 = 3
 
-                    if (page > last_page) { //如果大於最大頁數
+                    if (page > last_page||page == 0) { //如果大於最大頁數
                         res.redirect('/C05_2/' + last_page) //跳轉到最後一頁
                         return
                     }
@@ -400,9 +400,9 @@ index.post('/buyitem',function(req,res){
         // console.log(x.name);
         // console.log(x.quantity);
         db.exec(sql,[data.m_id,x.name,x.quantity],function(result, fields){
-        console.log(result[0]) 
+        console.log(result.insertId) 
     
-        res.end(JSON.stringify(result[0]))
+        res.end()
     })
     });
     

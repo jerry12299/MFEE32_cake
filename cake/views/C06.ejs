@@ -94,9 +94,10 @@
         $('#buyItem').on('click',function(){
         var buyItem = JSON.parse(localStorage.getItem('carts'));
         <% if(!session.user){  %>
+            //沒登入就無視
         <% }else{ %>
-        var JSONData = {m_id: <%= session.user.m_id %> ,
-                        item:buyItem}; //注意!!! 需先登入!!!!不然報錯!!!!!!
+        var JSONData = {m_id: <%= session.user.m_id %> ,             //注意!!! 需先登入!!!!不然報錯!!!!!!
+                        item:buyItem}; 
         <% } %>
 
         // console.log(JSONData.item[0].name) 

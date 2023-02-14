@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2023-02-05 07:33:35
--- 伺服器版本： 10.4.27-MariaDB
--- PHP 版本： 8.1.12
+-- 產生時間： 2023-02-14 09:02:00
+-- 伺服器版本： 10.4.25-MariaDB
+-- PHP 版本： 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,7 +40,7 @@ CREATE TABLE `cake_order` (
   `co_state` varchar(10) NOT NULL,
   `method` varchar(100) NOT NULL,
   `remark` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- 資料表新增資料前，先清除舊資料 `cake_order`
@@ -52,7 +52,12 @@ TRUNCATE TABLE `cake_order`;
 --
 
 INSERT INTO `cake_order` (`co_id`, `m_id`, `co_upload_date`, `pick_up_date`, `c_id`, `quantity`, `co_state`, `method`, `remark`) VALUES
-(1, 1, '2023-01-26 09:46:17', '2023-01-30 13:00:00', 'bd0001', 1, '未製作', '到店取貨', '10歲蠟燭，餐盤10份');
+(1, 1, '2023-01-26 09:46:17', '2023-01-30 13:00:00', 'bd0001', 1, '未製作', '到店取貨', '10歲蠟燭，餐盤10份'),
+(2, 3, '2023-02-09 16:25:57', '2023-02-16 16:25:00', 'bd0001', 1, '未', '方式', '備註'),
+(5, 1, '2023-02-14 11:14:49', '2023-02-16 10:59:34', 'bd0106', 2, '未製作', 'aaaa', 'sssss'),
+(6, 1, '2023-02-14 11:14:49', '2023-02-16 10:59:34', 'bd0108', 3, '未製作', 'aaaa', 'sssss'),
+(7, 1, '2023-02-14 11:16:04', '2023-02-16 10:59:34', 'cm0106', 2, '未製作', 'aaaa', 'sssss'),
+(8, 1, '2023-02-14 11:23:59', '2023-02-16 10:59:34', 'bd0106', 1, '未製作', 'aaaa', 'sssss');
 
 -- --------------------------------------------------------
 
@@ -65,7 +70,7 @@ CREATE TABLE `commodity` (
   `c_id` varchar(10) NOT NULL,
   `c_name` varchar(50) NOT NULL,
   `price` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- 資料表新增資料前，先清除舊資料 `commodity`
@@ -78,7 +83,11 @@ TRUNCATE TABLE `commodity`;
 
 INSERT INTO `commodity` (`c_id`, `c_name`, `price`) VALUES
 ('bd0001', '生日蛋糕01', 300),
-('cc0001', '巧克力蛋糕01', 350);
+('bd0106', '6吋生日蛋糕', 300),
+('bd0108', '8吋生日蛋糕', 360),
+('cc0001', '巧克力蛋糕01', 350),
+('cm0106', '6吋聖誕蛋糕', 300),
+('cm0108', '8吋聖誕蛋糕', 360);
 
 -- --------------------------------------------------------
 
@@ -94,7 +103,7 @@ CREATE TABLE `customized` (
   `cust_form` varchar(100) NOT NULL,
   `cust_state` varchar(10) NOT NULL,
   `picture` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- 資料表新增資料前，先清除舊資料 `customized`
@@ -107,7 +116,10 @@ TRUNCATE TABLE `customized`;
 
 INSERT INTO `customized` (`cust_id`, `m_id`, `cust_upload_date`, `cust_form`, `cust_state`, `picture`) VALUES
 (1, 1, '2023-01-25 00:00:00', '卡通造型，水果，巧克力', '未開始', 'img/cake.jpg'),
-(12, 3, '2023-02-05 14:32:30', '8吋,巧克力口味', '未製作', '2023-2-5-1675578750796.jpg');
+(12, 3, '2023-02-05 14:32:30', '8吋,巧克力口味', '未製作', '2023-2-5-1675578750796.jpg'),
+(13, 3, '2023-02-06 13:16:28', '8吋,巧克力口味', '未製作', '2023-2-6-1675660588270.jpg'),
+(14, 3, '2023-02-09 15:45:47', '8吋,巧克力口味', '未製作', '2023-2-9-1675928747962.png'),
+(15, 1, '2023-02-13 10:49:11', '8吋,巧克力口味', '未製作', '2023-2-13-1676256551681.png');
 
 -- --------------------------------------------------------
 
@@ -126,7 +138,7 @@ CREATE TABLE `member` (
   `phone` int(11) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
   `rights` tinyint(3) UNSIGNED NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- 資料表新增資料前，先清除舊資料 `member`
@@ -138,7 +150,7 @@ TRUNCATE TABLE `member`;
 --
 
 INSERT INTO `member` (`m_id`, `email`, `pwd`, `m_name`, `birthday`, `gender`, `phone`, `address`, `rights`) VALUES
-(1, 'asd123@gmail.com', '1234', '王曉明', '2022-01-01', 'm', 123456, 'qwdfasfasfasfasfasfadxcvb', 0),
+(1, 'asd123@gmail.com', '1234', '曉明', '2022-01-01', 'm', 123456, 'qwdfasf', 0),
 (2, 'user@gmail.com', '1234', '管理者', NULL, NULL, NULL, NULL, 1),
 (3, 'abc123@gmail.com', '1234', '小明', '2015-01-14', 'm', 123456, 'aaaaaaaaaaaaa', 0),
 (6, 'jerrt@gmail.com', '1234', '寶可夢', '2023-01-02', 'm', 123456, 'sssssssssssss', 0),
@@ -181,13 +193,13 @@ ALTER TABLE `member`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `cake_order`
 --
 ALTER TABLE `cake_order`
-  MODIFY `co_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `co_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `customized`
 --
 ALTER TABLE `customized`
-  MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `member`

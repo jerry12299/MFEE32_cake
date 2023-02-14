@@ -30,7 +30,7 @@
              let formData = new FormData();
            
              <% if(!session.user){  %>
-
+                //沒登入就無視
              <% }else{ %>
              var JSONData = {m_id: <%= session.user.m_id %> }; //注意!!! 需先登入!!!!不然報錯!!!!!!
              <% } %>      
