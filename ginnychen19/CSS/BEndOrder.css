@@ -47,19 +47,24 @@ body {
     color: var(--color06);
 }
 
+
+/*=====================搜尋框====================*/
 .search-container {
     position: relative;
     display: flex;
     align-items: center;
 }
-
 .search-icon {
+    border: none;
     position: absolute;
     right: 10px;
     width: 20px;
     height: 20px;
     background: url(../Style/SVG/search.svg) no-repeat center;
     background-size: contain ;
+}
+.search-icon:hover {
+    border-bottom:1px solid red;
 }
 
 .search-input {
@@ -69,16 +74,12 @@ body {
     padding:  2px 10px;
 }
 
-#PMcakeOrder>table {
+/*================表單-每筆資料====================*/
+.Order {
     text-align: center;
     font-family: "GenJyuuGothic-B";
     border-collapse: collapse;
-    
-
 }
-
-
-
 
 table>thead{
     font-size: var(--pContent);
@@ -101,7 +102,7 @@ tr>td{
 
 
 
-
+/*==================list--每單資料====================*/
 table>tbody>tr.list{
     font-size: var(--pSContent);
     color: var(--color06);
@@ -117,6 +118,9 @@ tr.list>td:first-child{
 tr.list>td:last-child{
     border-radius: 0 12px 12px 0;
 }
+
+
+/*=====================list--詳細按鈕====================*/
 tr.list>td>button{
     border: none;
     border-radius: 5px;
@@ -124,19 +128,17 @@ tr.list>td>button{
     color: var(--color01);
 }
 tr.list>td>button:hover{
+    border: 1px solid red;
+}
+
+tr.list>td>button.open{
     background-color: var(--color01);
     color: var(--color06);
 }
-button#open{
-    background-color: var(--color01);
-    color: var(--color06);
-}
 
 
 
-
-
-
+/*===================detail頁設定====================*/
 tr.detail>td{
     background-color: var(--color01);
     border-radius: 12px;
@@ -152,7 +154,7 @@ tr.detail>td>div{
 }
 
 
-
+/*=====================detail中訂購內容====================*/
 .items{
     width: 40%;
     padding: 0 10px ;
@@ -192,9 +194,7 @@ tr.detail>td>div{
 }
 
 
-
-
-
+/*=====================detail中灰色區塊====================*/
 .contact{
     display: flex;
     width: fit-content;
@@ -232,6 +232,8 @@ tr.detail>td>div{
     border-radius: 8px;
 }
 
+
+/*=================表單頁尾--頁數====================*/
 tfoot>tr>td>div{
     display: flex;
     flex-direction: column;

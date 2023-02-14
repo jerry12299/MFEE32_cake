@@ -1,13 +1,12 @@
-function openDetail(element) {
-    console.log(element)
-    const detail = $('tr.detail');
-    $(element).toggle(
-        function () {
-            detail.show();
-        },
-        function () {
+const Btn_detailopen = $("tr.list>td>button");
+$("tr.detail").hide();
 
-            detail.hide();
-        });
-    // 其他程式碼
-}
+$(Btn_detailopen).on("click", function () {
+    const ThisDetail = $(this).parent().parent().next();
+    $(this).toggleClass("open");
+    ThisDetail.toggle(function () {
+
+    }, function () {
+
+    });
+})
