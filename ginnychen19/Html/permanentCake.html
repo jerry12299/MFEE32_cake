@@ -58,146 +58,130 @@
                             <fork>&nbsp;</fork>
                             <p>點我看詳細</p>
                             <color></color>
-                            <img src="../Style/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
+                            <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
                         </a>
                     </div>
                     <div>
                         <p>品項名稱</p>
                         <p>NT.999</p>
                     </div>
-
                 </div>
                 <div class="commodity_item">
                     <div>
                         <a href="某某網址">
-                            <img src="../Style/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
+                            <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
                         </a>
                     </div>
                     <div>
                         <p>品項名稱</p>
                         <p>NT.999</p>
                     </div>
-
                 </div>
                 <div class="commodity_item">
                     <div>
                         <a href="某某網址">
-                            <img src="../Style/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
+                            <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
                         </a>
                     </div>
                     <div>
                         <p>品項名稱</p>
                         <p>NT.999</p>
                     </div>
-
                 </div>
                 <div class="commodity_item">
                     <div>
                         <a href="某某網址">
-                            <img src="../Style/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
+                            <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
                         </a>
                     </div>
                     <div>
                         <p>品項名稱</p>
                         <p>NT.999</p>
                     </div>
-
                 </div>
                 <div class="commodity_item">
                     <div>
                         <a href="某某網址">
-                            <img src="../Style/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
+                            <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
                         </a>
                     </div>
                     <div>
                         <p>品項名稱</p>
                         <p>NT.999</p>
                     </div>
-
                 </div>
                 <div class="commodity_item">
                     <div>
                         <a href="某某網址">
-                            <img src="../Style/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
+                            <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
                         </a>
                     </div>
                     <div>
                         <p>品項名稱</p>
                         <p>NT.999</p>
                     </div>
-
                 </div>
                 <div class="commodity_item">
                     <div>
                         <a href="某某網址">
-                            <img src="../Style/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
+                            <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
                         </a>
                     </div>
                     <div>
                         <p>品項名稱</p>
                         <p>NT.999</p>
                     </div>
-
                 </div>
                 <div class="commodity_item">
                     <div>
                         <a href="某某網址">
-                            <img src="../Style/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
+                            <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
                         </a>
                     </div>
                     <div>
                         <p>品項名稱</p>
                         <p>NT.999</p>
                     </div>
-
                 </div>
                 <div class="commodity_item">
                     <div>
                         <a href="某某網址">
-                            <img src="../Style/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
+                            <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
                         </a>
                     </div>
                     <div>
                         <p>品項名稱</p>
                         <p>NT.999</p>
                     </div>
-
-                </div>
-                <div class="commodity_item">
-                    <div>
-                        <a href="某某網址">
-                            <img src="../Style/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
-                        </a>
-                    </div>
-                    <div>
-                        <p>品項名稱</p>
-                        <p>NT.999</p>
-                    </div>
-
-                </div>
-                <div class="commodity_item">
-                    <div>
-                        <a href="某某網址">
-                            <img src="../Style/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
-                        </a>
-                    </div>
-                    <div>
-                        <p>品項名稱</p>
-                        <p>NT.999</p>
-                    </div>
-
                 </div>
             </div>
         </div>
     </div>
 
-
     <footer>
         <p>&nbsp;</p>
     </footer>
 
-    <script src="../js/CustomizationCake.js"></script>
+    <script>
+        $(function () {
+            CakePic = $(".commodity_item>div:first-of-type>a");
+            // console.log(CakePic);
+            $(CakePic).hover(
+                function (a) {
+                    console.log("a.target=",a.target);
+                    $(a.target).before('<fork>&nbsp;</fork>');
+                    $(a.target).before('<p>點我看詳細</p>');
+                    $(a.target).before('<color></color>');
+                },
+                function (b) {
+                    console.log("b.target=",$(b.target).next());
+                    add = $(b.target).prevAll();
 
+                    $(add).remove();
+                }
+            );
+        });
+    </script>
 </body>
 
 </html>

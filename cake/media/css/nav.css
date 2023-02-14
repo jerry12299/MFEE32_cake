@@ -1,0 +1,44 @@
+@import url("https://www.w3schools.com/w3css/4/w3.css");
+@import "main.css";
+
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+
+    /* 水平置中 */
+    justify-content: center;
+    /* 垂直置中 */
+    align-items: center;
+    opacity: 100%;
+
+    padding: 10px 20px;
+    transition: 1.0 ease;
+
+    background-color: var(--color02); 
+}
+
+.BEndnav {
+    position: fixed;
+    width: 20%;
+    height: 100%;
+    left: 0px;
+
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+
+    /* 水平置中 */
+    justify-content: center;
+    /* 垂直置中 */
+    align-items: center;
+
+    padding: 10px 20px;
+    transition: 1.0 ease;
+
+    background-color: var(--color05); 
+}

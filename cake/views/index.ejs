@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首頁</title>
+</head>
+<body>
+    <div>
+        <a href="/C01">C01主題蛋糕</a>
+        <a href="/C02">C02客制蛋糕</a>
+        <a href="/C03">C03餡料介紹</a>
+        <a href="/C04">C04常見問題</a>
+        <% if(!session.user) { %>  <!-- 如果沒登入(沒session.user) -->
+          <a href="/C05">C05登入/註冊</a>
+          <%} else if(session.user.rights) { %> <!-- 如果有權限者登入 -->
+          <a href="/C05_2/1">C05_2管理者</a>
+            <%} else{  %>
+            <a href="/C05_4/1">C05會員</a>
+            <% } %>
+        <a href="/C06">C06購物車</a>
+    </div>
+    
+</body>
+</html>

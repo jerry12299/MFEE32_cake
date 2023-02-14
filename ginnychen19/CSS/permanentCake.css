@@ -19,6 +19,7 @@ body{
     background-color: var(--color02);
 }
 
+/*=========左邊種類索引列========================================*/
 .PMCake_table {
     display: flex;
     flex-direction: column;
@@ -76,7 +77,8 @@ body{
     color: var(--color06);
 }
 
-
+/*========右邊蛋糕展示區========================================*/
+/*-----標題設定------*/
 .PMCake_show {
     display: flex;
     flex-direction: column;
@@ -84,6 +86,10 @@ body{
 
     justify-content: center;
     align-items: center;
+
+    flex: 3;
+
+    margin: 0 0 0 70px;
 
     /* background-color: blueviolet; */
 }
@@ -108,7 +114,7 @@ body{
 .PMCake_show_content>p {
     margin: 0;
 }
-
+/*-----蛋糕列設定------*/
 .PMCake_show_commodity {
     width: 100%;
 
@@ -150,42 +156,12 @@ body{
     position: relative;
 }
 
-
 .commodity_item a>p {
     position: absolute;
     top: -15px;
     right: 25px;
     z-index: 2;
     color: var(--color01);
-}
-fork{
-    height: 50px;
-    width: 50px;
-
-    position: absolute;
-    top: -70px;
-    right: 0px;
-    transform: rotate(40deg);
-    z-index: 2;
-
-    background-image: url(../Style/SVG/fork.svg);
-
-    background-size: contain;
-    background-position: center;
-    background-repeat:no-repeat ;
-    
-}
-color{
-    position: absolute;
-    top: -62px;
-    right: 0px;
-
-    width: 150px;
-    height: 150px;
-
-    border-radius: 50%;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .commodity_item>div:nth-child(2) {
@@ -201,17 +177,39 @@ color{
     margin: 0;
 }
 
+/*-----蛋糕列hover用------*/
+fork{
+    height: 50px;
+    width: 50px;
 
+    position: absolute;
+    top: -70px;
+    right: 0px;
+    transform: rotate(40deg);
+    z-index: 2;
 
+    background-image: url(../Source/SVG/fork.svg);
 
-
-.PMCake_show {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    flex: 3;
-
-    margin: 0 0 0 70px;
+    background-size: contain;
+    background-position: center;
+    background-repeat:no-repeat ;
+    
 }
+color{
+    position: absolute;
+    top: -64px;
+    right: 0px;
+
+    width: 150px;
+    height: 150px;
+
+    border-radius: 50%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+
