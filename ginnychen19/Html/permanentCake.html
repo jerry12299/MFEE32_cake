@@ -55,9 +55,6 @@
                 <div class="commodity_item">
                     <div>
                         <a href="某某網址">
-                            <fork>&nbsp;</fork>
-                            <p>點我看詳細</p>
-                            <color></color>
                             <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
                         </a>
                     </div>
@@ -168,16 +165,37 @@
             // console.log(CakePic);
             $(CakePic).hover(
                 function (a) {
-                    console.log("a.target=",a.target);
-                    $(a.target).before('<fork>&nbsp;</fork>');
-                    $(a.target).before('<p>點我看詳細</p>');
-                    $(a.target).before('<color></color>');
+                    console.log("a.target=", $(a.target));
+                    //a=event   a.target=img 
+                    $(a.target).after('<fork>&nbsp;</fork>', '<p>點我看詳細</p>', '<color></color>');
+
+                    const mypicDiv = $(a.target).parent().parent()
+                    mypicDiv.css({
+                        transform: "rotate(30deg)",
+                    })
+
+                    a.stopPropagation();
                 },
                 function (b) {
-                    console.log("b.target=",$(b.target).next());
-                    add = $(b.target).prevAll();
-
+                    console.log("b.target=", $(b.target).prevUntil("img"));
+                    add = $(b.target).prevUntil("img");
+                    $(b.target).remove();
                     $(add).remove();
+
+                    const mypicDiv = $(".commodity_item>div")
+                    mypicDiv.css({
+                        transform: "rotate(0deg)",
+                    })
+
+                    if ($(b.target).is("fork")) {
+                        add = $(b.target).prevUntil("img");
+                        $(b.target).remove();
+                        $(add).remove();
+
+
+                    }
+
+                    b.stopPropagation();
                 }
             );
         });

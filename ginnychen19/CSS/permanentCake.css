@@ -138,6 +138,9 @@ body{
     padding: 0 20px;
     margin: 0 20px 20px 20px;
 }
+.commodity_item>div:first-child{
+    transition: 1s ease;
+}
 
 .commodity_item img {
     width: 150px;

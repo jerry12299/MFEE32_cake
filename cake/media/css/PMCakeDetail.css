@@ -1,0 +1,161 @@
+@import url("https://www.w3schools.com/w3css/4/w3.css");
+@import "main.css";
+
+body{
+    flex-direction: column;
+}
+#PMCakeDetail {
+    display: flex;
+    flex-direction: row;
+
+    min-width: 500px;
+
+    justify-content: center;
+    align-items: flex-start;
+
+
+    padding: 30px 15%;
+    /* transition: 1.0 ease; */
+
+    background-color: var(--color02);
+}
+
+.PMCake_show_detail {
+    border-radius: 15px;
+    background-color: var(--color01);
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 30px;
+
+}
+
+.PMCake_show_detail_up {
+    display: flex;
+    flex-direction: row;
+
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    border-bottom: 2px solid var(--color04);
+}
+
+.cakePic {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    /* background-color: aqua; */
+
+    margin: 0 30px 0 0;
+}
+
+.mainPic {
+    border-radius: 15px;
+    width: 250px;
+}
+
+figcaption {
+    padding: 10px 0 0 0;
+}
+
+.smallPic {
+    border-radius: 8px;
+    width: 55px;
+}
+
+.cakename>h6 {
+    margin: 0;
+}
+
+.caketext {
+    height: 200px;
+    overflow-y: auto;
+
+    margin: 0;
+}
+
+.caketext{
+    height: 200px;
+    overflow-y: auto;
+}
+.caketext>p{
+    margin: 0;
+}
+.caketext::-webkit-scrollbar {
+    width: 10px;
+    background-color: #d31414;
+}
+.caketext::-webkit-scrollbar-thumb {
+    background: #000000;
+}
+.Size_Quantity_pirce{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    /* background-color: cadetblue; */    
+}
+.Size_Quantity_pirce>div{
+    display: flex;
+    flex-direction: column;
+}
+.selectSize>p{
+    display: inline-block;
+}
+.selectSize>button{
+    margin:0 5px ;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--color04);
+
+    color: var(--color01);
+    font-family: "GenJyuuGothic-L";
+    font-size: var(--pContent);
+    letter-spacing:2px;
+}
+.selectSize>button:hover{
+    background-color: var(--color01);
+    color: var(--color04);
+    border: 1px solid var(--color04);
+}
+
+.selectQuantity>p{
+    display: inline-block;
+}
+
+
+
+.gotocart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.PMCake_show_introduce{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 0 0;
+    padding: 400px 20px;
+    border: 2px solid var(--color04);
+    border-radius: 10px;
+}
