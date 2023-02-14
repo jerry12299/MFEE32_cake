@@ -112,21 +112,136 @@
     </section>
     <section id="Shopping_Check">
         <div>
-            <label for="transport">取件方式</label>
-            <select id="transport">
-                <option>黑貓冷凍宅配---運費270元</option>
-                <option>來店自取</option>
-            </select>
-
-            <label for="">付款方式</label>
-            <select id="transport">
-                <option>銀行轉帳</option>
-                <option>黑貓貨到付款</option>
-                <option>來店付款(限來店自取)</option>
-            </select>
-
-            
+            <!-- <div>
+                <label for="transport">取件方式</label>
+                <select class="text_W" id="transport">
+                    <option>黑貓冷凍宅配---運費270元</option>
+                    <option>來店自取</option>
+                </select>
+            </div> -->
+            <div>
+                <label for="pay" class="title">付款方式</label>
+                <select class="text_W" id="pay">
+                    <option>銀行轉帳</option>
+                    <option>黑貓貨到付款</option>
+                    <option>來店付款(限來店自取)</option>
+                </select>
+            </div>
+            <div>
+                <p>銀行代碼：822(中國信託)<br>
+                    匯款帳號：015-456-789-123
+                </p>
+                <p>郵局代碼：700<br>
+                    匯款帳號：1234-5678-9012-34
+                </p>
+                <p>銀行代碼：013(國泰世華)<br>
+                    匯款帳號：0147-0258-0369-12
+                </p>
+                <br>
+                <p>麻煩於匯款後告知您的訂單編號、匯款日期及匯款後五碼，非常感謝！</p>
+            </div>
         </div>
+    </section>
+    <section id="Shopping_order">
+        <div id="orderer">
+            <div>
+                <span class="title">訂購人資料</span>
+                <hr>
+            </div>
+            <div>
+                <label for="">姓名：</label>
+                <input class="text_W" type="text" placeholder="王小明" required><br>
+            </div>
+            <div>
+                <label for="">連絡電話：</label>
+                <input class="text_W" type="tel" placeholder="0900-000-000" required>
+            </div>
+            <div>
+                <label for="">電子郵件：</label>
+                <input class="text_W" type="email" placeholder="請輸入電子信箱" required>
+            </div>
+            <div>
+                <label for="">備註：</label>
+                <input id="note" type="text" placeholder="其他需求" required>
+            </div>
+            <div>
+                <label for="">自取/宅配日期：</label>
+                <br>
+                <br>
+                <input type="radio" name="date">自取時間
+                <input type="radio" name="date">宅配時間
+                <div id="transport_S" class="">
+                    <label for="">自取日期</label>
+                    <input type="date">
+                    <br>
+                    <br>
+                    <label for="">自取時間</label>
+                    <select>
+                        <option value="11:00-13:00">11:00-13:00</option>
+                        <option value="13:00-15:00">13:00-15:00</option>
+                        <option value="15:00-17:00">15:00-17:00</option>
+                        <option value="17:00-18:00">17:00-18:00</option>
+                    </select>
+                </div>
+
+                <div id="transport_T">
+                    <label for="">宅配日期</label>
+                    <input type="date">
+                    <br>
+                    <br>
+                    <label for="">宅配時間</label>
+                    <select>
+                        <option value="11:00-11:30">11:00-11:30</option>
+                        <option value="15:00-15:30">15:00-15:30</option>
+                        <option value="17:00-17:30">17:00-17:30</option>
+                    </select>
+                </div>
+                <br>
+
+            </div>
+
+            <div>
+            </div>
+        </div>
+        <!-- ------------------------------------------->
+        <div id="recipient">
+            <div>
+                <span class="title">收件人資料</span><input type="radio">同訂購人資訊
+                <hr>
+            </div>
+            <div>
+                <label for="">姓名：</label>
+                <input class="text_W" type="text" placeholder="王小明" required><br>
+            </div>
+            <div>
+                <label for="">連絡電話：</label>
+                <input class="text_W" type="tel" placeholder="0900-000-000" required>
+            </div>
+            <div>
+                <label for="">宅配備註：</label>
+                <input id="note" type="text" placeholder="其他需求/警衛室代收..." required>
+            </div>
+            <div id="hit">
+                <span class="title">訂購注意事項</span>
+                <hr>
+                <ul>
+                    <li> 而這些並不是完全重要，更加重要的問題是，蛋糕的發生，到底需要如何實現</li>
+                    <li>我們普遍認為，若能理解透徹核心原理，對其就有了一定的了解程度。</li>
+                    <li>這不禁令我重新仔細的思考。現在，正視蛋糕的問題，是非常非常重要的。</li>
+                    <li>因為，蛋糕的出現，重寫了人生的意義。</li>
+                    <li>世界需要改革，需要對蛋糕有新的認知。</li>
+                </ul>
+            </div>
+            <div class="btn">
+                <div>
+                    <a href=""><button class="btn">回上頁</button></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href=""><button class="btn">確認結帳</button></a>
+                </div>
+            </div>
+        </div>
+
+
     </section>
     <footer>
         <div>footer</div>
