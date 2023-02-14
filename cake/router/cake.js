@@ -389,7 +389,23 @@ db.exec(sql,[data.name],function(result, fields){
     res.end(JSON.stringify(result[0]))
 })
 })
-//-------------------
+//-------------------送出購買
+index.post('/buyitem',function(req,res){
+    var data = req.body;
+    // console.log(data)
+    var sql = `INSERT INTO cake_order ( m_id, pick_up_date, c_id, quantity, co_state, method, remark) VALUES (?, '2023-02-16 10:59:34', ?, ?, '未製作', 'aaaa', 'sssss')`;
+    data.item.forEach((x) => {
 
+        // console.log(data.m_id);
+        // console.log(x.name);
+        // console.log(x.quantity);
+        db.exec(sql,[data.m_id,x.name,x.quantity],function(result, fields){
+        console.log(result[0]) 
+    
+        res.end(JSON.stringify(result[0]))
+    })
+    });
+    
+    })
 module.exports = index;
 

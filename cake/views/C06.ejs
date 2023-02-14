@@ -23,8 +23,14 @@
         總計:<input type="number" id="sum" value="0" readonly>
     </div>
     <button id="clr">清空購物車</button>
+    <% if(!session.user) { %>  <!-- 如果沒登入(沒session.user) -->
+        <a href="/C05">C05登入/註冊</a>
+          <%} else{  %>
+        <button id="buyItem">送出</button>
+          <% } %>    
    
     <script>
+
          function doDel(index){
           var newitem = JSON.parse(localStorage.getItem('carts')) ;
           newitem.splice(index,1);
@@ -33,6 +39,7 @@
         //   location.href = '/C06';
         test();
         }
+
          function doChange(value,index){
           var newitem = JSON.parse(localStorage.getItem('carts')) ;
           newitem[index].quantity = parseInt(value);
@@ -42,19 +49,14 @@
         test();
         }
 
-        function test () {
-
-       
+        function test () {     
         // $(function(){
-            var newcarts = JSON.parse(localStorage.getItem('carts'));
-            
+            var newcarts = JSON.parse(localStorage.getItem('carts'));        
             // console.log(newcarts);
             $("tbody").empty();
             if(newcarts){
-                var sum = 0;
-               
-                 newcarts.forEach( function(e,index){
-                  
+                var sum = 0;               
+                 newcarts.forEach( function(e,index){                
                 var data = {name:e.name}
                 $.ajax({
                             url: "/buy", //cake.js 的buy頁 
@@ -81,24 +83,39 @@
                 
             });
             }
-           
             
-           
-
-            $('#clr').on('click',function(){
+        // })
+        }
+        test();
+        $('#clr').on('click',function(){
             localStorage.removeItem('carts')
             location.href = '/C06';
         })
+        $('#buyItem').on('click',function(){
+        var buyItem = JSON.parse(localStorage.getItem('carts'));
+        <% if(!session.user){  %>
+        <% }else{ %>
+        var JSONData = {m_id: <%= session.user.m_id %> ,
+                        item:buyItem}; //注意!!! 需先登入!!!!不然報錯!!!!!!
+        <% } %>
 
-       
-        
-
-
-
-        // })
-    }
-    test();
-        
+        // console.log(JSONData.item[0].name) 
+        $.ajax({
+                 url: "/buyitem",
+                 type: "POST", 
+                 contentType: "application/json; charset=utf-8",
+                 data: JSON.stringify(JSONData),
+                 success: function(res) {
+                     alert("ok");
+                     localStorage.removeItem('carts')
+                     location.href = '/C06';
+                 
+                 },
+                 error: function() {
+                     alert("系統錯誤!")
+                 }
+             }) 
+        })
     </script>
 </body>
 </html>
