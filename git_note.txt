@@ -5,3 +5,7 @@ git commit -m "記錄一下這次的提交是為了什麼"   ====> 結帳 
 git push -u 儲存庫名稱 分支名稱     ====>  git push -u Pokemon master
 
 git clone https://github.com/jerry12299/MFEE32_cake.git  ====> 下載整個資料夾
+
+//----------------- 更新本地檔
+cd MFEE32_cake      ======> 移動到MFEE32_cake
+git pull            ======> 同步本地檔案到最新版
