@@ -3,21 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
-<<<<<<< Updated upstream
-<<<<<<<< HEAD:cake/sql/cake0215.sql
 -- 產生時間： 2023-02-15 04:45:27
 -- 伺服器版本： 10.4.25-MariaDB
 -- PHP 版本： 8.1.10
-========
--- 產生時間： 2023-02-14 13:08:42
--- 伺服器版本： 10.4.27-MariaDB
--- PHP 版本： 8.1.12
->>>>>>>> 726a7e0fbe859589b724d7e4bdd25508875e4e0f:cake/sql/cake 0214.sql
-=======
--- 產生時間： 2023-02-15 04:45:27
--- 伺服器版本： 10.4.25-MariaDB
--- PHP 版本： 8.1.10
->>>>>>> Stashed changes
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -78,31 +66,10 @@ INSERT INTO `buy_order` (`o_id`, `m_id`, `co_upload_date`, `pick_up_date`, `paym
 DROP TABLE IF EXISTS `cake_order`;
 CREATE TABLE `cake_order` (
   `co_id` int(11) NOT NULL,
-<<<<<<< Updated upstream
-<<<<<<<< HEAD:cake/sql/cake0215.sql
-=======
->>>>>>> Stashed changes
   `o_id` int(11) NOT NULL,
   `c_id` varchar(10) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-<<<<<<< Updated upstream
-========
-  `m_id` int(11) NOT NULL,
-  `o_id` int(11) NOT NULL,
-  `co_upload_date` datetime NOT NULL DEFAULT current_timestamp(),
-  `pick_up_date` datetime NOT NULL,
-  `c_id` varchar(10) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `co_state` varchar(10) NOT NULL,
-  `method` varchar(100) NOT NULL,
-  `payment` varchar(50) NOT NULL,
-  `remark` varchar(100) NOT NULL,
-  `shipping` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
->>>>>>>> 726a7e0fbe859589b724d7e4bdd25508875e4e0f:cake/sql/cake 0214.sql
-=======
->>>>>>> Stashed changes
 
 --
 -- 資料表新增資料前，先清除舊資料 `cake_order`
@@ -113,28 +80,12 @@ TRUNCATE TABLE `cake_order`;
 -- 傾印資料表的資料 `cake_order`
 --
 
-<<<<<<< Updated upstream
-<<<<<<<< HEAD:cake/sql/cake0215.sql
-=======
->>>>>>> Stashed changes
 INSERT INTO `cake_order` (`co_id`, `o_id`, `c_id`, `quantity`) VALUES
 (1, 1, 'bd0001', 1),
 (2, 2, 'bd0001', 1),
 (5, 3, 'bd0106', 2),
 (6, 3, 'bd0108', 3),
 (7, 3, 'cm0106', 2);
-<<<<<<< Updated upstream
-========
-INSERT INTO `cake_order` (`co_id`, `m_id`, `o_id`, `co_upload_date`, `pick_up_date`, `c_id`, `quantity`, `co_state`, `method`, `payment`, `remark`, `shipping`) VALUES
-(1, 1, 1, '2023-01-26 09:46:17', '2023-01-30 13:00:00', 'bd0001', 1, '未製作', '到店取貨', '現金', '10歲蠟燭，餐盤10份', '未出貨'),
-(2, 3, 2, '2023-02-09 16:25:57', '2023-02-16 16:25:00', 'bd0001', 1, '未', '方式', '銀行轉帳', '備註', '未出貨'),
-(5, 1, 3, '2023-02-14 11:14:49', '2023-02-16 10:59:34', 'bd0106', 2, '未製作', 'aaaa', '銀行轉帳', 'sssss', '未'),
-(6, 1, 3, '2023-02-14 11:14:49', '2023-02-16 10:59:34', 'bd0108', 3, '未製作', 'aaaa', '銀行轉帳', 'sssss', '未'),
-(7, 1, 3, '2023-02-14 11:16:04', '2023-02-16 10:59:34', 'cm0106', 2, '未製作', 'aaaa', '銀行轉帳', 'sssss', '未'),
-(8, 1, 4, '2023-02-14 11:23:59', '2023-02-16 10:59:34', 'bd0106', 1, '未製作', 'aaaa', '現金', 'sssss', '未');
->>>>>>>> 726a7e0fbe859589b724d7e4bdd25508875e4e0f:cake/sql/cake 0214.sql
-=======
->>>>>>> Stashed changes
 
 -- --------------------------------------------------------
 
@@ -147,11 +98,7 @@ CREATE TABLE `commodity` (
   `c_id` varchar(10) NOT NULL,
   `c_name` varchar(50) NOT NULL,
   `price` int(11) NOT NULL
-<<<<<<< Updated upstream
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
->>>>>>> Stashed changes
 
 --
 -- 資料表新增資料前，先清除舊資料 `commodity`
@@ -184,11 +131,7 @@ CREATE TABLE `customized` (
   `cust_form` varchar(100) NOT NULL,
   `cust_state` varchar(10) NOT NULL,
   `picture` varchar(100) NOT NULL
-<<<<<<< Updated upstream
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
->>>>>>> Stashed changes
 
 --
 -- 資料表新增資料前，先清除舊資料 `customized`
@@ -223,11 +166,7 @@ CREATE TABLE `member` (
   `phone` int(11) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
   `rights` tinyint(3) UNSIGNED NOT NULL DEFAULT 0
-<<<<<<< Updated upstream
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
->>>>>>> Stashed changes
 
 --
 -- 資料表新增資料前，先清除舊資料 `member`
