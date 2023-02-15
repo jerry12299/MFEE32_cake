@@ -425,18 +425,20 @@ index.post('/buy', function (req, res) {
 index.post('/buyitem', function (req, res) {
     var data = req.body;
     // console.log(data)
-    var sql = `INSERT INTO cake_order ( m_id, pick_up_date, c_id, quantity, co_state, method, remark) VALUES (?, '2023-02-16 10:59:34', ?, ?, '未製作', 'aaaa', 'sssss')`;
-    
-    data.item.forEach((x) => {
-
+    var sql = `INSERT INTO buy_order (m_id, pick_up_date, payment, pay_state, pickup_method, co_state, remark, shipping) VALUES (?, '2023-02-16 14:02:03', '銀行轉帳', '未付款', '宅配', '未製作', 'wwwwwwwww', '未出貨')`;
+    db.exec(sql,[data.m_id],function(result, fields){
+        // console.log(result.insertId)
+        data.item.forEach((x) => {
         // console.log(data.m_id);
         // console.log(x.name);
         // console.log(x.quantity);
-        db.exec(sql, [data.m_id, x.name, x.quantity], function (result, fields) {
-            console.log(result.insertId)
+        db.exec(`INSERT INTO cake_order (o_id, c_id, quantity) VALUES ( ?, ?, ?)`, [result.insertId, x.name, x.quantity], function (result2, fields) {
+            // console.log(result2.insertId)
 
             res.end()
         })
+    })
+    
     });
 
 })
