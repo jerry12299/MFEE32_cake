@@ -1,7 +1,7 @@
 @import url("https://www.w3schools.com/w3css/4/w3.css");
 @import "main_ginnychen19.css";
 
-body{
+body {
     flex-direction: column;
 }
 
@@ -77,6 +77,18 @@ body{
     color: var(--color06);
 }
 
+.list>tr>td:after {
+    display: block;
+    content: '';
+    
+    border-bottom: 2px solid var(--color04);
+    transform: scaleX(0);
+    transform-origin:   0% 100%;
+    transition: transform 250ms ease-in-out;
+}
+.list>tr>td:hover:after{ transform: scaleX(1); transform-origin: 0% 100%; }
+
+
 /*========右邊蛋糕展示區========================================*/
 /*-----標題設定------*/
 .PMCake_show {
@@ -114,6 +126,7 @@ body{
 .PMCake_show_content>p {
     margin: 0;
 }
+
 /*-----蛋糕列設定------*/
 .PMCake_show_commodity {
     width: 100%;
@@ -138,7 +151,8 @@ body{
     padding: 0 20px;
     margin: 0 20px 20px 20px;
 }
-.commodity_item>div:first-child{
+
+.commodity_item>div:first-child {
     transition: 1s ease;
 }
 
@@ -149,7 +163,7 @@ body{
 
     /* background-image: url(../Style/IMG/mimisbakehouse-website-8-web.jpg),
                       linear-gradient( rgba(30, 75, 115, 1), rgba(255, 255, 255, 0)); */
-    
+
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -181,7 +195,7 @@ body{
 }
 
 /*-----蛋糕列hover用------*/
-fork{
+fork {
     height: 50px;
     width: 50px;
 
@@ -195,10 +209,11 @@ fork{
 
     background-size: contain;
     background-position: center;
-    background-repeat:no-repeat ;
-    
+    background-repeat: no-repeat;
+
 }
-color{
+
+color {
     position: absolute;
     top: -64px;
     right: 0px;
@@ -210,9 +225,3 @@ color{
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.3);
 }
-
-
-
-
-
-
