@@ -425,13 +425,15 @@ index.post('/buy', function (req, res) {
 index.post('/buyitem', function (req, res) {
     var data = req.body;
     // console.log(data)
+    //先送出訂購者資料，取得訂購編號
     var sql = `INSERT INTO buy_order (m_id, pick_up_date, payment, pay_state, pickup_method, co_state, remark, shipping) VALUES (?, '2023-02-16 14:02:03', '銀行轉帳', '未付款', '宅配', '未製作', 'wwwwwwwww', '未出貨')`;
     db.exec(sql,[data.m_id],function(result, fields){
-        // console.log(result.insertId)
+        // console.log(result.insertId) //訂購編號 o_id
         data.item.forEach((x) => {
         // console.log(data.m_id);
         // console.log(x.name);
         // console.log(x.quantity);
+     //用取得的訂購編號，送出訂購的蛋糕資料
         db.exec(`INSERT INTO cake_order (o_id, c_id, quantity) VALUES ( ?, ?, ?)`, [result.insertId, x.name, x.quantity], function (result2, fields) {
             // console.log(result2.insertId)
 
@@ -442,5 +444,18 @@ index.post('/buyitem', function (req, res) {
     });
 
 })
+
+//----------------修改狀態
+index.post('/change', function (req, res) {
+    var data = req.body;
+
+    db.exec(`UPDATE buy_order SET ${data.dbName} = ? WHERE buy_order.o_id = ?`,[data.value,data.o_id],function(result, fields){
+            res.end();
+    })
+})
+
+
+
+
 module.exports = index;
 
