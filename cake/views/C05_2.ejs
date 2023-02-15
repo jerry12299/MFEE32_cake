@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/main_ginnychen19.css">
     <link rel="stylesheet" href="../css/BEndOrder.css">
     <script src="../js/jquery-3.6.0.js"></script>
 </head>
@@ -140,14 +140,36 @@
                                     <table class="contactRight">
                                         <tr>
                                             <td>
-                                                <div>取貨備註
-                                                    <div>(若是非勾同收件人，則把內容存進這裡取貨備註欄裡)無備註</div>
+                                                <div>
+                                                    <select name="???????">
+                                                        <option selected="selected">訂單狀態</option>
+                                                        <option value="1">未製作</option>
+                                                        <option value="2">已製作</option>
+                                                        <option value="3">申請取消</option>
+                                                        <option value="4">已取消</option>
+                                                    </select>
+                                                
+                                                    <select name="???????">
+                                                        <option selected="selected">付款狀態</option>
+                                                        <option value="1">未付款</option>
+                                                        <option value="2">已付款</option>
+                                                        <option value="3">已退款</option>
+                                                    </select>
+                                            
+                                                    <select name="???????">
+                                                        <option selected="selected">出貨狀態</option>
+                                                        <option value="1">未配送</option>
+                                                        <option value="2">已配送</option>
+                                                        <option value="3">未取貨</option>
+                                                        <option value="4">已取貨</option>
+                                                        <option value="5">已取消</option>
+                                                    </select>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <div>訂單備註
+                                                <div>訂單與取貨備註
                                                     <div><%= item.remark%></div>
                                                 </div>
                                             </td>

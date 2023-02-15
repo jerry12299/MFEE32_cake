@@ -5,17 +5,17 @@
 
 @font-face {
     font-family: "GenJyuuGothic-L";
-    src: url("../Source/ttc/GenSenRounded-L.ttc");
+    src: url("Source/ttc/GenSenRounded-L.ttc");
 }
 
 @font-face {
     font-family: "GenJyuuGothic-B";
-    src: url("../Source/ttc/GenSenRounded-B.ttc")
+    src: url("Source/ttc/GenSenRounded-B.ttc")
 }
 
 @font-face {
     font-family: "GenJyuuGothic-H";
-    src: url("../Source/ttc/GenSenRounded-H.ttc");
+    src: url("Source/ttc/GenSenRounded-H.ttc");
 }
 
 :root {

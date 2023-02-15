@@ -160,14 +160,15 @@
     </footer>
 
     <script>
-        $(function () {
+        $(function () { 
             CakePic = $(".commodity_item>div:first-of-type>a");
             // console.log(CakePic);
             $(CakePic).hover(
                 function (a) {
-                    console.log("a.target=", $(a.target));
-                    //a=event   a.target=img 
-                    $(a.target).after('<fork>&nbsp;</fork>', '<p>點我看詳細</p>', '<color></color>');
+                    // console.log("a.target=", $(a.target));
+                    // console.log(this);
+                    //a=event   a.target=img  this=<a>
+                    $(this).append('<fork>&nbsp;</fork>', '<p>點我看詳細</p>', '<color></color>');
 
                     const mypicDiv = $(a.target).parent().parent()
                     mypicDiv.css({
@@ -177,6 +178,7 @@
                     a.stopPropagation();
                 },
                 function (b) {
+                    console.log(this);
                     console.log("b.target=", $(b.target).prevUntil("img"));
                     add = $(b.target).prevUntil("img");
                     $(b.target).remove();
@@ -199,6 +201,18 @@
                 }
             );
         });
+
+        // CakePic = $(".commodity_item>div:first-of-type>a");
+
+        // $(CakePic).on("mouseenter", function () {
+        //     const ThisDetail = $(this).parent().parent().next();
+        //     $(this).toggleClass("open");
+        //     ThisDetail.toggle(function () {
+
+        //     }, function () {
+
+        //     });
+        // })
     </script>
 </body>
 

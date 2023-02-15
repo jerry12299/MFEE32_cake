@@ -197,9 +197,9 @@ tr.detail>td>div{
 /*=====================detail中灰色區塊====================*/
 .contact{
     display: flex;
-    width: fit-content;
+    width: 100%;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: space-around;
     margin: 0 0 0 10px;
     padding: 0 10px;
     border-radius: 12px;
@@ -216,12 +216,16 @@ tr.detail>td>div{
 .contact>table.contactLeft td:nth-child(2){
     padding: 10px;
     text-align: start;
-    min-width:150px;
+    min-width:200px;
     /* background-color: aquamarine; */
 }
 .contact>table.contactRight{
     color: var(--color01);
     text-align: start;
+}
+
+.contact>table.contactRight select{
+    background-color: var(--color01);
 }
 .contact>table.contactRight div>div{
     padding: 10px;
