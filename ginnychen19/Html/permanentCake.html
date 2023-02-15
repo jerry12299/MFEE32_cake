@@ -159,61 +159,7 @@
         <p>&nbsp;</p>
     </footer>
 
-    <script>
-        $(function () { 
-            CakePic = $(".commodity_item>div:first-of-type>a");
-            // console.log(CakePic);
-            $(CakePic).hover(
-                function (a) {
-                    // console.log("a.target=", $(a.target));
-                    // console.log(this);
-                    //a=event   a.target=img  this=<a>
-                    $(this).append('<fork>&nbsp;</fork>', '<p>點我看詳細</p>', '<color></color>');
-
-                    const mypicDiv = $(a.target).parent().parent()
-                    mypicDiv.css({
-                        transform: "rotate(30deg)",
-                    })
-
-                    a.stopPropagation();
-                },
-                function (b) {
-                    console.log(this);
-                    console.log("b.target=", $(b.target).prevUntil("img"));
-                    add = $(b.target).prevUntil("img");
-                    $(b.target).remove();
-                    $(add).remove();
-
-                    const mypicDiv = $(".commodity_item>div")
-                    mypicDiv.css({
-                        transform: "rotate(0deg)",
-                    })
-
-                    if ($(b.target).is("fork")) {
-                        add = $(b.target).prevUntil("img");
-                        $(b.target).remove();
-                        $(add).remove();
-
-
-                    }
-
-                    b.stopPropagation();
-                }
-            );
-        });
-
-        // CakePic = $(".commodity_item>div:first-of-type>a");
-
-        // $(CakePic).on("mouseenter", function () {
-        //     const ThisDetail = $(this).parent().parent().next();
-        //     $(this).toggleClass("open");
-        //     ThisDetail.toggle(function () {
-
-        //     }, function () {
-
-        //     });
-        // })
-    </script>
+    <script src="../js/permanentCake.js"></script>
 </body>
 
 </html>
