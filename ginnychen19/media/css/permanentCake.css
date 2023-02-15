@@ -77,17 +77,18 @@ body {
     color: var(--color06);
 }
 
-.list>tr>td:after {
+.list>tr>td>a:after {
     display: block;
     content: '';
-    
-    border-bottom: 2px solid var(--color04);
+    border-bottom: solid 2px #019fb6;
     transform: scaleX(0);
-    transform-origin:   0% 100%;
+    transform-origin:  0% ;
     transition: transform 250ms ease-in-out;
 }
-.list>tr>td:hover:after{ transform: scaleX(1); transform-origin: 0% 100%; }
-
+.list>tr>td>a:hover:after {
+    border-bottom: solid 2px #019fb6;
+    transform: scaleX(1);
+}
 
 /*========右邊蛋糕展示區========================================*/
 /*-----標題設定------*/
@@ -152,10 +153,6 @@ body {
     margin: 0 20px 20px 20px;
 }
 
-.commodity_item>div:first-child {
-    transition: 1s ease;
-}
-
 .commodity_item img {
     width: 150px;
     height: 150px;
@@ -179,6 +176,10 @@ body {
     right: 25px;
     z-index: 2;
     color: var(--color01);
+}
+
+.commodity_item>div {
+    transition: 0.5s ease-in-out;
 }
 
 .commodity_item>div:nth-child(2) {
