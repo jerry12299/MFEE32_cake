@@ -341,6 +341,10 @@ th {
     margin: 15px 0;
 }
 
+#Succeed_list>div:nth-last-child(1)>h1{
+    color: red;
+}
+
 
 /* ----------------footer------------------ */
 footer {
