@@ -20,28 +20,28 @@ function login_api(req, res, next) { //判斷是否登入
 
 index.get('/', function (req, res) {
     // res.redirect('/') //.redirect 重新導向 
-    
+
     res.render('index.ejs')
 })
 
 
-index.get('/C01',function(req,res){ //主題蛋糕頁
+index.get('/C01', function (req, res) { //主題蛋糕頁
     res.render('C01.ejs')
 })
 
-index.get('/C01_2',function(req,res){ //主題蛋糕頁
+index.get('/C01_2', function (req, res) { //主題蛋糕頁
     res.render('C01_2.ejs')
 })
-index.get('/C02',function(req,res){ //客制蛋糕頁
+index.get('/C02', function (req, res) { //客制蛋糕頁
     res.render('C02.ejs')
 })
-index.get('/C03',function(req,res){ //餡料介紹
+index.get('/C03', function (req, res) { //餡料介紹
     res.render('C03.ejs')
 })
-index.get('/C04',function(req,res){ //常見問題
+index.get('/C04', function (req, res) { //常見問題
     res.render('C04.ejs')
 })
-index.get('/C05',function(req,res){ //登入頁
+index.get('/C05', function (req, res) { //登入頁
     res.render('C05.ejs')
 })
 
@@ -66,7 +66,7 @@ index.post('/C05', function (req, res) {
 
 
 
-index.get('/C06',function(req,res){ //購物車
+index.get('/C06', function (req, res) { //購物車
     res.render('C06.ejs')
 })
 
@@ -76,40 +76,58 @@ index.get('/C06',function(req,res){ //購物車
 
 //--------------------- 主題蛋糕
 //([0-9]+) 0-9 不限數量
-index.get('/C05_2/:page([0-9]+)',rights_api, function (req, res) {
+index.get('/C05_2/:page([0-9]+)', rights_api, function (req, res) {
     var page = req.params.page   //page=網址列的page數字
     var nums_per_page = 10
     var offset = (page - 1) * nums_per_page
+    var sql = `SELECT buy_order.o_id,co_upload_date,pick_up_date,payment,pay_state,pickup_method,co_state,remark,shipping,email,m_name,phone,order_total FROM buy_order , member, 
+    (
+    SELECT o_id, sum(total)as order_total FROM 
+    (
+    SELECT buy_order.o_id,c_name,price,quantity,price*quantity as total FROM buy_order , cake_order, commodity WHERE buy_order.o_id = cake_order.o_id and cake_order.c_id = commodity.c_id
+    )as a 
+    GROUP BY o_id
+    )as b
+    WHERE buy_order.m_id = member.m_id and buy_order.o_id = b.o_id LIMIT ${offset}, ${nums_per_page};`  //sql指令 顯示10筆1頁
     // 使用db.js裡的exec函式，也就是apple函式                                // 給函式3個參數
     // db.exec(`SELECT * FROM cake_order LIMIT ${offset}, ${nums_per_page};`,  //sql指令 顯示10筆1頁
-    db.exec(`select co_id,m_name,co_upload_date,pick_up_date,c_name,price,quantity,co_state,method,remark,email,phone,price*quantity as amount FROM cake_order,commodity,member WHERE cake_order.c_id = commodity.c_id and cake_order.m_id = member.m_id LIMIT ${offset}, ${nums_per_page};`,  //sql指令 顯示10筆1頁
+    db.exec(sql,
         [],                                                                   //有?時填的資料，沒有就給空[]
         function (data, fields) {             //function()的{}頭                                
             // console.log('mask_js_data:',data);  //資料庫傳來的內容 10筆1頁
 
-            db.exec(`SELECT COUNT(*) AS COUNT FROM cake_order`, //sql指令 資料總和
+            db.exec(`SELECT COUNT(*) AS COUNT FROM buy_order`, //sql指令 資料總和
                 [],
                 function (nums, fields) {
-                    // console.log('mask_js_nums:',nums); // [COUNT:28]
-                    // console.log('mask_js_nums[0].COUNT:',nums[0].COUNT); // 28
-                    var last_page = Math.ceil(nums[0].COUNT / nums_per_page) // 無條件進位  28/10 = 3
 
-                    if (page > last_page||page == 0) { //如果大於最大頁數
-                        res.redirect('/C05_2/' + last_page) //跳轉到最後一頁
-                        return
-                    }
+                    db.exec(`SELECT buy_order.o_id,c_name,price,quantity,price*quantity as total FROM buy_order , cake_order, commodity WHERE buy_order.o_id = cake_order.o_id and cake_order.c_id = commodity.c_id`, [], function (orderData,fields) {
 
-                    res.render('C05_2.ejs', { //跳轉到index.ejs
-                        data: data,                   //data:資料庫傳來的內容 10筆1頁
-                        curr_page: page,              //curr_page:網址列的page數字
-                        total_nums: nums[0].COUNT,    //total_nums: 28
-                        last_page: last_page          //last_page: 3
+                        // console.log('mask_js_nums:',nums); // [COUNT:28]
+                        // console.log('mask_js_nums[0].COUNT:',nums[0].COUNT); // 28
+                        var last_page = Math.ceil(nums[0].COUNT / nums_per_page) // 無條件進位  28/10 = 3
+
+                        if (page > last_page || page == 0) { //如果大於最大頁數
+                            res.redirect('/C05_2/' + last_page) //跳轉到最後一頁
+                            return
+                        }
+
+                        res.render('C05_2.ejs', { //跳轉到index.ejs
+                            data: data,
+                            order_D:orderData,                   //data:資料庫傳來的內容 10筆1頁
+                            curr_page: page,              //curr_page:網址列的page數字
+                            total_nums: nums[0].COUNT,    //total_nums: 28
+                            last_page: last_page          //last_page: 3
+                        })
+
+
+
                     })
+
                 })     //第二個db.exec的()尾 
         })        //function()的{}尾  第一個db.exec的()尾 
 })
 //-------------------------客製化頁面
-index.get('/C05_3/:page([0-9]+)',rights_api, function (req, res) {
+index.get('/C05_3/:page([0-9]+)', rights_api, function (req, res) {
     var page = req.params.page   //page=網址列的page數字
     var nums_per_page = 10
     var offset = (page - 1) * nums_per_page
@@ -189,19 +207,19 @@ index.post('/C05_1', function (req, res) {
 
 //-----------驗證
 index.post('/email', function (req, res) {
-        var email = req.body.email;
-        
-        var sql = `SELECT email FROM member WHERE email = ?;`
-        db.exec(sql, [email], function (results, fields) {
+    var email = req.body.email;
+
+    var sql = `SELECT email FROM member WHERE email = ?;`
+    db.exec(sql, [email], function (results, fields) {
         //    console.log(results[0]) 
-            if(results[0]){
-                res.end('0');
-            }else{
-                res.end('1');
-            }
+        if (results[0]) {
+            res.end('0');
+        } else {
+            res.end('1');
+        }
 
 
-        })
+    })
 })
 
 
@@ -219,15 +237,16 @@ var rabbit = multer.diskStorage({
         cb(null, today + '.' + file.originalname.split(".").pop());  // 自定義檔案名稱
         // cb(null, today);  // 自定義檔案名稱
     }
-}); 
-var cat = multer({ storage: rabbit
+});
+var cat = multer({
+    storage: rabbit
     //,
-                    // fileFilter:function(){
-                    //     if(file.mimetype != 'image/gif'  &&   file.mimetype != 'image/png'    ){
-                    //        //跟使用者說檔案必須是 gif 或者 png     
-                    //     }
+    // fileFilter:function(){
+    //     if(file.mimetype != 'image/gif'  &&   file.mimetype != 'image/png'    ){
+    //        //跟使用者說檔案必須是 gif 或者 png     
+    //     }
 
-                    //}
+    //}
 
 });
 
@@ -236,11 +255,11 @@ index.get('/C02', function (req, res) {
     res.render('C02.ejs') //跳轉到客制化.ejs
 })
 
-index.post('/C02', login_api,cat.single('img'), function (req, res) {
+index.post('/C02', login_api, cat.single('img'), function (req, res) {
     var body = JSON.parse(req.body.data)       //回傳的 post 資料
     var form = `${body.size},${body.taste}口味`
     // console.log(req.file.filename); //檔名
-    
+
     var sql = `INSERT INTO customized(m_id,cust_form,cust_state,picture) VALUES(?,?,?,?);`
     // post資料做成陣列 傳來的必為字串
     // parseInt 轉數字
@@ -253,19 +272,27 @@ index.post('/C02', login_api,cat.single('img'), function (req, res) {
             res.end('insert failed');
         }
     })
-    
+
 })
 
 //-----------------------------會員介面
 
 //---------------主題蛋糕訂單頁
-index.get('/C05_4/:page([0-9]+)',login_api, function (req, res) { 
+index.get('/C05_4/:page([0-9]+)', login_api, function (req, res) {
     var page = req.params.page   //page=網址列的page數字
     var nums_per_page = 10
     var offset = (page - 1) * nums_per_page
     // 使用db.js裡的exec函式，也就是apple函式                                // 給函式3個參數
     // db.exec(`SELECT * FROM cake_order LIMIT ${offset}, ${nums_per_page};`,  //sql指令 顯示10筆1頁
-    db.exec(`select co_id,m_id,co_upload_date,pick_up_date,c_name,quantity,co_state,method,remark FROM cake_order,commodity WHERE cake_order.c_id = commodity.c_id and cake_order.m_id = ? LIMIT ${offset}, ${nums_per_page};`,  //sql指令 顯示10筆1頁
+    db.exec(`SELECT buy_order.o_id,co_upload_date,pick_up_date,payment,pay_state,pickup_method,co_state,remark,shipping,email,m_name,phone,order_total FROM buy_order , member, 
+    (
+    SELECT o_id, sum(total)as order_total FROM 
+    (
+    SELECT buy_order.o_id,c_name,price,quantity,price*quantity as total FROM buy_order , cake_order, commodity WHERE buy_order.o_id = cake_order.o_id and cake_order.c_id = commodity.c_id
+    )as a 
+    GROUP BY o_id
+    )as b
+    WHERE buy_order.m_id = member.m_id and buy_order.o_id = b.o_id and member.m_id = ? LIMIT ${offset}, ${nums_per_page};`,  //sql指令 顯示10筆1頁
         [req.session.user.m_id],                                                                   //有?時填的資料，沒有就給空[]
         function (data, fields) {             //function()的{}頭                                
             // console.log('mask_js_data:',data);  //資料庫傳來的內容 10筆1頁
@@ -273,6 +300,8 @@ index.get('/C05_4/:page([0-9]+)',login_api, function (req, res) {
             db.exec(`SELECT COUNT(*) AS COUNT FROM cake_order`, //sql指令 資料總和
                 [],
                 function (nums, fields) {
+                db.exec(`SELECT buy_order.o_id,c_name,price,quantity,price*quantity as total FROM buy_order , cake_order, commodity WHERE buy_order.o_id = cake_order.o_id and cake_order.c_id = commodity.c_id and m_id = ?`, [req.session.user.m_id], function (orderData,fields) {
+
                     // console.log('mask_js_nums:',nums); // [COUNT:28]
                     // console.log('mask_js_nums[0].COUNT:',nums[0].COUNT); // 28
                     var last_page = Math.ceil(nums[0].COUNT / nums_per_page) // 無條件進位  28/10 = 3
@@ -284,10 +313,13 @@ index.get('/C05_4/:page([0-9]+)',login_api, function (req, res) {
 
                     res.render('C05_4.ejs', { //跳轉到主題蛋糕訂單頁ejs
                         data: data,                   //data:資料庫傳來的內容 10筆1頁
+                        order_D:orderData,
                         curr_page: page,              //curr_page:網址列的page數字
                         total_nums: nums[0].COUNT,    //total_nums: 28
                         last_page: last_page          //last_page: 3
                     })
+
+                })
                 })     //第二個db.exec的()尾 
         })        //function()的{}尾  第一個db.exec的()尾 
 })
@@ -297,32 +329,32 @@ index.get('/C05_4/:page([0-9]+)',login_api, function (req, res) {
 index.get('/logout', function (req, res) {
     req.session.destroy() // 刪光session 
     res.redirect('/')
-    
+
 })
 //---------------會員資料修改
-index.get('/C05_4_1',login_api, function (req, res) {
+index.get('/C05_4_1', login_api, function (req, res) {
     var sql = `SELECT * FROM member WHERE m_id = ?`;
     var data = [req.session.user.m_id];
-    db.exec(sql,data,function(data, fields){
+    db.exec(sql, data, function (data, fields) {
         // console.log(data[0]); //資料是[{}]形式
-    res.render('C05_4_1.ejs',{
-        data: data[0]  
+        res.render('C05_4_1.ejs', {
+            data: data[0]
+        })
     })
-    })
-    
+
 })
- //更新資料
-index.post('/C05_4_2',login_api,function(req, res){
+//更新資料
+index.post('/C05_4_2', login_api, function (req, res) {
     var sql = `UPDATE member SET pwd =?,m_name	= ?,birthday= ? ,gender= ?, phone = ?, address = ? WHERE member.m_id = ?;`;
     var data = [req.body.pwd,
-                req.body.m_name,
-                req.body.birthday,
-                req.body.gender,
-                req.body.phone,
-                req.body.address,
-                req.session.user.m_id];
-     console.log(data);           
-    db.exec(sql,data,function(result, fields){
+    req.body.m_name,
+    req.body.birthday,
+    req.body.gender,
+    req.body.phone,
+    req.body.address,
+    req.session.user.m_id];
+    console.log(data);
+    db.exec(sql, data, function (result, fields) {
         if (result.affectedRows) {
             res.end('update success')
         } else {
@@ -332,7 +364,7 @@ index.post('/C05_4_2',login_api,function(req, res){
 })
 //----------------------客製蛋糕頁面
 
-index.get('/C05_4_2/:page([0-9]+)',login_api, function (req, res) { 
+index.get('/C05_4_2/:page([0-9]+)', login_api, function (req, res) {
     var page = req.params.page   //page=網址列的page數字
     var nums_per_page = 10
     var offset = (page - 1) * nums_per_page
@@ -366,46 +398,49 @@ index.get('/C05_4_2/:page([0-9]+)',login_api, function (req, res) {
 })
 
 //---------------------------顯示圖片
-index.get('/picture/:pname',login_api, function (req, res) { 
+index.get('/picture/:pname', login_api, function (req, res) {
     // console.log(req.params.pname)
-    var url = '/upload/'+req.params.pname
-    
-   res.render('picture.ejs',{
-    pUrl:url
-   })
-   
+    var url = '/upload/' + req.params.pname
+
+    res.render('picture.ejs', {
+        pUrl: url
+    })
+
 })
 
 //-----------------加入購物車
 // console.log(req.session.buy);
-index.post('/buy',function(req,res){
-var data = req.body;
-// console.log(data.name)
-var sql = `SELECT c_name,price FROM commodity WHERE c_id = ?`
+index.post('/buy', function (req, res) {
+    var data = req.body;
+    // console.log(data.name)
+    var sql = `SELECT c_name,price FROM commodity WHERE c_id = ?`
 
-db.exec(sql,[data.name],function(result, fields){
-    // console.log(result[0]) 
+    db.exec(sql, [data.name], function (result, fields) {
+        // console.log(result[0]) 
 
-    res.end(JSON.stringify(result[0]))
-})
+        res.end(JSON.stringify(result[0]))
+    })
 })
 //-------------------送出購買
-index.post('/buyitem',function(req,res){
+index.post('/buyitem', function (req, res) {
     var data = req.body;
     // console.log(data)
-    var sql = `INSERT INTO cake_order ( m_id, pick_up_date, c_id, quantity, co_state, method, remark) VALUES (?, '2023-02-16 10:59:34', ?, ?, '未製作', 'aaaa', 'sssss')`;
-    data.item.forEach((x) => {
-
+    var sql = `INSERT INTO buy_order (m_id, pick_up_date, payment, pay_state, pickup_method, co_state, remark, shipping) VALUES (?, '2023-02-16 14:02:03', '銀行轉帳', '未付款', '宅配', '未製作', 'wwwwwwwww', '未出貨')`;
+    db.exec(sql,[data.m_id],function(result, fields){
+        // console.log(result.insertId)
+        data.item.forEach((x) => {
         // console.log(data.m_id);
         // console.log(x.name);
         // console.log(x.quantity);
-        db.exec(sql,[data.m_id,x.name,x.quantity],function(result, fields){
-        console.log(result.insertId) 
-    
-        res.end()
+        db.exec(`INSERT INTO cake_order (o_id, c_id, quantity) VALUES ( ?, ?, ?)`, [result.insertId, x.name, x.quantity], function (result2, fields) {
+            // console.log(result2.insertId)
+
+            res.end()
+        })
     })
+    
     });
-    
-    })
+
+})
 module.exports = index;
 

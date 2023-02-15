@@ -1,5 +1,5 @@
 @import url("https://www.w3schools.com/w3css/4/w3.css");
-@import "main_ginnychen19.css";
+@import "main.css";
 
 body{
     flex-direction: column;
@@ -138,9 +138,6 @@ body{
     padding: 0 20px;
     margin: 0 20px 20px 20px;
 }
-.commodity_item>div:first-child{
-    transition: 1s ease;
-}
 
 .commodity_item img {
     width: 150px;
@@ -210,4 +207,9 @@ color{
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.3);
 }
+
+
+
+
+
 
