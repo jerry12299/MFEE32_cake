@@ -448,8 +448,12 @@ index.post('/buyitem', function (req, res) {
 //----------------修改狀態
 index.post('/change', function (req, res) {
     var data = req.body;
+    
 
-    db.exec(`UPDATE buy_order SET ${data.dbName} = ? WHERE buy_order.o_id = ?`,[data.value,data.o_id],function(result, fields){
+                                    //要改的欄位                              
+    db.exec(`UPDATE buy_order SET ${data.dbName} = ? WHERE buy_order.o_id = ?`,
+    [data.value,data.o_id],  //要改的內容  //要改的o_id  
+    function(result, fields){
             res.end();
     })
 })

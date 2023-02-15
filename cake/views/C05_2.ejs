@@ -234,9 +234,9 @@
     <script>
         function doChange(str,val,id){
             var JSONData = {
-                dbName:str,
-                value:val,
-                o_id:id
+                dbName:str,          //要改的欄位
+                value:val,           //要改的內容
+                o_id:id              //要改的編號
             }
 
             $.ajax({
