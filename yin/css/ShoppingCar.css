@@ -57,13 +57,21 @@ section {
     width: 75px;
     height: 75px;
     border-radius: 75px;
-    background-color: rgb(255, 223, 109);
+    background-color: rgb(173, 173, 173);
     border: 5px solid rgb(255, 255, 255);
     color: white;
     text-align: center;
     line-height: 80px;
 
     font-size: 2em;
+}
+
+.check {
+    background-color: rgb(255, 223, 109);
+}
+
+.uncheck {
+    opacity: 50%;
 }
 
 /* ----------------shopping--------------------- */
@@ -115,13 +123,13 @@ th {
     font-size: 1.2em;
 }
 
-td {
+#ShoppingList>tbody td {
     height: 150px;
 }
 
 
 
-#Totle {
+.Totle {
     width: 18vw;
     background-color: #fff;
     border-radius: 10px;
@@ -132,7 +140,7 @@ td {
     padding: 20px;
 }
 
-#Totle h1 {
+#Shopping_Totle h1 {
     color: red;
 }
 
@@ -145,13 +153,21 @@ td {
 
 /* ---------------------------------------- */
 /* page2  start */
+/* 文字輸入框-寬度 */
 .text_W {
     width: 100%;
     margin-top: 15px;
 }
 
-#Shopping_Check>div {
-    width: 80%;
+/* 收件地址的輸入框 */
+.address_input {
+    width: 25%;
+    margin-top: 15px;
+}
+
+#Shopping_Pay>div {
+    padding: 50px;
+    width: 85vw;
     display: flex;
     flex-direction: column;
     background-color: palevioletred;
@@ -159,7 +175,7 @@ td {
     border-radius: 10px;
 }
 
-#Shopping_Check div {
+#Shopping_Pay div {
     margin: 10px 20px;
 }
 
@@ -185,27 +201,18 @@ td {
     margin: 10px 20px;
 }
 
-#address>div {
-    width: 100%;
-}
+/* ------------------注意事項------------------- */
 
-#address input:nth-child(1){
-    width: 20%;
-}
 
-#address input:nth-child(2){
-    width: 75%;
-}
-
-#Page_note>div{
+#Page_note>div {
+    width: 85vw;
     background-color: aquamarine;
     display: flex;
-    flex-direction: row;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 30px 20px;
     border-radius: 10px;
-    
-
 }
 
 #note {
@@ -217,12 +224,11 @@ td {
 .title {
     font-size: 1.5em;
     margin-right: 20px;
-
 }
 
 
 #hit {
-    padding-top: 50px;
+    padding: 30px;
 }
 
 #hit ul {
@@ -231,9 +237,112 @@ td {
 
 #hit li {
     margin: 15px;
-
 }
 
+#btn_pay {
+    width: 20vw;
+    border-radius: 10px;
+    padding: 20px;
+    border: none;
+    font-size: 1.2em;
+}
+
+#btn_pay>div {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ------------------Succeed--------------- */
+.textarea {
+    background-color: antiquewhite;
+    border-radius: 10px;
+    width: 95%;
+    height: 75px;
+    padding: 10px;
+    text-align: left;
+}
+
+.list_title {
+    font-size: 1.2em;
+}
+
+#Page_Succeed hr {
+    border: 2px dashed rgb(38, 26, 26);
+}
+
+#meg_Succeed {
+    background-color: rgb(255, 246, 236);
+    padding: 50px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#meg_Succeed>h1 {
+    font-size: 2em;
+}
+/*整個訂單區塊*/
+#Page_Succeed>div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    background-color: aliceblue;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+/*訂單--編號區塊*/
+#Succeed_list>div:nth-child(1) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom:2px dashed rgb(52, 81, 24) ;
+}
+/*訂單--中間區塊*/
+#Succeed_body {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    border-bottom:2px dashed rgb(52, 81, 24) ;
+}
+
+#Succeed_body>table:nth-child(1) {
+    border-radius: 10px;
+    width: 35vw;
+}
+
+#Succeed_body>table>tbody td:nth-child(1) {
+    height: 150px;
+}
+
+#Succeed_body>div {
+    margin: 0 0 0 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgb(125, 125, 125);
+    width: 35vw;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+#Succeed_body>div>table {
+    text-align: left;
+}
+
+#Succeed_body>div>table tr {
+    height: 50px;
+}
+
+#Succeed_body>div>span {
+    margin: 15px 0;
+}
+
+
+/* ----------------footer------------------ */
 footer {
     width: 100%;
     background-color: rgb(110, 186, 227);

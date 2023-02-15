@@ -28,18 +28,18 @@
         <img src="https://dummyimage.com/1400x400/38ffeb/fff" alt="廣告輪播" width="100%">
         <div id="Step">
             <div>
-                <div class="circle">1</div>
+                <div class="circle check">1</div>
                 <p>選購商品</p>
             </div>
-            <div>
-                <div class="circle">2</div>
+            <div class=" uncheck">
+                <div class="circle ">2</div>
                 <p>登入會員</p>
             </div>
-            <div>
+            <div class=" uncheck">
                 <div class="circle">3</div>
                 <p>確認資料</p>
             </div>
-            <div>
+            <div class=" uncheck">
                 <div class="circle">4</div>
                 <p>購物完成</p>
             </div>
@@ -103,11 +103,9 @@
                         <input type="radio" name="transport">黑貓冷凍宅配---運費270元
                     </div>
                 </div>
-                <div id="Totle">
+                <div id="Shopping_Totle" class="Totle">
                     <h3>訂單總金額：</h3>
-                    <div>
-                        <h1>NT$350</h1>
-                    </div>
+                    <h1>NT$350</h1>
                 </div>
                 <div>
                     <a href=""><button class="btn">回上頁繼續購物</button></a>
@@ -117,9 +115,8 @@
             </div>
         </div>
     </section>
-    <section id="Shopping_Check">
+    <section id="Shopping_Pay">
         <div>
-
             <div>
                 <label for="pay" class="title">付款方式</label>
                 <select class="text_W" id="pay">
@@ -162,11 +159,10 @@
                 <input class="text_W" type="email" placeholder="請輸入電子信箱" required>
             </div>
             <div id="address">
-                <label for="">收件地址：</label>
-                <div>
-                    <input type="text" placeholder="請輸入3+2郵遞區號" required>
-                    <input type="text" placeholder="請填入地址" required>
-                </div>
+                <label for="">收件地址：</label><br>
+                <input type="text" class="address_input" placeholder="請輸入3+2郵遞區號" required>
+                <br>
+                <input type="text" class="text_W" placeholder="請填入地址" required>
             </div>
             <div>
                 <label for="">備註：</label>
@@ -230,11 +226,10 @@
                 <input class="text_W" type="email" placeholder="請輸入電子信箱" required>
             </div>
             <div id="address">
-                <label for="">收件地址：</label>
-                <div>
-                    <input type="text" placeholder="請輸入3+2郵遞區號" required>
-                    <input type="text" placeholder="請填入地址" required>
-                </div>
+                <label for="">收件地址：</label><br>
+                <input type="text" class="address_input" placeholder="請輸入3+2郵遞區號" required>
+                <br>
+                <input type="text" class="text_W" placeholder="請填入地址" required>
             </div>
             <div>
                 <label for="">宅配備註：</label>
@@ -242,6 +237,7 @@
             </div>
         </div>
     </section>
+    <hr width="90%">
     <section id="Page_note">
         <div>
             <div id="hit">
@@ -255,13 +251,90 @@
                     <li>世界需要改革，需要對蛋糕有新的認知。</li>
                 </ul>
             </div>
-            <div class="btn">
+            <div id="btn_pay">
                 <div>
                     <a href=""><button class="btn">回上頁</button></a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <a href=""><button class="btn">確認結帳</button></a>
                 </div>
             </div>
+        </div>
+    </section>
+    <section>
+        <div id="Page_Succeed">
+            <div id="meg_Succeed">
+                <h1>訂購成功！</h1>
+                <span>之後需要確認訂單內容，可至&nbsp會員專區>我的訂單&nbsp中查看。</span>
+            </div>
+            <div id="Succeed_list">
+                <div>
+                    <h1>訂單編號#1234567</h1>
+                    <h3>訂單成立時間2023/02/15<br>
+                        蛋糕取貨日期2023/03/14
+                    </h3>
+                </div>
+                <div id="Succeed_body">
+                    <table>
+                        <thead>
+                            <th colspan="3">訂購內容</th>
+                            <th>單價</th>
+                            <th>數量</th>
+                            <th>小計</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="https://dummyimage.com/100x100/f58a7a/fff" alt="">
+                                </td>
+                                <td colspan="2">
+                                    <span>
+                                        商品名稱
+                                    </span>
+                                    <br>
+                                    <span>
+                                        商品詳情
+                                    </span>
+                                </td>
+                                <td>NT$350</td>
+                                <td>1</td>
+                                <td>NT$350</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div>
+                        <table>
+                            <tr>
+                                <td class="list_title">連絡電話：</td>
+                                <td>0912-345-678</td>
+                            </tr>
+                            <tr>
+                                <td class="list_title">電子郵件：</td>
+                                <td>helloworld@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td class="list_title">付款方式：</td>
+                                <td>來店付款</td>
+                            </tr>
+                            <tr>
+                                <td class="list_title">取貨方式：</td>
+                                <td>來店取貨</td>
+                            </tr>
+                            <tr>
+                                <td class="list_title">取貨時間：</td>
+                                <td>13:00-15:00</td>
+                            </tr>
+                        </table>
+                        <span class="list_title">訂單與取貨備註：</span>
+                        <div class="textarea">
+                            123
+                        </div>
+                    </div>
+                </div>
+                <div class="Totle">
+                    <h3>總金額：</h3>
+                    <h1>NT$350</h1>
+                </div>
+            </div>
+            
         </div>
     </section>
     <footer>
