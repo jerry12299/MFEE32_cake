@@ -284,7 +284,15 @@ index.get('/C05_4/:page([0-9]+)', login_api, function (req, res) {
     var offset = (page - 1) * nums_per_page
     // 使用db.js裡的exec函式，也就是apple函式                                // 給函式3個參數
     // db.exec(`SELECT * FROM cake_order LIMIT ${offset}, ${nums_per_page};`,  //sql指令 顯示10筆1頁
-    db.exec(`select co_id,m_id,co_upload_date,pick_up_date,c_name,quantity,co_state,method,remark FROM cake_order,commodity WHERE cake_order.c_id = commodity.c_id and cake_order.m_id = ? LIMIT ${offset}, ${nums_per_page};`,  //sql指令 顯示10筆1頁
+    db.exec(`SELECT buy_order.o_id,co_upload_date,pick_up_date,payment,pay_state,pickup_method,co_state,remark,shipping,email,m_name,phone,order_total FROM buy_order , member, 
+    (
+    SELECT o_id, sum(total)as order_total FROM 
+    (
+    SELECT buy_order.o_id,c_name,price,quantity,price*quantity as total FROM buy_order , cake_order, commodity WHERE buy_order.o_id = cake_order.o_id and cake_order.c_id = commodity.c_id
+    )as a 
+    GROUP BY o_id
+    )as b
+    WHERE buy_order.m_id = member.m_id and buy_order.o_id = b.o_id and member.m_id = ? LIMIT ${offset}, ${nums_per_page};`,  //sql指令 顯示10筆1頁
         [req.session.user.m_id],                                                                   //有?時填的資料，沒有就給空[]
         function (data, fields) {             //function()的{}頭                                
             // console.log('mask_js_data:',data);  //資料庫傳來的內容 10筆1頁
@@ -292,6 +300,8 @@ index.get('/C05_4/:page([0-9]+)', login_api, function (req, res) {
             db.exec(`SELECT COUNT(*) AS COUNT FROM cake_order`, //sql指令 資料總和
                 [],
                 function (nums, fields) {
+                db.exec(`SELECT buy_order.o_id,c_name,price,quantity,price*quantity as total FROM buy_order , cake_order, commodity WHERE buy_order.o_id = cake_order.o_id and cake_order.c_id = commodity.c_id and m_id = ?`, [req.session.user.m_id], function (orderData,fields) {
+
                     // console.log('mask_js_nums:',nums); // [COUNT:28]
                     // console.log('mask_js_nums[0].COUNT:',nums[0].COUNT); // 28
                     var last_page = Math.ceil(nums[0].COUNT / nums_per_page) // 無條件進位  28/10 = 3
@@ -303,10 +313,13 @@ index.get('/C05_4/:page([0-9]+)', login_api, function (req, res) {
 
                     res.render('C05_4.ejs', { //跳轉到主題蛋糕訂單頁ejs
                         data: data,                   //data:資料庫傳來的內容 10筆1頁
+                        order_D:orderData,
                         curr_page: page,              //curr_page:網址列的page數字
                         total_nums: nums[0].COUNT,    //total_nums: 28
                         last_page: last_page          //last_page: 3
                     })
+
+                })
                 })     //第二個db.exec的()尾 
         })        //function()的{}尾  第一個db.exec的()尾 
 })
@@ -413,6 +426,7 @@ index.post('/buyitem', function (req, res) {
     var data = req.body;
     // console.log(data)
     var sql = `INSERT INTO cake_order ( m_id, pick_up_date, c_id, quantity, co_state, method, remark) VALUES (?, '2023-02-16 10:59:34', ?, ?, '未製作', 'aaaa', 'sssss')`;
+    
     data.item.forEach((x) => {
 
         // console.log(data.m_id);
