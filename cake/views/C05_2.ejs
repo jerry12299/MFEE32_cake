@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/main_ginnychen19.css">
     <link rel="stylesheet" href="../css/BEndOrder.css">
     <!-- <script src="https://code.jquery.com/jquery-3.6.3.js"></script> -->
     <script src="../js/jquery-3.6.0.js"></script>
@@ -75,15 +75,15 @@
                     <% var puMi = item.pick_up_date.getMinutes()%>
                 <tbody>
                     <tr class="list">
-                        <td>#<%= item.co_id%></td>
+                        <td>#<%= item.o_id%></td>
                         <td><%= item.m_name%></td>
-                        <td>NT.<%= item.amount%></td>
+                        <td>NT.<%= item.order_total%></td>
                         <td><button>詳細</button></td>
                         <td><%= `${upYY}年${upMM}月${upDD}日${upHr}時${upMi}分` %></td>
                         <td><%= `${puYY}年${puMM}月${puDD}日${puHr}時${puMi}分` %></td>
                         <td><%= item.co_state%></td>
-                        <td>未付款</td>
-                        <td>未配送</td>
+                        <td><%= item.pay_state%></td>
+                        <td><%= item.shipping%></td>
                     </tr>
                     <tr class="detail">
                         <td colspan="9">
@@ -97,22 +97,28 @@
                                                 <td>小計</td>
                                             </tr>
                                         </thead>
+                                        <!-- 迴圈{ -->
+                                        <% order_D.forEach((o_item ,index) => { %>    
+                                            <% if(item.o_id===o_item.o_id){  %>
                                         <tbody>
                                             <tr>
                                                 <td>
                                                     <div>
-                                                        <%= item.c_name%>
+                                                       <%= o_item.c_name%>
                                                         <div class="itemsSizeFlavorCount">
                                                             <!-- <div>F</div>
                                                             <div>葡萄</div> -->
-                                                            <div>x<%= item.quantity%></div>
+                                                            <div>x<%= o_item.quantity %></div>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td><%= item.price %></td>
-                                                <td><%= item.amount %></td>
+                                                <td><%= o_item.price%></td>
+                                                <td><%= o_item.total%></td>
                                             </tr>
                                         </tbody>
+                                        <% }%>
+                                        <% }) %>
+                                        <!--  }-->
                                     </table>
                                 </div>
                                 <div class="contact">
@@ -127,11 +133,11 @@
                                         </tr>
                                         <tr>
                                             <td>付款方式</td>
-                                            <td>線上轉帳</td>
+                                            <td><%= item.payment %></td>
                                         </tr>
                                         <tr>
                                             <td>取貨方式</td>
-                                            <td><%= item.method%></td>
+                                            <td><%= item.pickup_method%></td>
                                         </tr>
                                         <tr>
                                             <td>取貨時間</td>
@@ -141,14 +147,44 @@
                                     <table class="contactRight">
                                         <tr>
                                             <td>
+                                                <div>
+                                                    <select name="???????">
+                                                        <option selected="selected">訂單狀態</option>
+                                                        <option value="1">未製作</option>
+                                                        <option value="2">已製作</option>
+                                                        <option value="3">申請取消</option>
+                                                        <option value="4">已取消</option>
+                                                    </select>
+                                                
+                                                    <select name="???????">
+                                                        <option selected="selected">付款狀態</option>
+                                                        <option value="1">未付款</option>
+                                                        <option value="2">已付款</option>
+                                                        <option value="3">已退款</option>
+                                                    </select>
+                                            
+                                                    <select name="???????">
+                                                        <option selected="selected">出貨狀態</option>
+                                                        <option value="1">未配送</option>
+                                                        <option value="2">已配送</option>
+                                                        <option value="3">未取貨</option>
+                                                        <option value="4">已取貨</option>
+                                                        <option value="5">已取消</option>
+                                                    </select>
+                                                </div>
+                                            
+                                            
+                                            </td>
+                                            <!-- <td>
+                                                
                                                 <div>取貨備註
                                                     <div>(若是非勾同收件人，則把內容存進這裡取貨備註欄裡)無備註</div>
                                                 </div>
-                                            </td>
+                                            </td> -->
                                         </tr>
                                         <tr>
                                             <td>
-                                                <div>訂單備註
+                                                <div>訂單與取貨備註
                                                     <div><%= item.remark%></div>
                                                 </div>
                                             </td>
@@ -192,6 +228,9 @@
         </div>
     </div>
     <script src="../js/BEndOrder.js"></script>
+    <script>
+        
+    </script>
 
 </body>
 
