@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08.餡料食材介紹</title>
+    <link rel="stylesheet" href="08-14.css">
+</head>
+
+<body>
+    <!-- 預留固定nav的位置 -->
+    <div class="navtop"></div>
+    <!-- 預留固定輪播的位置 -->
+    <div class="slideshow-container"></div>
+
+    <!-- ----內餡與食材區塊---- -->
+    <div class="stuffIngred">
+        <div class="stuffingArea">
+            <div class="stuffingtitle">
+                <h3>內餡</h3>
+            </div>
+            <div class="cakeboxarea">
+                <div class="cakebox">
+                    <div class="cakeboximg">
+                        <img src="https://tse1.mm.bing.net/th?id=OIP.KvBHesqBH9OKMDg4qw8UtAHaFN&pid=Api&P=0" alt="">
+                    </div>
+                    <div class="cakeboxWord" style="display:none;">
+                        <p>草莓覆盆子<p>
+                        <p>最暢銷口味，老少咸宜，孩子的最愛!<br><br>
+                            原物料: <br>蛋，三溫糖，覆盆子果泥，奶油，吉利丁，草莓<br>果粒/果泥，葡萄糖漿，柑橘果膠
+                        </p>
+                    </div>
+                </div>
+                <div class="cakebox">
+                    <div class="cakeboximg">
+                        <img src="https://tse1.mm.bing.net/th?id=OIP.KvBHesqBH9OKMDg4qw8UtAHaFN&pid=Api&P=0" alt="">
+                    </div>
+                    <div class="cakeboxWord" style="display:none;">
+                        <h4>草莓覆盆子</h4>
+                        <p>最暢銷口味，老少咸宜，孩子的最愛!<br><br>
+                            原物料: <br>蛋，三溫糖，覆盆子果泥，奶油，吉利丁，草莓<br>果粒/果泥，葡萄糖漿，柑橘果膠
+                        </p>
+                    </div>
+                </div>
+                <div class="cakebox">
+                    <div class="cakeboximg">
+                        <img src="https://tse1.mm.bing.net/th?id=OIP.KvBHesqBH9OKMDg4qw8UtAHaFN&pid=Api&P=0" alt="">
+                    </div>
+                    <div class="cakeboxWord" style="display: none;">
+                        <h4>草莓覆盆子</h4>
+                        <p>最暢銷口味，老少咸宜，孩子的最愛!<br><br>
+                            原物料: <br>蛋，三溫糖，覆盆子果泥，奶油，吉利丁，草莓<br>果粒/果泥，葡萄糖漿，柑橘果膠
+                        </p>
+                    </div>
+                </div>
+                <div class="cakebox">
+                    <div class="cakeboximg">
+                        <img src="https://tse1.mm.bing.net/th?id=OIP.KvBHesqBH9OKMDg4qw8UtAHaFN&pid=Api&P=0" alt="">
+                    </div>
+                    <div class="cakeboxWord" style="display:none;">
+                        <h4>草莓覆盆子</h4>
+                        <p>最暢銷口味，老少咸宜，孩子的最愛!<br><br>
+                            原物料: <br>蛋，三溫糖，覆盆子果泥，奶油，吉利丁，草莓<br>果粒/果泥，葡萄糖漿，柑橘果膠
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ingredientsArea">
+            <div class="ingredients">
+                <h3>食材</h3>
+            </div>
+            <div class="ingredientsflex">
+                <ul>
+                    <li><img src="https://tse1.mm.bing.net/th?id=OIF.2Z2Dpr%2bRAJ9Vv8q5sASKxw&pid=Api&P=0" alt=""></li>
+                    <li><img src="https://tse1.mm.bing.net/th?id=OIF.2Z2Dpr%2bRAJ9Vv8q5sASKxw&pid=Api&P=0" alt=""></li>
+                    <li><img src="https://tse1.mm.bing.net/th?id=OIF.2Z2Dpr%2bRAJ9Vv8q5sASKxw&pid=Api&P=0" alt=""></li>
+                    <li><img src="https://tse1.mm.bing.net/th?id=OIF.2Z2Dpr%2bRAJ9Vv8q5sASKxw&pid=Api&P=0" alt=""></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 預留固定footer的位置 -->
+    <div class="footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        //console.log($(".cakebox"));取得這4個
+        $(".cakebox").hover(function () {
+            //console.log("this 是 = ",$(this));//當前那個div
+            //console.log("this找到的.children是 = ",$(this).children(".cakeboxWord"));//找到當前那個
+            $(this).children(".cakeboxWord").fadeIn(1000);//但這時還有一樣的問題那就是調css了
+        },
+        function () {
+            $(this).children(".cakeboxWord").fadeOut(1000);
+        });
+    </script>
+</body>
+
+</html>

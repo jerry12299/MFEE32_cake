@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13.一般訂單紀錄頁</title>
+    <link rel="stylesheet" href="08-14.css">
+</head>
+
+<body>
+    <!-- 預留固定nav的位置 -->
+    <div class="navtop"></div>
+    <!-- 預留固定輪播的位置 -->
+    <div class="slideshow-container"></div>
+
+    <!-- 上面的選單 -->
+    <div class="generalOrdernav">
+        <ul>
+            <li>會員資訊</li>
+            <li>我的訂單</li>
+            <li class="Ordernavbuttom">我的客製</li>
+        </ul>
+    </div>
+    <!-- 下面的選單 -->
+    <table class="generalOrderDataArea">
+        <thead>
+            <tr class="generaDatanav">
+                <td>訂單</td>
+                <td>下訂日期</td>
+                <td>預定日期</td>
+                <td>狀態</td>
+                <td>總計</td>
+                <td>
+                    <select class="generaDataselect">
+                        <option value="">30日內訂單</option>
+                        <option value="">60日內訂單</option>
+                        <option value="">90日內訂單</option>
+                    </select>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <div class="generaDatabg">
+                <tr class="generaDatalist">
+                    <td>#123456</td>
+                    <td>23.01.30</td>
+                    <td>23.02.16</td>
+                    <td>未製作</td>
+                    <td>NT.1280</td>
+                    <td><button id="show_details_btn">訂單詳細 +</button></td>
+                </tr>
+                <tr class="showgeneraDatalist hide">
+                    <td>訂購內容</td>
+                    <td>單價</td>
+                    <td>取貨方式</td>
+                    <td></td>
+                    <td>付款方式</td>
+                    <td></td>
+                </tr>   
+                <tr class="showgeneraDatalist2 hide">
+                    <td>黑森林蛋糕10吋</td>
+                    <td>NT.500</td>
+                    <td>冷凍宅配-NT180  </td>
+                    <td></td>
+                    <td class="remark">信用卡</td>
+                    <td class="cancelbutton"><button>申請取消</button></td>                  
+                </tr>
+                <tr class="showgeneraDatalist3 hide">
+                    <td></td>
+                    <td></td>
+                    <td>宅配地址<br>
+                        台中市南屯區公益路18號</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </div>
+        </tbody>
+        <tbody>
+            <tr class="generaDatalist">
+                <td>#123456</td>
+                <td>23.02.01</td>
+                <td>23.02.20</td>
+                <td>製作中</td>
+                <td>NT.1200</td>
+                <td><button>訂單詳細 +</button></td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr class="generaDatalist">
+                <td>#123456</td>
+                <td>23.02.28</td>
+                <td>23.03.28</td>
+                <td >已取貨</td>
+                <td>NT.1200</td>
+                <td><button>訂單詳細 +</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <!-- 預留固定footer的位置 -->
+    <div class="footer"></div>
+
+
+    <script>
+        document.getElementById('show_details_btn').addEventListener('click', function () {
+            document.querySelector('.showgeneraDatalist').classList.toggle('hide');
+        });
+        document.getElementById('show_details_btn').addEventListener('click', function () {
+            document.querySelector('.showgeneraDatalist2').classList.toggle('hide');
+        });
+        document.getElementById('show_details_btn').addEventListener('click', function () {
+            document.querySelector('.showgeneraDatalist3').classList.toggle('hide');
+        });
+    </script>
+    </script>
+</body>
+
+</html>
+
+縮排
+text-indent
