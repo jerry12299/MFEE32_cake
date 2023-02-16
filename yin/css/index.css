@@ -10,6 +10,7 @@
 /* 字型套用 */
 body {
     font-family: GenSenRounded-B;
+    overflow-x: hidden;
 }
 
 .page {
@@ -63,8 +64,39 @@ margin-left: 80px;
 #marquee{
     margin-bottom: 50px;
 }
+/* ---------------跑馬燈----------------- */
+.box { 
+    position: relative;
+    width: 100vw;
+    height: 350px;
+    border: 1px solid #000000;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.list{
+    left: 0px;
+    display:flex;
+    position: absolute;
+}
+.photo{
+    width: 300px;
+    height: 300px;
+    border: 3px solid red;
+    margin:0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+/* ----------------footer------------------ */
 footer{
     text-align: center;
 }
 
+iframe{
+    margin: 50px;
+    border-radius: 10px;
+}
