@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12.菓季會員修改</title>
+    <link rel="stylesheet" href="08-14.css">
+</head>
+
+<body>
+    <!-- 預留固定nav的位置 -->
+    <div class="navtop"></div>
+    <!-- 預留固定輪播的位置 -->
+    <div class="slideshow-container"></div>
+
+    <div class="profilnav">
+        <ul>
+            <li>會員資訊</li>
+            <li>我的訂單</li>
+            <li>我的客製</li>
+        </ul>
+    </div>
+
+    <form action="" method="post" class="profileparea">
+        <div class="profilnumberarea">
+            <label for="">會員編號</label>
+            <input type="text">
+        </div>
+        <div class="profilemailarea">
+            <label for="">EMAIL</label>
+            <input type="email" id="mail" placeholder="Email為帳號" required>
+        </div>
+        <div class="profilpasswordarea">
+            <label for="">密碼</label>
+            <input type="password"  required>
+        </div>
+        <div class="profilpassword2area">
+            <label for="">修改密碼</label>
+            <input type="password2" required>
+        </div>
+        <div class="profilpassmessege">密碼與確認密碼輸入不一致，請重新輸入</div>
+        <div class="profilnamearea">
+            <label for="">姓名</label>
+            <input type="text" required>
+        </div>
+        <div class="profilbirthdayarea">
+            <label for="">生日</label>
+            <input type="date" required>
+        </div>
+        <div class="profilsexarea">
+            <label for="">性別</label>
+            <input type="radio" name="loc">生理男
+            <input type="radio" name="loc">生理女
+        </div>
+        <div class="profilphonearea">
+            <label for="">手機</label>
+            <input type="phone" required>
+        </div>
+        <div class="profiladdressarea">
+            <label for="">通訊地址</label>
+            <input type="text" name="" id="" required>
+        </div>
+        <div class="profilrevise">
+            <button>我要修改</button>
+        </div>
+    </form>
+
+    <!-- 預留固定footer的位置 -->
+    <div class="footer"></div>
+
+    <script>
+        var password = document.querySelector(".profilpasswordarea input");
+        var password2 = document.querySelector(".profilpassword2area input");
+        var profilpassmessege = document.querySelector(".profilpassmessege");
+    
+        // 一開始就隱藏
+        profilpassmessege.style.display = "none";
+    
+        password2.addEventListener("input", function(){
+            if(password.value !== password2.value){
+                profilpassmessege.style.display = "block";
+            } else {
+                profilpassmessege.style.display = "none";
+            }
+        });
+    </script>
+</body>
+
+</html>
