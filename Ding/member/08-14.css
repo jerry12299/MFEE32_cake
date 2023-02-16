@@ -18,48 +18,62 @@
 /*設定寬度只要60% 以及置中和圓角*/
 .stuffIngred {
     background-color: rgb(201, 208, 208);
-    width: 70%;
+    margin-top: 30px;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
     border-radius: 15px 15px 15px 15px;
 }
 
-/*設定內餡和食材文字置中*/
-.stuffingtitle h3,
-.ingredients h3 {
-    text-align: center;
-    width: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 20px;
-    padding-bottom: 25px;
+.stuffingtitle{
+    margin-left: 45%;
 }
 
+.stuffingtitle img{
+    width: 20%;
+    height: 20%;
+    
+}
+
+.ingredients{
+    margin-left: 45%;
+}
+.ingredients img{
+    width: 20%;
+    height: 20%;
+}
+
+/*設定內餡和食材文字置中*/
+/* .stuffingtitle h3{
+    display: block;
+    width: 50px;
+    text-align: center;
+    background-color: rgb(231, 211, 211);
+    margin-left: auto;
+    margin-right: auto;
+} */
+
 .cakeboxarea {
-    margin-top: 50px;
+    margin-top: 20px;
     border-radius: 10px 10px 10px 10px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
-.cakebox1,
-.cakebox2,
-.cakebox3,
-.cakebox4
-{
-    height: 350px;
+.cakebox{
+    width: 35%;
+    height: 35%;
     border-radius: 5px 5px 5px 5px;
-    margin-bottom: 200px;
-    box-shadow: 50px;
+    margin-bottom: 30px;
     background-color: rgb(135, 135, 135);
+    box-shadow:  rgb(86, 86, 86) 0px 10px 0px 0px;
 }
 
 .cakeboximg {
     padding: 5px 5px 0px 5px;
     background-size: contain;
-    margin-bottom: 50px; 
-    position: relative;
+    
 }
 
 .cakeboximg img {
@@ -67,28 +81,32 @@
     height: auto;
 }
 
-.cakeboxWord1,
-.cakeboxWord2,
-.cakeboxWord3,
-.cakeboxWord4
+.cakeboxWord
  {
-    width: 480px;
-    height: 140px;
-    background-color:rgb(232, 4, 4);
-    border-radius: 2px 2px 2px 2px;
+    width: 99%;
+    height: 60%;
+    background-color:rgb(240, 231, 181);
+    border-radius: 5px 5px 5px 5px;
     padding: 2px 2px 2px 2px;
-    line-height: 1;
-    position: absolute;
-    top:1000px;
-    font-size: 16px;
+    font-size: 25px;
+    font-weight: 700;
     font-family: 微軟正黑體;
-    z-index: 1;
+    /* z-index: 1; */
 }
 
 .ingredientsflex ul {
     list-style: none;
     display: flex;
     justify-content: space-around;
+}
+.ingredientspit {
+    width: 300px;
+    height: 300px;
+    padding: 2px 2px 2px 2px;
+    background-color: blue;
+    border-radius: 20px 20px 20px 20px ;
+    box-shadow:rgb(86, 86, 86) 0px 10px 0px 0px;
+    margin-bottom: 30px;
 }
 
 

@@ -19,14 +19,15 @@
     <div class="stuffIngred">
         <div class="stuffingArea">
             <div class="stuffingtitle">
-                <h3>內餡</h3>
+                <img src="diamondword.png" alt="">
+                <!-- <h3>內餡</h3> -->
             </div>
             <div class="cakeboxarea">
-                <div class="cakebox1">
+                <div class="cakebox">
                     <div class="cakeboximg">
                         <img src="https://tse1.mm.bing.net/th?id=OIP.KvBHesqBH9OKMDg4qw8UtAHaFN&pid=Api&P=0" alt="">
                     </div>
-                    <div class="cakeboxWord1" style="display:none;">
+                    <div class="cakeboxWord" style="display:none;">
                         <p>草莓覆盆子
                         <p>
                         <p>最暢銷口味，老少咸宜，孩子的最愛!<br><br>
@@ -34,33 +35,33 @@
                         </p>
                     </div>
                 </div>
-                <div class="cakebox2">
+                <div class="cakebox">
                     <div class="cakeboximg">
                         <img src="https://tse1.mm.bing.net/th?id=OIP.KvBHesqBH9OKMDg4qw8UtAHaFN&pid=Api&P=0" alt="">
                     </div>
-                    <div class="cakeboxWord2" style="display:none;">
+                    <div class="cakeboxWord" style="display:none;">
                         <h4>草莓覆盆子</h4>
                         <p>最暢銷口味，老少咸宜，孩子的最愛!<br><br>
                             原物料: <br>蛋，三溫糖，覆盆子果泥，奶油，吉利丁，草莓<br>果粒/果泥，葡萄糖漿，柑橘果膠
                         </p>
                     </div>
                 </div>
-                <div class="cakebox3">
+                <div class="cakebox">
                     <div class="cakeboximg">
                         <img src="https://tse1.mm.bing.net/th?id=OIP.KvBHesqBH9OKMDg4qw8UtAHaFN&pid=Api&P=0" alt="">
                     </div>
-                    <div class="cakeboxWord3" style="display: none;">
+                    <div class="cakeboxWord" style="display: none;">
                         <h4>草莓覆盆子</h4>
                         <p>最暢銷口味，老少咸宜，孩子的最愛!<br><br>
                             原物料: <br>蛋，三溫糖，覆盆子果泥，奶油，吉利丁，草莓<br>果粒/果泥，葡萄糖漿，柑橘果膠
                         </p>
                     </div>
                 </div>
-                <div class="cakebox4">
+                <div class="cakebox">
                     <div class="cakeboximg">
                         <img src="https://tse1.mm.bing.net/th?id=OIP.KvBHesqBH9OKMDg4qw8UtAHaFN&pid=Api&P=0" alt="">
                     </div>
-                    <div class="cakeboxWord4" style="display:none;">
+                    <div class="cakeboxWord" style="display:none;">
                         <h4>草莓覆盆子</h4>
                         <p>最暢銷口味，老少咸宜，孩子的最愛!<br><br>
                             原物料: <br>蛋，三溫糖，覆盆子果泥，奶油，吉利丁，草莓<br>果粒/果泥，葡萄糖漿，柑橘果膠
@@ -71,14 +72,23 @@
         </div>
         <div class="ingredientsArea">
             <div class="ingredients">
-                <h3>食材</h3>
+                <img src="diamondword02.png" alt="">
+                <!-- <h3>食材</h3> -->
             </div>
             <div class="ingredientsflex">
                 <ul>
-                    <li><img src="https://tse1.mm.bing.net/th?id=OIF.2Z2Dpr%2bRAJ9Vv8q5sASKxw&pid=Api&P=0" alt=""></li>
-                    <li><img src="https://tse1.mm.bing.net/th?id=OIF.2Z2Dpr%2bRAJ9Vv8q5sASKxw&pid=Api&P=0" alt=""></li>
-                    <li><img src="https://tse1.mm.bing.net/th?id=OIF.2Z2Dpr%2bRAJ9Vv8q5sASKxw&pid=Api&P=0" alt=""></li>
-                    <li><img src="https://tse1.mm.bing.net/th?id=OIF.2Z2Dpr%2bRAJ9Vv8q5sASKxw&pid=Api&P=0" alt=""></li>
+                    <div class="ingredientspit">
+                        <li></li>
+                    </div>
+                    <div class="ingredientspit">
+                        <li></li>
+                    </div>
+                    <div class="ingredientspit">
+                        <li></li>
+                    </div>
+                    <div class="ingredientspit">
+                        <li></li>
+                    </div>
                 </ul>
             </div>
         </div>
@@ -87,36 +97,13 @@
     <div class="footer"></div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
     <script>
-        $(".cakebox1").hover(function () {
-            $(this).children(".cakeboxWord1").fadeIn(1000);
+        $(".cakebox").hover(function () {
+            $(this).children(".cakeboxWord").fadeIn(600);
         },
             function () {
-                $(this).children(".cakeboxWord1").fadeOut(1000);
-            });
-    </script>
-    <script>
-        $(".cakebox2").hover(function () {
-            $(this).children(".cakeboxWord2").fadeIn(1000);
-        },
-            function () {
-                $(this).children(".cakeboxWord2").fadeOut(1000);
-            });
-    </script>
-    <script>
-        $(".cakebox3").hover(function () {
-            $(this).children(".cakeboxWord3").fadeIn(1000);
-        },
-            function () {
-                $(this).children(".cakeboxWord3").fadeOut(1000);
-            });
-    </script>
-    <script>
-        $(".cakebox4").hover(function () {
-            $(this).children(".cakeboxWord4").fadeIn(1000);
-        },
-            function () {
-                $(this).children(".cakeboxWord4").fadeOut(1000);
+                $(this).children(".cakeboxWord").fadeOut(300);
             });
     </script>
 </body>
