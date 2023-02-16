@@ -44,9 +44,9 @@ index.get('/C04', function (req, res) { //常見問題
 index.get('/C05', function (req, res) { //登入頁
     res.render('C05.ejs')
 })
-
+//-----------登入
 index.post('/C05', function (req, res) {
-    var sql = `SELECT * FROM member WHERE email=? and pwd=?;` //查詢使用者帳密
+    var sql = `SELECT m_id,rights FROM member WHERE email=? and pwd=?;` //查詢使用者帳密
     var data = [req.body.account, req.body.password] //2個?
     db.exec(sql, data, function (results, fields) {
         if (results[0]) { //結果成立
@@ -80,7 +80,7 @@ index.get('/C05_2/:page([0-9]+)', rights_api, function (req, res) {
     var page = req.params.page   //page=網址列的page數字
     var nums_per_page = 10
     var offset = (page - 1) * nums_per_page
-    var sql = `SELECT buy_order.o_id,co_upload_date,pick_up_date,payment,pay_state,pickup_method,co_state,remark,shipping,email,m_name,phone,order_total FROM buy_order , member, 
+    var sql = `SELECT buy_order.o_id,co_upload_date,pick_up_date,payment,pay_state,pickup_method,co_state,remark,shipping,rec_address,email,m_name,phone,order_total FROM buy_order , member, 
     (
     SELECT o_id, sum(total)as order_total FROM 
     (
@@ -429,7 +429,7 @@ index.post('/buyitem', function (req, res) {
     var data = req.body;
     // console.log(data)
     //先送出訂購者資料，取得訂購編號
-    var sql = `INSERT INTO buy_order (m_id, pick_up_date, payment, pay_state, pickup_method, co_state, remark, shipping) VALUES (?, '2023-02-16 14:02:03', '銀行轉帳', '未付款', '宅配', '未製作', 'wwwwwwwww', '未出貨')`;
+    var sql = `INSERT INTO buy_order (m_id, pick_up_date, payment, pay_state, pickup_method, co_state, remark, shipping,rec_address) VALUES (?, '2023-02-16 14:02:03', '銀行轉帳', '未付款', '宅配', '未製作', 'wwwwwwwww', '未出貨','addressss')`;
     db.exec(sql,[data.m_id],function(result, fields){
         // console.log(result.insertId) //訂購編號 o_id
         data.item.forEach((x) => {
@@ -461,8 +461,30 @@ index.post('/change', function (req, res) {
             
     })
 })
+//-----------------新增商品
+index.get('/commodity', function (req, res) { //主題蛋糕頁
+    db.exec(`SELECT * FROM commodity`,[],function(data, fields){
+            console.log(data)
 
+            res.render('commodity.ejs',{
+                data: data
+            })
+    })
+    
+})
 
+index.post('/commodity',rights_api,function(req, res){
+    var data = req.body;
+    console.log(data)
+    var sql =`INSERT INTO commodity (c_id, c_name, price) VALUES (?, ?, ?)`
+    db.exec(sql,[data.c_id,data.c_name,data.price],function(result, fields){
+        if (result.affectedRows) {
+            res.end('update success')
+        } else {
+            res.end('update failed')
+        }
+    })
+})
 
 
 module.exports = index;
