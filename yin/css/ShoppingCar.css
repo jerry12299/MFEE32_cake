@@ -1,0 +1,350 @@
+/* 字型引用 */
+@font-face {
+    font-family: 'GenSenRounded-B';
+    src: local("GenSenRounded-B"),
+        url('../ttc/GenSenRounded-B.ttc') format("woff"),
+        url('../ttc/GenSenRounded-B.ttc') format("opentype"),
+        url('../ttc/GenSenRounded-B.ttc') format("embedded-opentype");
+}
+
+/* 字型套用 */
+body {
+    font-family: GenSenRounded-B;
+}
+
+/* --------------------nav--------------- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    line-height: 50px;
+}
+
+#navlist>a {
+    margin-right: 30px;
+}
+
+#navlist>img {
+    padding: 0px 10px;
+}
+
+/* -----------------section------------- */
+
+section {
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* -----------step--------------- */
+
+#Step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+#Step>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 40px 5px 30px;
+}
+
+.circle {
+    width: 75px;
+    height: 75px;
+    border-radius: 75px;
+    background-color: rgb(173, 173, 173);
+    border: 5px solid rgb(255, 255, 255);
+    color: white;
+    text-align: center;
+    line-height: 80px;
+
+    font-size: 2em;
+}
+
+.check {
+    background-color: rgb(255, 223, 109);
+}
+
+.uncheck {
+    opacity: 50%;
+}
+
+/* ----------------shopping--------------------- */
+
+#Shopping_body {
+    background-color: rgb(79, 80, 78);
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+#ShoppingList {
+    width: 80vw;
+    background-color: aliceblue;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+#ShoppingList td:nth-child(1) {
+    width: 15vw;
+}
+
+#ShoppingList td:nth-child(2) {
+    width: 10vw;
+}
+
+#ShoppingList td:nth-child(3) {
+    width: 20vw;
+}
+
+#Shopping_body>div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+}
+
+#transport {
+    background-color: beige;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+th {
+    border-bottom: 2px solid rgb(81, 58, 22);
+    height: 40px;
+    font-size: 1.2em;
+}
+
+#ShoppingList>tbody td {
+    height: 150px;
+}
+
+
+
+.Totle {
+    width: 18vw;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 0px;
+    padding: 20px;
+}
+
+#Shopping_Totle h1 {
+    color: red;
+}
+
+.btn {
+    border-radius: 10px;
+    padding: 20px;
+    border: none;
+    font-size: 1.2em;
+}
+
+/* ---------------------------------------- */
+/* page2  start */
+/* 文字輸入框-寬度 */
+.text_W {
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* 收件地址的輸入框 */
+.address_input {
+    width: 25%;
+    margin-top: 15px;
+}
+
+#Shopping_Pay>div {
+    padding: 50px;
+    width: 85vw;
+    display: flex;
+    flex-direction: column;
+    background-color: palevioletred;
+    padding: 30px 20px;
+    border-radius: 10px;
+}
+
+#Shopping_Pay div {
+    margin: 10px 20px;
+}
+
+#Shopping_order {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 50px;
+
+}
+
+#Shopping_order>div {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    background-color: rgb(238, 226, 118);
+    padding: 30px 20px;
+    border-radius: 10px;
+}
+
+#Shopping_order div {
+    margin: 10px 20px;
+}
+
+/* ------------------注意事項------------------- */
+
+
+#Page_note>div {
+    width: 85vw;
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    border-radius: 10px;
+}
+
+#note {
+    width: 100%;
+    height: 50px;
+    margin-top: 15px;
+}
+
+.title {
+    font-size: 1.5em;
+    margin-right: 20px;
+}
+
+
+#hit {
+    padding: 30px;
+}
+
+#hit ul {
+    padding: 8px 0 0 0px;
+}
+
+#hit li {
+    margin: 15px;
+}
+
+#btn_pay {
+    width: 20vw;
+    border-radius: 10px;
+    padding: 20px;
+    border: none;
+    font-size: 1.2em;
+}
+
+#btn_pay>div {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ------------------Succeed--------------- */
+.textarea {
+    background-color: antiquewhite;
+    border-radius: 10px;
+    width: 95%;
+    height: 75px;
+    padding: 10px;
+    text-align: left;
+}
+
+.list_title {
+    font-size: 1.2em;
+}
+
+#Page_Succeed hr {
+    border: 2px dashed rgb(38, 26, 26);
+}
+
+#meg_Succeed {
+    background-color: rgb(255, 246, 236);
+    padding: 50px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#meg_Succeed>h1 {
+    font-size: 2em;
+}
+/*整個訂單區塊*/
+#Page_Succeed>div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    background-color: aliceblue;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+/*訂單--編號區塊*/
+#Succeed_list>div:nth-child(1) {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom:2px dashed rgb(52, 81, 24) ;
+}
+/*訂單--中間區塊*/
+#Succeed_body {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    border-bottom:2px dashed rgb(52, 81, 24) ;
+}
+
+#Succeed_body>table:nth-child(1) {
+    border-radius: 10px;
+    width: 35vw;
+}
+
+#Succeed_body>table>tbody td:nth-child(1) {
+    height: 150px;
+}
+
+#Succeed_body>div {
+    margin: 0 0 0 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgb(125, 125, 125);
+    width: 35vw;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+#Succeed_body>div>table {
+    text-align: left;
+}
+
+#Succeed_body>div>table tr {
+    height: 50px;
+}
+
+#Succeed_body>div>span {
+    margin: 15px 0;
+}
+
+
+/* ----------------footer------------------ */
+footer {
+    width: 100%;
+    background-color: rgb(110, 186, 227);
+    height: 300px;
+}

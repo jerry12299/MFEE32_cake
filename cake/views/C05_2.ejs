@@ -245,8 +245,28 @@
                  contentType: "application/json; charset=utf-8",
                  data: JSON.stringify(JSONData),
                  success: function(res) {
+                    //  alert("ok");
+                    //  location = '/C05_2/1'
+                    doAjax ();
+                    
+                 
+                 },
+                 error: function() {
+                     alert("系統錯誤!")
+                 }
+             }) 
+        }
+
+        function doAjax (){
+            $.ajax({
+                 url: "/C05_2/1",
+                 type: "GET", 
+                 contentType: "application/json; charset=utf-8",
+                 data: "",
+                 success: function(res) {
                      alert("ok");
                      location = '/C05_2/1'
+                    
                  
                  },
                  error: function() {

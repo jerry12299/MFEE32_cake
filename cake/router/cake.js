@@ -412,14 +412,17 @@ index.get('/picture/:pname', login_api, function (req, res) {
 // console.log(req.session.buy);
 index.post('/buy', function (req, res) {
     var data = req.body;
-    // console.log(data.name)
     var sql = `SELECT c_name,price FROM commodity WHERE c_id = ?`
-
-    db.exec(sql, [data.name], function (result, fields) {
+    // console.log(data)
+        db.exec(sql, [data.name], function (result, fields) {
         // console.log(result[0]) 
-
         res.end(JSON.stringify(result[0]))
     })
+    
+    
+    
+
+    
 })
 //-------------------送出購買
 index.post('/buyitem', function (req, res) {
@@ -455,6 +458,7 @@ index.post('/change', function (req, res) {
     [data.value,data.o_id],  //要改的內容  //要改的o_id  
     function(result, fields){
             res.end();
+            
     })
 })
 
