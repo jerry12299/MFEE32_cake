@@ -67,7 +67,22 @@ index.post('/C05', function (req, res) {
 
 
 index.get('/C06', function (req, res) { //購物車
-    res.render('C06.ejs')
+    if(!req.session.user){
+        res.render('C06.ejs',{
+            data:{}
+        })
+    }else{
+        var sql = `SELECT m_name,email,phone,address FROM member WHERE m_id = ?`
+    db.exec(sql,[req.session.user.m_id],function(data,fields){
+        // console.log(data[0])
+        res.render('C06.ejs',{
+            data:data[0]
+        })
+    })
+    }
+
+    
+    
 })
 
 
@@ -427,24 +442,24 @@ index.post('/buy', function (req, res) {
 //-------------------送出購買
 index.post('/buyitem', function (req, res) {
     var data = req.body;
-    // console.log(data)
+    console.log('buy:',data)
     //先送出訂購者資料，取得訂購編號
     var sql = `INSERT INTO buy_order (m_id, pick_up_date, payment, pay_state, pickup_method, co_state, remark, shipping,rec_address) VALUES (?, '2023-02-16 14:02:03', '銀行轉帳', '未付款', '宅配', '未製作', 'wwwwwwwww', '未出貨','addressss')`;
-    db.exec(sql,[data.m_id],function(result, fields){
-        // console.log(result.insertId) //訂購編號 o_id
-        data.item.forEach((x) => {
-        // console.log(data.m_id);
-        // console.log(x.name);
-        // console.log(x.quantity);
-     //用取得的訂購編號，送出訂購的蛋糕資料
-        db.exec(`INSERT INTO cake_order (o_id, c_id, quantity) VALUES ( ?, ?, ?)`, [result.insertId, x.name, x.quantity], function (result2, fields) {
-            // console.log(result2.insertId)
+    // db.exec(sql,[data.m_id],function(result, fields){
+    //     // console.log(result.insertId) //訂購編號 o_id
+    //     data.item.forEach((x) => {
+    //     // console.log(data.m_id);
+    //     // console.log(x.name);
+    //     // console.log(x.quantity);
+    //  //用取得的訂購編號，送出訂購的蛋糕資料
+    //     db.exec(`INSERT INTO cake_order (o_id, c_id, quantity) VALUES ( ?, ?, ?)`, [result.insertId, x.name, x.quantity], function (result2, fields) {
+    //         // console.log(result2.insertId)
 
-            res.end()
-        })
-    })
+    //         res.end()
+    //     })
+    // })
     
-    });
+    // });
 
 })
 
