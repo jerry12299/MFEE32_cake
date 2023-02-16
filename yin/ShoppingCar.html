@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>購物車</title>
     <link rel="stylesheet" href="./css/ShoppingCar.css">
+    <script src="js/jquery-3.6.0.js"></script>
 </head>
 
 <body>
@@ -20,8 +21,8 @@
             <a href="">客製蛋糕</a>
             <a href="">餡料食材介紹</a>
             <a href="">常見問題</a>
-            <img src="https://dummyimage.com/30x30/38afeb/fff" alt="MemberLogo">
-            <img src="https://dummyimage.com/30x30/38afeb/fff" alt="ShoppingLogo">
+            <a href=""><img src="https://dummyimage.com/30x30/38afeb/fff" alt="MemberLogo"></a>
+            <a href=""><img src="https://dummyimage.com/30x30/38afeb/fff" alt="ShoppingLogo"></a>
         </div>
     </nav>
     <section>
@@ -140,125 +141,95 @@
             </div>
         </div>
     </section>
+    <!-- 排版更新Start -->
     <section id="Shopping_order">
-        <div id="orderer">
-            <div>
-                <span class="title">訂購人資料</span>
-                <hr>
-            </div>
-            <div>
-                <label for="">姓名：</label>
-                <input class="text_W" type="text" placeholder="王小明" required><br>
-            </div>
-            <div>
-                <label for="">連絡電話：</label>
-                <input class="text_W" type="tel" placeholder="0900-000-000" required>
-            </div>
-            <div>
-                <label for="">電子郵件：</label>
-                <input class="text_W" type="email" placeholder="請輸入電子信箱" required>
-            </div>
-            <div id="address">
-                <label for="">收件地址：</label><br>
-                <input type="text" class="address_input" placeholder="請輸入3+2郵遞區號" required>
-                <br>
-                <input type="text" class="text_W" placeholder="請填入地址" required>
-            </div>
-            <div>
-                <label for="">備註：</label>
-                <input id="note" type="text" placeholder="其他需求" required>
-            </div>
-            <div>
-                <label for="">自取/宅配日期：</label>
-                <br>
-                <br>
-                <input type="radio" name="date">自取時間
-                <input type="radio" name="date">宅配時間
-                <div id="transport_S" class="">
-                    <label for="">自取日期</label>
-                    <input type="date">
-                    <br>
-                    <br>
-                    <label for="">自取時間</label>
-                    <select>
-                        <option value="11:00-13:00">11:00-13:00</option>
-                        <option value="13:00-15:00">13:00-15:00</option>
-                        <option value="15:00-17:00">15:00-17:00</option>
-                        <option value="17:00-18:00">17:00-18:00</option>
-                    </select>
-                </div>
-
-                <div id="transport_T">
-                    <label for="">宅配日期</label>
-                    <input type="date">
-                    <br>
-                    <br>
-                    <label for="">宅配時間</label>
-                    <select>
-                        <option value="11:00-11:30">11:00-11:30</option>
-                        <option value="15:00-15:30">15:00-15:30</option>
-                        <option value="17:00-17:30">17:00-17:30</option>
-                    </select>
-                </div>
-                <br>
-
-            </div>
-
-            <div>
-            </div>
-        </div>
-        <!-- ------------------------------------------->
-        <div id="recipient">
-            <div>
-                <span class="title">收件人資料</span><input type="radio">同訂購人資訊
-                <hr>
-            </div>
-            <div>
-                <label for="">姓名：</label>
-                <input class="text_W" type="text" placeholder="王小明" required><br>
-            </div>
-            <div>
-                <label for="">連絡電話：</label>
-                <input class="text_W" type="tel" placeholder="0900-000-000" required>
-            </div>
-            <div>
-                <label for="">電子郵件：</label>
-                <input class="text_W" type="email" placeholder="請輸入電子信箱" required>
-            </div>
-            <div id="address">
-                <label for="">收件地址：</label><br>
-                <input type="text" class="address_input" placeholder="請輸入3+2郵遞區號" required>
-                <br>
-                <input type="text" class="text_W" placeholder="請填入地址" required>
-            </div>
-            <div>
-                <label for="">宅配備註：</label>
-                <input id="note" type="text" placeholder="其他需求/警衛室代收..." required>
-            </div>
-        </div>
-    </section>
-    <hr width="90%">
-    <section id="Page_note">
         <div>
-            <div id="hit">
-                <span class="title">訂購注意事項</span>
-                <hr>
-                <ul>
-                    <li> 而這些並不是完全重要，更加重要的問題是，蛋糕的發生，到底需要如何實現</li>
-                    <li>我們普遍認為，若能理解透徹核心原理，對其就有了一定的了解程度。</li>
-                    <li>這不禁令我重新仔細的思考。現在，正視蛋糕的問題，是非常非常重要的。</li>
-                    <li>因為，蛋糕的出現，重寫了人生的意義。</li>
-                    <li>世界需要改革，需要對蛋糕有新的認知。</li>
-                </ul>
-            </div>
-            <div id="btn_pay">
+            <div id="orderer">
                 <div>
-                    <a href=""><button class="btn">回上頁</button></a>
-                    <a href=""><button class="btn">確認結帳</button></a>
+                    <span class="title">訂購人資料</span>
+                    <hr>
                 </div>
+                <div>
+                    <label for="">姓名：</label>
+                    <input class="text_W" type="text" placeholder="王小明" required><br>
+                </div>
+                <div>
+                    <label for="">連絡電話：</label>
+                    <input class="text_W" type="tel" placeholder="0900-000-000" required>
+                </div>
+                <div>
+                    <label for="">電子郵件：</label>
+                    <input class="text_W" type="email" placeholder="請輸入電子信箱" required>
+                </div>
+                <div>
+                    <label for="">自取/宅配日期：</label>
+                    <br>
+                    <br>
+                    <input type="radio" name="date">自取時間
+                    <input type="radio" name="date">宅配時間
+                    <div id="transport_S" class="">
+                        <label for="">自取日期</label>
+                        <input type="date">
+                        <br>
+                        <br>
+                        <label for="">自取時間</label>
+                        <select>
+                            <option value="11:00-13:00">11:00-13:00</option>
+                            <option value="13:00-15:00">13:00-15:00</option>
+                            <option value="15:00-17:00">15:00-17:00</option>
+                            <option value="17:00-18:00">17:00-18:00</option>
+                        </select>
+                    </div>
+
+                    <div id="transport_T">
+                        <label for="">宅配日期</label>
+                        <input type="date">
+                        <br>
+                        <br>
+                        <label for="">宅配時間</label>
+                        <select>
+                            <option value="11:00-11:30">11:00-11:30</option>
+                            <option value="15:00-15:30">15:00-15:30</option>
+                            <option value="17:00-17:30">17:00-17:30</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="address">
+                    <label for="">收件地址：</label><br>
+                    <input type="text" class="address_input" placeholder="請輸入3+2郵遞區號" required>
+                    <br>
+                    <input type="text" class="text_W" placeholder="請填入地址" required>
+                </div>
+                <div>
+                    <label for="">備註：</label>
+                    <input id="note" type="text" placeholder="其他及宅配需求/若收件人非訂購人的話，請在這裡註明收件人姓名及地址。" required>
+                </div>
+                
+            </div>
+            <div>
+                <div id="hit">
+                    <span class="title">訂購注意事項</span>
+                    <hr>
+                    <ul>
+                        <li> 而這些並不是完全重要，更加重要的問題是，蛋糕的發生，到底需要如何實現</li>
+                        <li>我們普遍認為，若能理解透徹核心原理，對其就有了一定的了解程度。</li>
+                        <li>這不禁令我重新仔細的思考。現在，正視蛋糕的問題，是非常非常重要的。</li>
+                        <li>因為，蛋糕的出現，重寫了人生的意義。</li>
+                        <li>世界需要改革，需要對蛋糕有新的認知。</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div id="btn_pay">
+            <div>
+                <a href=""><button class="btn">回上頁</button></a>
+                <a href=""><button class="btn">確認結帳</button></a>
             </div>
         </div>
     </section>
+    <!-- -------------排版更新End----------------- -->
     <section>
         <div id="Page_Succeed">
             <div id="meg_Succeed">
@@ -334,12 +305,104 @@
                     <h1>NT$350</h1>
                 </div>
             </div>
-            
+
         </div>
     </section>
     <footer>
         <div>footer</div>
     </footer>
+    <script>
+
+        function doDel(index) {
+            var newitem = JSON.parse(localStorage.getItem('carts'));
+            newitem.splice(index, 1);
+            console.log('new', newitem);
+            localStorage.setItem("carts", JSON.stringify(newitem));
+            //   location.href = '/C06';
+            test();
+        }
+
+        function doChange(value, index) {
+            var newitem = JSON.parse(localStorage.getItem('carts'));
+            newitem[index].quantity = parseInt(value);
+            //   console.log('new',newitem); 
+            localStorage.setItem("carts", JSON.stringify(newitem));
+            //   location.href = '/C06';
+            test();
+        }
+
+        function test() {
+            // $(function(){
+            var newcarts = JSON.parse(localStorage.getItem('carts'));
+            // console.log(newcarts);
+            $("tbody").empty();
+            if (newcarts) {
+                var sum = 0;
+                newcarts.forEach(function (e, index) {
+                    var data = { name: e.name }
+                    $.ajax({
+                        url: "/buy", //cake.js 的buy頁 
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(data),
+                        success: function (res) {
+                            // console.log(typeof(JSON.parse(res)));
+                            var cname = JSON.parse(res).c_name
+                            var price = JSON.parse(res).price
+
+                            $("tbody").append(`<tr><td>${cname}</td><td>${price}</td><td><input type="number" value="${e.quantity}" onchange="doChange(this.value,${index})" min="1" max="5" style ="width:50px"></td><td><button onclick="doDel(${index})">刪除</button> </td></tr>`);
+                            // console.log(typeof(price))
+                            // console.log(typeof(e.quantity))
+                            sum += price * e.quantity;
+                            // console.log(sum);
+                            $('#sum').val(sum)
+                        },
+                        error: function () {
+                            alert("Add 系統錯誤!");
+
+                        }
+                    })
+
+                });
+            }
+
+            // })
+        }
+        test();
+        $('#clr').on('click', function () {
+            localStorage.removeItem('carts')
+            location.href = '/C06';
+        })
+        $('#buyItem').on('click', function () {
+            var buyItem = JSON.parse(localStorage.getItem('carts'));
+       <% if (!session.user) {  %>
+           //沒登入就無視
+       <% } else { %>
+       var JSONData = {
+                    m_id: <%= session.user.m_id %> ,             //注意!!! 需先登入!!!!不然報錯!!!!!!
+                    item: buyItem
+                }; 
+       <% } %>
+
+                // console.log(JSONData.item[0].name) 
+                $.ajax({
+                    url: "/buyitem",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(JSONData),
+                    success: function (res) {
+                        alert("ok");
+                        localStorage.removeItem('carts')
+                        location.href = '/C06';
+
+                    },
+                    error: function () {
+                        alert("系統錯誤!")
+                    }
+                })
+        })
+    </script>
+
 </body>
 
 </html>
