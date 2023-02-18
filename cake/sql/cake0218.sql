@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2023-02-15 04:45:27
--- 伺服器版本： 10.4.25-MariaDB
--- PHP 版本： 8.1.10
+-- 產生時間： 2023-02-18 02:35:47
+-- 伺服器版本： 10.4.27-MariaDB
+-- PHP 版本： 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,8 +40,9 @@ CREATE TABLE `buy_order` (
   `pickup_method` varchar(50) NOT NULL,
   `co_state` varchar(50) NOT NULL,
   `remark` varchar(100) NOT NULL,
-  `shipping` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `shipping` varchar(50) NOT NULL,
+  `rec_address` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 資料表新增資料前，先清除舊資料 `buy_order`
@@ -52,10 +53,10 @@ TRUNCATE TABLE `buy_order`;
 -- 傾印資料表的資料 `buy_order`
 --
 
-INSERT INTO `buy_order` (`o_id`, `m_id`, `co_upload_date`, `pick_up_date`, `payment`, `pay_state`, `pickup_method`, `co_state`, `remark`, `shipping`) VALUES
-(1, 1, '2023-02-15 09:29:05', '2023-02-15 02:26:30', '取貨付款', '未付款', '到店取貨', '未製作', '10歲蠟燭，餐盤10份', '未出貨'),
-(2, 3, '2023-02-15 09:31:57', '2023-02-22 09:30:49', '銀行轉帳', '已付款', '到店取貨', '未製作', 'AAAAAAA', '未出貨'),
-(3, 1, '2023-02-15 09:33:03', '2023-02-15 02:32:29', '銀行轉帳', '未付款', '宅配', '未製作', 'sssssssssss', '未出貨');
+INSERT INTO `buy_order` (`o_id`, `m_id`, `co_upload_date`, `pick_up_date`, `payment`, `pay_state`, `pickup_method`, `co_state`, `remark`, `shipping`, `rec_address`) VALUES
+(1, 1, '2023-02-15 09:29:05', '2023-02-15 02:26:30', '取貨付款', '未付款', '到店取貨', '未製作', '10歲蠟燭，餐盤10份', '未出貨', 'XXXXXXX路'),
+(2, 3, '2023-02-15 09:31:57', '2023-02-22 09:30:49', '銀行轉帳', '已付款', '到店取貨', '未製作', 'AAAAAAA', '未出貨', 'OOOOOOOO市'),
+(3, 1, '2023-02-15 09:33:03', '2023-02-15 02:32:29', '銀行轉帳', '未付款', '宅配', '未製作', 'sssssssssss', '未出貨', 'sssssss樓');
 
 -- --------------------------------------------------------
 
@@ -69,7 +70,7 @@ CREATE TABLE `cake_order` (
   `o_id` int(11) NOT NULL,
   `c_id` varchar(10) NOT NULL,
   `quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 資料表新增資料前，先清除舊資料 `cake_order`
@@ -98,7 +99,7 @@ CREATE TABLE `commodity` (
   `c_id` varchar(10) NOT NULL,
   `c_name` varchar(50) NOT NULL,
   `price` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 資料表新增資料前，先清除舊資料 `commodity`
@@ -131,7 +132,7 @@ CREATE TABLE `customized` (
   `cust_form` varchar(100) NOT NULL,
   `cust_state` varchar(10) NOT NULL,
   `picture` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 資料表新增資料前，先清除舊資料 `customized`
@@ -166,7 +167,7 @@ CREATE TABLE `member` (
   `phone` int(11) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
   `rights` tinyint(3) UNSIGNED NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 資料表新增資料前，先清除舊資料 `member`
