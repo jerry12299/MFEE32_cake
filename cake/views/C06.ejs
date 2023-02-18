@@ -263,8 +263,7 @@
             <div id="Succeed_list">
                 <div>
                     <h1 id="orderID">訂單編號#</h1>
-                    <h3>訂單成立時間2023/02/15<br>
-                        蛋糕取貨日期2023/03/14
+                    <h3 id="co_upload_date">訂單成立時間2023/02/15
                     </h3>
                 </div>
                 <div id="Succeed_body">
@@ -472,14 +471,16 @@
                         // console.log(item);
                         var data = JSON.parse(res).resData[0]
                         // console.log(data)
-                        // var time = data.pick_up_date
-
+                        var time = new Date(data.pick_up_date)
+                        var h = time.getHours()
+                        $('#co_upload_date').text(`訂單成立時間${data.co_upload_date.split('T')[0]}`)
                         $('#orderID').text(`訂單編號#${data.o_id}`)
                         $('#phone').text(`${data.phone}`)
                         $('#email').text(`${data.email}`)
                         $('#payment').text(`${data.payment}`)
                         $('#method').text(`${data.pickup_method}`)
-                        $('#time').text(`${data.pick_up_date}`)
+                        // $('#time').text(`${data.pick_up_date}`)
+                        $('#time').text(`${data.pick_up_date.split('T')[0]} ${h}時後`)
                         $('#remark').text(`${data.remark}`)
                         $('#total').text(`${data.order_total}`)
                         item.forEach((item)=>{

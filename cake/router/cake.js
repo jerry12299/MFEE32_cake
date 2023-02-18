@@ -492,7 +492,7 @@ function two(req, res, next){
 function three (req, res, next){
     var o_id = res.locals.id
     // console.log('res.locals.id',o_id)
-    db.exec(`SELECT buy_order.o_id,pick_up_date,payment,pickup_method,remark,email,phone,order_total FROM buy_order , member, 
+    db.exec(`SELECT buy_order.o_id,co_upload_date,pick_up_date,payment,pickup_method,remark,email,phone,order_total FROM buy_order , member, 
     (
     SELECT o_id, sum(total)as order_total FROM 
     (
