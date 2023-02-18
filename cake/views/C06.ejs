@@ -261,7 +261,7 @@
             </div>
             <div id="Succeed_list">
                 <div>
-                    <h1>訂單編號#1234567</h1>
+                    <h1 id="orderID">訂單編號#</h1>
                     <h3>訂單成立時間2023/02/15<br>
                         蛋糕取貨日期2023/03/14
                     </h3>
@@ -298,34 +298,34 @@
                         <table>
                             <tr>
                                 <td class="list_title">連絡電話：</td>
-                                <td>0912-345-678</td>
+                                <td id="phone">0912-345-678</td>
                             </tr>
                             <tr>
                                 <td class="list_title">電子郵件：</td>
-                                <td>helloworld@gmail.com</td>
+                                <td id="email">helloworld@gmail.com</td>
                             </tr>
                             <tr>
                                 <td class="list_title">付款方式：</td>
-                                <td>來店付款</td>
+                                <td id="payment">來店付款</td>
                             </tr>
                             <tr>
                                 <td class="list_title">取貨方式：</td>
-                                <td>來店取貨</td>
+                                <td id="method">來店取貨</td>
                             </tr>
                             <tr>
                                 <td class="list_title">取貨時間：</td>
-                                <td>13:00-15:00</td>
+                                <td id="time"></td>
                             </tr>
                         </table>
                         <span class="list_title">訂單與取貨備註：</span>
-                        <div class="textarea">
-                            123
+                        <div class="textarea" id="remark">
+                            
                         </div>
                     </div>
                 </div>
                 <div class="Totle">
                     <h3>總金額：</h3>
-                    <h1 class="sum">NT$350</h1>
+                    <h1  id="total">NT$0</h1>
                 </div>
             </div>
 
@@ -406,26 +406,7 @@
                                     <button onclick="doDel(${index})">刪除</button>
                                 </td>
                             </tr>`);
-                            $(".tbody2").append(`<tr>
-                                <td>
-                                    <img src="https://dummyimage.com/100x100/54f291/fff" alt="商品圖">
-                                </td>
-                                <td>
-                                    <p>${cname}</p>
-                                    
-                                </td>
-                                <td></td>
-                                <td>
-                                    <p>NT$${price}</p>
-                                </td>
-                                <td>
-                                    ${e.quantity}
-                                </td>
-                                <td>
-                                    <span>$${total}</span>
-                                </td>
-                               
-                            </tr>`);
+                            
                             $(`#s1_${index}`).children().each(function () {
                                 if ($(this).text() == e.quantity) {
                                     //jQuery給法
@@ -484,8 +465,44 @@
                     success: function (res) {
                         alert("ok");
                         localStorage.removeItem('carts')
-                        // console.log(res)
-                        location.href = '/C06';
+                        console.log(JSON.parse(res))
+                        var item = JSON.parse(res).resItem
+                        console.log(item);
+                        var data = JSON.parse(res).resData[0]
+                        console.log(data)
+                        
+                        $('#orderID').text(`訂單編號#${data.o_id}`)
+                        $('#phone').text(`${data.phone}`)
+                        $('#email').text(`${data.email}`)
+                        $('#payment').text(`${data.payment}`)
+                        $('#method').text(`${data.pickup_method}`)
+                        $('#time').text(`${data.pick_up_date}`)
+                        $('#remark').text(`${data.remark}`)
+                        $('#total').text(`${data.order_total}`)
+                        item.forEach((item)=>{
+                                $(".tbody2").append(`<tr>
+                                <td>
+                                    <img src="https://dummyimage.com/100x100/54f291/fff" alt="商品圖">
+                                </td>
+                                <td>
+                                    <p>${item.c_name}</p>
+                                    
+                                </td>
+                                <td></td>
+                                <td>
+                                    <p>NT$${item.price}</p>
+                                </td>
+                                <td>
+                                    ${item.quantity}
+                                </td>
+                                <td>
+                                    <span>$${item.total}</span>
+                                </td>
+                               
+                            </tr>`);
+                        })
+                    
+                        // location.href = '/C06';
 
                     },
                     error: function () {

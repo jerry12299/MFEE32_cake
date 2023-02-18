@@ -80,25 +80,21 @@ WHERE buy_order.m_id = member.m_id and buy_order.o_id = b.o_id and buy_order.o_i
                             WHERE buy_order.m_id = member.m_id and buy_order.o_id = b.o_id and buy_order.o_id = ?;`,
                             [o_id],
                              function (resData, fields) {
-                                if(resData){
+                               
                                 db.exec(`SELECT c_name,price,quantity,price*quantity as total 
                                 FROM buy_order,cake_order,commodity 
                                 WHERE buy_order.o_id = cake_order.o_id AND cake_order.c_id = commodity.c_id AND buy_order.o_id = ?`,
                                 [o_id],
                                 function (resItem, fields) {
-                                    if(resItem){
+                                   
                                     console.log('data', resData)
                                     console.log('item', resItem)
                                     res.end('ok')
-                                    }else{
-                                        console.log('no')
-                                    }
+                                    
                                   
-                                    // res.end()
+                                  
                                 })
-                                }else{
-                                    console.log('no')
-                                }
+                               
                            
 
 

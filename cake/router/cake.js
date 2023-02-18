@@ -465,11 +465,45 @@ index.post('/buyitem', function (req, res) {
                 // console.log(result2.insertId)
             })
         })
+        db.exec(`SELECT buy_order.o_id,pick_up_date,payment,pickup_method,remark,email,phone,order_total FROM buy_order , member, 
+                            (
+                            SELECT o_id, sum(total)as order_total FROM 
+                            (
+                            SELECT buy_order.o_id,c_name,price,quantity,price*quantity as total FROM buy_order , cake_order, commodity WHERE buy_order.o_id = cake_order.o_id and cake_order.c_id = commodity.c_id
+                            )as a 
+                            GROUP BY o_id
+                            )as b
+                            WHERE buy_order.m_id = member.m_id and buy_order.o_id = b.o_id and buy_order.o_id = ?;`,
+                            [o_id],
+                             function (resData, fields) {
+                                console.log('Data1:',resData)
+                                db.exec(`SELECT c_name,price,quantity,price*quantity as total 
+                                FROM buy_order,cake_order,commodity 
+                                WHERE buy_order.o_id = cake_order.o_id AND cake_order.c_id = commodity.c_id AND buy_order.o_id = ?`,
+                                [o_id],
+                                function (resItem, fields) {
+                                   
+                                    console.log('data2', resData)
+                                    console.log('item', resItem)
+                                    res.end(JSON.stringify(
+                                        {
+                                        resData:resData,
+                                        resItem:resItem
+                                    }
+                                    )
+                                    )
+                                    
+                                  
+                                  
+                                })
+
+                             })
+
 
         
 
 
-       res.end()
+       
 
     });
 
