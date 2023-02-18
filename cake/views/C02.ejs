@@ -27,6 +27,7 @@
              var data = $('#test').serializeArray();
              let file = $('#imgFile')[0].files[0]
              // console.log(file)
+             console.log(data)
              let formData = new FormData();
            
              <% if(!session.user){  %>
@@ -40,22 +41,22 @@
                formData.append("img", file);
                formData.append("data", JSON.stringify(JSONData));
                      
-             $.ajax({
-                 url: "/C02",
-                 type: "POST", 
-                 // contentType: "application/json; charset=utf-8",
-                 contentType: false,
-                 processData: false,
-                 // data: JSON.stringify(JSONData),
-                 data:formData,
-                 success: function(res) {
-                     alert("ok");
-                     location.href = '/';
-                 },
-                 error: function() {
-                     alert("login 系統錯誤!")
-                 }
-             })
+            //  $.ajax({
+            //      url: "/C02",
+            //      type: "POST", 
+            //      // contentType: "application/json; charset=utf-8",
+            //      contentType: false,
+            //      processData: false,
+            //      // data: JSON.stringify(JSONData),
+            //      data:formData,
+            //      success: function(res) {
+            //          alert("ok");
+            //          location.href = '/';
+            //      },
+            //      error: function() {
+            //          alert("login 系統錯誤!")
+            //      }
+            //  })
          })
      </script>
 </body>
