@@ -439,10 +439,9 @@ index.post('/buy', function (req, res) {
 
 
 })
-//-------------------送出購買
-index.post('/buyitem', function (req, res) {
-    var newData = req.body;
-    if (newData.method === "自取") {
+function one (req, res, next){
+    var newData = req.body
+     if (newData.method === "自取") {
 
         var pick_up_date = `${newData.pickupDate} ${newData.pickupTime}`
         // console.log('1',pick_up_date)
@@ -450,64 +449,101 @@ index.post('/buyitem', function (req, res) {
         var pick_up_date = `${newData.pickupDate2} ${newData.pickupTime2}`
         // console.log('2',pick_up_date)
     }
-
     var data = [newData.m_id, pick_up_date, newData.payment, newData.method, newData.remark, newData.rec_address]
-    console.log('buy:', data)
+    // console.log('buy:', data)
     //先送出訂購者資料，取得訂購編號
     var sql = `INSERT INTO buy_order (m_id, pick_up_date, payment, pay_state, pickup_method, co_state, remark, shipping,rec_address) VALUES (?, ?, ?, '未付款', ?, '未製作', ?, '未出貨',?)`;
     db.exec(sql, data, function (result, fields) {
         // console.log(result.insertId) //訂購編號 o_id
         var o_id = result.insertId
-
-        newData.item.forEach((x) => {
-            //用取得的訂購編號，送出訂購的蛋糕資料
-            db.exec(`INSERT INTO cake_order (o_id, c_id, quantity) VALUES ( ?, ?, ?)`, [o_id, x.name, x.quantity], function (result2, fields) {
-                // console.log(result2.insertId)
-            })
-        })
-        db.exec(`SELECT buy_order.o_id,pick_up_date,payment,pickup_method,remark,email,phone,order_total FROM buy_order , member, 
-                            (
-                            SELECT o_id, sum(total)as order_total FROM 
-                            (
-                            SELECT buy_order.o_id,c_name,price,quantity,price*quantity as total FROM buy_order , cake_order, commodity WHERE buy_order.o_id = cake_order.o_id and cake_order.c_id = commodity.c_id
-                            )as a 
-                            GROUP BY o_id
-                            )as b
-                            WHERE buy_order.m_id = member.m_id and buy_order.o_id = b.o_id and buy_order.o_id = ?;`,
-                            [o_id],
-                             function (resData, fields) {
-                                console.log('Data1:',resData)
-                                db.exec(`SELECT c_name,price,quantity,price*quantity as total 
-                                FROM buy_order,cake_order,commodity 
-                                WHERE buy_order.o_id = cake_order.o_id AND cake_order.c_id = commodity.c_id AND buy_order.o_id = ?`,
-                                [o_id],
-                                function (resItem, fields) {
-                                   
-                                    console.log('data2', resData)
-                                    console.log('item', resItem)
-                                    res.end(JSON.stringify(
-                                        {
-                                        resData:resData,
-                                        resItem:resItem
-                                    }
-                                    )
-                                    )
-                                    
-                                  
-                                  
-                                })
-
-                             })
-
-
-        
-
-
+        // console.log('o_id',o_id)
+        res.locals.id = o_id;
+        // res.locals.item =  newData.item;
+      
+        next()
+       })
+    
        
+    
+}
+function two(req, res, next){
+    var newData = req.body
+    var o_id = res.locals.id
+    var sql =``
+    var data = []
+    newData.item.forEach((x) => {
+    
+        sql += `INSERT INTO cake_order (o_id, c_id, quantity) VALUES ( ?, ?, ?);`
+        data.push(o_id, x.name, x.quantity)
 
-    });
+    })
 
-})
+    db.exec(sql, data, function (result, fields) {
+        // console.log(result2.insertId)
+         next()
+    })
+   
+}
+
+
+
+
+
+function three (req, res, next){
+    var o_id = res.locals.id
+    // console.log('res.locals.id',o_id)
+    db.exec(`SELECT buy_order.o_id,pick_up_date,payment,pickup_method,remark,email,phone,order_total FROM buy_order , member, 
+    (
+    SELECT o_id, sum(total)as order_total FROM 
+    (
+    SELECT buy_order.o_id,c_name,price,quantity,price*quantity as total FROM buy_order , cake_order, commodity WHERE buy_order.o_id = cake_order.o_id and cake_order.c_id = commodity.c_id
+    )as a 
+    GROUP BY o_id
+    )as b
+    WHERE buy_order.m_id = member.m_id and buy_order.o_id = b.o_id and buy_order.o_id = ?;`,
+    [o_id],
+     function (resData, fields) {
+        // console.log('Data1:',resData)
+        res.locals.resData = resData
+        next()
+
+     })
+
+
+
+
+}
+
+function four (req, res, next){
+    var o_id = res.locals.id
+    var resData = res.locals.resData
+    db.exec(`SELECT c_name,price,quantity,price*quantity as total 
+    FROM buy_order,cake_order,commodity 
+    WHERE buy_order.o_id = cake_order.o_id AND cake_order.c_id = commodity.c_id AND buy_order.o_id = ?`,
+    [o_id],
+    function (resItem, fields) {
+       
+        console.log('data2', resData)
+        console.log('item', resItem)
+        res.end(JSON.stringify(
+            {
+            resData:resData,
+            resItem:resItem
+        }
+        )
+        )
+        // res.end()
+      
+      
+    })
+}
+
+
+
+//-------------------送出購買
+index.post('/buyitem',[one,two,three,four]);
+
+
 //----------------顯示最新訂單
 
 //----------------修改狀態

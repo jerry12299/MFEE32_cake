@@ -464,13 +464,14 @@
                     data: JSON.stringify(JSONData),
                     success: function (res) {
                         alert("ok");
-                        localStorage.removeItem('carts')
+                        // localStorage.removeItem('carts')
                         console.log(JSON.parse(res))
                         var item = JSON.parse(res).resItem
-                        console.log(item);
+                        // console.log(item);
                         var data = JSON.parse(res).resData[0]
-                        console.log(data)
-                        
+                        // console.log(data)
+                        // var time = data.pick_up_date
+
                         $('#orderID').text(`訂單編號#${data.o_id}`)
                         $('#phone').text(`${data.phone}`)
                         $('#email').text(`${data.email}`)
