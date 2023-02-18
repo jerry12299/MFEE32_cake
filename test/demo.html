@@ -7,67 +7,11 @@
     <title>Document</title>
 </head>
 <body>
+    <h3 id="co_upload_date">訂單成立時間2023/02/15
     <script>
-        $.ajax({
-                        url: "/buy", //cake.js 的buy頁 
-                        type: "POST",
-                        contentType: "application/json; charset=utf-8",
-                        data: JSON.stringify(data),
-                        success: function (res) {
-                            // console.log(typeof(JSON.parse(res)));
-                            var cname = JSON.parse(res).c_name
-                            var price = JSON.parse(res).price
-                            var total = price*e.quantity;
-
-                            //    $("tbody").append(`<tr><td>${cname}</td><td>${price}</td><td><input type="number" value="${e.quantity}" onchange="doChange(this.value,${index})" min="1" max="5" style ="width:50px"></td><td><button onclick="doDel(${index})">刪除</button> </td></tr>`);
-                            $(".tbody1").append(`<tr>
-                                <td>
-                                    <img src="https://dummyimage.com/100x100/54f291/fff" alt="商品圖">
-                                </td>
-                                <td>
-                                    <p>${cname}</p>
-                                    
-                                </td>
-                                <td></td>
-                                <td>
-                                    <p>NT$${price}</p>
-                                </td>
-                                <td>
-                                    <select id=${index} onchange="doChange(this.value,${index})" >
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <span>$${total}</span>
-                                </td>
-                                <td>
-                                    <button>刪除</button>
-                                </td>
-                            </tr>`);
-                            $(`#${index}`).children().each(function () {
-                                if ($(this).text() == e.quantity) {
-                                    //jQuery給法
-                                    $(this).attr("selected", true); //或是給"selected"也可
-
-                                    
-                                }
-                            });
-                            // console.log(typeof(price))
-                            // console.log(typeof(e.quantity))
-                            sum += price * e.quantity;
-                            console.log(sum);
-                            // $('#sum').val(sum)
-                        },
-                        error: function () {
-                            alert("Add 系統錯誤!");
-
-                        }
-                    })
+        var time = new Date(data.pick_up_date)
+                        var h = time.getHours()
+                        $('#time').text(`${data.pick_up_date.split('T')[0]} ${h}時後`)
     </script>
 </body>
 </html>

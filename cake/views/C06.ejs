@@ -118,7 +118,7 @@
             </div>
         </div>
     </section>
-    <form id="orderForm">
+    <!-- <form id="orderForm"> -->
         <section id="Shopping_Pay">
             <div>
                 <div>
@@ -151,6 +151,7 @@
             <div>
 
                 <div id="orderer">
+                <form id="orderForm">
 
                     <div>
                         <span class="title">訂購人資料</span>
@@ -221,7 +222,7 @@
                             required>
                     </div>
 
-
+                </form>
 
                 </div>
 
@@ -252,7 +253,7 @@
                 </div>
             </div>
         </section>
-    </form>
+    <!-- </form> -->
     <section>
         <div id="Page_Succeed">
             <div id="meg_Succeed">
@@ -449,7 +450,8 @@
            //沒登入就無視
        <% } else { %> //注意!!! 需先登入!!!!不然報錯!!!!!!    
                 JSONData.m_id = <%= session.user.m_id %>
-                    JSONData.item =  buyItem
+                    JSONData.item =  buyItem ;
+                    JSONData.payment = $('#pay').val() ;
                 for (index in data) {
                     JSONData[data[index].name] = data[index].value;
                 }         
