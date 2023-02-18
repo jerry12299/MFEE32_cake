@@ -465,7 +465,7 @@
                     data: JSON.stringify(JSONData),
                     success: function (res) {
                         alert("ok");
-                        // localStorage.removeItem('carts')
+                        localStorage.removeItem('carts')
                         console.log(JSON.parse(res))
                         var item = JSON.parse(res).resItem
                         // console.log(item);
