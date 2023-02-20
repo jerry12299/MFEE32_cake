@@ -1,0 +1,121 @@
+<html>
+
+<head>
+    <title>My Now Amazing Webpage</title>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="./slick-1.8.1/slick/slick.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./slick-1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="./slick-1.8.1/slick/slick-theme.css" />
+    <style>
+        /* body{
+        background-color: blueviolet;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    img{
+        margin:0 30px;
+    } */
+
+        div {
+            opacity: 0;
+            /* 初始时设置透明度为0 */
+            transition: opacity 0.5s ease-in-out;
+            /* 添加淡入淡出效果 */
+            width: 100%;
+            height: 100vh;
+        }
+
+        .active {
+            opacity: 1;
+            /* 将当前活动的div元素的透明度设置为1 */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <div class="responsive" style="width: 80%; height: 500px;">
+    <div><img src="https://dummyimage.com/600x400/57e075/fff" alt=""></div>
+    <div><img src="https://dummyimage.com/600x400/57e075/fff" alt=""></div>
+    <div><img src="https://dummyimage.com/600x400/57e075/fff" alt=""></div>
+    <div><img src="https://dummyimage.com/600x400/57e075/fff" alt=""></div>
+    <div><img src="https://dummyimage.com/600x400/57e075/fff" alt=""></div>
+    <div><img src="https://dummyimage.com/600x400/57e075/fff" alt=""></div>
+  </div>-->
+
+    <div id="div1" class="active">这是div1</div>
+    <div id="div2">这是div2</div>
+    <div id="div3">这是div3</div>
+
+    <script type="text/javascript">
+        //     $(document).ready(function(){
+        //         $('.responsive').slick({
+        //   dots: true,
+        //   infinite: false,
+        //   speed: 300,
+        //   slidesToShow: 2,
+        //   slidesToScroll: 2,
+        //   responsive: [
+        //     {
+        //       breakpoint: 1024,
+        //       settings: {
+        //         slidesToShow: 2,
+        //         slidesToScroll: 2,
+        //         infinite: true,
+        //         dots: true
+        //       }
+        //     },
+        //     {
+        //       breakpoint: 600,
+        //       settings: {
+        //         slidesToShow: 2,
+        //         slidesToScroll: 2
+        //       }
+        //     },
+        //     {
+        //       breakpoint: 480,
+        //       settings: {
+        //         slidesToShow: 1,
+        //         slidesToScroll: 1
+        //       }
+        //     }
+        //     // You can unslick at a given breakpoint now by adding:
+        //     // settings: "unslick"
+        //     // instead of a settings object
+        //   ]
+        // });
+        //     });
+
+
+        let divs = document.querySelectorAll('div');
+        let activeDiv = 0;
+
+        function scrollHandler(e) {
+            if (e.deltaY > 0) {
+                activeDiv++;
+            } else {
+                activeDiv--;
+            }
+            if (activeDiv < 0) {
+                activeDiv = divs.length - 1;
+            }
+            if (activeDiv >= divs.length) {
+                activeDiv = 0;
+            }
+            divs.forEach((div) => {
+                div.classList.remove('active');
+            });
+            divs[activeDiv].classList.add('active');
+        }
+
+        window.addEventListener('wheel', scrollHandler);
+    </script>
+
+</body>
+
+</html>
