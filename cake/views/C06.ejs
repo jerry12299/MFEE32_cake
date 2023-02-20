@@ -218,8 +218,10 @@
                     </div>
                     <div>
                         <label for="">備註：</label>
-                        <input name="remark" id="note" type="text" placeholder="其他及宅配需求/若收件人非訂購人的話，請在這裡註明收件人姓名及地址。"
-                            required>
+                        <textarea name="remark" id="note" maxlength="100">蠟燭年齡:
+紙盤數量:</textarea>
+                        <!-- <input name="remark" id="note" type="text" value="蠟燭年齡: ,紙盤數量: " placeholder="其他及宅配需求/若收件人非訂購人的話，請在這裡註明收件人姓名及地址。"
+                            required> -->
                     </div>
 
                 </form>
@@ -245,7 +247,7 @@
                 <div>
                     <a href=""><button class="btn">回上頁</button></a>
                     <% if(!session.user) { %>
-                        <a href="/C05">登入</a>
+                        <a href="/C05"><button class="btn">登入</button></a>
                         <%} else{ %>
                             <button class="btn" id="buyItem">確認結帳</button>
                             <% } %>
