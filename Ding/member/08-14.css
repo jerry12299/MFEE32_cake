@@ -1,17 +1,20 @@
 /* -----------------08-14預留的top footer slideshow----------------------- */
 .navtop {
+    width:100vw;
     height: 100px;
     background-color: pink;
 }
 
 .slideshow-container {
+    width:100vw;
     height: 400px;
     background-color: palevioletred;
 }
 
 .footer {
+    width:100vw;
     height: 200px;
-    background-color: rgb(20, 75, 175);
+    background-color: green;
 }
 
 /* -----------------08.IntroStuffing----------------------- */
@@ -962,16 +965,6 @@ button.cancelbutton {
     color: white;
 }
 
-.cancelbutton button {
-    font-size: 20px;
-    font-weight: 700;
-    margin-left: 50px;
-    width: 120px;
-    height: 40px;
-    border-radius: 15px 15px 15px 15px;
-    background-color: rgb(86, 85, 83);
-    color: white;
-}
 
 .showcustomDatalist {
     font-size: 20px;
