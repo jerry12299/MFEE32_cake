@@ -299,7 +299,7 @@ index.get('/C05_4/:page([0-9]+)', login_api, function (req, res) {
     var offset = (page - 1) * nums_per_page
     // 使用db.js裡的exec函式，也就是apple函式                                // 給函式3個參數
     // db.exec(`SELECT * FROM cake_order LIMIT ${offset}, ${nums_per_page};`,  //sql指令 顯示10筆1頁
-    db.exec(`SELECT buy_order.o_id,co_upload_date,pick_up_date,payment,pay_state,pickup_method,co_state,remark,shipping,email,m_name,phone,order_total FROM buy_order , member, 
+    db.exec(`SELECT buy_order.o_id,co_upload_date,pick_up_date,payment,pay_state,pickup_method,co_state,remark,shipping,rec_address,email,m_name,phone,order_total FROM buy_order , member, 
     (
     SELECT o_id, sum(total)as order_total FROM 
     (
