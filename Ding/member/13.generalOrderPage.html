@@ -9,116 +9,150 @@
     <link rel="stylesheet" href="08-14.css">
 </head>
 
-<body>
+<body class="generalOrderPage" style="margin: 0;">
     <!-- 預留固定nav的位置 -->
     <div class="navtop"></div>
     <!-- 預留固定輪播的位置 -->
     <div class="slideshow-container"></div>
-
-    <!-- 上面的選單 -->
-    <div class="generalOrdernav">
-        <ul>
-            <li>會員資訊</li>
-            <li>我的訂單</li>
-            <li class="Ordernavbuttom">我的客製</li>
-        </ul>
+    <div class="generalOrder">
+        <!-- 上面的選單 -->
+        <div class="generalOrdernav">
+            <ul>
+                <li>會員資訊</li>
+                <li class="Ordernavbuttom">我的訂單</li>
+                <li>我的客製</li>
+            </ul>
+        </div>
+        <!-- 下面的選單 -->
+        <div class="generalOrderDataArea">
+            <table>
+                <thead>
+                    <tr class="generaDatanav">
+                        <td>訂單</td>
+                        <td>下訂日期</td>
+                        <td>預定日期</td>
+                        <td>狀態</td>
+                        <td>總計</td>
+                        <td>
+                            <select class="generaDataselect">
+                                <option value="">30日內訂單</option>
+                                <option value="">60日內訂單</option>
+                                <option value="">90日內訂單</option>
+                            </select>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="generaDatalist">
+                        <td>#123456</td>
+                        <td>23.01.30</td>
+                        <td>23.02.16</td>
+                        <td>未製作</td>
+                        <td>NT.1280</td>
+                        <td><button class="show_details_btn">訂單詳細 +</button></td>
+                    </tr>
+                    <tr class="showgeneraDatalist hide">
+                        <td colspan="6">
+                            <div>
+                                <table class="Detail">
+                                    <thead>
+                                        <tr>
+                                            <td>訂購內容</td>
+                                            <td>單價</td>
+                                            <td>付款方式</td>
+                                            <td>取貨方式</td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>黑森林蛋糕10吋</td>
+                                            <td>NT.500</td>
+                                            <td>信用卡</td>
+                                            <td>冷凍宅配-NT180<br>宅配地址<br>台中市南屯區公益路18號 </td>
+                                            <td><button class="cancelbutton">申請取消</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>黑森林蛋糕10吋</td>
+                                            <td>NT.500</td>
+                                        </tr>
+                                        <tr>
+                                            <td>黑森林蛋糕10吋</td>
+                                            <td>NT.500</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr class="generaDatalist">
+                        <td>#123456</td>
+                        <td>23.01.30</td>
+                        <td>23.02.16</td>
+                        <td>未製作</td>
+                        <td>NT.1280</td>
+                        <td><button class="show_details_btn">訂單詳細 +</button></td>
+                    </tr>
+                    <tr class="showgeneraDatalist hide">
+                        <td colspan="6">
+                            <div>
+                                <table class="Detail">
+                                    <thead>
+                                        <tr>
+                                            <td>訂購內容</td>
+                                            <td>單價</td>
+                                            <td>付款方式</td>
+                                            <td>取貨方式</td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>黑森林蛋糕10吋</td>
+                                            <td>NT.500</td>
+                                            <td>信用卡</td>
+                                            <td>冷凍宅配-NT180<br>宅配地址<br>台中市南屯區公益路18號 </td>
+                                            <td><button class="cancelbutton">申請取消</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <!-- 下面的選單 -->
-    <table class="generalOrderDataArea">
-        <thead>
-            <tr class="generaDatanav">
-                <td>訂單</td>
-                <td>下訂日期</td>
-                <td>預定日期</td>
-                <td>狀態</td>
-                <td>總計</td>
-                <td>
-                    <select class="generaDataselect">
-                        <option value="">30日內訂單</option>
-                        <option value="">60日內訂單</option>
-                        <option value="">90日內訂單</option>
-                    </select>
-                </td>
-            </tr>
-        </thead>
-        <tbody>
-            <div class="generaDatabg">
-                <tr class="generaDatalist">
-                    <td>#123456</td>
-                    <td>23.01.30</td>
-                    <td>23.02.16</td>
-                    <td>未製作</td>
-                    <td>NT.1280</td>
-                    <td><button id="show_details_btn">訂單詳細 +</button></td>
-                </tr>
-                <tr class="showgeneraDatalist hide">
-                    <td>訂購內容</td>
-                    <td>單價</td>
-                    <td>取貨方式</td>
-                    <td></td>
-                    <td>付款方式</td>
-                    <td></td>
-                </tr>   
-                <tr class="showgeneraDatalist2 hide">
-                    <td>黑森林蛋糕10吋</td>
-                    <td>NT.500</td>
-                    <td>冷凍宅配-NT180  </td>
-                    <td></td>
-                    <td class="remark">信用卡</td>
-                    <td class="cancelbutton"><button>申請取消</button></td>                  
-                </tr>
-                <tr class="showgeneraDatalist3 hide">
-                    <td></td>
-                    <td></td>
-                    <td>宅配地址<br>
-                        台中市南屯區公益路18號</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </div>
-        </tbody>
-        <tbody>
-            <tr class="generaDatalist">
-                <td>#123456</td>
-                <td>23.02.01</td>
-                <td>23.02.20</td>
-                <td>製作中</td>
-                <td>NT.1200</td>
-                <td><button>訂單詳細 +</button></td>
-            </tr>
-        </tbody>
-        <tbody>
-            <tr class="generaDatalist">
-                <td>#123456</td>
-                <td>23.02.28</td>
-                <td>23.03.28</td>
-                <td >已取貨</td>
-                <td>NT.1200</td>
-                <td><button>訂單詳細 +</button></td>
-            </tr>
-        </tbody>
-    </table>
 
 
     <!-- 預留固定footer的位置 -->
     <div class="footer"></div>
 
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
-        document.getElementById('show_details_btn').addEventListener('click', function () {
-            document.querySelector('.showgeneraDatalist').classList.toggle('hide');
-        });
-        document.getElementById('show_details_btn').addEventListener('click', function () {
-            document.querySelector('.showgeneraDatalist2').classList.toggle('hide');
-        });
-        document.getElementById('show_details_btn').addEventListener('click', function () {
-            document.querySelector('.showgeneraDatalist3').classList.toggle('hide');
-        });
+        /*開細節按鈕用的*/
+        //console.log($(".show_details_btn"));
+        $(".show_details_btn").click(function () {
+            //console.log($(this).parent().parent().next())
+            const showgeneraDatalist = $(this).parent().parent().next();
+            $(showgeneraDatalist).toggleClass('hide');
+
+
+            /*為了讓細節表格-取貨方式、付款方式、按鈕可以維持置中所寫的*/
+            const RowspanNub = $(showgeneraDatalist).find("tbody>tr").length;
+            const tdRowspan = $(showgeneraDatalist).find("tbody>tr").eq(0).children().eq(1).nextAll();
+            tdRowspan.each(function (ind, elem) {
+                //console.log(ind, elem);
+                $(elem).attr({
+                    "rowspan": RowspanNub,
+                });
+            })
+
+        })
     </script>
-    </script>
+
 </body>
 
 </html>
-
-縮排
-text-indent

@@ -11,7 +11,7 @@
 
 .footer {
     height: 200px;
-    background-color: green;
+    background-color: rgb(20, 75, 175);
 }
 
 /* -----------------08.IntroStuffing----------------------- */
@@ -702,22 +702,38 @@ button#expand {
 /*12.memberProfile*/
 
 /* -----------------13.generalOrderPage---------------------*/
-.generalOrdernav {
-    margin-top: 30px;
-    width: 1000px;
-    border-radius: 10px 10px 10px 10px;
-    background-color: rgb(127, 127, 137);
-    margin-left: auto;
-    margin-right: auto;
+.generalOrderPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.generalOrder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin: 20px;
+
+    /* background-color: rgb(54, 122, 122); */
 }
 
+.generalOrdernav {
+    width: 100%;
+    min-width: 700px;
+    margin-bottom: 30px;
+
+    border-radius: 10px;
+    background-color: rgb(127, 127, 137);
+}
 .generalOrdernav ul {
     display: flex;
 }
 
 .generalOrdernav li {
-    padding: 10px 10px 10px 10px;
-    margin: 5px 5px 5px 5px;
+    padding: 10px;
+    margin: 5px;
     margin-right: 25px;
     list-style: none;
     font-size: 28px;
@@ -725,109 +741,92 @@ button#expand {
     letter-spacing: 5px;
     color: white;
 }
-
 .generalOrdernav li:hover {
-    border-bottom: 10px white solid;
+    border-bottom: 2px white solid;
 }
-
 .Ordernavbuttom {
-    border-bottom: 10px white solid;
+    border-bottom: 2px white solid;
 }
 
 /* * * * * * */
-.generalOrderDataArea {
-    margin-left: auto;
-    margin-right: auto;
-    width: 1000px;
+.generalOrderDataArea{
+    width:100%;
+    min-width: 700px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     background-color: rgb(203, 190, 215);
-    border-radius: 10px 10px 10px 10px;
-    margin-bottom: 20px;
-    padding: 10px 10px 10px 10px;
+    /* padding: 10px 30px 30px 30px; */
+
+    border-radius: 10px;
+}
+.generalOrderDataArea>table {
+    width:100%;
+    margin: 10px 20px 20px 20px;
+    border-collapse: collapse;
+    /* background-color: blue; */
+    border-radius: 10px;
+    
 }
 
-.showgeneraDatalist2 {
-    font-size: 18px;
-    font-family: 微軟正黑體;
-    font-weight: 500;
-
+.generalOrderDataArea>table>tbody::before{
+    content: "";
+    padding: 2px;
 }
-
-.remark {
-    width: 120px;
-    height: 30px;
+/*訂單 ....*/
+.generaDatanav td{
     text-align: center;
-    font-size: 16px;
-}
-
-.generaDatanav td {
+    
     font-size: 20px;
-    letter-spacing: 10px;
+    
     font-weight: 900;
-    /* text-align: center; */
-    padding: 3px 3px 3px 3px;
-    margin: 2px 2px 2px 2px;
-    font-family: 微軟正黑體;
+    padding: 10px 5px;
+    border-bottom:2px solid purple ;
 }
 
 .generaDataselect {
-    width: 200px;
-    height: 40px;
+    padding: 2px 10px;
     font-size: 16px;
-    border-radius: 10px 10px 10px 10px;
-    letter-spacing: 5px;
+    border-radius: 5px;
+    letter-spacing: 2px;
+}
+.showgeneraDatalist>td>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e2c6c6;
+    border-radius: 0 0 15px 15px;
+    padding: 20px;
 }
 
-.generaDatalist {
-    font-size: 20px;
-    font-family: 微軟正黑體;
-    font-weight: 400;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-bottom: 3px seashell solid;
+.generaDatalist>td{
+    text-align: center;
+    padding: 10px 20px;
+    background-color: rgb(133, 155, 155);
 }
 
-.generaDatalist button {
+.generaDatalist>td:first-child{border-radius: 10px 0 0 10px;}
+.generaDatalist>td:last-child{border-radius:  0 10px 10px 0;}
+
+.generaDatalist button{
     font-size: 20px;
     font-weight: 700;
     margin-left: 50px;
-    width: 120px;
-    height: 40px;
     border-radius: 15px 15px 15px 15px;
     background-color: rgb(142, 140, 137);
     color: white;
 }
 
-.cancelbutton button {
+button.cancelbutton {
     font-size: 20px;
     font-weight: 700;
-    margin-left: 50px;
-    width: 120px;
-    height: 40px;
-    border-radius: 15px 15px 15px 15px;
+    height: fit-content;
+    padding: 10px;;
+
+    border-radius: 10px;
     background-color: rgb(86, 85, 83);
-    color: white;
-}
-
-.showgeneraDatalist {
-    font-size: 20px;
-    margin-right: 30px;
-    margin-left: 50px;
-}
-
-.showgeneraDatalist td {
-    padding: 20px 20px 0px 20px;
-    border-bottom: 5px;
-    border-bottom: 5px rgb(35, 35, 34) solid;
-}
-
-.showgeneraDatalist button {
-    font-size: 16px;
-    font-weight: 700;
-    margin-left: 50px;
-    width: 100px;
-    height: 30px;
-    border-radius: 15px 15px 15px 15px;
-    background-color: rgb(190, 124, 23);
     color: white;
 }
 
@@ -835,8 +834,29 @@ button#expand {
     display: none;
 }
 
+.Detail{
+    border-collapse: collapse;
+    width: 100%;
+}
+.Detail td{
+    text-align: center;
+    padding: 10px 5px;
+}
+.Detail>thead{
+    border-bottom: 2px solid black;
+}
+.Detail>tbody>tr>td:nth-of-type(1),
+.Detail>tbody>tr>td:nth-of-type(2){
+    padding: 10px 5px 0 5px;
+    /* background-color: aqua;
+    border: 1px solid salmon; */
+}
 
-/*13.generalOrderPage*/
+.Detail tr>td:nth-of-type(4){
+    width: fit-content;
+    text-align: start;
+    /* background-color: aqua; */
+}
 
 
 /* -----------------14.customOrderPage---------------------*/
