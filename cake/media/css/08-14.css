@@ -278,7 +278,7 @@ button#expand {
     border: white 1px solid;
 }
 
-.passmessege {
+.passmessege,.emailMessege {
     margin-left: 300px;
     font-size: 20px;
     color: red;
