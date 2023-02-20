@@ -509,7 +509,7 @@ button#expand {
     border: white 1px solid;
 }
 
-.profilpasswordarea {
+.profilpasswordarea ,.profiloldpasswordarea {
     width: 500px;
     font-size: 24px;
     font-family: 微軟正黑體;
@@ -518,7 +518,7 @@ button#expand {
     margin-right: auto;
 }
 
-.profilpasswordarea input {
+.profilpasswordarea input ,.profiloldpasswordarea input{
     background-color: aquamarine;
     margin-top: 20px;
     width: 400px;
