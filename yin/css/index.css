@@ -9,7 +9,7 @@
 
 /* 字型套用 */
 body {
-    font-family: GenSenRounded-B !important; 
+    font-family: GenSenRounded-B !important;
     overflow-x: hidden;
 }
 
@@ -27,28 +27,41 @@ body {
     align-items: center;
 }
 
-.speace_R{
-margin-right: 80px;
+.speace_R {
+    margin-right: 80px;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
-    height: 50px;
-    line-height: 50px;
+    height: 70px;
+    line-height: 70px;
+    background-color: #D0EBF6;
+    padding: 0 30px;
+}
+
+nav span {
+    margin-left: 10px;
+    color: #8C623E;
+    font-size: 1.3rem;
 }
 
 #navlist>a {
     /* padding: 0px 10px; */
     margin-right: 30px;
+    text-decoration: none;
+    color: #8C623E;
+    font-size: 1.3rem;
 }
 
-#navlist>img{
+#navlist>svg {
     padding: 0px 10px;
+    width: 50px;
+    color: #8C623E;
 }
 
-#Product_C p{
-margin-left: 80px;
+#Product_C p {
+    margin-left: 80px;
 }
 
 #ChatBtn {
@@ -60,59 +73,109 @@ margin-left: 80px;
     height: 100px;
     width: 100px;
 }
+
+/* ------------AD-------------------- */
+section {
+    background-color: #99BF73;
+}
+
 /* ---------------NEWS----------------- */
-#carouselExampleControls{
+#carouselExampleControls {
     width: 100%;
     margin-bottom: 80px;
 }
 
-#News_card{
-    width: 85%; 
+#News_card {
+    width: 85%;
     height: 250px;
     display: flex;
 }
 
-#News_card>div{
-    
-    
+
+/* 滾動切換div */
+/* #About{
+    height: vw;
+}
+#About>div{
+    position: absolute;
+    设置top属性为0，让它们出现在相同的位置
+    width: 100%;
+    height: 20vh;
 }
 
-#marquee{
-    margin-bottom: 50px;
+#About_us {
+    z-index: 2;
+    将当前活动的div元素的层级设置为最高
 }
+
+#About_food {
+    z-index: 1;
+    将div2的层级设置为比div3低，以便div3覆盖它
+}
+
+.ani {
+    
+    animation: fadeInUp 0.5s;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+        transform: none;
+    }
+} */
+
+
+#Contact {
+    background-image: url(../Source/IMG/middle_long.png);
+    background-size: 100% auto;
+  background-position: center;
+  background-attachment: fixed;
+    z-index: -5;
+
+}
+
 /* ---------------跑馬燈----------------- */
-.box { 
+#marquee {
+    margin-bottom: 100px;
+}
+
+.box {
     position: relative;
     width: 100vw;
     height: 350px;
-    border: 1px solid #000000;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
-.list{
+
+.list {
     left: 0px;
-    display:flex;
+    display: flex;
     position: absolute;
 }
-.photo{
+
+.photo {
     width: 300px;
     height: 300px;
     border: 3px solid red;
-    margin:0 5px;
+    margin: 0 5px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 /* ----------------footer------------------ */
-footer{
+footer {
     text-align: center;
 }
 
-iframe{
+iframe {
     margin: 50px;
     border-radius: 10px;
 }

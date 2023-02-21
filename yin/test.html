@@ -7,115 +7,123 @@
     <script type="text/javascript" src="./slick-1.8.1/slick/slick.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./slick-1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="./slick-1.8.1/slick/slick-theme.css" />
-    <style>
-        /* body{
-        background-color: blueviolet;
-        width: 100%;
-        overflow: hidden;
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+</head>
+</body>
+<style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #A123{
+        width: 80vw;
+        height: 40vw;
+        margin: auto;
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    img{
-        margin:0 30px;
-    } */
-
-        div {
-            opacity: 0;
-            /* 初始时设置透明度为0 */
-            transition: opacity 0.5s ease-in-out;
-            /* 添加淡入淡出效果 */
-            width: 100%;
-            height: 100vh;
-        }
-
-        .active {
-            opacity: 1;
-            /* 将当前活动的div元素的透明度设置为1 */
-        }
-    </style>
+    .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  </style>
 </head>
 
 <body>
+  <!-- Swiper -->
+  <div id="A123" class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div id="About_us" class="flex">
+            <div>
+              <h3>品牌理念</h3>
+              <div class="speace_R">
+                <p>歌德在不經意間這樣說過，意志堅強的人能把世界放在手中像泥塊一樣任意揉捏。這不禁令我深思。 富蘭克林曾經說過，讀書是易事，思索是難事，但兩者缺一，便全無用處。這啟發了我，
+                  一般來講，我們都必須務必慎重的考慮考慮。
+              </div>
+              </p>
+            </div>
+            <img src="https://dummyimage.com/450x550/eb6767/fff" alt="關於我們介紹圖">
+          </div>
+      </div>
+      <div class="swiper-slide">
+        <div id="About_us" class="flex">
+            <div>
+              <h3>品牌理念</h3>
+              <div class="speace_R">
+                <p>歌德在不經意間這樣說過，意志堅強的人能把世界放在手中像泥塊一樣任意揉捏。這不禁令我深思。 富蘭克林曾經說過，讀書是易事，思索是難事，但兩者缺一，便全無用處。這啟發了我，
+                  一般來講，我們都必須務必慎重的考慮考慮。
+              </div>
+              </p>
+            </div>
+            <img src="https://dummyimage.com/450x550/eb6767/fff" alt="關於我們介紹圖">
+          </div>
+      </div>
+      <div class="swiper-slide"><div id="About_us" class="flex">
+        <div>
+          <h3>品牌理念</h3>
+          <div class="speace_R">
+            <p>歌德在不經意間這樣說過，意志堅強的人能把世界放在手中像泥塊一樣任意揉捏。這不禁令我深思。 富蘭克林曾經說過，讀書是易事，思索是難事，但兩者缺一，便全無用處。這啟發了我，
+              一般來講，我們都必須務必慎重的考慮考慮。
+          </div>
+          </p>
+        </div>
+        <img src="https://dummyimage.com/450x550/eb6767/fff" alt="關於我們介紹圖">
+      </div></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
 
-    <!-- <div class="responsive" style="width: 80%; height: 500px;">
-    <div><img src="https://dummyimage.com/600x400/57e075/fff" alt=""></div>
-    <div><img src="https://dummyimage.com/600x400/57e075/fff" alt=""></div>
-    <div><img src="https://dummyimage.com/600x400/57e075/fff" alt=""></div>
-    <div><img src="https://dummyimage.com/600x400/57e075/fff" alt=""></div>
-    <div><img src="https://dummyimage.com/600x400/57e075/fff" alt=""></div>
-    <div><img src="https://dummyimage.com/600x400/57e075/fff" alt=""></div>
-  </div>-->
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-    <div id="div1" class="active">这是div1</div>
-    <div id="div2">这是div2</div>
-    <div id="div3">这是div3</div>
-
-    <script type="text/javascript">
-        //     $(document).ready(function(){
-        //         $('.responsive').slick({
-        //   dots: true,
-        //   infinite: false,
-        //   speed: 300,
-        //   slidesToShow: 2,
-        //   slidesToScroll: 2,
-        //   responsive: [
-        //     {
-        //       breakpoint: 1024,
-        //       settings: {
-        //         slidesToShow: 2,
-        //         slidesToScroll: 2,
-        //         infinite: true,
-        //         dots: true
-        //       }
-        //     },
-        //     {
-        //       breakpoint: 600,
-        //       settings: {
-        //         slidesToShow: 2,
-        //         slidesToScroll: 2
-        //       }
-        //     },
-        //     {
-        //       breakpoint: 480,
-        //       settings: {
-        //         slidesToShow: 1,
-        //         slidesToScroll: 1
-        //       }
-        //     }
-        //     // You can unslick at a given breakpoint now by adding:
-        //     // settings: "unslick"
-        //     // instead of a settings object
-        //   ]
-        // });
-        //     });
-
-
-        let divs = document.querySelectorAll('div');
-        let activeDiv = 0;
-
-        function scrollHandler(e) {
-            if (e.deltaY > 0) {
-                activeDiv++;
-            } else {
-                activeDiv--;
-            }
-            if (activeDiv < 0) {
-                activeDiv = divs.length - 1;
-            }
-            if (activeDiv >= divs.length) {
-                activeDiv = 0;
-            }
-            divs.forEach((div) => {
-                div.classList.remove('active');
-            });
-            divs[activeDiv].classList.add('active');
-        }
-
-        window.addEventListener('wheel', scrollHandler);
-    </script>
-
-</body>
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      direction: "vertical",
+      slidesPerView: 1,
+      spaceBetween: 30,
+      mousewheel: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>
 
 </html>

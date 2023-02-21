@@ -30,7 +30,7 @@ function load(){
 };
 document.addEventListener('DOMContentLoaded',load);
 
-// News
+// News兩個輪播
 $(document).ready(function(){
     $('.responsive').slick({
 dots: true,
@@ -65,3 +65,25 @@ responsive: [
 ]
 });
 });
+
+// 滾動切換div
+// let div1 = document.getElementById('About_us');
+//         let div2 = document.getElementById('About_food');
+//         let div3 = document.getElementById('About_good');
+//         let activeDiv = div1;
+
+//         function scrollHandler(e) {
+//             if (e.deltaY > 0) {
+//                 activeDiv = activeDiv === div1 ? div2 : activeDiv === div2 ? div3 : div1;
+//             } else {
+//                 activeDiv = activeDiv === div1 ? div3 : activeDiv === div3 ? div2 : div1;
+//             }
+//             activeDiv.classList.add('ani');
+//             [div1, div2, div3].forEach((div) => {
+//                 if (div !== activeDiv) {
+//                     div.classList.remove('ani');
+//                 }
+//             });
+//         }
+
+//         window.addEventListener('wheel', scrollHandler);
