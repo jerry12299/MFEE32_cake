@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.6.0.js"></script>
+    <title>commodity</title>
+</head>
+<body>
+    <% data.forEach((item,index)=>{ %>
+            <%= item.c_id %>
+            <%= item.c_name %>
+            <%= item.price %>
+            <br>
+    <% })  %>
+    <hr><br>
+    <form action="" id="formCake">
+    蛋糕id:<input type="text" value="bd0206" name="c_id"><br>
+    蛋糕名稱:<input type="text" value="6吋生日蛋糕2號" name="c_name"><br>
+    價格:<input type="number" value="330" name="price"><br>
+    <input type="button" value="新增" id="submit">
+</form>
+    <script>
+         $('#submit').on('click', function() {
+            var data = $('#formCake').serializeArray();
+            
+            var JSONData = {};
+            for (index in data) {
+                JSONData[data[index].name] = data[index].value;
+            }
+                     
+            $.ajax({
+                url: "/commodity",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(JSONData),
+                success: function(res) {
+                    alert(res);
+                    // location.href = '/';
+                },
+                error: function() {
+                    alert("login 系統錯誤!")
+                }
+            })
+        })
+    </script>
+</body>
+</html>

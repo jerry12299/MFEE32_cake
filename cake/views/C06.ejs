@@ -1,122 +1,542 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>購物車</title>
+    <link rel="stylesheet" href="css/ShoppingCar.css">
     <script src="js/jquery-3.6.0.js"></script>
 </head>
+
 <body>
-    <div>購物車</div>
-    <table>
-        <thead>
-            <th>商品</th>
-            <th>價格</th>
-            <th>數量</th>
-        </thead>
-        <tbody>
-          
-        </tbody>
-    </table>
-    <div>
-        總計:<input type="number" id="sum" value="0" readonly>
-    </div>
-    <button id="clr">清空購物車</button>
-    <% if(!session.user) { %>  <!-- 如果沒登入(沒session.user) -->
-        <a href="/C05">C05登入/註冊</a>
-          <%} else{  %>
-        <button id="buyItem">送出</button>
-          <% } %>    
-   
+    <nav>
+        <div>
+            <img src="https://dummyimage.com/30x30/38afeb/fff" alt="Logo">
+            <span>菓季</span>
+        </div>
+        <div id="navlist">
+            <a href="">主題蛋糕</a>
+            <a href="">客製蛋糕</a>
+            <a href="">餡料食材介紹</a>
+            <a href="">常見問題</a>
+            <a href=""><img src="https://dummyimage.com/30x30/38afeb/fff" alt="MemberLogo"></a>
+            <a href=""><img src="https://dummyimage.com/30x30/38afeb/fff" alt="ShoppingLogo"></a>
+        </div>
+    </nav>
+    <section>
+        <img src="https://dummyimage.com/1400x400/38ffeb/fff" alt="廣告輪播" width="100%">
+        <div id="Step">
+            <div>
+                <div class="circle check">1</div>
+                <p>選購商品</p>
+            </div>
+            <div class=" uncheck">
+                <div class="circle ">2</div>
+                <p>登入會員</p>
+            </div>
+            <div class=" uncheck">
+                <div class="circle">3</div>
+                <p>確認資料</p>
+            </div>
+            <div class=" uncheck">
+                <div class="circle">4</div>
+                <p>購物完成</p>
+            </div>
+
+        </div>
+        <div id="Shopping_body">
+            <div>
+                <img src="" alt="購物車icon">
+                <span>購物車(商品數量)</span>
+            </div>
+            <div>
+                <div>
+                    <table id="ShoppingList">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>商品名稱</th>
+                                <th></th>
+                                <th>價格</th>
+                                <th>數量</th>
+                                <th>小計</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody1">
+                            <!-- 迴圈{ -->
+                            <!-- <tr>
+                                <td>
+                                    <img src="https://dummyimage.com/100x100/54f291/fff" alt="商品圖">
+                                </td>
+                                <td>
+                                    <p>商品名稱</p>
+                                    <p>商品規格</p>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <p>NT$350</p>
+                                </td>
+                                <td>
+                                    <select>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <span>$350</span>
+                                </td>
+                                <td>
+                                    <button>刪除</button>
+                                </td>
+                            </tr> -->
+                            <!-- } -->
+                        </tbody>
+
+                    </table>
+                    <div id="transport">
+                        <label>請選擇取件方式(請擇一)：</label>
+                        <input type="radio" name="transport">來店自取
+                        <input type="radio" name="transport">黑貓冷凍宅配---運費270元
+                    </div>
+                </div>
+                <div id="Shopping_Totle" class="Totle">
+                    <h3>訂單總金額：</h3>
+                    <h1 id="sum">NT$0</h1>
+                </div>
+                <div>
+                    <a href=""><button class="btn">回上頁繼續購物</button></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href=""><button class="btn">我要結帳</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <form id="orderForm"> -->
+        <section id="Shopping_Pay">
+            <div>
+                <div>
+                    <label for="pay" class="title">付款方式</label>
+                    <select name="payment" class="text_W" id="pay">
+                        <option value="銀行轉帳">銀行轉帳</option>
+                        <option value="黑貓貨到付款">黑貓貨到付款</option>
+                        <option value="來店付款(限來店自取)">來店付款(限來店自取)</option>
+                    </select>
+                </div>
+                <div>
+                    <p>銀行代碼：822(中國信託)<br>
+                        匯款帳號：015-456-789-123
+                    </p>
+                    <p>郵局代碼：700<br>
+                        匯款帳號：1234-5678-9012-34
+                    </p>
+                    <p>銀行代碼：013(國泰世華)<br>
+                        匯款帳號：0147-0258-0369-12
+                    </p>
+                    <br>
+                    <p>麻煩於匯款後告知您的訂單編號、匯款日期及匯款後五碼，非常感謝！</p>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="Shopping_order">
+            <div>
+
+                <div id="orderer">
+                <form id="orderForm">
+
+                    <div>
+                        <span class="title">訂購人資料</span>
+                        <hr>
+                    </div>
+                    <div>
+
+                        <label for="">姓名：</label>
+                        <input name="m_name" class="text_W" type="text" placeholder="王小明" readonly required
+                            value=<%=data.m_name %> ><br>
+
+                    </div>
+                    <div>
+                        <label for="">連絡電話：</label>
+                        <input name="phone" class="text_W" type="tel" placeholder="0900-000-000" readonly required
+                            value=<%=data.phone %> >
+                    </div>
+                    <div>
+                        <label for="">電子郵件：</label>
+                        <input name="email" class="text_W" type="email" placeholder="請輸入電子信箱" readonly required
+                            value=<%=data.email %> >
+                    </div>
+                    <div>
+                        <label for="">自取/宅配日期：</label>
+                        <br>
+                        <br>
+                        <input type="radio" name="method" value="自取" checked>自取時間
+                        <input type="radio" name="method" value="宅配">宅配時間
+                        <div id="transport_S" class="">
+                            <label for="">自取日期</label>
+                            <input name="pickupDate" type="date" value="2023-02-20">
+                            <br>
+                            <br>
+                            <label for="">自取時間</label>
+                            <select name="pickupTime">
+
+                                <option value="11:00:00" selected>11:00-13:00</option>
+                                <option value="13:00:00">13:00-15:00</option>
+                                <option value="15:00:00">15:00-17:00</option>
+                                <option value="17:00:00">17:00-18:00</option>
+                            </select>
+                        </div>
+
+                        <div id="transport_T">
+                            <label for="">宅配日期</label>
+                            <input name="pickupDate2" type="date">
+                            <br>
+                            <br>
+                            <label for="">宅配時間</label>
+                            <select name="pickupTime2">
+                                <option value="11:00:00">11:00-11:30</option>
+                                <option value="15:00:00">15:00-15:30</option>
+                                <option value="17:00:00">17:00-17:30</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="address">
+                        <label for="">收件地址：</label><br>
+                        <!-- <input type="text" class="address_input" placeholder="請輸入3+2郵遞區號" required> -->
+                        <!-- <br> -->
+                        <input name="rec_address" type="text" class="text_W" placeholder="請填入地址" required
+                            value=<%=data.address %>>
+                    </div>
+                    <div>
+                        <label for="">備註：</label>
+                        <textarea name="remark" id="note" maxlength="100">蠟燭年齡:
+紙盤數量:</textarea>
+                        <!-- <input name="remark" id="note" type="text" value="蠟燭年齡: ,紙盤數量: " placeholder="其他及宅配需求/若收件人非訂購人的話，請在這裡註明收件人姓名及地址。"
+                            required> -->
+                    </div>
+
+                </form>
+
+                </div>
+
+                <div>
+                    <div id="hit">
+                        <span class="title">訂購注意事項</span>
+                        <hr>
+                        <ul>
+                            <li> 而這些並不是完全重要，更加重要的問題是，蛋糕的發生，到底需要如何實現</li>
+                            <li>我們普遍認為，若能理解透徹核心原理，對其就有了一定的了解程度。</li>
+                            <li>這不禁令我重新仔細的思考。現在，正視蛋糕的問題，是非常非常重要的。</li>
+                            <li>因為，蛋糕的出現，重寫了人生的意義。</li>
+                            <li>世界需要改革，需要對蛋糕有新的認知。</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div id="btn_pay">
+                <div>
+                    <a href=""><button class="btn">回上頁</button></a>
+                    <% if(!session.user) { %>
+                        <a href="/C05"><button class="btn">登入</button></a>
+                        <%} else{ %>
+                            <button class="btn" id="buyItem">確認結帳</button>
+                            <% } %>
+
+                </div>
+            </div>
+        </section>
+    <!-- </form> -->
+    <section>
+        <div id="Page_Succeed">
+            <div id="meg_Succeed">
+                <h1>訂購成功！</h1>
+                <span>之後需要確認訂單內容，可至&nbsp會員專區>我的訂單&nbsp中查看。</span>
+            </div>
+            <div id="Succeed_list">
+                <div>
+                    <h1 id="orderID">訂單編號#</h1>
+                    <h3 id="co_upload_date">訂單成立時間2023/02/15
+                    </h3>
+                </div>
+                <div id="Succeed_body">
+                    <table>
+                        <thead>
+                            <th colspan="3">訂購內容</th>
+                            <th>單價</th>
+                            <th>數量</th>
+                            <th>小計</th>
+                        </thead>
+                        <tbody class="tbody2">
+                            <!-- <tr>
+                                <td>
+                                    <img src="https://dummyimage.com/100x100/f58a7a/fff" alt="">
+                                </td>
+                                <td colspan="2">
+                                    <span>
+                                        商品名稱
+                                    </span>
+                                    <br>
+                                    <span>
+                                        商品詳情
+                                    </span>
+                                </td>
+                                <td>NT$350</td>
+                                <td >1</td>
+                                <td>NT$350</td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                    <div>
+                        <table>
+                            <tr>
+                                <td class="list_title">連絡電話：</td>
+                                <td id="phone">0912-345-678</td>
+                            </tr>
+                            <tr>
+                                <td class="list_title">電子郵件：</td>
+                                <td id="email">helloworld@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td class="list_title">付款方式：</td>
+                                <td id="payment">來店付款</td>
+                            </tr>
+                            <tr>
+                                <td class="list_title">取貨方式：</td>
+                                <td id="method">來店取貨</td>
+                            </tr>
+                            <tr>
+                                <td class="list_title">取貨時間：</td>
+                                <td id="time"></td>
+                            </tr>
+                        </table>
+                        <span class="list_title">訂單與取貨備註：</span>
+                        <div class="textarea" id="remark">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="Totle">
+                    <h3>總金額：</h3>
+                    <h1  id="total">NT$0</h1>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <footer>
+        <div>footer</div>
+    </footer>
     <script>
 
-         function doDel(index){
-          var newitem = JSON.parse(localStorage.getItem('carts')) ;
-          newitem.splice(index,1);
-          console.log('new',newitem); 
-          localStorage.setItem("carts", JSON.stringify(newitem));
-        //   location.href = '/C06';
-        test();
+        function doDel(index) {
+            var newitem = JSON.parse(localStorage.getItem('carts'));
+            newitem.splice(index, 1);
+            console.log('new', newitem);
+            localStorage.setItem("carts", JSON.stringify(newitem));
+            location.href = '/C06';
+            test();
         }
 
-         function doChange(value,index){
-          var newitem = JSON.parse(localStorage.getItem('carts')) ;
-          newitem[index].quantity = parseInt(value);
-        //   console.log('new',newitem); 
-          localStorage.setItem("carts", JSON.stringify(newitem));
-        //   location.href = '/C06';
-        test();
+        function doChange(value, index) {
+            var newitem = JSON.parse(localStorage.getItem('carts'));
+            newitem[index].quantity = parseInt(value);
+            console.log('new', newitem);
+            localStorage.setItem("carts", JSON.stringify(newitem));
+            // location.href = '/C06';
+            doAjax();
+
         }
 
-        function test () {     
-        // $(function(){
-            var newcarts = JSON.parse(localStorage.getItem('carts'));        
-            // console.log(newcarts);
-            $("tbody").empty();
-            if(newcarts){
-                var sum = 0;               
-                 newcarts.forEach( function(e,index){                
-                var data = {name:e.name}
-                $.ajax({
-                            url: "/buy", //cake.js 的buy頁 
-                            type: "POST",
-                            contentType: "application/json; charset=utf-8",
-                            data: JSON.stringify(data),
-                            success: function(res) {
+        function doAjax() {
+            // $(function () {
+            var newcarts = JSON.parse(localStorage.getItem('carts'));
+            console.log(newcarts);
+            $(".tbody1").empty();
+            //    $(".tbody2").empty();
+            if (newcarts) {
+                var sum = 0;
+                newcarts.forEach(function (e, index) {
+                    var data = { name: e.name }
+                    $.ajax({
+                        url: "/buy", //cake.js 的buy頁 
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(data),
+                        success: function (res) {
                             // console.log(typeof(JSON.parse(res)));
-                            var cname = JSON.parse(res).c_name 
-                            var price = JSON.parse(res).price 
+                            var cname = JSON.parse(res).c_name
+                            var price = JSON.parse(res).price
+                            var total = price * e.quantity;
+
+                            //    $("tbody").append(`<tr><td>${cname}</td><td>${price}</td><td><input type="number" value="${e.quantity}" onchange="doChange(this.value,${index})" min="1" max="5" style ="width:50px"></td><td><button onclick="doDel(${index})">刪除</button> </td></tr>`);
+                            $(".tbody1").append(`<tr>
+                                <td>
+                                    <img src="https://dummyimage.com/100x100/54f291/fff" alt="商品圖">
+                                </td>
+                                <td>
+                                    <p>${cname}</p>
+                                    
+                                </td>
+                                <td></td>
+                                <td>
+                                    <p>NT$${price}</p>
+                                </td>
+                                <td>
+                                    <select id=s1_${index} onchange="doChange(this.value,${index})" >
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <span>$${total}</span>
+                                </td>
+                                <td>
+                                    <button onclick="doDel(${index})">刪除</button>
+                                </td>
+                            </tr>`);
                             
-                            $("tbody").append(`<tr><td>${cname}</td><td>${price}</td><td><input type="number" value="${e.quantity}" onchange="doChange(this.value,${index})" min="1" max="5" style ="width:50px"></td><td><button onclick="doDel(${index})">刪除</button> </td></tr>`);
+                            $(`#s1_${index}`).children().each(function () {
+                                if ($(this).text() == e.quantity) {
+                                    //jQuery給法
+                                    $(this).attr("selected", true); //或是給"selected"也可
+
+
+                                }
+                            });
+
                             // console.log(typeof(price))
                             // console.log(typeof(e.quantity))
-                            sum +=  price*e.quantity;
+                            sum += price * e.quantity;
                             // console.log(sum);
-                            $('#sum').val(sum)
-                            },
-                            error: function() {
-                                alert("Add 系統錯誤!");
-                                
-                            }
-                            })
-                
-            });
+                            $('#sum').text(`NT$${sum}`);
+                        },
+                        error: function () {
+                            alert("Add 系統錯誤!");
+
+                        }
+                    })
+                }); //forE
+
             }
-            
-        // })
+
+            // })
         }
-        test();
-        $('#clr').on('click',function(){
+
+        doAjax();
+        $('#clr').on('click', function () {
             localStorage.removeItem('carts')
             location.href = '/C06';
         })
-        $('#buyItem').on('click',function(){
-        var buyItem = JSON.parse(localStorage.getItem('carts'));
-        <% if(!session.user){  %>
-            //沒登入就無視
-        <% }else{ %>
-        var JSONData = {m_id: <%= session.user.m_id %> ,             //注意!!! 需先登入!!!!不然報錯!!!!!!
-                        item:buyItem}; 
-        <% } %>
+        $('#buyItem').on('click', function () {
+            var buyItem = JSON.parse(localStorage.getItem('carts'));
+            var data = $('#orderForm').serializeArray()
+            console.log(data);
+            var JSONData = {}
 
-        // console.log(JSONData.item[0].name) 
-        $.ajax({
-                 url: "/buyitem",
-                 type: "POST", 
-                 contentType: "application/json; charset=utf-8",
-                 data: JSON.stringify(JSONData),
-                 success: function(res) {
-                     alert("ok");
-                     localStorage.removeItem('carts')
-                     location.href = '/C06';
-                 
-                 },
-                 error: function() {
-                     alert("系統錯誤!")
-                 }
-             }) 
+                <% if (!session.user) {  %>
+           //沒登入就無視
+       <% } else { %> //注意!!! 需先登入!!!!不然報錯!!!!!!    
+                JSONData.m_id = <%= session.user.m_id %>
+                    JSONData.item =  buyItem ;
+                    JSONData.payment = $('#pay').val() ;
+                for (index in data) {
+                    JSONData[data[index].name] = data[index].value;
+                }         
+       <% } %>
+
+
+                // console.log(JSONData.item[0].name) 
+                $.ajax({
+                    url: "/buyitem",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(JSONData),
+                    success: function (res) {
+                        alert("ok");
+                        localStorage.removeItem('carts')
+                        console.log(JSON.parse(res))
+                        var item = JSON.parse(res).resItem
+                        // console.log(item);
+                        var data = JSON.parse(res).resData[0]
+                        // console.log(data)
+                        var time = new Date(data.pick_up_date)
+                        var h = time.getHours()
+                        $('#co_upload_date').text(`訂單成立時間${data.co_upload_date.split('T')[0]}`)
+                        $('#orderID').text(`訂單編號#${data.o_id}`)
+                        $('#phone').text(`${data.phone}`)
+                        $('#email').text(`${data.email}`)
+                        $('#payment').text(`${data.payment}`)
+                        $('#method').text(`${data.pickup_method}`)
+                        // $('#time').text(`${data.pick_up_date}`)
+                        $('#time').text(`${data.pick_up_date.split('T')[0]} ${h}時後`)
+                        $('#remark').text(`${data.remark}`)
+                        $('#total').text(`${data.order_total}`)
+                        item.forEach((item)=>{
+                                $(".tbody2").append(`<tr>
+                                <td>
+                                    <img src="https://dummyimage.com/100x100/54f291/fff" alt="商品圖">
+                                </td>
+                                <td>
+                                    <p>${item.c_name}</p>
+                                    
+                                </td>
+                                <td></td>
+                                <td>
+                                    <p>NT$${item.price}</p>
+                                </td>
+                                <td>
+                                    ${item.quantity}
+                                </td>
+                                <td>
+                                    <span>$${item.total}</span>
+                                </td>
+                               
+                            </tr>`);
+                        })
+                    
+                        // location.href = '/C06';
+
+                    },
+                    error: function () {
+                        alert("系統錯誤!")
+                    }
+                })
         })
+
+        // function doNewOrder() {
+        //     $.ajax({
+        //         url: "/buyitem",
+        //         type: "GET",
+        //         contentType: "application/json; charset=utf-8",
+        //         data: JSON.stringify(JSONData),
+        //         success: function (res) {
+        //             alert("ok");
+        //             localStorage.removeItem('carts')
+        //             doNewOrder()
+        //             // location.href = '/C06';
+
+        //         },
+        //         error: function () {
+        //             alert("系統錯誤!")
+        //         }
+        //     })
+        // }
     </script>
+
 </body>
+
 </html>

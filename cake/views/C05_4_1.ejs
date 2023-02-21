@@ -6,11 +6,78 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/jquery-3.6.0.js"></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="css/08-14.css">
+    <title>菓季會員修改</title>
 </head>
 
 <body>
-    <div>會員資料修改</div>
+     <!-- 預留固定nav的位置 -->
+     <div class="navtop"></div>
+     <!-- 預留固定輪播的位置 -->
+     <div class="slideshow-container"></div>
+ 
+     <div class="profilnav">
+         <ul>
+             <li>會員資訊</li>
+             <li>我的訂單</li>
+             <li>我的客製</li>
+         </ul>
+     </div>
+     <% var YY = data.birthday.getFullYear().toString()%>
+     <% var MM = (data.birthday.getMonth()+1).toString().padStart(2,'0')%>
+     <% var DD = data.birthday.getDate().toString().padStart(2,'0')%>
+     <% var BD = YY+'-' + MM + '-'+DD %>
+     <form id="member" class="profileparea">
+         <div class="profilnumberarea">
+             <label for="">會員編號 #</label>
+             <input type="text" value=<%= data.m_id %> readonly>
+         </div>
+         <div class="profilemailarea">
+             <label for="">EMAIL</label>
+             <input type="email" id="mail" value=<%= data.email %> readonly placeholder="Email為帳號" required>
+         </div>
+         <div class="profilpasswordarea">
+             <label for="">舊密碼</label>
+             <input id="oldpwd" type="password" name="oldpwd"  required>
+         </div>
+         <div class="profilpasswordarea">
+             <label for="">新密碼</label>
+             <input type="password" id="pwd" name="pwd"  required>
+         </div>
+         <div class="profilpassword2area">
+             <label for="">確認新密碼</label>
+             <input type="password" name="pwd2" id="pwd2" required>
+         </div>
+         <div class="profilpassmessege">密碼與確認密碼輸入不一致，請重新輸入</div>
+         <div class="profilnamearea">
+             <label for="">姓名</label>
+             <input type="text" name="m_name" value=<%= data.m_name %> required>
+         </div>
+         <div class="profilbirthdayarea">
+             <label for="">生日</label>
+             <input type="date" name="birthday" value=<%= BD %> required>
+         </div>
+         <div class="profilsexarea">
+             <label for="">性別</label>
+             <input type="radio" name="gender" value="男" checked>生理男
+             <input type="radio" name="gender" value="女">生理女
+         </div>
+         <div class="profilphonearea">
+             <label for="">手機</label>
+             <input type="phone" name="phone" value=<%= data.phone %> required>
+         </div>
+         <div class="profiladdressarea">
+             <label for="">通訊地址</label>
+             <input type="text" name="address" value=<%= data.address %> required>
+         </div>
+         <div class="profilrevise">
+             <button id="updata" >我要修改</button>
+         </div>
+     </form>
+ 
+     <!-- 預留固定footer的位置 -->
+     <div class="footer"></div>
+    <!-- <div>會員資料修改</div>
    
    <% var YY = data.birthday.getFullYear().toString()%>
    <% var MM = (data.birthday.getMonth()+1).toString().padStart(2,'0')%>
@@ -25,17 +92,44 @@
         手機<input type="text" name="phone" value=<%= data.phone %>> <br>
         地址<input type="text" name="address" value=<%= data.address %>> <br>
         <input type="button" id="updata" value="修改">
-    </form>
+    </form> -->
 
 <script>
+        // var password = document.querySelector(".profilpasswordarea input");
+        // var password2 = document.querySelector(".profilpassword2area input");
+        var profilpassmessege = document.querySelector(".profilpassmessege");
+    
+        // 一開始就隱藏
+        profilpassmessege.style.display = "none";
+    
+        // password2.addEventListener("input", function(){
+        //     if(password.value !== password2.value){
+        //         profilpassmessege.style.display = "block";
+        //     } else {
+        //         profilpassmessege.style.display = "none";
+        //     }
+        // });
+
+        $('#pwd2').on('change',function(){
+            if($('#pwd').val() !== $('#pwd2').val()){
+                profilpassmessege.style.display = "block";
+            } else {
+                profilpassmessege.style.display = "none";
+            }
+        })
+
+        
+
+
+
 $('#updata').on('click', function() {
+
             var data = $('#member').serializeArray();
          
             // console.log(file)
-           
-          
-            
-            var JSONData = {m_id: <%= session.user.m_id %> }; //注意!!! 需先登入!!!!不然報錯!!!!!!
+            if( $('#oldpwd').val() == <%= data.pwd %> && $('#pwd').val() != '' ){
+
+           var JSONData = {m_id: <%= session.user.m_id %> }; //注意!!! 需先登入!!!!不然報錯!!!!!!
                   
             for (index in data) {
                 JSONData[data[index].name] = data[index].value;
@@ -56,6 +150,15 @@ $('#updata').on('click', function() {
                     alert("系統錯誤!")
                 }
             })
+
+
+
+            }else{
+                alert('錯誤')
+            }
+          
+            
+            
         })
 </script>
 

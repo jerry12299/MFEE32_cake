@@ -1,0 +1,41 @@
+tr.detail>td>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+tr.detail>td>div>div{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.items tbody>tr:nth-child(4)>td:nth-child(2){
+    /* background-color: aqua; */
+    padding: 0 8%  0 18%;
+}
+.items tbody>tr:nth-child(4)>td:nth-child(3){
+
+}
+.items tbody>tr:nth-child(4)>td:nth-child(2)>div{
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+div>div:nth-child(2).confirm{
+    width:90%;
+    
+    border-top:2px solid var(--color05);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+    margin: 10px 0 0 0  ;
+}
+input#addPrice{
+    border: none;
+    max-width: 60px;
+}

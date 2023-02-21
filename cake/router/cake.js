@@ -44,9 +44,9 @@ index.get('/C04', function (req, res) { //常見問題
 index.get('/C05', function (req, res) { //登入頁
     res.render('C05.ejs')
 })
-
+//-----------登入
 index.post('/C05', function (req, res) {
-    var sql = `SELECT * FROM member WHERE email=? and pwd=?;` //查詢使用者帳密
+    var sql = `SELECT m_id,rights FROM member WHERE email=? and pwd=?;` //查詢使用者帳密
     var data = [req.body.account, req.body.password] //2個?
     db.exec(sql, data, function (results, fields) {
         if (results[0]) { //結果成立
@@ -67,7 +67,22 @@ index.post('/C05', function (req, res) {
 
 
 index.get('/C06', function (req, res) { //購物車
-    res.render('C06.ejs')
+    if (!req.session.user) {
+        res.render('C06.ejs', {
+            data: {}
+        })
+    } else {
+        var sql = `SELECT m_name,email,phone,address FROM member WHERE m_id = ?`
+        db.exec(sql, [req.session.user.m_id], function (data, fields) {
+            // console.log(data[0])
+            res.render('C06.ejs', {
+                data: data[0]
+            })
+        })
+    }
+
+
+
 })
 
 
@@ -80,7 +95,7 @@ index.get('/C05_2/:page([0-9]+)', rights_api, function (req, res) {
     var page = req.params.page   //page=網址列的page數字
     var nums_per_page = 10
     var offset = (page - 1) * nums_per_page
-    var sql = `SELECT buy_order.o_id,co_upload_date,pick_up_date,payment,pay_state,pickup_method,co_state,remark,shipping,email,m_name,phone,order_total FROM buy_order , member, 
+    var sql = `SELECT buy_order.o_id,co_upload_date,pick_up_date,payment,pay_state,pickup_method,co_state,remark,shipping,rec_address,email,m_name,phone,order_total FROM buy_order , member, 
     (
     SELECT o_id, sum(total)as order_total FROM 
     (
@@ -100,7 +115,7 @@ index.get('/C05_2/:page([0-9]+)', rights_api, function (req, res) {
                 [],
                 function (nums, fields) {
 
-                    db.exec(`SELECT buy_order.o_id,c_name,price,quantity,price*quantity as total FROM buy_order , cake_order, commodity WHERE buy_order.o_id = cake_order.o_id and cake_order.c_id = commodity.c_id`, [], function (orderData,fields) {
+                    db.exec(`SELECT buy_order.o_id,c_name,price,quantity,price*quantity as total FROM buy_order , cake_order, commodity WHERE buy_order.o_id = cake_order.o_id and cake_order.c_id = commodity.c_id`, [], function (orderData, fields) {
 
                         // console.log('mask_js_nums:',nums); // [COUNT:28]
                         // console.log('mask_js_nums[0].COUNT:',nums[0].COUNT); // 28
@@ -113,7 +128,7 @@ index.get('/C05_2/:page([0-9]+)', rights_api, function (req, res) {
 
                         res.render('C05_2.ejs', { //跳轉到index.ejs
                             data: data,
-                            order_D:orderData,                   //data:資料庫傳來的內容 10筆1頁
+                            order_D: orderData,                   //data:資料庫傳來的內容 10筆1頁
                             curr_page: page,              //curr_page:網址列的page數字
                             total_nums: nums[0].COUNT,    //total_nums: 28
                             last_page: last_page          //last_page: 3
@@ -284,7 +299,7 @@ index.get('/C05_4/:page([0-9]+)', login_api, function (req, res) {
     var offset = (page - 1) * nums_per_page
     // 使用db.js裡的exec函式，也就是apple函式                                // 給函式3個參數
     // db.exec(`SELECT * FROM cake_order LIMIT ${offset}, ${nums_per_page};`,  //sql指令 顯示10筆1頁
-    db.exec(`SELECT buy_order.o_id,co_upload_date,pick_up_date,payment,pay_state,pickup_method,co_state,remark,shipping,email,m_name,phone,order_total FROM buy_order , member, 
+    db.exec(`SELECT buy_order.o_id,co_upload_date,pick_up_date,payment,pay_state,pickup_method,co_state,remark,shipping,rec_address,email,m_name,phone,order_total FROM buy_order , member, 
     (
     SELECT o_id, sum(total)as order_total FROM 
     (
@@ -300,26 +315,26 @@ index.get('/C05_4/:page([0-9]+)', login_api, function (req, res) {
             db.exec(`SELECT COUNT(*) AS COUNT FROM cake_order`, //sql指令 資料總和
                 [],
                 function (nums, fields) {
-                db.exec(`SELECT buy_order.o_id,c_name,price,quantity,price*quantity as total FROM buy_order , cake_order, commodity WHERE buy_order.o_id = cake_order.o_id and cake_order.c_id = commodity.c_id and m_id = ?`, [req.session.user.m_id], function (orderData,fields) {
+                    db.exec(`SELECT buy_order.o_id,c_name,price,quantity,price*quantity as total FROM buy_order , cake_order, commodity WHERE buy_order.o_id = cake_order.o_id and cake_order.c_id = commodity.c_id and m_id = ?`, [req.session.user.m_id], function (orderData, fields) {
 
-                    // console.log('mask_js_nums:',nums); // [COUNT:28]
-                    // console.log('mask_js_nums[0].COUNT:',nums[0].COUNT); // 28
-                    var last_page = Math.ceil(nums[0].COUNT / nums_per_page) // 無條件進位  28/10 = 3
+                        // console.log('mask_js_nums:',nums); // [COUNT:28]
+                        // console.log('mask_js_nums[0].COUNT:',nums[0].COUNT); // 28
+                        var last_page = Math.ceil(nums[0].COUNT / nums_per_page) // 無條件進位  28/10 = 3
 
-                    if (page > last_page) { //如果大於最大頁數
-                        res.redirect('/C05_4/' + last_page) //跳轉到最後一頁
-                        return
-                    }
+                        if (page > last_page) { //如果大於最大頁數
+                            res.redirect('/C05_4/' + last_page) //跳轉到最後一頁
+                            return
+                        }
 
-                    res.render('C05_4.ejs', { //跳轉到主題蛋糕訂單頁ejs
-                        data: data,                   //data:資料庫傳來的內容 10筆1頁
-                        order_D:orderData,
-                        curr_page: page,              //curr_page:網址列的page數字
-                        total_nums: nums[0].COUNT,    //total_nums: 28
-                        last_page: last_page          //last_page: 3
+                        res.render('C05_4.ejs', { //跳轉到主題蛋糕訂單頁ejs
+                            data: data,                   //data:資料庫傳來的內容 10筆1頁
+                            order_D: orderData,
+                            curr_page: page,              //curr_page:網址列的page數字
+                            total_nums: nums[0].COUNT,    //total_nums: 28
+                            last_page: last_page          //last_page: 3
+                        })
+
                     })
-
-                })
                 })     //第二個db.exec的()尾 
         })        //function()的{}尾  第一個db.exec的()尾 
 })
@@ -412,35 +427,163 @@ index.get('/picture/:pname', login_api, function (req, res) {
 // console.log(req.session.buy);
 index.post('/buy', function (req, res) {
     var data = req.body;
-    // console.log(data.name)
     var sql = `SELECT c_name,price FROM commodity WHERE c_id = ?`
-
+    // console.log(data)
     db.exec(sql, [data.name], function (result, fields) {
         // console.log(result[0]) 
-
         res.end(JSON.stringify(result[0]))
     })
-})
-//-------------------送出購買
-index.post('/buyitem', function (req, res) {
-    var data = req.body;
-    // console.log(data)
-    var sql = `INSERT INTO buy_order (m_id, pick_up_date, payment, pay_state, pickup_method, co_state, remark, shipping) VALUES (?, '2023-02-16 14:02:03', '銀行轉帳', '未付款', '宅配', '未製作', 'wwwwwwwww', '未出貨')`;
-    db.exec(sql,[data.m_id],function(result, fields){
-        // console.log(result.insertId)
-        data.item.forEach((x) => {
-        // console.log(data.m_id);
-        // console.log(x.name);
-        // console.log(x.quantity);
-        db.exec(`INSERT INTO cake_order (o_id, c_id, quantity) VALUES ( ?, ?, ?)`, [result.insertId, x.name, x.quantity], function (result2, fields) {
-            // console.log(result2.insertId)
 
-            res.end()
+
+
+
+
+})
+function one (req, res, next){
+    var newData = req.body
+     if (newData.method === "自取") {
+
+        var pick_up_date = `${newData.pickupDate} ${newData.pickupTime}`
+        // console.log('1',pick_up_date)
+    } else {
+        var pick_up_date = `${newData.pickupDate2} ${newData.pickupTime2}`
+        // console.log('2',pick_up_date)
+    }
+    var data = [newData.m_id, pick_up_date, newData.payment, newData.method, newData.remark, newData.rec_address]
+    // console.log('buy:', data)
+    //先送出訂購者資料，取得訂購編號
+    var sql = `INSERT INTO buy_order (m_id, pick_up_date, payment, pay_state, pickup_method, co_state, remark, shipping,rec_address) VALUES (?, ?, ?, '未付款', ?, '未製作', ?, '未出貨',?)`;
+    db.exec(sql, data, function (result, fields) {
+        // console.log(result.insertId) //訂購編號 o_id
+        var o_id = result.insertId
+        // console.log('o_id',o_id)
+        res.locals.id = o_id;
+        // res.locals.item =  newData.item;
+      
+        next()
+       })
+    
+       
+    
+}
+function two(req, res, next){
+    var newData = req.body
+    var o_id = res.locals.id
+    var sql =``
+    var data = []
+    newData.item.forEach((x) => {
+    
+        sql += `INSERT INTO cake_order (o_id, c_id, quantity) VALUES ( ?, ?, ?);`
+        data.push(o_id, x.name, x.quantity)
+
+    })
+
+    db.exec(sql, data, function (result, fields) {
+        // console.log(result2.insertId)
+         next()
+    })
+   
+}
+
+
+
+
+
+function three (req, res, next){
+    var o_id = res.locals.id
+    // console.log('res.locals.id',o_id)
+    db.exec(`SELECT buy_order.o_id,co_upload_date,pick_up_date,payment,pickup_method,remark,email,phone,order_total FROM buy_order , member, 
+    (
+    SELECT o_id, sum(total)as order_total FROM 
+    (
+    SELECT buy_order.o_id,c_name,price,quantity,price*quantity as total FROM buy_order , cake_order, commodity WHERE buy_order.o_id = cake_order.o_id and cake_order.c_id = commodity.c_id
+    )as a 
+    GROUP BY o_id
+    )as b
+    WHERE buy_order.m_id = member.m_id and buy_order.o_id = b.o_id and buy_order.o_id = ?;`,
+    [o_id],
+     function (resData, fields) {
+        // console.log('Data1:',resData)
+        res.locals.resData = resData
+        next()
+
+     })
+
+
+
+
+}
+
+function four (req, res, next){
+    var o_id = res.locals.id
+    var resData = res.locals.resData
+    db.exec(`SELECT c_name,price,quantity,price*quantity as total 
+    FROM buy_order,cake_order,commodity 
+    WHERE buy_order.o_id = cake_order.o_id AND cake_order.c_id = commodity.c_id AND buy_order.o_id = ?`,
+    [o_id],
+    function (resItem, fields) {
+       
+        console.log('data2', resData)
+        console.log('item', resItem)
+        res.end(JSON.stringify(
+            {
+            resData:resData,
+            resItem:resItem
+        }
+        )
+        )
+        // res.end()
+      
+      
+    })
+}
+
+
+
+//-------------------送出購買
+index.post('/buyitem',[one,two,three,four]);
+
+
+//----------------顯示最新訂單
+
+//----------------修改狀態
+index.post('/change', function (req, res) {
+    var data = req.body;
+
+
+    //要改的欄位                              
+    db.exec(`UPDATE buy_order SET ${data.dbName} = ? WHERE buy_order.o_id = ?`,
+        [data.value, data.o_id],  //要改的內容  //要改的o_id  
+        function (result, fields) {
+            res.end();
+
+        })
+})
+//-----------------新增商品
+index.get('/commodity', function (req, res) { //主題蛋糕頁
+    db.exec(`SELECT * FROM commodity`, [], function (data, fields) {
+        console.log(data)
+
+        res.render('commodity.ejs', {
+            data: data
         })
     })
-    
-    });
 
 })
+
+index.post('/commodity', rights_api, function (req, res) {
+    var data = req.body;
+    console.log(data)
+    var sql = `INSERT INTO commodity (c_id, c_name, price) VALUES (?, ?, ?)`
+    db.exec(sql, [data.c_id, data.c_name, data.price], function (result, fields) {
+        if (result.affectedRows) {
+            res.end('update success')
+        } else {
+            res.end('update failed')
+        }
+    })
+})
+
+
 module.exports = index;
 
