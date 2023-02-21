@@ -592,15 +592,17 @@ index.get('/manage',rights_api,function(req, res){
     })
     
 })
-index.get('/detail/:id([0-9]+)', login_api, function (req, res) {
-    var sql = `SELECT * FROM member WHERE m_id = ?;`
-    var data = [req.params.id]
-    db.exec(sql, data, function (results, fields) {
-        if (results[0]) {
-            res.end(JSON.stringify(results[0]))
+index.post('/manage',rights_api,function(req, res){
+    var data = req.body;
+    console.log(data)
+    var sql = `UPDATE member SET email = ?,m_name = ?,birthday = ?,gender = ?,phone = ?,address = ?,rights = ? WHERE member.m_id = ?`
+    db.exec(sql,[data.email,data.m_name,data.birthday,data.gender,data.phone,data.address,data.rights,data.m_id,],function(result, fields){
+        if (result.affectedRows) {
+            res.end('update success')
         } else {
-            res.end('no result')
+            res.end('update failed')
         }
+
     })
 })
 

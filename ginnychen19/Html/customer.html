@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菓季後台-會員管理</title>
+    <link rel="stylesheet" href="../media/css/main_ginnychen19.css">
+    <link rel="stylesheet" href="../media/css/BEndOrder.css">
+    <link rel="stylesheet" href="../media/css/customer.css">
+    <script src="../media/js/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <div id="BEndleft">
+        <div class="BEndnav">
+            <div>
+                <img src="../media/Source/SVG/Weed.svg">
+                <h6>後臺管理系統</h6>
+                <p>使用者：abuser</p>
+            </div>
+            <div>
+                <div>
+                    <div>
+                        <img src="../media/Source/SVG/Weed.svg">
+                        <h6>商品管理</h6>
+                    </div>
+                    <p1><a href="">商品列表</a></p1>
+                    <p1><a href="">新增商品</a></p1>
+                </div>
+                <div>
+                    <div>
+                        <img src="../media/Source/SVG/Weed.svg">
+                        <h6>訂單管理</h6>
+                    </div>
+                    <p1><a href="">一般訂單</a></p1>
+                    <p1><a href="">客製訂單</a></p1>
+                </div>
+                <div>
+                    <div>
+                        <img src="../media/Source/SVG/Weed.svg">
+                        <h6>會員相關</h6>
+                    </div>
+                    <p1><a href="">會員資料</a></p1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="BEndright">
+        <div id="PMcakeOrder">
+            <div>
+                <h6>會員資料</h6>
+                <div class="search-container">
+                    <input type="button" class="search-icon"></input>
+                    <input type="text" class="search-input" placeholder="Search...">
+                </div>
+            </div>
+            <table class="Order">
+                <thead>
+                    <tr>
+                        <td>會員id</td>
+                        <td>姓名</td>
+                        <td>生日</td>
+                        <td>性別</td>
+                        <td>連絡電話</td>
+                        <td>通訊地址</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="list">
+                        <td>abcdefg<br>@gmail.com</td>
+                        <td>陳大天</td>
+                        <td>1997.01.01</td>
+                        <td>生理男</td>
+                        <td>0912-345-678</td>
+                        <td>臺北市信義區市府路1號10樓（市政大樓10樓）</td>
+                        <td>
+                            <button>修改</button>
+                        </td>
+                    </tr>
+                    <tr class="detail">
+                        <td colspan="8">
+                            <div class="customer">
+                                <form action="" method="post">
+                                    <div>
+                                        <table>
+                                            <tr>
+                                                <td>EMAIL：</td>
+                                                <td><input type="email" id="mail" value="abcdefg@gmail.com"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>密碼：</td>
+                                                <td><input type="text" value="aaaaaaaaa01" required></td>
+                                            </tr>
+                                            <tr>
+                                                <td>姓名：</td>
+                                                <td><input type="text" value="陳大天" required></td>
+                                            </tr>
+                                            <tr>
+                                                <td>手機：</td>
+                                                <td><input type="phone" value="0912-345-678" required></td>
+                                            </tr>
+                                        </table>
+                                        <table>
+                                            <tr>
+                                                <td>生日：</td>
+                                                <td><input type="date" value="1997-01-01" required></td>
+                                            </tr>
+                                            <tr>
+                                                <td>性別：</td>
+                                                <td>
+                                                    <input type="radio" name="loc" checked>生理男
+                                                    <input type="radio" name="loc">生理女
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>通訊地址：</td>
+                                                <td>
+                                                    <textarea cols="40" rows="2" name="" id="" required>臺北市信義區市府路1號10樓（市政大樓10樓）
+                                                </textarea>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div>
+                                        <button class="btn_red">註銷帳號</button>
+                                        <input type="submit" value="更新資料">
+                                    </div>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="9">
+                            <div>
+
+                                <div>
+                                    <a href=""><button>最前頁</button></a>
+                                    <a href=""><button>上一頁</button></a>
+                                    <div id="pageList">
+                                        <a href="1">
+                                            <p>1</p>
+                                        </a>
+                                        <a href="2">
+                                            <p>2</p>
+                                        </a>
+                                        <a href="3">
+                                            <p>3</p>
+                                        </a>
+                                    </div>
+                                    <a href=""><button>下一頁</button></a>
+                                    <a href=""><button>最尾頁</button></a>
+                                </div>
+                                <div>
+                                    <p>共 28 筆， 1/3 頁</p>
+                                </div>
+
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <script src="../media/js/BEndOrder.js"></script>
+    <script src="../media/js/findNav.js"></script>
+</body>
+
+</html>

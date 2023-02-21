@@ -41,7 +41,6 @@ body {
 }
 
 #PMcakeOrder>div>h6 {
-    padding: 0 30%;
     margin: 0;
     height: fit-content;
     color: var(--color06);
@@ -149,8 +148,10 @@ tr.detail>td{
 tr.detail>td>div{
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
+    justify-content:center;
+    align-items: center;
     padding: 0 10px ;
+    /* background-color: blue; */
 }
 
 
@@ -204,22 +205,39 @@ tr.detail>td>div{
     padding: 0 10px;
     border-radius: 12px;
     background-color: var(--color04);
-    
 }
-.contact>table.contactLeft{
+.contact_UpDown{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: flex-start;
+    justify-content: space-around;
+    margin: 0 0 0 10px;
+    padding: 0 10px;
+    border-radius: 12px;
+    background-color: var(--color04);
+}
+
+
+.contact>table.contactLeft,
+.contact_UpDown>table.contactUP{
     color: var(--color01);
      
 }
-.contact>table.contactLeft tr{
+.contact>table.contactLeft tr,
+.contact_UpDown>table.contactUP tr{
     vertical-align: top;
 }
-.contact>table.contactLeft td:nth-child(2){
+.contact>table.contactLeft td:nth-child(2),
+.contact_UpDown>table.contactUP td:nth-child(2){
     padding: 10px;
     text-align: start;
     min-width:200px;
     /* background-color: aquamarine; */
 }
-.contact>table.contactRight{
+
+.contact>table.contactRight,
+.contact_UpDown>table.contactDOWN{
     color: var(--color01);
     text-align: start;
 }
@@ -227,7 +245,8 @@ tr.detail>td>div{
 .contact>table.contactRight select{
     background-color: var(--color01);
 }
-.contact>table.contactRight div>div{
+.contact>table.contactRight div>div,
+.contact_UpDown>table.contactDOWN div>div{
     padding: 10px;
     text-align: start;
     min-width:200px;
@@ -235,6 +254,8 @@ tr.detail>td>div{
     color: var(--color06);
     border-radius: 8px;
 }
+
+
 
 
 /*=================表單頁尾--頁數====================*/
