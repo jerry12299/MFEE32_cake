@@ -15,9 +15,8 @@ tr.detail>td>div>div{
     /* background-color: aqua; */
     padding: 0 8%  0 18%;
 }
-.items tbody>tr:nth-child(4)>td:nth-child(3){
+/* .items tbody>tr:nth-child(4)>td:nth-child(3){} */
 
-}
 .items tbody>tr:nth-child(4)>td:nth-child(2)>div{
     /* background-color: blue; */
     display: flex;
