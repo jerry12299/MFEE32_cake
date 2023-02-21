@@ -21,52 +21,46 @@
 /*設定寬度只要60% 以及置中和圓角*/
 .stuffIngred {
     background-color: rgb(201, 208, 208);
-    margin-top: 30px;
-    width: 80%;
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
     border-radius: 15px 15px 15px 15px;
 }
 
-.stuffingtitle{
-    margin-left: 45%;
-}
-
-.stuffingtitle img{
-    width: 20%;
-    height: 20%;
-    
-}
-
-.ingredients{
-    margin-left: 45%;
-}
-.ingredients img{
-    width: 20%;
-    height: 20%;
+/*設定內餡和食材文字置中*/
+.stuffingtitle h3,
+.ingredients h3 {
+    text-align: center;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 25px;
 }
 
 .cakeboxarea {
-    margin-top: 20px;
+    margin-top: 50px;
     border-radius: 10px 10px 10px 10px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
-.cakebox{
-    width: 35%;
-    height: 35%;
+.cakebox {
+    position: relative;
+    /*加入後會發現位置對了，但向下太多*/
+    height: 350px;
     border-radius: 5px 5px 5px 5px;
-    margin-bottom: 30px;
+    margin-bottom: 200px;
+    box-shadow: 50px;
     background-color: rgb(135, 135, 135);
-    box-shadow:  rgb(86, 86, 86) 0px 10px 0px 0px;
 }
 
 .cakeboximg {
     padding: 5px 5px 0px 5px;
     background-size: contain;
-    
+    margin-bottom: 50px;
+    position: relative;
 }
 
 .cakeboximg img {
@@ -74,17 +68,18 @@
     height: auto;
 }
 
-.cakeboxWord
- {
-    width: 99%;
-    height: 60%;
-    background-color:rgb(240, 231, 181);
-    border-radius: 5px 5px 5px 5px;
+.cakeboxWord {
+    position: absolute;
+    bottom: -150px;
+    /*top:0px時會發現在圖片正上方*/
+    width: 480px;
+    background-color: rgb(232, 4, 4);
+    border-radius: 2px 2px 2px 2px;
     padding: 2px 2px 2px 2px;
-    font-size: 10px;
-    font-weight: 700;
+    line-height: 1;
+    font-size: 16px;
     font-family: 微軟正黑體;
-    /* z-index: 1; */
+    z-index: 1;
 }
 
 .ingredientsflex ul {
@@ -93,107 +88,6 @@
     justify-content: space-around;
 }
 
-/*食材區域*/
-.container{
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content:space-around;
-    flex-wrap: wrap;
-}
-
-
-.container .box{
-    position: relative;
-    width: 270px;
-    height: 270px;
-    overflow: hidden;
-    transition: 0.5s;
-    margin-bottom: 50px;
-    border-radius: 12px 12px 12px 12px;
-}
-
-
-.container .box:hover{
-    transform: scale(1.25);
-    box-shadow: 0 25px 40px rgba(0,0,0,0.5);
-    z-index: 1;
-}
-
-/* .container .box .img-box{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-} */
-
-.container .box .img-box::before{
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top,#222,transparent);
-    z-index: 1;
-    opacity: 0;
-    transition: 0.5s;
-}
-
-.container .box:hover .img-box::before{
-    opacity: 1;
-}
-
-.container .box .img-box img{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.container .box .text-box{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    display: flex;
-    align-items: flex-end;
-    color: rgb(255, 255, 255);
-    z-index: 2;
-
-}
-
-
-.container .box .text-box h2{
-    font-size: 10px;
-    margin-bottom: 80px;
-    margin-right: 10px;
-    transform: translate(200px);
-    transition: 0.5s;
-}
-.container .box:hover .text-box h2{
-    transform: translateY(0);
-    transition-delay: 0.3s;
-}
-
-.container .box .text-box p{
-    font-size: 8px;
-    line-height: 15px;
-    margin-right: 40px;
-    margin-bottom: 50px;
-    transform: translateY(200px);
-    transition: 0.5s;
-}
-
-.container .box:hover .text-box p{
-    transform: translateY(0);
-    transition-delay: 0.4s;
-}
 
 /*08.IntroStuffingr 結束*/
 
@@ -615,7 +509,7 @@ button#expand {
     border: white 1px solid;
 }
 
-.profilpasswordarea ,.profiloldpasswordarea{
+.profilpasswordarea ,.profiloldpasswordarea {
     width: 500px;
     font-size: 24px;
     font-family: 微軟正黑體;
@@ -786,9 +680,6 @@ button#expand {
 
 /*12.memberProfile*/
 
-
-
-
 /* -----------------13.generalOrderPage---------------------*/
 .generalOrderPage{
     display: flex;
@@ -811,6 +702,7 @@ button#expand {
     width: 100%;
     min-width: 700px;
     margin-bottom: 30px;
+
     border-radius: 10px;
     background-color: rgb(127, 127, 137);
 }
@@ -945,43 +837,24 @@ button.cancelbutton {
     /* background-color: aqua; */
 }
 
-/* -----------------14..customOrderPage---------------------*/
 
-.customlOrderPage{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.customOrder {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 60%;
-    margin: 20px;
-
-    /* background-color: rgb(54, 122, 122); */
-}
-
-.customnavbuttom {
-    border-bottom: 2px white solid;
-}
-
+/* -----------------14.customOrderPage---------------------*/
 .customOrdernav {
-    width: 100%;
-    min-width: 700px;
-    margin-bottom: 30px;
-    border-radius: 10px;
+    margin-top: 30px;
+    width: 1000px;
+    border-radius: 10px 10px 10px 10px;
     background-color: rgb(127, 127, 137);
+    margin-left: auto;
+    margin-right: auto;
 }
+
 .customOrdernav ul {
     display: flex;
 }
 
 .customOrdernav li {
-    padding: 10px;
-    margin: 5px;
+    padding: 10px 10px 10px 10px;
+    margin: 5px 5px 5px 5px;
     margin-right: 25px;
     list-style: none;
     font-size: 28px;
@@ -989,132 +862,110 @@ button.cancelbutton {
     letter-spacing: 5px;
     color: white;
 }
+
 .customOrdernav li:hover {
-    border-bottom: 2px white solid;
-}
-.customvbuttom {
-    border-bottom: 2px white solid;
+    border-bottom: 10px white solid;
 }
 
 /* * * * * * */
-.customOrderDataArea{
-    width:100%;
-    min-width: 700px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.customderDataArea {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
     background-color: rgb(203, 190, 215);
-    border-radius: 10px;
-}
-.customOrderDataArea>table {
-    width:100%;
-    margin: 10px 20px 20px 20px;
-    border-collapse: collapse;
-    border-radius: 10px;
-    
+    border-radius: 10px 10px 10px 10px;
+    margin-bottom: 30px;
+    padding: 20px 20px 20px 20px;
 }
 
-.customOrderDataArea>table>tbody::before{
-    content: "";
-    padding: 2px;
-}
-/*訂單欄位*/
-.customDatanav td{
-    text-align: center;
+.showcustomDatalist2 {
     font-size: 20px;
-    font-weight: 900;
-    padding: 10px 5px;
-    border-bottom:2px solid purple ;
-}
-/*30.60.90日選單*/
-.customDataselect {
-    padding: 2px 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    letter-spacing: 2px;
+    font-family: 微軟正黑體;
+    font-weight: 500;
 }
 
-/*訂單細節*/
-.showcustomDatalist>td>div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e2c6c6;
-    border-radius: 0 0 15px 15px;
-    padding: 20px;
-}
 
-.customDatalist>td{
+.customremark {
+    width: 120px;
+    height: 100px;
     text-align: center;
-    padding: 10px 20px;
-    background-color: rgb(133, 155, 155);
+    font-size: 16px;
 }
 
-.customDatalist>td:first-child{border-radius: 10px 0 0 10px;}
-.customDatalist>td:last-child{border-radius:  0 10px 10px 0;}
+.customDatanav td {
+    font-size: 25px;
+    letter-spacing: 10px;
+    font-weight: 900;
+    /* text-align: center; */
+    padding: 3px 3px 3px 3px;
+    margin: 2px 2px 2px 2px;
+    font-family: 微軟正黑體;
+}
 
-.customDatalist button{
+.customDataselect {
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 10px 10px 10px 10px;
+    letter-spacing: 5px;
+}
+
+.customDatalist {
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 400;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-bottom: 3px seashell solid;
+}
+
+.customDatalist button {
     font-size: 20px;
     font-weight: 700;
     margin-left: 50px;
+    width: 120px;
+    height: 40px;
     border-radius: 15px 15px 15px 15px;
     background-color: rgb(142, 140, 137);
     color: white;
 }
 
-
-/*取消案件*/
-.customcheckImgbutton{
+.customviewImage {
     font-size: 20px;
     font-weight: 700;
-    height: fit-content;
-    padding: 5px;
-    border-radius: 10px;
+    margin-left: 50px;
+    width: 120px;
+    height: 40px;
+    border-radius: 15px 15px 15px 15px;
     background-color: rgb(86, 85, 83);
-    border: 5px solid  rgb(86, 85, 83);
-    color: white;
-    margin: 20px 20px 20px 20px;
-}
-
-.customcancelbutton {
-    font-size: 20px;
-    font-weight: 700;
-    height: fit-content;
-    padding: 5px;
-    border-radius: 10px;
-    background-color: rgb(86, 85, 83);
-    border: 5px solid  rgb(86, 85, 83);
     color: white;
 }
 
-.hide {
+
+.showcustomDatalist {
+    font-size: 20px;
+    margin-right: 30px;
+    margin-left: 50px;
+}
+
+.showcustomDatalist td {
+    padding: 20px 20px 0px 20px;
+    border-bottom: 5px rgb(23, 22, 22) solid;
+}
+
+.showcustomDatalist3 button {
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 50px;
+    width: 120px;
+    height: 40px;
+    border-radius: 15px 15px 15px 15px;
+    background-color: rgb(86, 85, 83);
+    color: white;
+}
+
+.customhide {
     display: none;
 }
 
-.customDetail{
-    border-collapse: collapse;
-    width: 100%;
-    /* border: 2px saddlebrown solid; */
-}
-.customDetail td{
-    text-align: center;
-    padding: 10px 5px;
-}
-.customDetail>thead{
-    border-bottom: 2px solid black;
-}
-.customDetail>tbody>tr>td:nth-of-type(1),
-.customDetail>tbody>tr>td:nth-of-type(2){
-    padding: 10px 5px 0 5px;
-    /* background-color: aqua;
-    border: 1px solid salmon; */
-}
-
-.customDetail tr>td:nth-of-type(4){
-    width: fit-content;
-    text-align: start;
-    /* background-color: aqua; */
-}
-
-/*14.customOrderPage結束*/
-
+/*14.customOrderPage*/

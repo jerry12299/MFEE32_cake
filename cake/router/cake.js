@@ -583,6 +583,28 @@ index.post('/commodity', rights_api, function (req, res) {
         }
     })
 })
+//-----------改權限
+index.get('/manage',rights_api,function(req, res){
+    db.exec(`SELECT * FROM member;`,[],function(data, fields){
+        res.render('manage.ejs',{
+            data:data
+        })
+    })
+    
+})
+index.get('/detail/:id([0-9]+)', login_api, function (req, res) {
+    var sql = `SELECT * FROM member WHERE m_id = ?;`
+    var data = [req.params.id]
+    db.exec(sql, data, function (results, fields) {
+        if (results[0]) {
+            res.end(JSON.stringify(results[0]))
+        } else {
+            res.end('no result')
+        }
+    })
+})
+
+
 
 
 module.exports = index;

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="css/jquery.modal.min.css" />
+   
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>#</th>
+            <th>m_id</th>
+            <th>email</th>
+            <th>姓名</th>
+            <th>權限</th>
+        </thead>
+        <tbody>
+            <% data.forEach((item ,index) => { %>
+                <tr>
+                    <td><%= index+1%></td>
+                    <td><%= item.m_id%></td>
+                    <td><%= item.email%></td>
+                    <td><%= item.m_name%></td>
+                    <td><%= item.rights%></td>
+                 
+                    <td>
+                        <a href="#divEditData" rel="modal:open">
+                            <button onclick="Edit(<%= item.m_id%>)">編輯</button>
+                        </a>
+                        <button onclick="Delete(<%= item.m_id%>)">刪除</button>
+                    </td>
+                  
+                </tr>
+            <% }) %>
+        </tbody>
+        <tfoot>
+           
+        </tfoot>
+    </table>
+    <div id="divEditData" class="modal">
+        <form id="formEdit">
+            權限<input type="text" name="rights">
+            <!-- <input type="hidden" name="id"> -->
+            <!-- 藥局名稱: <input type="text" name="name"><br> -->
+            <!-- 電話: <input type="text" name="phone"><br> -->
+            <!-- 地址: <input type="text" name="address"><br> -->
+            <!-- 成人口罩庫存: <input type="text" name="adult_mask"><br> -->
+            <!-- 孩童口罩庫存: <input type="text" name="child_mask"><br> -->
+            <button type="button" id="submit">更新</button>
+        </form>
+    </div> 
+    
+    <script>
+        function Edit(id) {
+        $.ajax({
+            url: "/detail/"+id,
+            type: "GET",
+            success: function(data) {
+                var res = JSON.parse(data);
+                // $("input[name='id']").val(res.id)
+                // $("input[name='name']").val(res.name)
+                // $("input[name='phone']").val(res.phone)
+                // $("input[name='address']").val(res.address)
+                // $("input[name='adult_mask']").val(res.adult_mask)
+                // $("input[name='child_mask']").val(res.child_mask)
+                $("input[name='rights']").val(res.rights)
+            },
+            error: function() {
+                alert("系統錯誤!")
+            },
+        })
+    }
+
+    function Delete(id) {
+        $.ajax({
+            url: "",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({"id": id}),
+            success: function(res) {
+                alert(res);
+                location.reload();
+            },
+            error: function(err) {
+                alert("Delete 系統錯誤! 請看log" );
+                console.log(err);
+            }
+        })
+    }
+
+    $('#submit').on('click', function() {
+        
+        var data = $('#formEdit').serializeArray();
+
+        var JSONData = {};
+        for(index in data){
+            JSONData[data[index].name] = data[index].value;
+        }
+                 
+        $.ajax({
+            url: "/update",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(JSONData),
+            success: function(res) {
+                alert(res);
+                location.reload();
+            },
+            error: function() {
+                alert("系統錯誤!")
+            }
+        })
+    })
+    
+    </script>
+    
+</body>
+</html>

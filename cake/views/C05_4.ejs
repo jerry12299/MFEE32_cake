@@ -22,9 +22,12 @@
         <!-- 上面的選單 -->
         <div class="generalOrdernav">
             <ul>
-                <li>會員資訊</li>
+                <!-- <li>會員資訊</li>
                 <li class="Ordernavbuttom">我的訂單</li>
-                <li>我的客製</li>
+                <li>我的客製</li> -->
+                <a href="/C05_4_1"><li>會員資訊</li></a>
+                <a href="/C05_4/1"><li>我的訂單</li></a>
+                <a href="/C05_4_2/1"><li>我的客製</li></a>
             </ul>
         </div>
         <!-- 下面的選單 -->
@@ -111,7 +114,7 @@
                                             <td>NT.<%= o_item.price%></td>
                                             <td>NT.<%= o_item.total%></td>
                                             <% if(i == 1 ) { %>
-                                            <td ><%= item.payment %></td>
+                                            <td><%= item.payment %></td>
                                             <td><%= item.pickup_method%><br>宅配地址<br>台中市南屯區公益路18號 </td>
                                             <!-- <td><button class="cancelbutton">申請取消</button></td> -->
                                             <% i = 0%>
