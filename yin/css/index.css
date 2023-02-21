@@ -74,7 +74,6 @@ nav span {
     width: 100px;
 }
 
-/* ------------AD-------------------- */
 section {
     background-color: #99BF73;
 }
@@ -91,42 +90,38 @@ section {
     display: flex;
 }
 
-
-/* 滾動切換div */
-/* #About{
-    height: vw;
-}
-#About>div{
-    position: absolute;
-    设置top属性为0，让它们出现在相同的位置
+/* ---------about--------------------- */
+.swiper {
     width: 100%;
-    height: 20vh;
-}
+    height: 100%;
+  }
 
-#About_us {
-    z-index: 2;
-    将当前活动的div元素的层级设置为最高
-}
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+  }
 
-#About_food {
-    z-index: 1;
-    将div2的层级设置为比div3低，以便div3覆盖它
-}
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-.ani {
-    
-    animation: fadeInUp 0.5s;
-}
+  #A123{
+      width: 80vw;
+      height: 40vw;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
 
-@keyframes fadeInUp {
-    from {
-        transform: translate3d(0, 100%, 0);
-    }
-
-    to {
-        transform: none;
-    }
-} */
+  /* ------------------------------------- */
 
 
 #Contact {
