@@ -14,53 +14,55 @@
     <div class="navtop"></div>
     <!-- 預留固定輪播的位置 -->
     <div class="slideshow-container"></div>
-
-
-    <div class="member_title"><h2>會員註冊</h2></div>
-
-    <form action="" method="post" class="signuparea">
-        <div class="emailarea">
-            <label for="">EMAIL</label>
-            <input type="email" id="mail" placeholder="Email為帳號" required>
+    <div class="signUpbgcolor">
+        <div class="member_title">
+            <h2>會員註冊</h2>
         </div>
-        <div class="passwordarea">
-            <label for="">密碼</label>
-            <input type="password"  required>
-        </div>
-        <div class="password2area">
-            <label for="">確認密碼</label>
-            <input type="password2" required>
-        </div>
-        <div class="passmessege">密碼與確認密碼輸入不一致，請重新輸入</div>
-        <div class="namearea">
-            <label for="">姓名</label>
-            <input type="text" required>
-        </div>
-        <div class="birthdayarea">
-            <label for="">生日</label>
-            <input type="date" required>
-        </div>
-        <div class="sexarea">
-            <label for="">性別</label>
-            <input type="radio" name="loc">生理男
-            <input type="radio" name="loc">生理女
-        </div>
-        <div class="phonearea">
-            <label for="">手機</label>
-            <input type="phone" required>
-        </div>
-        <div class="addressarea">
-            <label for="">通訊地址</label>
-            <input type="text" name="" id="" required>
-        </div>
-        <div class="onlyyesarea">
-            <input type="radio" required >
-            <label for="">我同意服務條款</label>
-        </div>
-        <div class="buttonarea">
-            <button>註冊</button>
-        </div>
-    </form>
+        <form action="" method="post" class="signuparea">
+            <div class="changeloing"><a href="10.memberLogin.html">已經是會員了嗎？</a></div>
+            <div class="emailarea">
+                <label for="">EMAIL</label>
+                <input type="email" id="mail" color: #8C5F37 placeholder="Email為帳號" required>
+            </div>
+            <div class="passwordarea">
+                <label for="">密碼</label>
+                <input type="password" required>
+            </div>
+            <div class="password2area">
+                <label for="">確認密碼</label>
+                <input type="password2" required>
+            </div>
+            <div class="passmessege">密碼與確認密碼輸入不一致，請重新輸入</div>
+            <div class="namearea">
+                <label for="">姓名</label>
+                <input type="text" required>
+            </div>
+            <div class="birthdayarea">
+                <label for="">生日</label>
+                <input type="date" required>
+            </div>
+            <div class="sexarea">
+                <label for="">性別</label>
+                <input type="radio" name="loc">生理男
+                <input type="radio" name="loc">生理女
+            </div>
+            <div class="phonearea">
+                <label for="">手機</label>
+                <input type="phone" required>
+            </div>
+            <div class="addressarea">
+                <label for="">通訊地址</label>
+                <input type="text" name="" id="" required>
+            </div>
+            <div class="onlyyesarea">
+                <input type="radio" required>
+                <label for="">我同意服務條款</label>
+            </div>
+            <div class="buttonarea">
+                <button>註冊</button>
+            </div>
+        </form>
+    </div>
 
     <!-- 預留固定footer的位置 -->
     <div class="footer"></div>
@@ -72,9 +74,9 @@
 
         // 一開始就隱藏
         passmessege.style.display = "none";
-    
-        password2.addEventListener("input", function(){
-            if(password.value !== password2.value){
+
+        password2.addEventListener("input", function () {
+            if (password.value !== password2.value) {
                 passmessege.style.display = "block";
             } else {
                 passmessege.style.display = "none";
