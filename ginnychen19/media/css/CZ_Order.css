@@ -1,3 +1,16 @@
+.items>table>thead td{
+    text-align: start;
+    border-bottom: 2px solid var(--color04);
+}
+.items>table>tbody td>textarea{
+    width:100%;
+    resize:none;
+}
+
+.contact_UpDown>table.contactUP tr>td>select{
+    color: var(--color05);
+}
+
 tr.detail>td>div{
     display: flex;
     flex-direction: column;
@@ -15,9 +28,7 @@ tr.detail>td>div>div{
     /* background-color: aqua; */
     padding: 0 8%  0 18%;
 }
-.items tbody>tr:nth-child(4)>td:nth-child(3){
-
-}
+/* .items tbody>tr:nth-child(4)>td:nth-child(3){} */
 .items tbody>tr:nth-child(4)>td:nth-child(2)>div{
     /* background-color: blue; */
     display: flex;
@@ -36,6 +47,5 @@ div>div:nth-child(2).confirm{
     margin: 10px 0 0 0  ;
 }
 input#addPrice{
-    border: none;
-    max-width: 60px;
+    max-width: 100px;
 }

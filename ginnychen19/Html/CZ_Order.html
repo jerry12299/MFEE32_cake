@@ -96,7 +96,6 @@
                         </td>
                     </tr>
                 </thead>
-                
                 <tbody>
                     <tr class="list">
                         <td>#123456</td>
@@ -117,97 +116,12 @@
                                         <table>
                                             <thead>
                                                 <tr>
-                                                    <td>項目</td>
-                                                    <td>內容</td>
-                                                    <td>估價</td>
+                                                    <td>訂單詳情</td>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>尺寸</td>
-                                                    <td>
-                                                        <select name="???????">
-                                                            <option value="1">8吋</option>
-                                                            <option value="2" selected>10吋</option>
-                                                            <option value="3">12吋</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>2500</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>內陷</td>
-                                                    <td>
-                                                        <select name="???????">
-                                                            <option value="1" selected>巧克力脆片</option>
-                                                            <option value="2">草莓覆盆子</option>
-                                                            <option value="3">檸檬藍莓</option>
-                                                            <option value="4">焦糖香蕉</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>250</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>顏色</td>
-                                                    <td>
-                                                        <select name="???????">
-                                                            <option value="1" selected>白色</option>
-                                                            <option value="2">米色</option>
-                                                            <option value="3">黑色</option>
-                                                            <option value="4">咖啡色</option>
-                                                            <option value="5">紅色</option>
-                                                            <option value="6">橘色</option>
-                                                            <option value="7">黃色</option>
-                                                            <option value="8">綠色</option>
-                                                            <option value="9">藍色</option>
-                                                            <option value="10">紫色</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>250</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>配件</td>
-                                                    <td colspan="2">
-                                                        <div>
-                                                            <div>
-                                                                配件01
-                                                                <input type="number" value="0" min="0" style="width: 60px;">
-                                                            </div>
-                                                            <price>0</price>
-                                                        </div>
-                                                        <div>
-                                                            <div>
-                                                                配件02
-                                                                <input type="number" value="1" min="0" style="width: 60px;">
-                                                            </div>
-                                                            <price>150</price>
-                                                        </div>
-                                                        <div>
-                                                            <div>
-                                                                配件03
-                                                                <input type="number" value="0" min="0" style="width: 60px;">
-                                                            </div>
-                                                            <price>0</price>
-                                                        </div>
-                                                        <div>
-                                                            <div>
-                                                                配件04
-                                                                <input type="number" value="0" min="0" style="width: 60px;">
-                                                            </div>
-                                                            <price>300</price>
-                                                        </div>
-                                                        <div>
-                                                            <div>
-                                                                配件05
-                                                                <input type="number" value="1" min="0" style="width: 60px;">
-                                                            </div>
-                                                            <price>250</price>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>運費</td>
-                                                    <td>冷凍宅配</td>
-                                                    <td>270</td>
+                                                    <td><textarea rows="10"></textarea></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -223,16 +137,45 @@
                                                 <td>abcdefg<br>@gmail.com</td>
                                             </tr>
                                             <tr>
+                                                <td>希望聯絡方式</td>
+                                                <td>
+                                                    <select name="???????">
+                                                        <option value="1" selected="selected">電話</option>
+                                                        <option value="2">FB</option>
+                                                        <option value="3">Line</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
                                                 <td>付款方式</td>
-                                                <td>線上轉帳</td>
+                                                <td>
+                                                    <select name="???????">
+                                                        <option selected="selected">目前未定</option>
+                                                        <option value="1">銀行轉帳</option>
+                                                        <option value="2">黑貓貨到付款</option>
+                                                        <option value="3">來店付款</option>
+                                                    </select>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>取貨方式</td>
-                                                <td>冷凍宅配<br>台中市南屯區公益路二段51號18樓</td>
+                                                <td>
+                                                    <select name="???????">
+                                                        <option selected="selected">目前未定</option>
+                                                        <option value="1">來店自取</option>
+                                                        <option value="2">冷凍宅配</option>
+                                                    </select>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>取貨時間</td>
-                                                <td>上午</td>
+                                                <td>
+                                                    <select name="???????">
+                                                        <option selected="selected">目前未定</option>
+                                                        <option value="1">上午</option>
+                                                        <option value="2">下午</option>
+                                                    </select>
+                                                </td>
                                             </tr>
                                         </table>
                                         <table class="contactDOWN">
@@ -241,18 +184,11 @@
                                                     <button id="show_pic">訂單附圖</button>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    <div>訂單與取貨備註
-                                                        <div>無備註</div>
-                                                    </div>
-                                                </td>
-                                            </tr>
                                         </table>
                                     </div>
                                 </diV>
                                 <diV class="confirm">
-                                    <diV>總估價：3570+<input type="text" id="addPrice">=NT.3570</diV>
+                                    <diV>總估價：NT.<input type="text" id="addPrice" value="未定"></diV>
                                     <diV>
                                         <select name="???????">
                                             <option selected="selected">訂單狀態</option>
@@ -284,7 +220,6 @@
                         </td>
                     </tr>
                 </tbody>
-              
                 <tfoot>
                     <tr>
                         <td colspan="9">
