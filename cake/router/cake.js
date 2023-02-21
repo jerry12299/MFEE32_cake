@@ -147,7 +147,7 @@ index.get('/C05_3/:page([0-9]+)', rights_api, function (req, res) {
     var nums_per_page = 10
     var offset = (page - 1) * nums_per_page
     // 使用db.js裡的exec函式，也就是apple函式                                // 給函式3個參數
-    db.exec(`SELECT * FROM customized LIMIT ${offset}, ${nums_per_page};`,  //sql指令 顯示10筆1頁
+    db.exec(`SELECT cust_id,customized.m_id,m_name,cust_upload_date,cust_form,cust_state,picture,connection,email,phone,address FROM customized,member WHERE customized.m_id = member.m_id LIMIT ${offset}, ${nums_per_page};`,  //sql指令 顯示10筆1頁
         [],                                                                   //有?時填的資料，沒有就給空[]
         function (data, fields) {             //function()的{}頭                                
             // console.log('mask_js_data:',data);  //資料庫傳來的內容 10筆1頁

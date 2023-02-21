@@ -1,138 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菓季後台-客製訂單</title>
+    <link rel="stylesheet" href="../css/main_ginnychen19.css">
+    <link rel="stylesheet" href="../css/BEndOrder.css">
+    <link rel="stylesheet" href="../css/CZ_Order.css">
     <script src="../js/jquery-3.6.0.js"></script>
-    <script src="../js/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="../css/jquery.modal.min.css" />
-    <title>首頁</title>
 </head>
+
 <body>
-   
-    <% if(!session.user) { %>  <!-- 如果沒登入(沒session.user) -->
-    <a href="/login">登入</a> 
-    <% }else if(session.user.rights) { %>
-    <a href="/add">管理表單</a> <a href="/C05_2/1">蛋糕訂單</a>
-    <% } %>
+    <div id="BEndleft">
+        <div class="BEndnav">
+            <div>
+                <img src="../Source/SVG/Weed.svg">
+                <h6>後臺管理系統</h6>
+                <p>使用者：abuser</p>
+            </div>
+            <div>
+                <div>
+                    <div>
+                        <img src="../Source/SVG/Weed.svg">
+                        <h6>商品管理</h6>
+                    </div>
+                    <p1><a href="">商品列表</a></p1>
+                    <p1><a href="">新增商品</a></p1>
+                </div>
+                <div>
+                    <div>
+                        <img src="../Source/SVG/Weed.svg">
+                        <h6>訂單管理</h6>
+                    </div>
+                    <p1><a href="">一般訂單</a></p1>
+                    <p1><a href="">客製訂單</a></p1>
+                </div>
+                <div>
+                    <div>
+                        <img src="../Source/SVG/Weed.svg">
+                        <h6>會員相關</h6>
+                    </div>
+                    <p1><a href="">會員資料</a></p1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="BEndright">
+        <div id="PMcakeOrder">
+            <div>
+                <h6>客製訂單</h6>
+                <div class="search-container">
+                    <input type="button" class="search-icon"></input>
+                    <input type="text" class="search-input" placeholder="Search...">
+                </div>
+            </div>
+            <table class="Order">
+                <thead>
+                    <tr>
+                        <td>訂單編號</td>
+                        <td>姓名</td>
+                        <td>金額</td>
+                        <td>詳情</td>
+                        <td>成立時間 ▲</td>
+                        <td>預約時間 ▲</td>
+                        <td>
+                            <select name="???????">
+                                <option selected="selected">訂單狀態</option>
+                                <option value="1">未製作</option>
+                                <option value="2">已製作</option>
+                                <option value="3">申請取消</option>
+                                <option value="4">已取消</option>
+                                <option value="5">未聯絡</option>
+                                <option value="6">洽談中</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="???????">
+                                <option selected="selected">付款狀態</option>
+                                <option value="1">未付款</option>
+                                <option value="2">已付款</option>
+                                <option value="3">已退款</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="???????">
+                                <option selected="selected">出貨狀態</option>
+                                <option value="1">未配送</option>
+                                <option value="2">已配送</option>
+                                <option value="3">未取貨</option>
+                                <option value="4">已取貨</option>
+                                <option value="5">已取消</option>
+                            </select>
+                        </td>
+                    </tr>
+                </thead>
+                <% data.forEach((item ,index) => { %>
+                <tbody>
+                    <tr class="list">
+                        <td>#<%= item.cust_id %></td>
+                        <td><%= item.m_name %></td>
+                        <td>NT.1100</td>
+                        <td><button>詳細</button></td>
+                        <td><%= item.cust_upload_date %></td>
+                        <td>23.02.16</td>
+                        <td><%= item.cust_state %></td>
+                        <td>未付款</td>
+                        <td>未配送</td>
+                    </tr>
+                    <tr class="detail">
+                        <td colspan="9">
+                            <div>
+                                <diV>
+                                    <div class="items">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <td>項目</td>
+                                                    <td>內容</td>
+                                                    <td>估價</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>尺寸</td>
+                                                    <td>
+                                                        <select name="???????">
+                                                            <option value="1">8吋</option>
+                                                            <option value="2" selected>10吋</option>
+                                                            <option value="3">12吋</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>2500</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>內陷</td>
+                                                    <td>
+                                                        <select name="???????">
+                                                            <option value="1" selected>巧克力脆片</option>
+                                                            <option value="2">草莓覆盆子</option>
+                                                            <option value="3">檸檬藍莓</option>
+                                                            <option value="4">焦糖香蕉</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>250</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>顏色</td>
+                                                    <td>
+                                                        <select name="???????">
+                                                            <option value="1" selected>白色</option>
+                                                            <option value="2">米色</option>
+                                                            <option value="3">黑色</option>
+                                                            <option value="4">咖啡色</option>
+                                                            <option value="5">紅色</option>
+                                                            <option value="6">橘色</option>
+                                                            <option value="7">黃色</option>
+                                                            <option value="8">綠色</option>
+                                                            <option value="9">藍色</option>
+                                                            <option value="10">紫色</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>250</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>配件</td>
+                                                    <td colspan="2">
+                                                        <div>
+                                                            <div>
+                                                                配件01
+                                                                <input type="number" value="0" min="0" style="width: 60px;">
+                                                            </div>
+                                                            <price>0</price>
+                                                        </div>
+                                                        <div>
+                                                            <div>
+                                                                配件02
+                                                                <input type="number" value="1" min="0" style="width: 60px;">
+                                                            </div>
+                                                            <price>150</price>
+                                                        </div>
+                                                        <div>
+                                                            <div>
+                                                                配件03
+                                                                <input type="number" value="0" min="0" style="width: 60px;">
+                                                            </div>
+                                                            <price>0</price>
+                                                        </div>
+                                                        <div>
+                                                            <div>
+                                                                配件04
+                                                                <input type="number" value="0" min="0" style="width: 60px;">
+                                                            </div>
+                                                            <price>300</price>
+                                                        </div>
+                                                        <div>
+                                                            <div>
+                                                                配件05
+                                                                <input type="number" value="1" min="0" style="width: 60px;">
+                                                            </div>
+                                                            <price>250</price>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>運費</td>
+                                                    <td>冷凍宅配</td>
+                                                    <td>270</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="contact_UpDown">
+                                        <table class="contactUP">
+                                            <tr>
+                                                <td>連絡電話</td>
+                                                <td>0912-345-678</td>
+                                            </tr>
+                                            <tr>
+                                                <td>電子信箱</td>
+                                                <td>abcdefg<br>@gmail.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td>付款方式</td>
+                                                <td>線上轉帳</td>
+                                            </tr>
+                                            <tr>
+                                                <td>取貨方式</td>
+                                                <td>冷凍宅配<br>台中市南屯區公益路二段51號18樓</td>
+                                            </tr>
+                                            <tr>
+                                                <td>取貨時間</td>
+                                                <td>上午</td>
+                                            </tr>
+                                        </table>
+                                        <table class="contactDOWN">
+                                            <tr>
+                                                <td>
+                                                    <button id="show_pic">訂單附圖</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div>訂單與取貨備註
+                                                        <div>無備註</div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </diV>
+                                <diV class="confirm">
+                                    <diV>總估價：3570+<input type="text" id="addPrice">=NT.3570</diV>
+                                    <diV>
+                                        <select name="???????">
+                                            <option selected="selected">訂單狀態</option>
+                                            <option value="1">未製作</option>
+                                            <option value="2">已製作</option>
+                                            <option value="3">申請取消</option>
+                                            <option value="4">已取消</option>
+                                            <option value="5">未聯絡</option>
+                                            <option value="6">洽談中</option>
+                                        </select>
+                                        <select name="???????">
+                                            <option selected="selected">付款狀態</option>
+                                            <option value="1">未付款</option>
+                                            <option value="2">已付款</option>
+                                            <option value="3">已退款</option>
+                                        </select>
+                                        <select name="???????">
+                                            <option selected="selected">出貨狀態</option>
+                                            <option value="1">未配送</option>
+                                            <option value="2">已配送</option>
+                                            <option value="3">未取貨</option>
+                                            <option value="4">已取貨</option>
+                                            <option value="5">已取消</option>
+                                        </select>
+                                    </diV>
+                                    <diV><button>更新詳情</button></diV>
+                                </diV>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                <% }) %>
+                <tfoot>
+                    <tr>
+                        <td colspan="9">
+                            <div>
 
-    <form action="/logout">
-        <input type="submit" value="登出">
-    </form>
-    <table>
-        <thead>
-            <th>#</th>
-            <th>訂單編號</th>
-            <th>會員編號</th>
-            <th>下訂日期</th>
-            <th>需求</th>
-            <th>狀態</th>
-            <th>圖片</th>
-          
-        </thead>
-        <tbody>
-            <% data.forEach((item ,index) => { %> <!--forEach迴圈顯示資料庫內容-->
-                <% var cuYY = item.cust_upload_date.getFullYear()%>
-                <% var cuMM = (item.cust_upload_date.getMonth())+1%>
-                <% var cuDD = item.cust_upload_date.getDate()%>
-                <% var cuHr = item.cust_upload_date.getHours()%>
-                <% var cuMi = item.cust_upload_date.getMinutes()%>
-                <tr>
-                    <td><%= index+1%></td> <!--編號 -->
-                    <td><%= item.cust_id%></td> 
-                    <td><%= item.m_id%></td>
-                    <td><%= `${cuYY}年${cuMM}月${cuDD}日${cuHr}點${cuMi}分` %></td>
-                   
-                    <td><%= item.cust_form%></td>
-                    <td><%= item.cust_state%></td>
-                    <td><a href=<%= `/picture/${item.picture}` %>>圖片</a></td>
-                    <!-- 有權限 -->
-                    <% if(session.user) { %>
-                    <td>
-                        <a href="#divEditData" rel="modal:open">
-                            <button onclick="Edit(<%= item.id%>)">編輯</button>
-                        </a>
-                        <button onclick="Delete(<%= item.id%>)">刪除</button>
-                    </td>
-                    <% } %>
-                </tr>
-            <% }) %>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="4" style="text-align: center;">
-                    <% for(var i = 1; i <= last_page; i++) { %>
-                    <span ><a href="/<%= i%>"><%= i%></a></span>
-                    <% } %>
-                </td colspan="2">
-                <td><p>總數 <%= total_nums%> 筆，共 <%= curr_page%>/<%= last_page%> 頁</p></td>
-            </tr>
-        </tfoot>
-    </table>
-    
+                                <div>
+                                    <a href=""><button>最前頁</button></a>
+                                    <a href=""><button>上一頁</button></a>
+                                    <div id="pageList">
+                                        <a href="1">
+                                            <p>1</p>
+                                        </a>
+                                        <a href="2">
+                                            <p>2</p>
+                                        </a>
+                                        <a href="3">
+                                            <p>3</p>
+                                        </a>
+                                    </div>
+                                    <a href=""><button>下一頁</button></a>
+                                    <a href=""><button>最尾頁</button></a>
+                                </div>
+                                <div>
+                                    <p>共 28 筆， 1/3 頁</p>
+                                </div>
 
-    <script>
-
-        // function Edit(id) {
-        //     $.ajax({
-        //         url: "/detail/"+id, //獲得資料庫資料
-        //         type: "GET",
-        //         success: function(data) {
-        //             var res = JSON.parse(data);
-        //             $("input[name='id']").val(res.id)
-        //             $("input[name='name']").val(res.name)
-        //             $("input[name='phone']").val(res.phone)
-        //             $("input[name='address']").val(res.address)
-        //             $("input[name='adult_mask']").val(res.adult_mask)
-        //             $("input[name='child_mask']").val(res.child_mask)
-        //         },
-        //         error: function() {
-        //             alert("系統錯誤!")
-        //         },
-        //     })
-        // }
-
-        // function Delete(id) {
-        //     $.ajax({
-        //         url: "/delete",
-        //         type: "POST",
-        //         contentType: "application/json; charset=utf-8",
-        //         data: JSON.stringify({"id": id}),
-        //         success: function(res) {
-        //             alert(res);
-        //             location.reload();
-        //         },
-        //         error: function(err) {
-        //             alert("Delete 系統錯誤! 請看log" );
-        //             console.log(err);
-        //         }
-        //     })
-        // }
-
-        // $('#submit').on('click', function() {
-            
-        //     var data = $('#formEdit').serializeArray();
-
-        //     var JSONData = {};
-        //     for(index in data){
-        //         JSONData[data[index].name] = data[index].value;
-        //     }
-                     
-        //     $.ajax({
-        //         url: "/update",
-        //         type: "POST",
-        //         contentType: "application/json; charset=utf-8",
-        //         data: JSON.stringify(JSONData),
-        //         success: function(res) {
-        //             alert(res);
-        //             location.reload(); //刷新
-        //         },
-        //         error: function() {
-        //             alert("系統錯誤!")
-        //         }
-        //     })
-        // })
-
-    </script>
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <script src="../js/BEndOrder.js"></script>
+    <script src="../js/findNav.js"></script>
 </body>
+
 </html>

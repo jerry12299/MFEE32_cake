@@ -102,3 +102,5 @@ WHERE buy_order.m_id = member.m_id and buy_order.o_id = b.o_id and buy_order.o_i
                         })
 
 //--------
+SELECT cust_id,customized.m_id,m_name,cust_upload_date,cust_form,cust_state,picture,connection,email,phone,address FROM customized,member WHERE customized.m_id = member.m_id
+//---------
