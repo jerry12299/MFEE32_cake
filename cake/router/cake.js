@@ -2,6 +2,11 @@ var express = require("express");
 var multer = require('multer'); //上傳檔案
 var index = express.Router(); //路由
 var db = require('../db.js');//讀取資料庫
+var pwd = require('../media/js/shal.js') // 加密
+
+
+// var shalpassword = pwd.hex_sha1('1234');
+// console.log("hex_sha1:"+shalpassword);
 
 function rights_api(req, res, next) { //判斷是否為管理者
     if (req.session.user.rights) {
@@ -47,7 +52,9 @@ index.get('/C05', function (req, res) { //登入頁
 //-----------登入
 index.post('/C05', function (req, res) {
     var sql = `SELECT m_id,rights FROM member WHERE email=? and pwd=?;` //查詢使用者帳密
-    var data = [req.body.account, req.body.password] //2個?
+    var password = pwd.hex_sha1(req.body.password)
+    console.log(password)
+    var data = [req.body.account, password] //2個?
     db.exec(sql, data, function (results, fields) {
         if (results[0]) { //結果成立
             req.session.user = {    //紀錄session.user
@@ -217,6 +224,8 @@ index.get('/C05_1', function (req, res) {
 index.post('/C05_1', function (req, res) {
     var body = req.body      //回傳的 post 資料
     // console.log('body-t:', body);
+    var newPwd = pwd.hex_sha1(body.password) 
+
     var emailCheck = `SELECT email FROM member WHERE email = ?;` //查詢是否有資料
     var eData = [body.email]
 
@@ -229,7 +238,7 @@ index.post('/C05_1', function (req, res) {
             var sql = `INSERT INTO member (email, pwd, m_name, birthday, gender, phone, address) VALUES (?,?,?,?,?,?,?);`
             // post資料做成陣列 傳來的必為字串
             //parseInt 轉數字
-            var data = [body.email, body.password, body.name, body.birthday, body.gender, body.phone, body.address];
+            var data = [body.email, newPwd, body.name, body.birthday, body.gender, body.phone, body.address];
 
             db.exec(sql, data, function (results, fields) {
                 //results.insertId 新id
@@ -389,7 +398,8 @@ index.get('/C05_4_1', login_api, function (req, res) {
 //更新資料
 index.post('/C05_4_2', login_api, function (req, res) {
     var sql = `UPDATE member SET pwd =?,m_name	= ?,birthday= ? ,gender= ?, phone = ?, address = ? WHERE member.m_id = ?;`;
-    var data = [req.body.pwd,
+    var newPwd = pwd.hex_sha1(req.body.pwd) 
+    var data = [newPwd,
     req.body.m_name,
     req.body.birthday,
     req.body.gender,

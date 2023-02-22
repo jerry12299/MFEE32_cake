@@ -519,7 +519,7 @@ button#expand {
 
 }
 
-.buttonarea button {
+.buttonarea input {
     margin-top: 20px;
     margin-bottom: 30px;
     border-radius: 20px 20px 20px 20px;
@@ -771,7 +771,7 @@ button#expand {
 
 }
 
-.profilrevise button {
+.profilrevise input {
     margin-top: 20px;
     margin-bottom: 30px;
     border-radius: 20px 20px 20px 20px;

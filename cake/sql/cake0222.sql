@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2023-02-21 09:12:47
+-- 產生時間： 2023-02-22 07:13:26
 -- 伺服器版本： 10.4.25-MariaDB
 -- PHP 版本： 8.1.10
 
@@ -128,6 +128,7 @@ INSERT INTO `commodity` (`c_id`, `c_name`, `price`) VALUES
 ('bd0001', '生日蛋糕01', 300),
 ('bd0106', '6吋生日蛋糕', 300),
 ('bd0108', '8吋生日蛋糕', 360),
+('bd0151', '法芙娜草莓布朗尼蛋糕', 660),
 ('bd0206', '6吋生日蛋糕2號', 330),
 ('cc0001', '巧克力蛋糕01', 350),
 ('cm0106', '6吋聖誕蛋糕', 300);
@@ -165,7 +166,7 @@ TRUNCATE TABLE `customized`;
 --
 
 INSERT INTO `customized` (`cust_id`, `m_id`, `cust_upload_date`, `cust_form`, `cust_state`, `picture`, `connection`, `cust_pay`, `cust_pick`, `cust_date`, `cust_price`, `cust_shipping`, `cust_pay_state`) VALUES
-(1, 1, '2023-01-25 00:00:00', '卡通造型，水果，巧克力', '未開始', 'img/cake.jpg', 'email', '未定', '未定', '未定', 0, '未開始', '未開始'),
+(1, 1, '2023-01-25 00:00:00', '卡通造型，水果，巧克力', '已製作', 'img/cake.jpg', 'email', '銀行轉帳', '來店自取', '2023-02-28', 600, '未配送', '已付款'),
 (12, 3, '2023-02-05 14:32:30', '8吋,巧克力口味，aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '未製作', '2023-2-5-1675578750796.jpg', '手機', '未定', '未定', '未定', 0, '未開始', '未開始'),
 (13, 3, '2023-02-06 13:16:28', '8吋,巧克力口味', '未製作', '2023-2-6-1675660588270.jpg', 'email', '未定', '未定', '未定', 0, '未開始', '未開始'),
 (14, 3, '2023-02-09 15:45:47', '8吋,巧克力口味', '未製作', '2023-2-9-1675928747962.png', '手機', '未定', '未定', '未定', 0, '未開始', '未開始'),
@@ -181,7 +182,7 @@ DROP TABLE IF EXISTS `member`;
 CREATE TABLE `member` (
   `m_id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `pwd` varchar(30) NOT NULL,
+  `pwd` varchar(50) NOT NULL,
   `m_name` varchar(50) NOT NULL,
   `birthday` date DEFAULT NULL,
   `gender` varchar(10) DEFAULT NULL,
@@ -200,12 +201,13 @@ TRUNCATE TABLE `member`;
 --
 
 INSERT INTO `member` (`m_id`, `email`, `pwd`, `m_name`, `birthday`, `gender`, `phone`, `address`, `rights`) VALUES
-(1, 'asd123@gmail.com', '1234', '曉明', '2017-02-01', '女', 123456, 'qwdfasf\r\n                                                ', 0),
-(2, 'user@gmail.com', '1234', '管理者', '1990-01-01', NULL, NULL, NULL, 1),
-(3, 'abc123@gmail.com', '1234', '小明', '2015-01-14', 'm', 123456, 'aaaaaaaaaaaaa', 0),
-(6, 'jerrt@gmail.com', '1234', '寶可夢', '2023-01-02', 'm', 123456, 'sssssssssssss', 0),
-(33, 'qwe@gmail.com', '1234', 'aaa', '1997-05-07', 'm', 123456, 'aaaaaaaaaaaa', 0),
-(34, 'abc@gmail.com', '1234', '小英', '1996-02-21', '女', 123456, '台中市公益路', 0);
+(1, 'asd123@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '曉明', '2017-02-01', '女', 123456, 'qwdfasf\r\n                                                ', 0),
+(2, 'user@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '管理者', '1990-01-01', NULL, NULL, NULL, 1),
+(3, 'abc123@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '小明', '2015-01-14', 'm', 123456, 'aaaaaaaaaaaaa', 0),
+(6, 'jerrt@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '寶可夢', '2023-01-02', 'm', 123456, 'sssssssssssss', 0),
+(33, 'qwe@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'aaa', '1997-05-07', 'm', 123456, 'aaaaaaaaaaaa', 0),
+(34, 'abc@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '小英', '1996-02-21', '女', 123456, '台中市公益路', 0),
+(37, 'jack123@gmail.com', '4a27b3ae456b0a3f7ae14e8d0b0847549b711859', '傑克', '2023-02-01', '男', 123456, '台中市公益路', 0);
 
 --
 -- 已傾印資料表的索引
@@ -268,7 +270,7 @@ ALTER TABLE `customized`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `member`
 --
 ALTER TABLE `member`
-  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
