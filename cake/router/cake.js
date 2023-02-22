@@ -93,6 +93,9 @@ index.get('/C06', function (req, res) { //購物車
 //([0-9]+) 0-9 不限數量
 index.get('/C05_2/:page([0-9]+)', rights_api, function (req, res) {
     var page = req.params.page   //page=網址列的page數字
+    if(page == 0){
+        page += 1 ;
+    }
     var nums_per_page = 10
     var offset = (page - 1) * nums_per_page
     var sql = `SELECT buy_order.o_id,co_upload_date,pick_up_date,payment,pay_state,pickup_method,co_state,remark,shipping,rec_address,email,m_name,phone,order_total FROM buy_order , member, 
@@ -121,8 +124,11 @@ index.get('/C05_2/:page([0-9]+)', rights_api, function (req, res) {
                         // console.log('mask_js_nums[0].COUNT:',nums[0].COUNT); // 28
                         var last_page = Math.ceil(nums[0].COUNT / nums_per_page) // 無條件進位  28/10 = 3
 
-                        if (page > last_page || page == 0) { //如果大於最大頁數
+                        if (page > last_page) { //如果大於最大頁數
                             res.redirect('/C05_2/' + last_page) //跳轉到最後一頁
+                            return
+                        }else if(page <= 0){
+                            res.redirect('/C05_2/1') //跳轉到第一頁
                             return
                         }
 
@@ -144,6 +150,9 @@ index.get('/C05_2/:page([0-9]+)', rights_api, function (req, res) {
 //-------------------------客製化頁面
 index.get('/C05_3/:page([0-9]+)', rights_api, function (req, res) {
     var page = req.params.page   //page=網址列的page數字
+    if(page == 0){
+        page += 1 ;
+    }
     var nums_per_page = 10
     var offset = (page - 1) * nums_per_page
     // 使用db.js裡的exec函式，也就是apple函式                                // 給函式3個參數
@@ -162,6 +171,9 @@ index.get('/C05_3/:page([0-9]+)', rights_api, function (req, res) {
                     if (page > last_page) { //如果大於最大頁數
                         res.redirect('/C05_3/' + last_page) //跳轉到最後一頁
                         return
+                    }else if(page <= 0){
+                        res.redirect('/C05_3/1') //跳轉到第一頁
+                        return
                     }
 
                     res.render('C05_3.ejs', { //跳轉到index.ejs
@@ -174,7 +186,23 @@ index.get('/C05_3/:page([0-9]+)', rights_api, function (req, res) {
         })        //function()的{}尾  第一個db.exec的()尾 
 })
 
+//--------------客製 更新
 
+index.post('/custUpdate',rights_api, function (req, res){
+    var data = req.body
+    // console.log(data)
+    var sql = `UPDATE customized SET cust_pay = ?,cust_pick = ?,cust_date = ?,cust_state = ?, cust_price = ?,cust_shipping = ?,cust_pay_state = ? WHERE customized.cust_id = ?`
+    var item = [data.cust_pay,data.cust_pick,data.cust_date,data.cust_state,data.cust_price,data.cust_shipping,data.cust_pay_state,data.cust_id]
+    db.exec(sql,item,function(results, fields){
+        if (results.affectedRows) {
+            res.end('update success')
+        } else {
+            res.end('update failed')
+        }
+    })
+})
+
+//----------------------
 
 
 
