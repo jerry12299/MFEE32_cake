@@ -107,6 +107,30 @@ section {
     height: 250px;
     display: flex;
 }
+/* -------------parallax----------------- */
+#parallax{
+   overflow: hidden;
+    z-index: -5;
+    height: 500px;
+    position:relative
+    
+
+}
+
+#parallax_img{
+    position:absolute;
+    top: -200px;
+    background-image: url(../Source/IMG/parallax1.png);
+    background-size: 100% auto;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+    transition: transform 0.5s ease-out;
+    height: 1000px;
+    z-index: -5;
+    
+}
+
 
 /* ---------about--------------------- */
 #About>div{

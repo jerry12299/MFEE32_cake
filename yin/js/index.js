@@ -67,13 +67,29 @@ responsive: [
 });
 
 // about區塊
-    // var swiper = new Swiper(".mySwiper", {
-    //   direction: "vertical",
-    //   slidesPerView: 1,
-    //   spaceBetween: 30,
-    //   mousewheel: true,
-    //   pagination: {
-    //     el: ".swiper-pagination",
-    //     clickable: true,
-    //   },
-    // });
+ 
+
+// -------------視差---------------------
+const parallax = document.querySelector('#parallax_img');
+let scrollPos = 0;
+const maxScrollPos = 200;
+const minScrollPos = -200;
+
+window.addEventListener('wheel', function(e) {
+  if (e.deltaY > 0) {
+    // 滾動向下
+    scrollPos -= 30;
+  } else {
+    // 滾動向上
+    scrollPos += 30;
+  }
+  
+  // 檢查 scrollPos 是否超出範圍
+  if (scrollPos > maxScrollPos) {
+    scrollPos = maxScrollPos;
+  } else if (scrollPos < minScrollPos) {
+    scrollPos = minScrollPos;
+  }
+  
+  parallax.style.transform = `translateY(${scrollPos}px)`;
+});
