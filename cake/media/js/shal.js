@@ -132,3 +132,4 @@ function binb2b64(binarray) {
 }  
 
 module.exports.hex_sha1 = hex_sha1
+module.exports.b64_sha1 = b64_sha1

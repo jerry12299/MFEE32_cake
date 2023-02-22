@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2023-02-22 07:13:26
+-- 產生時間： 2023-02-22 07:40:48
 -- 伺服器版本： 10.4.25-MariaDB
 -- PHP 版本： 8.1.10
 
@@ -201,13 +201,13 @@ TRUNCATE TABLE `member`;
 --
 
 INSERT INTO `member` (`m_id`, `email`, `pwd`, `m_name`, `birthday`, `gender`, `phone`, `address`, `rights`) VALUES
-(1, 'asd123@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '曉明', '2017-02-01', '女', 123456, 'qwdfasf\r\n                                                ', 0),
-(2, 'user@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '管理者', '1990-01-01', NULL, NULL, NULL, 1),
-(3, 'abc123@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '小明', '2015-01-14', 'm', 123456, 'aaaaaaaaaaaaa', 0),
-(6, 'jerrt@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '寶可夢', '2023-01-02', 'm', 123456, 'sssssssssssss', 0),
-(33, 'qwe@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 'aaa', '1997-05-07', 'm', 123456, 'aaaaaaaaaaaa', 0),
-(34, 'abc@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '小英', '1996-02-21', '女', 123456, '台中市公益路', 0),
-(37, 'jack123@gmail.com', '4a27b3ae456b0a3f7ae14e8d0b0847549b711859', '傑克', '2023-02-01', '男', 123456, '台中市公益路', 0);
+(1, 'asd123@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', '曉明', '2017-02-01', '女', 123456, 'qwdfasf\r\n                                                ', 0),
+(2, 'user@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', '管理者', '1990-01-01', NULL, NULL, NULL, 1),
+(3, 'abc123@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', '小明', '2015-01-14', 'm', 123456, 'aaaaaaaaaaaaa', 0),
+(6, 'jerrt@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', '寶可夢', '2023-01-02', 'm', 123456, 'sssssssssssss', 0),
+(33, 'qwe@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', 'aaa', '1997-05-07', 'm', 123456, 'aaaaaaaaaaaa', 0),
+(34, 'abc@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', '小英', '1996-02-21', '女', 123456, '台中市公益路', 0),
+(37, 'jack123@gmail.com', 'SiezrkVrCj964U6NCwhHVJtxGFk', '傑克', '2023-02-01', '男', 123456, '台中市公益路', 0);
 
 --
 -- 已傾印資料表的索引
