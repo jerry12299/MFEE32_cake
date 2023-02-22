@@ -53,6 +53,7 @@ body {
     display: flex;
     align-items: center;
 }
+
 .search-icon {
     border: none;
     position: absolute;
@@ -60,17 +61,18 @@ body {
     width: 20px;
     height: 20px;
     background: url(../Source/SVG/search.svg) no-repeat center;
-    background-size: contain ;
+    background-size: contain;
 }
+
 .search-icon:hover {
-    border-bottom:1px solid red;
+    border-bottom: 1px solid red;
 }
 
 .search-input {
     width: 100%;
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding:  2px 10px;
+    padding: 2px 10px;
 }
 
 /*================表單-每筆資料====================*/
@@ -80,57 +82,64 @@ body {
     border-collapse: collapse;
 }
 
-table>thead{
+table>thead {
     font-size: var(--pContent);
-    color: var(--color06);   
+    color: var(--color06);
 }
-tr>td{
+
+tr>td {
     padding: 10px 0;
-    
+
 }
-.Order>thead select{
+
+.Order select {
     background-color: transparent;
     border: none;
     color: var(--color06);
 }
-.Order>tbody:not(:first-of-type)::before{
-  content: '';
-  display: block;
-  height: 15px;
+
+.Order>tbody:not(:first-of-type)::before {
+    content: '';
+    display: block;
+    height: 15px;
 }
 
 
 
 /*==================list--每單資料====================*/
-table>tbody>tr.list{
+table>tbody>tr.list {
     font-size: var(--pSContent);
     color: var(--color06);
 }
 
-tr.list{
+tr.list {
     background-color: var(--color04);
 }
-tr.list>td:first-child{
+
+tr.list>td:first-child {
     border-radius: 12px 0 0 12px;
-    
+
 }
-tr.list>td:last-child{
+
+tr.list>td:last-child {
     border-radius: 0 12px 12px 0;
 }
 
 
 /*=====================list--詳細按鈕====================*/
-tr.list>td>button{
+tr.list>td>button {
     border: none;
     border-radius: 5px;
     background-color: var(--color06);
     color: var(--color01);
 }
-tr.list>td>button:hover{
-    border: 1px solid red;
+
+tr.list>td>button:hover {
+    -webkit-box-shadow: 8px -7px 35px 0px #000000;
+    box-shadow: 0px 0px 10px 1px var(--color06);
 }
 
-tr.list>td>button.open{
+tr.list>td>button.open {
     background-color: var(--color01);
     color: var(--color06);
 }
@@ -138,65 +147,71 @@ tr.list>td>button.open{
 
 
 /*===================detail頁設定====================*/
-tr.detail>td{
+tr.detail>td {
     background-color: var(--color01);
     border-radius: 12px;
     width: 100%;
     height: 250px;
 }
 
-tr.detail>td>div{
+tr.detail>td>div {
     display: flex;
     flex-direction: row;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
-    padding: 0 10px ;
+    padding: 0 10px;
     /* background-color: blue; */
 }
 
 
 /*=====================detail中訂購內容====================*/
-.items{
+.items {
     width: 40%;
-    padding: 0 10px ;
+    padding: 0 10px;
     /* background-color: aqua; */
 }
-.items>table{
+
+.items>table {
     border-collapse: collapse;
-    width:100%;
+    width: 100%;
 }
-.items>table>thead td{
+
+.items>table>thead td {
     text-align: center;
     border-bottom: 2px solid var(--color04);
 }
-.items>table>tbody>tr>td{
+
+.items>table>tbody>tr>td {
     text-align: center;
     color: var(--color06);
     /* background-color: blueviolet; */
 }
-.items>table>tbody>tr>td>div{
+
+.items>table>tbody>tr>td>div {
     display: flex;
     flex-direction: column;
-    
+
     justify-content: center;
     align-items: center;
 
-    
+
 }
-.itemsSizeFlavorCount{
+
+.itemsSizeFlavorCount {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     /* background-color: blue; */
 }
-.itemsSizeFlavorCount>div{
+
+.itemsSizeFlavorCount>div {
     margin: 0 5px;
 
 }
 
 
 /*=====================detail中灰色區塊====================*/
-.contact{
+.contact {
     display: flex;
     width: 100%;
     align-items: flex-start;
@@ -206,7 +221,8 @@ tr.detail>td>div{
     border-radius: 12px;
     background-color: var(--color04);
 }
-.contact_UpDown{
+
+.contact_UpDown {
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -220,36 +236,39 @@ tr.detail>td>div{
 
 
 .contact>table.contactLeft,
-.contact_UpDown>table.contactUP{
+.contact_UpDown>table.contactUP {
     color: var(--color01);
-     
+
 }
+
 .contact>table.contactLeft tr,
-.contact_UpDown>table.contactUP tr{
+.contact_UpDown>table.contactUP tr {
     vertical-align: top;
 }
+
 .contact>table.contactLeft td:nth-child(2),
-.contact_UpDown>table.contactUP td:nth-child(2){
+.contact_UpDown>table.contactUP td:nth-child(2) {
     padding: 10px;
     text-align: start;
-    min-width:200px;
+    min-width: 200px;
     /* background-color: aquamarine; */
 }
 
 .contact>table.contactRight,
-.contact_UpDown>table.contactDOWN{
+.contact_UpDown>table.contactDOWN {
     color: var(--color01);
     text-align: start;
 }
 
-.contact>table.contactRight select{
+.contact>table.contactRight select {
     background-color: var(--color01);
 }
+
 .contact>table.contactRight div>div,
-.contact_UpDown>table.contactDOWN div>div{
+.contact_UpDown>table.contactDOWN div>div {
     padding: 10px;
     text-align: start;
-    min-width:200px;
+    min-width: 200px;
     background-color: var(--color01);
     color: var(--color06);
     border-radius: 8px;
@@ -259,51 +278,56 @@ tr.detail>td>div{
 
 
 /*=================表單頁尾--頁數====================*/
-tfoot>tr>td>div{
+tfoot>tr>td>div {
     display: flex;
     flex-direction: column;
 
     justify-content: center;
     align-items: center;
-    margin: 10px 0 0 0 ;
+    margin: 10px 0 0 0;
 }
 
-tfoot>tr>td>div>div{
+tfoot>tr>td>div>div {
     width: 100%;
     display: flex;
-    
+
 
     justify-content: center;
 }
-tfoot>tr>td>div>div button{
+
+tfoot>tr>td>div>div button {
     font-family: "GenJyuuGothic-B";
     background-color: var(--color06);
     border: none;
     border-radius: 5px;
     color: var(--color01);
-    letter-spacing:2px;
+    letter-spacing: 2px;
     margin: 0 5px;
     padding: 5px;
 }
-tfoot>tr>td>div>div button:hover{
+
+tfoot>tr>td>div>div button:hover {
     font-family: "GenJyuuGothic-B";
     background-color: var(--color01);
     border: none;
     border-radius: 5px;
     color: var(--color06);
-    letter-spacing:2px;
+    letter-spacing: 2px;
     margin: 0 5px;
     padding: 5px;
 }
-tfoot>tr>td>div>div>p{
+
+tfoot>tr>td>div>div>p {
     margin: 0;
 
 }
-#pageList{
+
+#pageList {
     display: flex;
     /* background-color: aqua; */
 }
-#pageList p{
+
+#pageList p {
     margin: 0 1px;
     padding: 5px;
 }

@@ -14,12 +14,11 @@ nav {
     justify-content: center;
     /* 垂直置中 */
     align-items: center;
-    opacity: 100%;
 
     padding: 10px 20px;
     transition: 1.0 ease;
 
-    background-color: var(--color02); 
+    background-color: hsla(0, 0%, 100%, 0.5); 
 }
 
 .BEndnav {
@@ -93,8 +92,17 @@ p1{
     font-size: 24px;
     color: var(--color06);
     letter-spacing: 5px;
-    margin: 0;
 }
+.addline{
+    display: block;
+    width: 72%;
+    margin: 0 0 5px 0;
+    border-bottom: solid 2px #019fb6;
+    transform: scaleX(0);
+    transform-origin:  0% ;
+    transition: transform 250ms ease-in-out;
+}
+
 .BEndnav>div:last-child>div>div{
     display: flex;
     justify-content: center;
