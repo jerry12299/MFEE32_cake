@@ -1,63 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>客製蛋糕頁</title>
+    <link rel="stylesheet" href="css/main_ginnychen19.css">
+    <link rel="stylesheet" href="css/CustomizationCake.css">
     <script src="js/jquery-3.6.0.js"></script>
 </head>
-<body>
-    <div>客制化頁面</div>
 
-    <form id="test" enctype="multipart/form-data">
-        
+<body>
+    <nav>
+        <p>我是Navbar</p>
+    </nav>
+
+
+    <div id="workShow">
+        <!-- <p>作品展示</p> 可考慮連後端-->
+        <ul class="CZcake">
+            <li class="item_CZcake">
+                <a href="某某網址">
+                    <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱"></a>
+            </li>
+            <li class="item_CZcake">
+                <a href="某某網址">
+                    <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱"></a>
+            </li>
+            <li class="item_CZcake">
+                <a href="某某網址">
+                    <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱"></a>
+            </li>
+            <li class="item_CZcake">
+                <a href="某某網址">
+                    <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱"></a>
+            </li>
+            <li class="item_CZcake">
+                <a href="某某網址">
+                    <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱"></a>
+            </li>
+            <li class="item_CZcake">
+                <a href="某某網址">
+                    <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱"></a>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div id="CZ_introduce">
+        <div class="Feature_ITD">
+            <h4>文字介紹</h4>
+            <h6>沒有我覺把他不是有個應該會，
+                的動作一開始大控制，可以，
+                真的很回家了⋯不然說大量好
+                五条知道為，以後就代之前我是
+                直接他就。之類的但我好笑攤星
+                如果，</h6>
+        </div>
+        <div class="process_ITD">
+            <h2>訂購流程</h2>
+            <div class="stap">
+                <div>步驟01</div>
+                <div>步驟02</div>
+                <div>步驟03</div>
+                <div>步驟04</div>
+                <div>步驟05</div>
+            </div>
+        </div>
         <% if(!session.user){  %>
-            <div><a href="/C05">請先登入</a>
-                </div>
-        <% }else{ %>
-        <input type="text" name="size" value="8吋">
-        <input type="text" name="taste" value="巧克力">
-        <input type="file" name="img" id="imgFile" accept="image/*" >
-        <input type="button" id="submit" value="上傳檔案">
-    </form>
-    <% } %> 
-    <script>
-        $('#submit').on('click', function() {
-             var data = $('#test').serializeArray();
-             let file = $('#imgFile')[0].files[0]
-             // console.log(file)
-             console.log(data)
-             let formData = new FormData();
-           
-             <% if(!session.user){  %>
-                //沒登入就無視
-             <% }else{ %>
-             var JSONData = {m_id: <%= session.user.m_id %> }; //注意!!! 需先登入!!!!不然報錯!!!!!!
-             <% } %>      
-             for (index in data) {
-                 JSONData[data[index].name] = data[index].value;
-             }
-               formData.append("img", file);
-               formData.append("data", JSON.stringify(JSONData));
-                     
-            //  $.ajax({
-            //      url: "/C02",
-            //      type: "POST", 
-            //      // contentType: "application/json; charset=utf-8",
-            //      contentType: false,
-            //      processData: false,
-            //      // data: JSON.stringify(JSONData),
-            //      data:formData,
-            //      success: function(res) {
-            //          alert("ok");
-            //          location.href = '/';
-            //      },
-            //      error: function() {
-            //          alert("login 系統錯誤!")
-            //      }
-            //  })
-         })
-     </script>
+        <div class="IsLogin">
+            <a href="/C05"><h2>請先登入！</h2></a>
+        </div>
+    </div>
+    <% }else{ %>
+    <div class="IsLoginThen">
+        <form>
+            摺疊區塊
+            <input type="text"><br>
+            <input type="text"><br>
+            <input type="text"><br>
+        </form>
+        <game>
+            <div>
+                遊戲內容
+            </div>
+        </game>
+    </div>
+    <% } %>
+
+    <footer>
+        <p>我是頁尾</p>
+    </footer>
+
+    <script src="js/CustomizationCake.js"></script>
+
 </body>
+
 </html>
