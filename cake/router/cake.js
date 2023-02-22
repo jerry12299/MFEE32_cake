@@ -461,6 +461,25 @@ index.get('/picture/:pname', login_api, function (req, res) {
     })
 
 })
+//---------------------------顯示商品
+index.get('/C01_2/:cname', function (req, res) {
+    console.log(req.params.cname)
+    db.exec(`SELECT * FROM commodity WHERE c_id = ?`,[req.params.cname],function(data,fields){
+        var url = 'Source/IMG/' + data[0].img_name;
+        console.log(data)
+
+
+         res.render('C01_2.ejs', {
+            data:data[0],
+            Url: url
+        })
+    })
+
+    
+
+   
+
+})
 
 //-----------------加入購物車
 // console.log(req.session.buy);

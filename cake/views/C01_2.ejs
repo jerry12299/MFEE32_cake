@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>蛋糕詳細頁</title>
-    <link rel="stylesheet" href="css/main_ginnychen19.css">
-    <link rel="stylesheet" href="css/permanentCake.css">
-    <link rel="stylesheet" href="css/PMCakeDetail.css">
+    <link rel="stylesheet" href="../css/main_ginnychen19.css">
+    <link rel="stylesheet" href="../css/permanentCake.css">
+    <link rel="stylesheet" href="../css/PMCakeDetail.css">
 
-    <script src="js/jquery-3.6.0.js"></script>
+    <script src="../js/jquery-3.6.0.js"></script>
 </head>
 
 <body>
@@ -56,27 +56,30 @@
 
                 <div class="PMCake_show_detail_up">
                     <div class="cakePic">
-                        <img class="mainPic" src="Source/IMG/mimisbakehouse-website-8-web.jpg">
+                        <img class="mainPic" src="../Source/IMG/<%= data.img_name %>">
                         <figcaption>
-                            <img class="smallPic" src="Source/IMG/mimisbakehouse-website-8-web.jpg">
-                            <img class="smallPic" src="Source/IMG/mimisbakehouse-website-8-web.jpg">
-                            <img class="smallPic" src="Source/IMG/mimisbakehouse-website-8-web.jpg">
-                            <img class="smallPic" src="Source/IMG/mimisbakehouse-website-8-web.jpg">        
+                            <img class="smallPic" src="../Source/IMG/<%= data.img_name %>">
+                            <img class="smallPic" src="../Source/IMG/<%= data.img_name %>">
+                            <img class="smallPic" src="../Source/IMG/<%= data.img_name %>">
+                            <img class="smallPic" src="../Source/IMG/<%= data.img_name %>">
+                                 
                         </figcaption>
                     </div>
                     <div>
                         <div class="cakename">
-                            <h6>法芙娜草莓布朗尼蛋糕</h6>
+                            <!-- <h6>法芙娜草莓布朗尼蛋糕</h6> -->
+                            <h6><%= data.c_name %></h6>
                         </div>
                         <div class="caketext"><p>
-                            堅持使用最新鮮且當季的大湖草莓製作，
+                            <!-- 堅持使用最新鮮且當季的大湖草莓製作，
                             鮮紅完熟的草莓散發自然甜香，顆顆飽
                             滿多汁使濃郁法芙娜巧克力布朗尼蛋糕
                             ，更添一股清爽風味！<br>
                             此款蛋糕僅提供【台中門市自取】，
                             因蛋糕使用鮮奶油以及新鮮草莓水果裝飾，
                             為避免宅配運送過程中損壞，故無法提供
-                            宅配寄送服務。
+                            宅配寄送服務。 -->
+                            <%= data.illustrate%>
                         </p></div>
                         <div class="Size_Quantity_pirce">
                             <div>
@@ -96,7 +99,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <pirce><h6>NT.999</h6></pirce>
+                            <pirce><h6>NT.<%= data.price%></h6></pirce>
                         </div>
                         <div class="gotocart">
                             <!-- <button id="buy"><a href="">直接購買</a></button> -->
@@ -118,7 +121,7 @@
         <p>&nbsp;</p>
     </footer>
 
-    <script src="js/CustomizationCake.js"></script>
+    <script src="../js/CustomizationCake.js"></script>
     <script>
         $('#buy').on('click',function(){
             var num = parseInt($('#number').val()) ;
