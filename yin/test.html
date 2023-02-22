@@ -11,75 +11,84 @@
 </head>
 </body>
 <style>
-   .container {
-            height: 60vw;
-            overflow-y: scroll;
-            scroll-behavior: smooth;
+    .container {
+        height: 60vw;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+    }
+
+    #div1 {
+        background-color: aqua;
+        height: 20vw;
+        width: 300px;
+        margin: 20px;
+    }
+
+    #div2 {
+        background-color: blueviolet;
+        height: 20vw;
+        margin: 20px;
+        width: 300px;
+    }
+
+    #div3 {
+        background-color: yellowgreen;
+        height: 20vw;
+        margin: 20px;
+        width: 300px;
+    }
+
+    body>div:nth-child(3) {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .active {
+
+        animation: fadeInUp 0.5s;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            transform: translate3d(0, 100%, 0);
         }
 
-        #div1 {
-            background-color: aqua;
-            height: 20vw;
-            width: 300px;
-            margin: 20px;
+        to {
+            transform: none;
         }
+    }
 
-        #div2 {
-            background-color: blueviolet;
-            height: 20vw;
-            margin: 20px;
-            width: 300px;
-        }
-
-        #div3 {
-            background-color: yellowgreen;
-            height: 20vw;
-            margin: 20px;
-            width: 300px;
-        }
-
-        body>div:nth-child(3) {
-            height: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .active {
-
-            animation: fadeInUp 0.5s;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                transform: translate3d(0, 100%, 0);
-            }
-
-            to {
-                transform: none;
-            }
-        }
-    </style>
+    .test22 {
+        color: transparent;
+        -webkit-text-stroke: 1px rgb(14, 27, 14);
+        font-size: 50px;
+        font-weight: bold;
+        letter-spacing: 0.02em;
+    }
+</style>
 
 <body>
-    <div style="height: 80vw; background-color: red;"></div>
+    <div style="height: 80vw; background-color: red;"><p class="test22">哈囉你好嗎</p></div>
     <div style="height: 80vw; background-color:orange;"></div>
     <div style="height: 80vw; background-color: yellow;">
         <div class="container">
-            <div id="div1" class="active">这是div1</div>
+            <div id="div1" class="active"></div>
             <div id="div2">这是div2</div>
             <div id="div3">这是div3</div>
         </div>
     </div>
     <div style="height: 80vw; background-color: green;"></div>
     <div style="height: 80vw; background-color:blue;">
-    <span>
-      輪播圖
-      文案、圖片
-      購物車配色
-      
-    </span></div>
+        <span>
+            輪播圖
+            文案、圖片
+            購物車配色
+
+        </span>
+    </div>
 
     <script>
         let div1 = document.getElementById('div1');
@@ -104,4 +113,5 @@
         window.addEventListener('wheel', scrollHandler);
     </script>
 </body>
+
 </html>

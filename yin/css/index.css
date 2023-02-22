@@ -11,6 +11,7 @@
 body {
     font-family: GenSenRounded-B !important;
     overflow-x: hidden;
+    color: #5c3a31;
 }
 
 
@@ -32,10 +33,21 @@ body {
     margin-right: 80px;
 }
 
-.h1title{
-    color: white;
-    font-size: 3rem;
+.Engtitle {
+    /* color: white; */
+    font-size: 1.5rem;
+    color: transparent;
+    -webkit-text-stroke: 0.7px rgb(255, 255, 255);
+    font-weight: bold;
+    letter-spacing: 0.05em;
 }
+
+.h1title {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
 
 nav {
     display: flex;
@@ -97,44 +109,49 @@ section {
 }
 
 /* ---------about--------------------- */
-.swiper {
-    width: 100%;
-    height: 100%;
-  }
-
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
+#About>div{
     display: flex;
-    justify-content: center;
+    padding:30px;
+}
+
+#About div{
+    margin-right:50px;
+}
+
+/* ------------------------------------- */
+#mcake {
+    display: flex;
     align-items: center;
-    background-color: #fff;
-  }
+    color: #F6F3E4;
+    font-size: 1.2rem;
+}
 
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+#mcake>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
 
-  #A123{
-      width: 80vw;
-      height: 40vw;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-  }
+#mcake>div img {
+    width: 250px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease-in-out;
+}
 
-  /* ------------------------------------- */
+#mcake>div img:hover {
+    transform: scale(1.1) translateY(-5px);
 
+}
 
+/* -------------------------------------------- */
 #Contact {
-    background-image: url(../Source/IMG/middle_long.png);
+    background-image: url(../Source/IMG/Key-Vision/middle_long.png);
     background-size: 100% auto;
-  background-position: center;
-  background-attachment: fixed;
+    background-position: center;
+    background-attachment: fixed;
     z-index: -5;
 
 }
@@ -171,9 +188,18 @@ section {
     align-items: center;
 }
 
-/* ----------------footer------------------ */
-footer {
-    text-align: center;
+#footerLogo{
+    margin-right:30px;
+}
+
+
+#icon>div>a>img {
+    width: 50px;
+    margin:0px 5px;
+}
+
+#icon>div{
+    margin: 20px 0px;
 }
 
 iframe {
