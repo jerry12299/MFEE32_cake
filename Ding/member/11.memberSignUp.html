@@ -14,6 +14,7 @@
     <div class="navtop"></div>
     <!-- 預留固定輪播的位置 -->
     <div class="slideshow-container"></div>
+    <!-- 表單區域 -->
     <div class="signUpbgcolor">
         <div class="member_title">
             <h2>會員註冊</h2>
@@ -30,7 +31,7 @@
             </div>
             <div class="password2area">
                 <label for="">確認密碼</label>
-                <input type="password2" required>
+                <input type="password" required>
             </div>
             <div class="passmessege">密碼與確認密碼輸入不一致，請重新輸入</div>
             <div class="namearea">
@@ -68,8 +69,8 @@
     <div class="footer"></div>
 
     <script>
-        var password = document.querySelector("input[type='password']");
-        var password2 = document.querySelector("input[type='password2']");
+        var password = document.querySelector(".passwordarea input");
+        var password2 = document.querySelector(".password2area input");
         var passmessege = document.querySelector(".passmessege");
 
         // 一開始就隱藏

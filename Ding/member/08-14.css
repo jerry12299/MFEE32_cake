@@ -248,6 +248,7 @@ button#expand {
 /*會員登入文字置中*/
 .loginbgcolor{
     background-color: #9EC778;
+    
 }
 .loginWord {
     font-size: 60px;
@@ -265,6 +266,7 @@ button#expand {
     border: 1px rgb(235, 245, 236) solid;
     margin-left: auto;
     margin-right: auto;
+    
     /* margin-bottom: 50px; */
     width: 600px;
     height: 320px;
@@ -353,7 +355,8 @@ button#expand {
     width: 150px;
     text-align: right;
     margin-top: 20px;
-    margin-left: 410px;
+    margin-left: 450px;
+    font-weight: 900;
 }
 
 .changeloing a{
@@ -366,7 +369,7 @@ button#expand {
     margin-right: auto;
     /* margin-bottom: 50px; */
     /* margin-top: 50px; */
-    width: 700px;
+    width: 50%;
     background-color: #F3D2B3;
     border-radius: 20px 20px 20px 20px;
     border: #aaa6a6 solid 1px;
@@ -455,7 +458,7 @@ button#expand {
 }
 
 .passmessege {
-    margin-left: 300px;
+    margin-left: 180px;
     font-size: 20px;
     color: red;
 }
@@ -575,7 +578,7 @@ button#expand {
     font-size: 24px;
     font-family: 微軟正黑體;
     font-weight: 900;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-left: 200px;
     color: #8C5F37;
 }
@@ -627,7 +630,7 @@ button#expand {
 }
 .profilnav {
     /* margin-top: 30px; */
-    width: 1000px;
+    width: 50%;
     border-radius: 10px 10px 10px 10px;
     background-color: #8c623e;
     margin-left: auto;
@@ -659,8 +662,8 @@ button#expand {
     margin-right: auto;
     /* margin-bottom: 50px; */
     /* margin-top: 50px; */
-    width: 1000px;
-    background-color: antiquewhite;
+    width: 50%;
+    background-color: #F3D2B3;
     border-radius: 20px 20px 20px 20px;
     color: #8C5F37;
 }
@@ -670,20 +673,23 @@ button#expand {
     font-size: 24px;
     font-family: 微軟正黑體;
     font-weight: 900;
-    margin-left: 205px;
+    margin-left: 85px;
     margin-right: auto;
     color: #8C5F37;
+    border: none;
+    
 }
 
 .profilnumberarea input {
-    background-color: aquamarine;
+    background-color:  #DDDDDD;
     margin-top: 20px;
     width: 400px;
     line-height: 2;
     font-size: 20px;
     font-weight: 900;
     border-radius: 10px 10px 10px 10px;
-    border: white 1px solid;
+    border: none;
+    /* border: 1px gray solid; */
 }
 
 
@@ -697,14 +703,14 @@ button#expand {
 }
 
 .profilemailarea input {
-    background-color: aquamarine;
+    background-color:  #DDDDDD;
     margin-top: 20px;
     width: 400px;
     line-height: 2;
     font-size: 20px;
     font-weight: 900;
     border-radius: 10px 10px 10px 10px;
-    border: white 1px solid;
+    border: none;
 }
 
 .profilpasswordarea {
@@ -717,14 +723,14 @@ button#expand {
 }
 
 .profilpasswordarea input {
-    background-color: aquamarine;
+    background-color: #DDDDDD;
     margin-top: 20px;
     width: 400px;
     line-height: 2;
     font-size: 20px;
     font-weight: 900;
     border-radius: 10px 10px 10px 10px;
-    border: white 1px solid;
+    border: none;
 }
 
 .profilpassword2area {
@@ -737,20 +743,21 @@ button#expand {
 }
 
 .profilpassword2area input {
-    background-color: aquamarine;
+    background-color:  #DDDDDD;
     margin-top: 20px;
     width: 400px;
     line-height: 2;
     font-size: 20px;
     font-weight: 900;
     border-radius: 10px 10px 10px 10px;
-    border: white 1px solid;
+    border: none;
 }
 
 .profilpassmessege {
-    margin-left: 300px;
+    margin-left: 180px;
     font-size: 20px;
     color: red;
+    font-weight: 500;
 }
 
 .profilnamearea {
@@ -760,17 +767,18 @@ button#expand {
     font-weight: 900;
     margin-left: auto;
     margin-right: auto;
+    
 }
 
 .profilnamearea input {
-    background-color: aquamarine;
+    background-color:  #DDDDDD;
     margin-top: 20px;
     width: 400px;
     line-height: 2;
     font-size: 20px;
     font-weight: 900;
     border-radius: 10px 10px 10px 10px;
-    border: white 1px solid;
+    border: none;
 }
 
 .profilbirthdayarea {
@@ -783,14 +791,14 @@ button#expand {
 }
 
 .profilbirthdayarea input {
-    background-color: aquamarine;
+    background-color:  #DDDDDD;
     margin-top: 20px;
     width: 400px;
     line-height: 2;
     font-size: 20px;
     font-weight: 900;
     border-radius: 10px 10px 10px 10px;
-    border: white 1px solid;
+    border: none;
 }
 
 .profilsexarea {
@@ -803,12 +811,12 @@ button#expand {
 }
 
 .profilsexarea input {
-    background-color: rgb(8, 10, 126);
+    background-color:  #DDDDDD;
     margin-top: 20px;
     font-size: 20px;
     font-weight: 900;
     border-radius: 10px 10px 10px 10px;
-    border: white 1px solid;
+    border: none;
 }
 
 .profilphonearea {
@@ -821,14 +829,14 @@ button#expand {
 }
 
 .profilphonearea input {
-    background-color: aquamarine;
+    background-color:  #DDDDDD;
     margin-top: 20px;
     width: 400px;
     line-height: 2;
     font-size: 20px;
     font-weight: 900;
     border-radius: 10px 10px 10px 10px;
-    border: white 1px solid;
+    border: none;
 }
 
 
@@ -843,22 +851,22 @@ button#expand {
 
 
 .profiladdressarea input {
-    background-color: aquamarine;
+    background-color: #DDDDDD;
     margin-top: 20px;
     width: 400px;
     height: 100px;
     line-height: 2;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 900;
     border-radius: 10px 10px 10px 10px;
-    border: white 1px solid;
+    border: none;
 }
 
 
 
 .profilrevise {
     width: 150px;
-    margin-left: 400px;
+    margin-left: 250px;
     margin-right: auto;
 
 }
@@ -952,6 +960,9 @@ button#expand {
     padding: 2px;
 }
 /*訂單 ....*/
+.generaDatanav{
+ letter-spacing: 5px;
+}
 .generaDatanav td{
     text-align: center;
     font-size: 20px;
@@ -965,6 +976,8 @@ button#expand {
     font-size: 16px;
     border-radius: 5px;
     letter-spacing: 2px;
+    color: #4C2A20;
+    font-weight: 800;
 }
 .showgeneraDatalist>td>div{
     display: flex;
@@ -978,6 +991,8 @@ button#expand {
     text-align: center;
     padding: 10px 20px;
     background-color:#BC8159;
+    color: white;
+    font-weight: 800;
 }
 
 .generaDatalist>td:first-child{border-radius: 10px 0 0 10px;}
@@ -989,7 +1004,8 @@ button#expand {
     margin-left: 50px;
     border-radius: 5px 5px 5px 5px;
     background-color: #F3D2B3;
-    color: rgb(4, 4, 4);
+    color: #5b3727;
+
 }
 
 button.cancelbutton {
@@ -1126,6 +1142,7 @@ button.cancelbutton {
     border-radius: 5px;
     letter-spacing: 2px;
     font-weight: 600;
+    color:#4C2A20;
 }
 
 /*訂單細節*/
@@ -1154,7 +1171,7 @@ button.cancelbutton {
     margin-left: 50px;
     border-radius: 8px 8px 8px 8px;
     background-color: #efd0b2;
-    color: #7A5D3F;
+    color: #7C5E38;
     border: none;
 }
 
@@ -1192,6 +1209,7 @@ button.cancelbutton {
 .customDetail{
     border-collapse: collapse;
     width: 100%;
+    color: #5a3311;
     /* border: 2px saddlebrown solid; */
 }
 .customDetail td{
