@@ -26,9 +26,12 @@
     --color05:#727171;
     --color06:#525152;
 
+    --sky:#a6dbf5;
+
     --Green01:#368284;
     --Green02:#628e59;
     --Green03:#A3CF78;
+    --Green04:#87c379;
    
     --YWhite:#F6F3E4;
     --GWhite:#F7F8F3;
@@ -123,3 +126,4 @@ footer{
     overflow: visible;   
     /* background-color: aqua; */
 }
+
