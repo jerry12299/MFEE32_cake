@@ -69,6 +69,7 @@
                         <div class="cakename">
                             <!-- <h6>法芙娜草莓布朗尼蛋糕</h6> -->
                             <h6><%= data.c_name %></h6>
+                            <%= data.c_id %>
                         </div>
                         <div class="caketext"><p>
                             <!-- 堅持使用最新鮮且當季的大湖草莓製作，
@@ -125,9 +126,9 @@
     <script>
         $('#buy').on('click',function(){
             var num = parseInt($('#number').val()) ;
-            // var cId = $("input[type=radio]:checked").val();
+            var cId = '<%= data.c_id %>';
             var cart = {
-                name: 'bd0151',
+                name: cId,
                 quantity: num,
             }
             var newcart = JSON.parse(localStorage.getItem("carts"))

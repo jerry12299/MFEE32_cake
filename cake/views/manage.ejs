@@ -178,6 +178,7 @@
     <script src="js/findNav.js"></script>
     <script>
     function doUpdata(id){
+        // alert(id)
         var data = $(`#${id}`).serializeArray();
         var JSONData = {m_id : id};
         for (index in data) {

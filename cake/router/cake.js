@@ -54,7 +54,7 @@ index.get('/C05', function (req, res) { //登入頁
 index.post('/C05', function (req, res) {
     var sql = `SELECT m_id,rights FROM member WHERE email=? and pwd=?;` //查詢使用者帳密
     var password = pwd.b64_sha1(req.body.password)
-    console.log(password)
+    // console.log(password)
     var data = [req.body.account, password] //2個?
     db.exec(sql, data, function (results, fields) {
         if (results[0]) { //結果成立
@@ -243,7 +243,7 @@ index.post('/C05_1', function (req, res) {
 
             db.exec(sql, data, function (results, fields) {
                 //results.insertId 新id
-                console.log("results:", results)
+                // console.log("results:", results)
 
                 if (results.insertId) {
                     res.end('insert success: ' + results.insertId);
@@ -279,7 +279,7 @@ index.post('/email', function (req, res) {
 
 //---------------上傳檔案
 
-var rabbit = multer.diskStorage({
+var userImg = multer.diskStorage({
     destination: function (req, file, cb) {  //固定，不能改
         cb(null, "./media/upload");  //儲存路徑
     },
@@ -291,15 +291,8 @@ var rabbit = multer.diskStorage({
         // cb(null, today);  // 自定義檔案名稱
     }
 });
-var cat = multer({
-    storage: rabbit
-    //,
-    // fileFilter:function(){
-    //     if(file.mimetype != 'image/gif'  &&   file.mimetype != 'image/png'    ){
-    //        //跟使用者說檔案必須是 gif 或者 png     
-    //     }
-
-    //}
+var user = multer({
+    storage: userImg
 
 });
 
@@ -308,7 +301,7 @@ index.get('/C02', function (req, res) {
     res.render('C02.ejs') //跳轉到客制化.ejs
 })
 
-index.post('/C02', login_api, cat.single('img'), function (req, res) {
+index.post('/C02', login_api, user.single('img'), function (req, res) {
     var body = JSON.parse(req.body.data)       //回傳的 post 資料
     var form = `${body.size},${body.taste}口味`
     // console.log(req.file.filename); //檔名
@@ -407,7 +400,7 @@ index.post('/C05_4_2', login_api, function (req, res) {
     req.body.phone,
     req.body.address,
     req.session.user.m_id];
-    console.log(data);
+    // console.log(data);
     db.exec(sql, data, function (result, fields) {
         if (result.affectedRows) {
             res.end('update success')
@@ -463,10 +456,10 @@ index.get('/picture/:pname', login_api, function (req, res) {
 })
 //---------------------------顯示商品
 index.get('/C01_2/:cname', function (req, res) {
-    console.log(req.params.cname)
+    // console.log(req.params.cname)
     db.exec(`SELECT * FROM commodity WHERE c_id = ?`,[req.params.cname],function(data,fields){
         var url = 'Source/IMG/' + data[0].img_name;
-        console.log(data)
+        // console.log(data)
 
 
          res.render('C01_2.ejs', {
@@ -581,8 +574,8 @@ function four (req, res, next){
     [o_id],
     function (resItem, fields) {
        
-        console.log('data2', resData)
-        console.log('item', resItem)
+        // console.log('data2', resData)
+        // console.log('item', resItem)
         res.end(JSON.stringify(
             {
             resData:resData,
@@ -617,10 +610,10 @@ index.post('/change', function (req, res) {
 
         })
 })
-//-----------------新增商品
-index.get('/commodity', function (req, res) { //主題蛋糕頁
+//-----------------更新商品
+index.get('/commodity',rights_api, function (req, res) { 
     db.exec(`SELECT * FROM commodity`, [], function (data, fields) {
-        console.log(data)
+        // console.log(data)
 
         res.render('commodity.ejs', {
             data: data
@@ -629,7 +622,54 @@ index.get('/commodity', function (req, res) { //主題蛋糕頁
 
 })
 
-index.post('/commodity', rights_api, function (req, res) {
+index.post('/commodity',rights_api, function (req, res) { 
+    var data = req.body
+    var item = [data.c_id,data.c_name,data.price,data.illustrate,data.img_name,data.oldId];
+    var sql = `UPDATE commodity SET c_id = ?, c_name = ?, price = ?, illustrate = ?, img_name = ? WHERE commodity.c_id = ?`
+    // console.log(data)
+    db.exec(sql,item,function(result, fields){
+        if (result.affectedRows) {
+            res.end('update success')
+        } else {
+            res.end('update failed')
+        }
+
+    })
+})
+
+var cakeImg = multer.diskStorage({
+    destination: function (req, file, cb) {  //固定，不能改
+        cb(null, "./media/Source/IMG");  //儲存路徑
+    },
+    filename: function (req, file, cb) { //固定，不能改
+        // console.log(file.originalname.split(".").pop());//附檔名
+        var d = new Date();
+        var today = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + '-' + d.getTime();
+        cb(null, today + '.' + file.originalname.split(".").pop());  // 自定義檔案名稱
+        // cb(null, today);  // 自定義檔案名稱
+    }
+});
+var cake = multer({
+    storage: cakeImg
+
+});
+
+
+index.post('/upimg',rights_api,cake.single('img'),function(req, res){
+            res.end(req.file.filename)
+})
+
+
+
+
+//--------------------------新增商品
+
+index.get('/additem',rights_api,function(req, res){
+    res.render('additem.ejs')
+
+})
+
+index.post('/additem', rights_api, function (req, res) {
     var data = req.body;
     console.log(data)
     var sql = `INSERT INTO commodity (c_id, c_name, price) VALUES (?, ?, ?)`
@@ -652,7 +692,7 @@ index.get('/manage',rights_api,function(req, res){
 })
 index.post('/manage',rights_api,function(req, res){
     var data = req.body;
-    console.log(data)
+    // console.log(data)
     var sql = `UPDATE member SET email = ?,m_name = ?,birthday = ?,gender = ?,phone = ?,address = ?,rights = ? WHERE member.m_id = ?`
     db.exec(sql,[data.email,data.m_name,data.birthday,data.gender,data.phone,data.address,data.rights,data.m_id,],function(result, fields){
         if (result.affectedRows) {
