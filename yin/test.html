@@ -11,7 +11,7 @@
 </head>
 </body>
 <style>
-   .box_T {
+    .box_T {
         position: relative;
         width: 100vw;
         height: 350px;
@@ -34,30 +34,62 @@
         font-weight: bold;
         letter-spacing: 0.02em;
     }
+
+    #footer {
+        background-image: url(./Source/IMG/Key-Vision/middle_long.png);
+
+    }
+
+    .popover {
+        display: block;
+        position: absolute;
+        z-index: 999;
+    }
+
+    .popover-content {
+        display: none;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .popover-content.show {
+        display: block;
+    }
 </style>
 
 <body>
     <div id="aa" style="height: 80vw; background-color: red;">
         <div>
-        <div id="marquee_T" class="box_T">
-            <div class="list_T">
-                <span>Apple.&nbsp;</span>
-                <span>Banana.&nbsp;</span>
-                <span>Mango.&nbsp;</span>
-                <span>Strawberry.&nbsp;</span>
-                <span>Grape.&nbsp;</span>
-                <span>Orange.&nbsp;</span>
-                <span>Grapefruit.&nbsp;</span>
-                <span>Cherry.&nbsp;</span>
-                <span>Blueberry.&nbsp;</span>
-                <span>Lemon.&nbsp;</span>
-                <span>Tangerine.&nbsp;</span>
+            <div id="marquee_T" class="box_T">
+                <div class="list_T">
+                    <span>Apple.&nbsp;</span>
+                    <span>Banana.&nbsp;</span>
+                    <span>Mango.&nbsp;</span>
+                    <span>Strawberry.&nbsp;</span>
+                    <span>Grape.&nbsp;</span>
+                    <span>Orange.&nbsp;</span>
+                    <span>Grapefruit.&nbsp;</span>
+                    <span>Cherry.&nbsp;</span>
+                    <span>Blueberry.&nbsp;</span>
+                    <span>Lemon.&nbsp;</span>
+                    <span>Tangerine.&nbsp;</span>
+                </div>
             </div>
         </div>
     </div>
     </div>
+    <div style="height: 80vw; background-color:orange;">
+        <button class="btn" data-popover="#my-popover">Click me</button>
+        <div id="my-popover" class="popover">
+            <div class="popover-content">
+                <p>This is a popover!</p>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" data-popover="#my-popover">按鈕</button>
     </div>
-    <div style="height: 80vw; background-color:orange;"></div>
     <div style="height: 80vw; background-color: yellow;">
         <div class="container">
             <div id="div1" class="active"></div>
@@ -73,31 +105,67 @@
 
 
     <script>
-        const list = document.querySelector('.list_T');
-        const totalWidth = list.offsetWidth;
-        console.log(totalWidth);
+        // const list = document.querySelector('.list_T');
+        // const totalWidth = list.offsetWidth;
+        // console.log(totalWidth);
 
 
-        function load() {
-            var list = document.querySelector('.list_T')
-            var box = document.querySelector('.box_T');
-            // 複製一份清單
-            list.innerHTML += list.innerHTML;
-            let left = list.style.left;
-            let timer;
-            function move() {
-                clearInterval(timer);
-                timer = setInterval((env) => {
-                    left = left - 2;
-                    if (left == - (2321)) {
-                        left = 0;
-                    }
-                    list.style.left = left + 'px';
-                }, 30);
+        // function load() {
+        //     var list = document.querySelector('.list_T')
+        //     var box = document.querySelector('.box_T');
+        //     // 複製一份清單
+        //     list.innerHTML += list.innerHTML;
+        //     let left = list.style.left;
+        //     let timer;
+        //     function move() {
+        //         clearInterval(timer);
+        //         timer = setInterval((env) => {
+        //             left = left - 2;
+        //             if (left == - (2321)) {
+        //                 left = 0;
+        //             }
+        //             list.style.left = left + 'px';
+        //         }, 30);
+        //     }
+        //     move();
+        // };
+        // document.addEventListener('DOMContentLoaded', load);
+
+
+        function Popover(element) {
+            this.element = element;
+            this.popover = document.querySelector(element.getAttribute('data-popover'));
+            document.body.appendChild(this.popover);
+        }
+
+        Popover.prototype.toggle = function () {
+            var rect = this.element.getBoundingClientRect();
+            var top = rect.bottom + 5;
+            var left = rect.left + (rect.width - this.popover.offsetWidth) / 2;
+            this.popover.style.top = top + 'px';
+            this.popover.style.left = left + 'px';
+            this.popover.classList.toggle('show');
+        }
+
+        var btns = document.querySelectorAll('[data-popover]');
+        for (var i = 0; i < btns.length; i++) {
+            var btn = btns[i];
+            var popover = new Popover(btn);
+            btn.addEventListener('click', function () {
+                popover.toggle();
+            });
+        }
+
+        document.addEventListener('click', function (event) {
+            if (!event.target.matches('[data-popover]')) {
+                var popovers = document.querySelectorAll('.popover');
+                for (var i = 0; i < popovers.length; i++) {
+                    popovers[i].classList.remove('show');
+                }
             }
-            move();
-        };
-        document.addEventListener('DOMContentLoaded', load);
+        });
+
+
 
 
     </script>
