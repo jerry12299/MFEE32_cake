@@ -672,12 +672,24 @@ index.get('/additem',rights_api,function(req, res){
 index.post('/additem', rights_api, function (req, res) {
     var data = req.body;
     console.log(data)
-    var sql = `INSERT INTO commodity (c_id, c_name, price) VALUES (?, ?, ?)`
-    db.exec(sql, [data.c_id, data.c_name, data.price], function (result, fields) {
+    var sql = `INSERT INTO commodity (c_id, c_name, price,illustrate,img_name) VALUES (?, ?, ?,?,?)`
+    db.exec(sql, [data.c_id, data.c_name, data.price,data.illustrate,data.img_name], function (result, fields) {
         if (result.affectedRows) {
             res.end('update success')
         } else {
             res.end('update failed')
+        }
+    })
+})
+
+index.post('/cakeId',rights_api,function(req,res){
+    var data = req.body
+    db.exec(`SELECT c_id FROM commodity WHERE c_id = ?`,[data.c_id],function(result, fields){
+    //    console.log(result[0])
+        if(result[0]){
+            res.end('0')
+        }else{
+            res.end('1')
         }
     })
 })
