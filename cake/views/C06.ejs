@@ -8,6 +8,12 @@
     <title>購物車</title>
     <link rel="stylesheet" href="css/ShoppingCar.css">
     <script src="js/jquery-3.6.0.js"></script>
+    <style>
+        .mainPic {
+    border-radius: 15px;
+    width: 250px;
+}
+    </style>
 </head>
 
 <body>
@@ -376,12 +382,13 @@
                             // console.log(typeof(JSON.parse(res)));
                             var cname = JSON.parse(res).c_name
                             var price = JSON.parse(res).price
+                            var img = JSON.parse(res).img_name
                             var total = price * e.quantity;
 
                             //    $("tbody").append(`<tr><td>${cname}</td><td>${price}</td><td><input type="number" value="${e.quantity}" onchange="doChange(this.value,${index})" min="1" max="5" style ="width:50px"></td><td><button onclick="doDel(${index})">刪除</button> </td></tr>`);
                             $(".tbody1").append(`<tr>
                                 <td>
-                                    <img src="https://dummyimage.com/100x100/54f291/fff" alt="商品圖">
+                                    <img class='mainPic' src="Source/IMG/${img}" alt="商品圖">
                                 </td>
                                 <td>
                                     <p>${cname}</p>
@@ -488,7 +495,7 @@
                         item.forEach((item)=>{
                                 $(".tbody2").append(`<tr>
                                 <td>
-                                    <img src="https://dummyimage.com/100x100/54f291/fff" alt="商品圖">
+                                    <img class='mainPic' src="Source/IMG/${item.img_name}" alt="商品圖">
                                 </td>
                                 <td>
                                     <p>${item.c_name}</p>

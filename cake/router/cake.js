@@ -40,9 +40,9 @@ index.get('/C01', function (req, res) { //主題蛋糕頁
     
 })
 
-index.get('/C01_2', function (req, res) { //主題蛋糕頁
-    res.render('C01_2.ejs')
-})
+// index.get('/C01_2', function (req, res) { //主題蛋糕頁
+//     res.render('C01_2.ejs')
+// })
 index.get('/C02', function (req, res) { //客制蛋糕頁
     res.render('C02.ejs')
 })
@@ -69,8 +69,9 @@ index.post('/C05', function (req, res) {
                 rights: results[0].rights,
 
             }
-            // console.log(req.session.user);
-            res.end('login success')
+            // console.log(results[0].rights);
+            var rights = String(results[0].rights) 
+            res.end(rights)
         } else {
             res.end('login failed')
         }
@@ -483,7 +484,7 @@ index.get('/C01_2/:cname', function (req, res) {
 // console.log(req.session.buy);
 index.post('/buy', function (req, res) {
     var data = req.body;
-    var sql = `SELECT c_name,price FROM commodity WHERE c_id = ?`
+    var sql = `SELECT * FROM commodity WHERE c_id = ?`
     // console.log(data)
     db.exec(sql, [data.name], function (result, fields) {
         // console.log(result[0]) 
@@ -573,7 +574,7 @@ function three (req, res, next){
 function four (req, res, next){
     var o_id = res.locals.id
     var resData = res.locals.resData
-    db.exec(`SELECT c_name,price,quantity,price*quantity as total 
+    db.exec(`SELECT c_name,price,img_name,quantity,price*quantity as total 
     FROM buy_order,cake_order,commodity 
     WHERE buy_order.o_id = cake_order.o_id AND cake_order.c_id = commodity.c_id AND buy_order.o_id = ?`,
     [o_id],

@@ -149,8 +149,8 @@
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify(JSONData),
                 success: function(res) {
-                    alert(res);
-                    // location.href = '/';
+                    // alert(res);
+                    location.href = '/commodity';
                 },
                 error: function() {
                     alert("login 系統錯誤!")
@@ -172,9 +172,9 @@
                  // data: JSON.stringify(JSONData),
                  data:formData,
                  success: function(res) {
-                     alert(res);
+                    //  alert(res);
                     $('#imgId'+id).val(res);
-                    //  location.href = '/';
+                    
                  },
                  error: function() {
                      alert("login 系統錯誤!")

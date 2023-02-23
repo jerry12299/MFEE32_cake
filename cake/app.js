@@ -24,7 +24,7 @@ app.use(session({
         path: '/',
         httpOnly: true,
         secure: false,
-        maxAge: 10 * 60 * 1000 //cookie 存活時間
+        maxAge: 60 * 60 * 1000 //cookie 存活時間
         // maxAge: 60 * 1000
     }
 }))
