@@ -32,7 +32,12 @@ index.get('/', function (req, res) {
 
 
 index.get('/C01', function (req, res) { //主題蛋糕頁
-    res.render('C01.ejs')
+    db.exec(`SELECT * FROM commodity`,[],function(data,fields){
+        res.render('C01.ejs',{
+            data:data
+        })
+    })
+    
 })
 
 index.get('/C01_2', function (req, res) { //主題蛋糕頁

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2023-02-22 07:40:48
+-- 產生時間： 2023-02-23 06:48:07
 -- 伺服器版本： 10.4.25-MariaDB
 -- PHP 版本： 8.1.10
 
@@ -112,7 +112,9 @@ DROP TABLE IF EXISTS `commodity`;
 CREATE TABLE `commodity` (
   `c_id` varchar(10) NOT NULL,
   `c_name` varchar(50) NOT NULL,
-  `price` int(11) NOT NULL
+  `price` int(11) NOT NULL,
+  `illustrate` varchar(200) DEFAULT NULL,
+  `img_name` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -124,14 +126,15 @@ TRUNCATE TABLE `commodity`;
 -- 傾印資料表的資料 `commodity`
 --
 
-INSERT INTO `commodity` (`c_id`, `c_name`, `price`) VALUES
-('bd0001', '生日蛋糕01', 300),
-('bd0106', '6吋生日蛋糕', 300),
-('bd0108', '8吋生日蛋糕', 360),
-('bd0151', '法芙娜草莓布朗尼蛋糕', 660),
-('bd0206', '6吋生日蛋糕2號', 330),
-('cc0001', '巧克力蛋糕01', 350),
-('cm0106', '6吋聖誕蛋糕', 300);
+INSERT INTO `commodity` (`c_id`, `c_name`, `price`, `illustrate`, `img_name`) VALUES
+('bd0001a', '生日蛋糕01', 300, 'aaa', 'img'),
+('bd0102', '蛋糕A', 600, 'aaa', '2023-2-23-1677127177987.jpg'),
+('bd0106', '6吋生日蛋糕', 300, NULL, NULL),
+('bd0108', '8吋生日蛋糕', 360, NULL, NULL),
+('bd0151', '法芙娜草莓布朗尼蛋糕', 660, '堅持使用最新鮮且當季的大湖草莓製作， 鮮紅完熟的草莓散發自然甜香，顆顆飽 滿多汁使濃郁法芙娜巧克力布朗尼蛋糕 ，更添一股清爽風味！\r\n此款蛋糕僅提供【台中門市自取】， 因蛋糕使用鮮奶油以及新鮮草莓水果裝飾， 為避免宅配運送過程中損壞，故無法提供 宅配寄送服務。', 'mimisbakehouse-website-8-web.jpg'),
+('bd0206', '6吋生日蛋糕2號', 330, NULL, NULL),
+('cc0001', '巧克力蛋糕01', 350, NULL, NULL),
+('cm0106', '6吋聖誕蛋糕', 300, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -201,7 +204,7 @@ TRUNCATE TABLE `member`;
 --
 
 INSERT INTO `member` (`m_id`, `email`, `pwd`, `m_name`, `birthday`, `gender`, `phone`, `address`, `rights`) VALUES
-(1, 'asd123@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', '曉明', '2017-02-01', '女', 123456, 'qwdfasf\r\n                                                ', 0),
+(1, 'asd123@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', '曉明', '2017-02-01', '男', 123456, 'qwdfasf\r\n                                                \r\n                                         ', 0),
 (2, 'user@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', '管理者', '1990-01-01', NULL, NULL, NULL, 1),
 (3, 'abc123@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', '小明', '2015-01-14', 'm', 123456, 'aaaaaaaaaaaaa', 0),
 (6, 'jerrt@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', '寶可夢', '2023-01-02', 'm', 123456, 'sssssssssssss', 0),

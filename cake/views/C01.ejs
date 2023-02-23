@@ -52,116 +52,20 @@
                 <p>主題蛋糕 / <a href="某某網址">2023季節主打</a></p>
             </div>
             <div class="PMCake_show_commodity">
+                <% data.forEach((item,index)=>{%>
                 <div class="commodity_item">
                     <div>
-                        <a href="/C01_2/bd0151">
+                        <a href="/C01_2/<%= item.c_id %>">
                             <img src="Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
                         </a>
                     </div>
                     <div>
-                        <p>品項名稱</p>
-                        <p>NT.999</p>
+                        <p><%= item.c_name %></p>
+                        <p>NT.<%= item.price %></p>
                     </div>
                 </div>
-                <div class="commodity_item">
-                    <div>
-                        <a href="某某網址">
-                            <img src="Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
-                        </a>
-                    </div>
-                    <div>
-                        <p>品項名稱</p>
-                        <p>NT.999</p>
-                    </div>
-                </div>
-                <div class="commodity_item">
-                    <div>
-                        <a href="某某網址">
-                            <img src="Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
-                        </a>
-                    </div>
-                    <div>
-                        <p>品項名稱</p>
-                        <p>NT.999</p>
-                    </div>
-                </div>
-                <div class="commodity_item">
-                    <div>
-                        <a href="某某網址">
-                            <img src="Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
-                        </a>
-                    </div>
-                    <div>
-                        <p>品項名稱</p>
-                        <p>NT.999</p>
-                    </div>
-                </div>
-                <div class="commodity_item">
-                    <div>
-                        <a href="某某網址">
-                            <img src="Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
-                        </a>
-                    </div>
-                    <div>
-                        <p>品項名稱</p>
-                        <p>NT.999</p>
-                    </div>
-                </div>
-                <div class="commodity_item">
-                    <div>
-                        <a href="某某網址">
-                            <img src="Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
-                        </a>
-                    </div>
-                    <div>
-                        <p>品項名稱</p>
-                        <p>NT.999</p>
-                    </div>
-                </div>
-                <div class="commodity_item">
-                    <div>
-                        <a href="某某網址">
-                            <img src="Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
-                        </a>
-                    </div>
-                    <div>
-                        <p>品項名稱</p>
-                        <p>NT.999</p>
-                    </div>
-                </div>
-                <div class="commodity_item">
-                    <div>
-                        <a href="某某網址">
-                            <img src="Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
-                        </a>
-                    </div>
-                    <div>
-                        <p>品項名稱</p>
-                        <p>NT.999</p>
-                    </div>
-                </div>
-                <div class="commodity_item">
-                    <div>
-                        <a href="某某網址">
-                            <img src="Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
-                        </a>
-                    </div>
-                    <div>
-                        <p>品項名稱</p>
-                        <p>NT.999</p>
-                    </div>
-                </div>
-                <div class="commodity_item">
-                    <div>
-                        <a href="某某網址">
-                            <img src="Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱">
-                        </a>
-                    </div>
-                    <div>
-                        <p>品項名稱</p>
-                        <p>NT.999</p>
-                    </div>
-                </div>
+                <% }) %>
+                
 
 
             </div>
