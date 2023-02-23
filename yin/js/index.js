@@ -1,4 +1,30 @@
-// 跑馬燈
+// 文字跑馬燈
+const list = document.querySelector('.list_T');
+        const totalWidth = list.offsetWidth;
+        console.log(totalWidth);
+
+        function loadT() {
+            var lista = document.querySelector('.list_T')
+            // 複製一份清單
+            lista.innerHTML += lista.innerHTML;
+            let left = lista.style.left;
+            let timer;
+            function move() {
+                clearInterval(timer);
+                timer = setInterval((e) => {
+                    left = left - 2;
+                    if (left == - (4930)) {
+                        left = 0;
+                    }
+                    lista.style.left = left + 'px';
+                }, 30);
+            }
+            move();
+        };
+        document.addEventListener('DOMContentLoaded', loadT);
+
+
+// 照片跑馬燈
 function load(){    
     var list = document.querySelector('.list')
     var box = document.querySelector('.box');

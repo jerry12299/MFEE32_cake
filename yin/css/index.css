@@ -93,7 +93,7 @@ nav span {
 }
 
 section {
-    background-color: #99BF73;
+    background-color: #a0d36d;
 }
 
 /* ---------------NEWS----------------- */
@@ -125,13 +125,41 @@ section {
     background-position: center;
     background-attachment: fixed;
     width: 100%;
-    transition: transform 0.5s ease-out;
+    transition: transform 0.7s ease-out;
     height: 1000px;
     z-index: -5;
     
 }
+/* ------------------文字跑馬燈---------------------- */
+#marquee_TContaner{
+    position: absolute;
+    bottom: 0;
+}
 
+.box_T {
+    position: relative;
+    width: 100vw;
+    height: 150px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.list_T {
+    left: 0px;
+    display: flex;
+    position: absolute;
+}
+
+#marquee_T span {
+    color: transparent;
+    /* -webkit-text-stroke: 1px rgb(255, 255, 255); */
+    color: #147369;
+    font-size: 6rem;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+}
 /* ---------about--------------------- */
 #About>div{
     display: flex;
@@ -142,7 +170,7 @@ section {
     margin-right:50px;
 }
 
-/* ------------------------------------- */
+/* -----------------主題蛋糕-------------------- */
 #mcake {
     display: flex;
     align-items: center;
@@ -173,6 +201,7 @@ section {
 /* -------------------------------------------- */
 #Contact {
     background-image: url(../Source/IMG/Key-Vision/middle_long.png);
+    background-repeat:no-repeat;
     background-size: 100% auto;
     background-position: center;
     background-attachment: fixed;

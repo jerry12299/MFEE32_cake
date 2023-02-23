@@ -11,59 +11,25 @@
 </head>
 </body>
 <style>
-    .container {
-        height: 60vw;
-        overflow-y: scroll;
-        scroll-behavior: smooth;
-    }
-
-    #div1 {
-        background-color: aqua;
-        height: 20vw;
-        width: 300px;
-        margin: 20px;
-    }
-
-    #div2 {
-        background-color: blueviolet;
-        height: 20vw;
-        margin: 20px;
-        width: 300px;
-    }
-
-    #div3 {
-        background-color: yellowgreen;
-        height: 20vw;
-        margin: 20px;
-        width: 300px;
-    }
-
-    body>div:nth-child(3) {
-        height: auto;
+   .box_T {
+        position: relative;
+        width: 100vw;
+        height: 350px;
+        overflow: hidden;
         display: flex;
-        flex-direction: column;
-        align-items: center;
         justify-content: center;
+        align-items: center;
     }
 
-    .active {
-
-        animation: fadeInUp 0.5s;
+    .list_T {
+        left: 0px;
+        display: flex;
+        position: absolute;
     }
 
-    @keyframes fadeInUp {
-        from {
-            transform: translate3d(0, 100%, 0);
-        }
-
-        to {
-            transform: none;
-        }
-    }
-
-    .test22 {
+    #marquee_T span {
         color: transparent;
-        -webkit-text-stroke: 1px rgb(14, 27, 14);
+        -webkit-text-stroke: 1px rgb(255, 255, 255);
         font-size: 50px;
         font-weight: bold;
         letter-spacing: 0.02em;
@@ -71,7 +37,26 @@
 </style>
 
 <body>
-    <div style="height: 80vw; background-color: red;"><p class="test22">哈囉你好嗎</p></div>
+    <div id="aa" style="height: 80vw; background-color: red;">
+        <div>
+        <div id="marquee_T" class="box_T">
+            <div class="list_T">
+                <span>Apple.&nbsp;</span>
+                <span>Banana.&nbsp;</span>
+                <span>Mango.&nbsp;</span>
+                <span>Strawberry.&nbsp;</span>
+                <span>Grape.&nbsp;</span>
+                <span>Orange.&nbsp;</span>
+                <span>Grapefruit.&nbsp;</span>
+                <span>Cherry.&nbsp;</span>
+                <span>Blueberry.&nbsp;</span>
+                <span>Lemon.&nbsp;</span>
+                <span>Tangerine.&nbsp;</span>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
     <div style="height: 80vw; background-color:orange;"></div>
     <div style="height: 80vw; background-color: yellow;">
         <div class="container">
@@ -82,36 +67,42 @@
     </div>
     <div style="height: 80vw; background-color: green;"></div>
     <div style="height: 80vw; background-color:blue;">
-        <span>
-            輪播圖
-            文案、圖片
-            購物車配色
-
-        </span>
     </div>
 
+
+
+
     <script>
-        let div1 = document.getElementById('div1');
-        let div2 = document.getElementById('div2');
-        let div3 = document.getElementById('div3');
-        let activeDiv = div1;
+        const list = document.querySelector('.list_T');
+        const totalWidth = list.offsetWidth;
+        console.log(totalWidth);
 
-        function scrollHandler(e) {
-            if (e.deltaY > 0) {
-                activeDiv = activeDiv === div1 ? div2 : activeDiv === div2 ? div3 : div1;
-            } else {
-                activeDiv = activeDiv === div1 ? div3 : activeDiv === div3 ? div2 : div1;
+
+        function load() {
+            var list = document.querySelector('.list_T')
+            var box = document.querySelector('.box_T');
+            // 複製一份清單
+            list.innerHTML += list.innerHTML;
+            let left = list.style.left;
+            let timer;
+            function move() {
+                clearInterval(timer);
+                timer = setInterval((env) => {
+                    left = left - 2;
+                    if (left == - (2321)) {
+                        left = 0;
+                    }
+                    list.style.left = left + 'px';
+                }, 30);
             }
-            activeDiv.classList.add('active');
-            [div1, div2, div3].forEach((div) => {
-                if (div !== activeDiv) {
-                    div.classList.remove('active');
-                }
-            });
-        }
+            move();
+        };
+        document.addEventListener('DOMContentLoaded', load);
 
-        window.addEventListener('wheel', scrollHandler);
+
     </script>
+
+
 </body>
 
 </html>
