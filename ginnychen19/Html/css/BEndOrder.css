@@ -4,6 +4,7 @@
 body {
     width: 100vw;
     flex-direction: row;
+    background-color: var(--YWhite);
 }
 
 #BEndleft {
@@ -37,13 +38,13 @@ body {
     align-items: center;
     justify-content: space-between;
 
-    border-bottom: 2px solid var(--color04);
+    border-bottom: 2px solid var(--Brown02);
 }
 
 #PMcakeOrder>div>h6 {
     margin: 0;
     height: fit-content;
-    color: var(--color06);
+    color: var(--Brown02);
 }
 
 
@@ -65,26 +66,29 @@ body {
 }
 
 .search-icon:hover {
-    border-bottom: 1px solid red;
+    border-bottom: 2px solid var(--Brown02);
 }
 
 .search-input {
     width: 100%;
-    border: 1px solid #ccc;
+    border: 2px solid var(--Brown02);
     border-radius: 5px;
     padding: 2px 10px;
+
+    color: var(--Brown02);
+    font-family: "GenJyuuGothic-B";
 }
 
 /*================表單-每筆資料====================*/
 .Order {
     text-align: center;
     font-family: "GenJyuuGothic-B";
-    border-collapse: collapse;
+    border-collapse: separate;
 }
 
 table>thead {
     font-size: var(--pContent);
-    color: var(--color06);
+    color: var(--Brown02);
 }
 
 tr>td {
@@ -95,7 +99,7 @@ tr>td {
 .Order select {
     background-color: transparent;
     border: none;
-    color: var(--color06);
+    color: var(--Brown02);
 }
 
 .Order>tbody:not(:first-of-type)::before {
@@ -109,11 +113,11 @@ tr>td {
 /*==================list--每單資料====================*/
 table>tbody>tr.list {
     font-size: var(--pSContent);
-    color: var(--color06);
+    color: var(--YWhite);
 }
 
 tr.list {
-    background-color: var(--color04);
+    background-color: var(--Brown04_BE);
 }
 
 tr.list>td:first-child {
@@ -130,28 +134,29 @@ tr.list>td:last-child {
 tr.list>td>button {
     border: none;
     border-radius: 5px;
-    background-color: var(--color06);
-    color: var(--color01);
+    background-color: var(--Brown01);
+    color: var(--YWhite);
 }
 
 tr.list>td>button:hover {
-    -webkit-box-shadow: 8px -7px 35px 0px #000000;
-    box-shadow: 0px 0px 10px 1px var(--color06);
+    -webkit-box-shadow: 0px 0px 10px 1px var(--Brown01);
+    box-shadow: 0px 0px 10px 1px var(--Brown01);
 }
 
 tr.list>td>button.open {
-    background-color: var(--color01);
-    color: var(--color06);
+    background-color: var(--YWhite);
+    color: var(--Brown01);
 }
 
 
 
 /*===================detail頁設定====================*/
 tr.detail>td {
-    background-color: var(--color01);
-    border-radius: 12px;
+    background-color: var(--GWhite);
+    border: 2px solid var(--Brown04_BE);
     width: 100%;
     height: 250px;
+    border-radius: 12px;
 }
 
 tr.detail>td>div {
@@ -160,6 +165,7 @@ tr.detail>td>div {
     justify-content: center;
     align-items: center;
     padding: 0 10px;
+    
     /* background-color: blue; */
 }
 
@@ -178,12 +184,12 @@ tr.detail>td>div {
 
 .items>table>thead td {
     text-align: center;
-    border-bottom: 2px solid var(--color04);
+    border-bottom: 3px solid var(--Brown05_BEtxt);
 }
 
 .items>table>tbody>tr>td {
     text-align: center;
-    color: var(--color06);
+    color: var(--Brown05_BEtxt);
     /* background-color: blueviolet; */
 }
 
@@ -219,7 +225,7 @@ tr.detail>td>div {
     margin: 0 0 0 10px;
     padding: 0 10px;
     border-radius: 12px;
-    background-color: var(--color04);
+    background-color: var(--Brown04_BE);
 }
 
 .contact_UpDown {
@@ -231,19 +237,20 @@ tr.detail>td>div {
     margin: 0 0 0 10px;
     padding: 0 10px;
     border-radius: 12px;
-    background-color: var(--color04);
+    background-color: var(--Brown04_BE);
 }
 
 
 .contact>table.contactLeft,
 .contact_UpDown>table.contactUP {
-    color: var(--color01);
+    color: var(--YWhite);
 
 }
 
 .contact>table.contactLeft tr,
 .contact_UpDown>table.contactUP tr {
     vertical-align: top;
+
 }
 
 .contact>table.contactLeft td:nth-child(2),
@@ -251,17 +258,18 @@ tr.detail>td>div {
     padding: 10px;
     text-align: start;
     min-width: 200px;
+
     /* background-color: aquamarine; */
 }
 
 .contact>table.contactRight,
 .contact_UpDown>table.contactDOWN {
-    color: var(--color01);
+    color: var(--YWhite);
     text-align: start;
 }
 
 .contact>table.contactRight select {
-    background-color: var(--color01);
+    background-color: var(--YWhite);
 }
 
 .contact>table.contactRight div>div,
@@ -269,8 +277,8 @@ tr.detail>td>div {
     padding: 10px;
     text-align: start;
     min-width: 200px;
-    background-color: var(--color01);
-    color: var(--color06);
+    background-color: var(--YWhite);
+    color: var(--Brown05_BEtxt);
     border-radius: 8px;
 }
 
@@ -291,34 +299,30 @@ tfoot>tr>td>div>div {
     width: 100%;
     display: flex;
 
-
     justify-content: center;
 }
 
 tfoot>tr>td>div>div button {
     font-family: "GenJyuuGothic-B";
-    background-color: var(--color06);
+    background-color: var(--Brown02);
     border: none;
     border-radius: 5px;
-    color: var(--color01);
+    color: var(--YWhite);
     letter-spacing: 2px;
     margin: 0 5px;
     padding: 5px;
 }
 
 tfoot>tr>td>div>div button:hover {
-    font-family: "GenJyuuGothic-B";
-    background-color: var(--color01);
-    border: none;
-    border-radius: 5px;
-    color: var(--color06);
-    letter-spacing: 2px;
-    margin: 0 5px;
-    padding: 5px;
+    background-color: var(--YWhite);
+    border: 2px solid var(--Brown02);
+    color: var(--Brown02);
+
 }
 
 tfoot>tr>td>div>div>p {
     margin: 0;
+    color: var(--Brown02);
 
 }
 
@@ -330,4 +334,5 @@ tfoot>tr>td>div>div>p {
 #pageList p {
     margin: 0 1px;
     padding: 5px;
+    color: var(--Brown02);
 }
