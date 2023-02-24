@@ -31,10 +31,33 @@ index.get('/', function (req, res) {
 })
 
 
-index.get('/C01', function (req, res) { //主題蛋糕頁
-    db.exec(`SELECT * FROM commodity`,[],function(data,fields){
+index.get('/C01/:class', function (req, res) { //主題蛋糕頁
+    var c_class = req.params.class
+    switch (parseInt(c_class)) {
+        case 0:
+            var class_name = '2023季節主打'
+            break;
+        case 1:
+            var class_name = '彌月蛋糕系列'
+            break;
+        case 2:
+            var class_name = '重乳酪'
+            break;
+        case 3:
+            var class_name = '生乳酪'
+            break;
+        case 4:
+            var class_name = '配件區'
+            break;
+    
+        default:
+            break;
+    }
+    // console.log(class_name)
+    db.exec(`SELECT * FROM commodity WHERE c_class = ?`,[c_class],function(data,fields){
         res.render('C01.ejs',{
-            data:data
+            data:data,
+            c_class:class_name
         })
     })
     
@@ -463,15 +486,14 @@ index.get('/picture/:pname', login_api, function (req, res) {
 //---------------------------顯示商品
 index.get('/C01_2/:cname', function (req, res) {
     // console.log(req.params.cname)
-    db.exec(`SELECT * FROM commodity WHERE c_id = ?`,[req.params.cname],function(data,fields){
-        var url = 'Source/IMG/' + data[0].img_name;
-        // console.log(data)
-
-
-         res.render('C01_2.ejs', {
-            data:data[0],
-            Url: url
-        })
+    db.exec(`SELECT * FROM commodity WHERE commodity.c_id = ?;`,[req.params.cname],function(data,fields){
+            
+            res.render('C01_2.ejs', {
+                data:data[0],
+               
+        
+            })
+   
     })
 
     
@@ -630,8 +652,8 @@ index.get('/commodity',rights_api, function (req, res) {
 
 index.post('/commodity',rights_api, function (req, res) { 
     var data = req.body
-    var item = [data.c_id,data.c_name,data.price,data.illustrate,data.img_name,data.oldId];
-    var sql = `UPDATE commodity SET c_id = ?, c_name = ?, price = ?, illustrate = ?, img_name = ? WHERE commodity.c_id = ?`
+    var item = [data.c_id,data.c_name,data.price,data.illustrate,data.img_name,data.c_class,data.oldId];
+    var sql = `UPDATE commodity SET c_id = ?, c_name = ?, price = ?, illustrate = ?, img_name = ?,c_class = ? WHERE commodity.c_id = ?`
     // console.log(data)
     db.exec(sql,item,function(result, fields){
         if (result.affectedRows) {
@@ -678,8 +700,8 @@ index.get('/additem',rights_api,function(req, res){
 index.post('/additem', rights_api, function (req, res) {
     var data = req.body;
     console.log(data)
-    var sql = `INSERT INTO commodity (c_id, c_name, price,illustrate,img_name) VALUES (?, ?, ?,?,?)`
-    db.exec(sql, [data.c_id, data.c_name, data.price,data.illustrate,data.img_name], function (result, fields) {
+    var sql = `INSERT INTO commodity (c_id, c_name, price,illustrate,img_name,c_class) VALUES (?, ?, ?,?,?)`
+    db.exec(sql, [data.c_id, data.c_name, data.price,data.illustrate,data.img_name,data.c_class], function (result, fields) {
         if (result.affectedRows) {
             res.end('update success')
         } else {
@@ -697,6 +719,35 @@ index.post('/cakeId',rights_api,function(req,res){
         }else{
             res.end('1')
         }
+    })
+})
+//------------新增圖片
+index.get('/addimg',rights_api,function(req,res){
+    db.exec(`SELECT * FROM commodity`,[],function(data,fields){
+        
+            
+              res.render('addimg.ejs',{
+            data:data,
+            
+        })
+        
+      
+    })
+            
+})
+
+index.post('/updateImg',rights_api,function(req,res){
+    var data = req.body
+    var item = [data.img1,data.img2,data.img3,data.img4,data.img5,data.c_id];
+    var sql = `UPDATE commodity SET img1 = ?, img2 = ?, img3 = ?, img4 = ?, img5 = ? WHERE commodity.c_id = ?`
+    // console.log(data)
+    db.exec(sql,item,function(result, fields){
+        if (result.affectedRows) {
+            res.end('update success')
+        } else {
+            res.end('update failed')
+        }
+
     })
 })
 //-----------改權限

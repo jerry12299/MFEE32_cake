@@ -25,6 +25,7 @@
                         <h6>商品管理</h6>
                     </div>
                     <p1><a href="/commodity">商品列表</a></p1>
+                    <p1><a href="/addimg">商品圖片</a></p1>
                     <p1><a href="/additem">新增商品</a></p1>
                 </div>
                 <div>
@@ -60,6 +61,7 @@
                         <td>蛋糕ID</td>
                         <td>蛋糕名稱</td>
                         <td>蛋糕價格</td>
+                        <td>類別</td>
                     </tr>
                 </thead>
                 <% data.forEach((item,index)=>{ %>
@@ -69,6 +71,7 @@
                         <td><%= item.c_id %></td>
                         <td><%= item.c_name %></td>
                         <td><%= item.price %></td>
+                        <td><%= item.c_class %></td>
                         <td>
                             <button>修改</button>
                         </td>
@@ -108,6 +111,13 @@
                                                 <td>圖片：</td>
                                                 <td>
                                                    <input type="text" readonly style="width:20em;" id="imgId<%= item.c_id %>" name="img_name" value=<%= item.img_name %>  >
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>類別：</td>
+                                                <td>
+                                                    <input type="text" name="c_class" value=<%= item.c_class %> >
+                                                        
                                                 </td>
                                             </tr>
                                         </table>

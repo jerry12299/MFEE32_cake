@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>主題蛋糕頁</title>
-    <link rel="stylesheet" href="css/main_ginnychen19.css">
-    <link rel="stylesheet" href="css/permanentCake.css">
-    <script src="js/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="../css/main_ginnychen19.css">
+    <link rel="stylesheet" href="../css/permanentCake.css">
+    <script src="../js/jquery-3.6.0.js"></script>
 </head>
 
 <body>
@@ -27,19 +27,19 @@
             </thead>
             <tbody class="list">
                 <tr>
-                    <td><a href="某某連結">2023季節主打</a></td>
+                    <td><a href="/C01/0">2023季節主打</a></td>
                 </tr>
                 <tr>
-                    <td><a href="某某連結">彌月蛋糕系列</a></td>
+                    <td><a href="/C01/1">彌月蛋糕系列</a></td>
                 </tr>
                 <tr>
-                    <td><a href="某某連結">重乳酪</a></td>
+                    <td><a href="/C01/2">重乳酪</a></td>
                 </tr>
                 <tr>
-                    <td><a href="某某連結">生乳捲</a></td>
+                    <td><a href="/C01/3">生乳捲</a></td>
                 </tr>
                 <tr>
-                    <td><a href="某某連結">配件區</a></td>
+                    <td><a href="/C01/4">配件區</a></td>
                 </tr>
 
             </tbody>
@@ -48,15 +48,15 @@
         <!--這個地方之後可以串，然後要用ejs-->
         <div class="PMCake_show">
             <div class="PMCake_show_content">
-                <h6>2023季節主打</h6>
-                <p>主題蛋糕 / <a href="某某網址">2023季節主打</a></p>
+                <h6><%= c_class %></h6>
+                <p>主題蛋糕 / <%= c_class %></p>
             </div>
             <div class="PMCake_show_commodity">
                 <% data.forEach((item,index)=>{%>
                 <div class="commodity_item">
                     <div>
                         <a href="/C01_2/<%= item.c_id %>">
-                            <img src="Source/IMG/<%= item.img_name %>" alt="商品名稱">
+                            <img src="../Source/IMG/<%= item.img1 %>" alt="商品名稱">
                         </a>
                     </div>
                     <div>
@@ -76,7 +76,7 @@
         <p>&nbsp;</p>
     </footer>
 
-    <script src="js/permanentCake.js"></script>
+    <script src="../js/permanentCake.js"></script>
 </body>
 
 </html>
