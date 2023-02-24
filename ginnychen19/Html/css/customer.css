@@ -20,8 +20,8 @@
 
 
 
-/*細節裡面的上半部*/
-.customer>form>div:first-child {
+/*細節裡面的上半部 */
+.customer>form>div:first-child{
     width: 100%;
     /* background-color: blue; */
     display: flex;
