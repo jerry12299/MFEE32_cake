@@ -54,7 +54,7 @@ index.get('/C01/:class', function (req, res) { //主題蛋糕頁
             break;
     }
     // console.log(class_name)
-    db.exec(`SELECT * FROM commodity where c_class = ?`,[c_class],function(data,fields){
+    db.exec(`SELECT * FROM commodity,cake_img WHERE commodity.c_id = cake_img.c_id and img_class = '0' and c_class = ?`,[c_class],function(data,fields){
         res.render('C01.ejs',{
             data:data,
             c_class:class_name
@@ -486,15 +486,26 @@ index.get('/picture/:pname', login_api, function (req, res) {
 //---------------------------顯示商品
 index.get('/C01_2/:cname', function (req, res) {
     // console.log(req.params.cname)
-    db.exec(`SELECT * FROM commodity WHERE c_id = ?`,[req.params.cname],function(data,fields){
-        var url = 'Source/IMG/' + data[0].img_name;
+    db.exec(`SELECT * FROM commodity,cake_img WHERE commodity.c_id = cake_img.c_id and img_class = '0' and commodity.c_id = ?;`,[req.params.cname],function(data,fields){
+   
+        db.exec(`SELECT * FROM cake_img WHERE c_id = ? and img_class = '1'`,[req.params.cname],function(simg,fields){
+         
+            
+            res.render('C01_2.ejs', {
+                data:data[0],
+                // bimg:bimg[0],
+                simg:simg
+        
+            })
+
+        })
+            
+
+   
         // console.log(data)
 
 
-         res.render('C01_2.ejs', {
-            data:data[0],
-            Url: url
-        })
+        
     })
 
     
