@@ -1,138 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菓季後台-客製訂單</title>
+    <link rel="stylesheet" href="../css/main_ginnychen19.css">
+    <link rel="stylesheet" href="../css/BEndOrder.css">
+    <link rel="stylesheet" href="../css/CZ_Order.css">
     <script src="../js/jquery-3.6.0.js"></script>
-    <script src="../js/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="../css/jquery.modal.min.css" />
-    <title>首頁</title>
 </head>
+
 <body>
-   
-    <% if(!session.user) { %>  <!-- 如果沒登入(沒session.user) -->
-    <a href="/login">登入</a> 
-    <% }else if(session.user.rights) { %>
-    <a href="/add">管理表單</a> <a href="/C05_2/1">蛋糕訂單</a>
-    <% } %>
+    <div id="BEndleft">
+        <div class="BEndnav">
+            <div>
+                <img src="../Source/SVG/Weed.svg">
+                <h6>後臺管理系統</h6>
+                <p>使用者：abuser</p>
 
-    <form action="/logout">
-        <input type="submit" value="登出">
-    </form>
-    <table>
-        <thead>
-            <th>#</th>
-            <th>訂單編號</th>
-            <th>會員編號</th>
-            <th>下訂日期</th>
-            <th>需求</th>
-            <th>狀態</th>
-            <th>圖片</th>
-          
-        </thead>
-        <tbody>
-            <% data.forEach((item ,index) => { %> <!--forEach迴圈顯示資料庫內容-->
-                <% var cuYY = item.cust_upload_date.getFullYear()%>
-                <% var cuMM = (item.cust_upload_date.getMonth())+1%>
-                <% var cuDD = item.cust_upload_date.getDate()%>
-                <% var cuHr = item.cust_upload_date.getHours()%>
-                <% var cuMi = item.cust_upload_date.getMinutes()%>
-                <tr>
-                    <td><%= index+1%></td> <!--編號 -->
-                    <td><%= item.cust_id%></td> 
-                    <td><%= item.m_id%></td>
-                    <td><%= `${cuYY}年${cuMM}月${cuDD}日${cuHr}點${cuMi}分` %></td>
-                   
-                    <td><%= item.cust_form%></td>
-                    <td><%= item.cust_state%></td>
-                    <td><a href=<%= `/picture/${item.picture}` %>>圖片</a></td>
-                    <!-- 有權限 -->
-                    <% if(session.user) { %>
-                    <td>
-                        <a href="#divEditData" rel="modal:open">
-                            <button onclick="Edit(<%= item.id%>)">編輯</button>
-                        </a>
-                        <button onclick="Delete(<%= item.id%>)">刪除</button>
-                    </td>
-                    <% } %>
-                </tr>
-            <% }) %>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="4" style="text-align: center;">
-                    <% for(var i = 1; i <= last_page; i++) { %>
-                    <span ><a href="/<%= i%>"><%= i%></a></span>
-                    <% } %>
-                </td colspan="2">
-                <td><p>總數 <%= total_nums%> 筆，共 <%= curr_page%>/<%= last_page%> 頁</p></td>
-            </tr>
-        </tfoot>
-    </table>
-    
+            </div>
 
+            <div>
+                <div>
+                    <div>
+                        <img src="../Source/SVG/Weed.svg">
+                        <h6>商品管理</h6>
+                    </div>
+                    <p1><a href="/commodity">商品列表</a></p1>
+                    <p1><a href="/additem">新增商品</a></p1>
+                </div>
+                <div>
+                    <div>
+                        <img src="../Source/SVG/Weed.svg">
+                        <h6>訂單管理</h6>
+                    </div>
+                    <p1><a href="/C05_2/1">一般訂單</a></p1>
+                    <p1><a href="/C05_3/1">客製訂單</a></p1>
+                </div>
+                <div>
+                    <div>
+                        <img src="../Source/SVG/Weed.svg">
+                        <h6>會員相關</h6>
+                    </div>
+                    <p1><a href="/manage">會員資料</a></p1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="BEndright">
+        <div id="PMcakeOrder">
+            <div>
+                <h6>客製訂單</h6>
+                <div class="search-container">
+                    <input type="button" class="search-icon"></input>
+                    <input type="text" class="search-input" placeholder="Search...">
+                </div>
+            </div>
+            <table class="Order">
+                <thead>
+                    <tr>
+                        <td>訂單編號</td>
+                        <td>姓名</td>
+                        <td>金額</td>
+                        <td>詳情</td>
+                        <td>成立時間 ▲</td>
+                        <td>預約時間 ▲</td>
+                        <td>
+                            <select name="???????">
+                                <option selected="selected">訂單狀態</option>
+                                <option value="1">未製作</option>
+                                <option value="2">已製作</option>
+                                <option value="3">申請取消</option>
+                                <option value="4">已取消</option>
+                                <option value="5">未聯絡</option>
+                                <option value="6">洽談中</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="???????">
+                                <option selected="selected">付款狀態</option>
+                                <option value="1">未付款</option>
+                                <option value="2">已付款</option>
+                                <option value="3">已退款</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="???????">
+                                <option selected="selected">出貨狀態</option>
+                                <option value="1">未配送</option>
+                                <option value="2">已配送</option>
+                                <option value="3">未取貨</option>
+                                <option value="4">已取貨</option>
+                                <option value="5">已取消</option>
+                            </select>
+                        </td>
+                    </tr>
+                </thead>
+                <% data.forEach((item ,index)=> { %>
+                    <% var upYY=item.cust_upload_date.getFullYear()%>
+                        <% var upMM=(item.cust_upload_date.getMonth()+1).toString().padStart(2,'0')%>
+                            <% var upDD=item.cust_upload_date.getDate().toString().padStart(2,'0')%>
+                                <% var upHr=item.cust_upload_date.getHours()%>
+                                    <% var upMi=item.cust_upload_date.getMinutes()%>
+
+                                        <tbody>
+                                            <tr class="list">
+                                                <td>#<%= item.cust_id %>
+                                                </td>
+                                                <td>
+                                                    <%= item.m_name %>
+                                                </td>
+                                                <% if(item.cust_price==0){ %>
+                                                    <td>
+                                                        未定價
+                                                    </td>
+                                                    <% }else{ %>
+                                                        <td>
+                                                            <%= item.cust_price %>
+                                                        </td>
+                                                        <% }%>
+                                                            <td><button>詳細</button></td>
+                                                            <td>
+                                                                <%= `${upYY}-${upMM}-${upDD}` %>
+                                                            </td>
+                                                            <td>
+                                                                <%= item.cust_date %>
+                                                            </td>
+                                                            <td>
+                                                                <%= item.cust_state %>
+                                                            </td>
+                                                            <td>
+                                                                <%= item.cust_pay_state%>
+                                                            </td>
+                                                            <td>
+                                                                <%= item.cust_shipping%>
+                                                            </td>
+                                            </tr>
+                                            <tr class="detail">
+                                                <td colspan="9">
+                                                    <div>
+                                                       
+                                                        <diV>
+                                                            <div class="items">
+                                                                <table>
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <td>訂單詳情</td>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td><textarea
+                                                                                style="resize:none;width:500px;height:250px;"><%=  item.cust_form %></textarea>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="contact_UpDown">
+                                                                <table class="contactUP">
+                                                                    <form action="" id="form1_<%= item.cust_id %>">
+                                                                    <tr>
+                                                                        <td>連絡電話</td>
+                                                                        <td>
+                                                                            <%= item.phone %>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>電子信箱</td>
+                                                                        <td>
+                                                                            <%= item.email %>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>希望聯絡方式</td>
+                                                                        <td>
+                                                                            <%= item.connection %>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>付款方式</td>
+                                                                        <td>
+                                                                            <%= item.cust_pay %>
+                                                                                <select name="cust_pay">
+                                                                                    <option selected="selected">請選擇
+                                                                                    </option>
+                                                                                    <option value="銀行轉帳">銀行轉帳</option>
+                                                                                    <option value="黑貓貨到付款">黑貓貨到付款
+                                                                                    </option>
+                                                                                    <option value="來店付款">來店付款</option>
+                                                                                </select>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>取貨方式</td>
+                                                                        <td>
+                                                                            <%= item.cust_pick %>
+                                                                                <select name="cust_pick">
+                                                                                    <option selected="selected">請選擇
+                                                                                    </option>
+                                                                                    <option value="來店自取">來店自取</option>
+                                                                                    <option value="冷凍宅配">冷凍宅配</option>
+                                                                                </select>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>取貨時間</td>
+                                                                        <td>
+                                                                            <input type="text" name="cust_date"
+                                                                                placeholder="日期格式 20XX-XX-XX"
+                                                                                value=<%=item.cust_date %>>
+                                                                        </td>
+                                                                    </tr>
+                                                                </form>
+                                                                </table>
+                                                                <table class="contactDOWN">
+                                                                    <tr>
+                                                                        <td><a href=<%=`/picture/${item.picture}` %>>
+                                                                                <button id="show_pic">訂單附圖</button></a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </diV>
+                                                        <diV class="confirm">
+                                                            <form action="" id="price_<%= item.cust_id %>" >
+                                                            <diV>總估價：NT.<input type="text" name="cust_price" id="addPrice"
+                                                                    value=<%=item.cust_price %>></diV></form>
+                                                            <diV>
+                                                                <form action="" id="form2_<%= item.cust_id %>">
+                                                                    
+                                                                <select name="cust_state">
+                                                                    <option selected="selected">訂單狀態</option>
+                                                                    <option value="未製作">未製作</option>
+                                                                    <option value="已製作">已製作</option>
+                                                                    <option value="申請取消">申請取消</option>
+                                                                    <option value="已取消">已取消</option>
+                                                                </select>
+                                                                <select name="cust_pay_state">
+                                                                    <option selected="selected">付款狀態</option>
+                                                                    <option value="未付款">未付款</option>
+                                                                    <option value="已付款">已付款</option>
+                                                                    <option value="已退款">已退款</option>
+                                                                </select>
+                                                                <select name="cust_shipping">
+                                                                    <option selected="selected">出貨狀態</option>
+                                                                    <option value="未配送">未配送</option>
+                                                                    <option value="已配送">已配送</option>
+                                                                    <option value="未取貨">未取貨</option>
+                                                                    <option value="已取貨">已取貨</option>
+                                                                    <option value="已取貨">已取消</option>
+                                                                </select>
+                                                                </form>
+                                                            </diV>
+                                                            <diV><button
+                                                                    onclick="doUpdate(<%= item.cust_id %>)">更新詳情</button>
+                                                            </diV>
+                                                        
+                                                        </diV>
+                                                       
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <% }) %>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="9">
+                                                        <div>
+
+                                                            <div>
+                                                                <a href="/C05_3/1"><button>最前頁</button></a>
+                                                                <a
+                                                                    href="/C05_3/<%= parseInt(curr_page)-1%>"><button>上一頁</button></a>
+                                                                <div id="pageList">
+                                                                    <% for(var i=1; i <=last_page; i++) { %>
+
+                                                                        <a href="/C05_3/<%= i%>">
+                                                                            <p>
+                                                                                <%= i%>
+                                                                            </p>
+                                                                        </a>
+                                                                        <% } %>
+
+                                                                </div>
+                                                                <a
+                                                                    href="/C05_3/<%= parseInt(curr_page)+1 %>"><button>下一頁</button></a>
+                                                                <a
+                                                                    href="/C05_3/<%= last_page%>"><button>最尾頁</button></a>
+                                                            </div>
+                                                            <div>
+                                                                <p>共 <%= total_nums%> 筆，<%= curr_page%>/<%= last_page%>
+                                                                                頁</p>
+                                                            </div>
+
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+            </table>
+        </div>
+    </div>
+    <script src="../js/BEndOrder.js"></script>
+    <script src="../js/findNav.js"></script>
     <script>
-
-        // function Edit(id) {
-        //     $.ajax({
-        //         url: "/detail/"+id, //獲得資料庫資料
-        //         type: "GET",
-        //         success: function(data) {
-        //             var res = JSON.parse(data);
-        //             $("input[name='id']").val(res.id)
-        //             $("input[name='name']").val(res.name)
-        //             $("input[name='phone']").val(res.phone)
-        //             $("input[name='address']").val(res.address)
-        //             $("input[name='adult_mask']").val(res.adult_mask)
-        //             $("input[name='child_mask']").val(res.child_mask)
-        //         },
-        //         error: function() {
-        //             alert("系統錯誤!")
-        //         },
-        //     })
-        // }
-
-        // function Delete(id) {
-        //     $.ajax({
-        //         url: "/delete",
-        //         type: "POST",
-        //         contentType: "application/json; charset=utf-8",
-        //         data: JSON.stringify({"id": id}),
-        //         success: function(res) {
-        //             alert(res);
-        //             location.reload();
-        //         },
-        //         error: function(err) {
-        //             alert("Delete 系統錯誤! 請看log" );
-        //             console.log(err);
-        //         }
-        //     })
-        // }
-
-        // $('#submit').on('click', function() {
+        function doUpdate(id) {
+            // alert(id)
+            var data = []
+            data = data.concat($(`#form1_${id}`).serializeArray()) 
+            data = data.concat($(`#form2_${id}`).serializeArray()) 
+            data = data.concat($(`#price_${id}`).serializeArray()) 
             
-        //     var data = $('#formEdit').serializeArray();
-
-        //     var JSONData = {};
-        //     for(index in data){
-        //         JSONData[data[index].name] = data[index].value;
-        //     }
-                     
-        //     $.ajax({
-        //         url: "/update",
-        //         type: "POST",
-        //         contentType: "application/json; charset=utf-8",
-        //         data: JSON.stringify(JSONData),
-        //         success: function(res) {
-        //             alert(res);
-        //             location.reload(); //刷新
-        //         },
-        //         error: function() {
-        //             alert("系統錯誤!")
-        //         }
-        //     })
-        // })
+            var JSONData = {cust_id:id}
+            for (index in data) {
+                    JSONData[data[index].name] = data[index].value;
+                }
+                console.log(JSONData)      
+            $.ajax({
+                url: "/custUpdate",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(JSONData),
+                    success: function (res) {
+                        alert(res)
+                        location.href = '/C05_3/1'
+                    },
+                    error: function () {
+                        alert("系統錯誤!")
+                    }
+            })
+            
+        }
 
     </script>
 </body>
+
 </html>

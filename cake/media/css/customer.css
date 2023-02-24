@@ -1,0 +1,54 @@
+/* *{
+    border: 1px solid rgba(255, 0, 0, 0.37);
+} */
+.Order tr>td:nth-of-type(6){
+    max-width:100px;
+    /* background-color: aqua; */
+}
+.customer{
+    width: 100%;
+}
+
+.customer>form {
+    /* background-color: aqua; */
+    color: var(--Brown05_BEtxt);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/*細節裡面的上半部*/
+.customer>form>div:first-child {
+    width: 100%;
+    /* background-color: blue; */
+    display: flex;
+
+    align-items: center;
+    justify-content: space-around;
+}
+
+.customer>form>div:first-child input{
+    border-radius:5px;
+    border: 2px solid var(--Brown04_BE);
+    color: var(--Brown05_BEtxt);
+}
+.customer>form>div:first-child td:first-of-type{text-align: end; color: var(--Brown02);}/*td01*/
+.customer>form>div:first-child td:last-of-type{text-align: start;}/*td02*/
+
+.customer>form>div:first-child>table:first-child{margin: 0 30px  0 0;}
+/* .customer>form>div:first-child>table:last-child{}  */
+
+/*細節裡面的操作部分*/
+.customer>form>div:last-child{
+    border-top: 2px solid var(--color05);
+    padding: 10px 0 0 0;
+    width: 100%;
+    /* background-color: blue; */
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+}

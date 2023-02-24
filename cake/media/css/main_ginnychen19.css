@@ -26,6 +26,31 @@
     --color05:#727171;
     --color06:#525152;
 
+    --sky:#a6dbf5;
+
+    --Green01:#368284;
+    --Green02:#628e59;
+    --Green03:#A3CF78;
+    --Green04:#87c379;
+   
+    --YWhite:#F6F3E4;
+    --GWhite:#F7F8F3;
+    
+    --BG_LYellow:#f0da99;
+    --BG_LOrange:#F3D1B2;
+    --BG_MOrange:#f7bc88;
+    
+    --Brown01:#5c3a31;
+    --Brown02:#835B36;
+    --Brown03:#BB8058;
+
+    --Brown04_BE:#b79779;
+    --Brown05_BEtxt:#876464;
+
+    --BTN_Red:#e3344b;
+    --BTN_Green:#337e47;
+    --BTN_Yellow:#f39800;
+    
     --pLabel: 80px;
     --pBTitle: 58px;
     --pMTitle: 40px;
@@ -36,7 +61,7 @@
 
 body{
     display:flex;
-    background-color: var(--color02);
+    background-color: var(--Green03);
 }
 
 
@@ -48,20 +73,20 @@ h1{
 h4{
     font-family: "GenJyuuGothic-H";
     font-size: var(--pBTitle);
-    color: var(--color06);
+    color: var(--Brown01);
     letter-spacing:20px;
 }
 h6{
     font-family: "GenJyuuGothic-B";
     font-size: var(--pSTitle);
-    color: var(--color06);
+    color: var(--Brown01);
     letter-spacing: 5px;
 }
 
 p{
-    font-family: "GenJyuuGothic-L";
+    font-family: "GenJyuuGothic-B";
     font-size: var(--pContent);
-    color: var(--color06);
+    color: var(--Brown01);
     letter-spacing:2px;
 }
 a{
@@ -82,7 +107,7 @@ a{
     margin: 80px 0 0 0;
     /* transition: 1.0 ease; */
 
-    background-color: var(--color01); 
+    background-color: rgb(231, 241, 141); 
 }
 
 
@@ -90,13 +115,15 @@ a{
 footer{
     width: 100%;
     min-width: 1440px;
-    height: 280px;
+    height: 400px;
     
-    background-image: url(../Source/IMG/f001.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    background-image: url(../Source/IMG/Key_Vision/middle_long.png);
+    background-position:top;
+    background-size: 60% ;
+    background-repeat: repeat-x;
 
     z-index: 1;
     overflow: visible;   
     /* background-color: aqua; */
 }
+

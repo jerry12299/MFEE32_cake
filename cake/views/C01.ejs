@@ -5,85 +5,78 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>主題蛋糕頁</title>
+    <link rel="stylesheet" href="css/main_ginnychen19.css">
+    <link rel="stylesheet" href="css/permanentCake.css">
     <script src="js/jquery-3.6.0.js"></script>
 </head>
 
 <body>
-    <a href="/C01_2">2</a>
-    <div>
-        主題蛋糕頁
+    <nav>
+        <p>我是Navbar</p>
+    </nav>
+    <div class="Our-newAD">
+        <h4>我是廣告區</h4>
     </div>
-    <div>生日蛋糕</div>
-    <input type="radio" name="cakeSize" value="bd0106" checked> 6 吋<br>
-    <input type="radio" name="cakeSize" value="bd0108"> 8 吋<br>
-    <select name="" id="number">
-        <option value="1">1</option>
-        <option value="2">2</option>
-    </select>
-    <button id="buy">加入購物車</button>
-    <script>
-        $('#buy').on('click', function () {
-            var num = parseInt($('#number').val()) ;
-            var cId = $("input[type=radio]:checked").val();
-            var cart = {
-                name: cId,
-                quantity: num,
-            }
-            var newcart = JSON.parse(localStorage.getItem("carts"))
-
-            if (localStorage.carts === "[]") {//如果是空陣列
-                console.log("是空陣列，將新物件推進陣列")
-                var newcarts = []
-                newcarts.push(cart)
-                localStorage.setItem("carts", JSON.stringify(newcarts))
-                console.log(localStorage)
-            } else if (newcart) {//如果陣列裡有物件
-                // console.log("陣列裡有物件，判斷物件名是否有相同")
-
-                var carts = JSON.parse(localStorage.getItem("carts")) //現有資料
-
-                var alike = $.map(carts, function (item, index) {
-                    return item.name;
-                }).indexOf(cart.name);
-
-                if (alike === -1) {//判斷如果沒有相同物件
-                    console.log("沒有相同物件，將新物件推入陣列中")
-                    carts.push(cart)
-                    localStorage.setItem("carts", JSON.stringify(carts))
-                    console.log(localStorage)
-                 
-                } else {//判斷如果有相同物件
-                    console.log("有相同物件，物件內數量加上新物件數量")
-                    carts[alike].quantity += cart.quantity
-                    localStorage.setItem("carts", JSON.stringify(carts))
-                    console.log(localStorage)
-                }
-
-            } else {//如果連陣列都沒有
-                console.log("建立空陣列，將新物件推入陣列中")
-                var newcarts = []
-                newcarts.push(cart)
-                localStorage.setItem("carts", JSON.stringify(newcarts))
-                console.log(localStorage)
-            }
-            // quantity = $("input.quantity").val(1)
 
 
-            //     $.ajax({
-            //     url: "/buy", //cake.js 的buy 
-            //     type: "POST",
-            //     contentType: "application/json; charset=utf-8",
-            //     data: JSON.stringify(data),
-            //     success: function(res) {
-            //     },
-            //     error: function() {
-            //         alert("系統錯誤!");
+    <div id="permanentCake">
+        <table class="PMCake_table">
+            <thead>
+                <th>主題蛋糕</th>
+            </thead>
+            <tbody class="list">
+                <tr>
+                    <td><a href="某某連結">2023季節主打</a></td>
+                </tr>
+                <tr>
+                    <td><a href="某某連結">彌月蛋糕系列</a></td>
+                </tr>
+                <tr>
+                    <td><a href="某某連結">重乳酪</a></td>
+                </tr>
+                <tr>
+                    <td><a href="某某連結">生乳捲</a></td>
+                </tr>
+                <tr>
+                    <td><a href="某某連結">配件區</a></td>
+                </tr>
 
-            //     }
-            // })
-        })
-    </script>
+            </tbody>
+        </table>
+
+        <!--這個地方之後可以串，然後要用ejs-->
+        <div class="PMCake_show">
+            <div class="PMCake_show_content">
+                <h6>2023季節主打</h6>
+                <p>主題蛋糕 / <a href="某某網址">2023季節主打</a></p>
+            </div>
+            <div class="PMCake_show_commodity">
+                <% data.forEach((item,index)=>{%>
+                <div class="commodity_item">
+                    <div>
+                        <a href="/C01_2/<%= item.c_id %>">
+                            <img src="Source/IMG/<%= item.img_name %>" alt="商品名稱">
+                        </a>
+                    </div>
+                    <div>
+                        <p><%= item.c_name %></p>
+                        <p>NT.<%= item.price %></p>
+                    </div>
+                </div>
+                <% }) %>
+                
+
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&nbsp;</p>
+    </footer>
+
+    <script src="js/permanentCake.js"></script>
 </body>
 
 </html>

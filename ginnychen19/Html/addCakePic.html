@@ -66,18 +66,16 @@
                         <td>蛋糕價格</td>
                     </tr>
                 </thead>
-                <% data.forEach((item,index)=>{ %>
-
                     <tbody>
                         <tr class="list">
                             <td>
-                                <%= item.c_id %>
+                                bd0106
                             </td>
                             <td>
-                                <%= item.c_name %>
+                                皇冠
                             </td>
                             <td>
-                                <%= item.price %>
+                                780
                             </td>
                             <td>
                                 <button>修改</button>
@@ -86,7 +84,7 @@
                         <tr class="detail">
                             <td colspan="8">
                                 <div class="pic">
-                                    <form enctype="multipart/form-data" id=<%=item.c_id %> >
+                                    <form enctype="multipart/form-data" id="" >
                                         <div>
                                             <table>
                                                 <tr>
@@ -131,14 +129,17 @@
                                                     </td>
                                                 </tr>
                                             </table>
-
-                                            <ul><p>圖片名稱：</p>
-                                                <li>圖片名稱01</li>
-                                                <li>圖片名稱02</li>
-                                                <li>圖片名稱03</li>
-                                                <li>圖片名稱04</li>
-                                                <li>圖片名稱05</li>
-                                            </ul>
+                                            <div>
+                                                <ul>
+                                                    <p>圖片名稱：</p>
+                                                    <li>圖片名稱01</li>
+                                                    <li>圖片名稱02</li>
+                                                    <li>圖片名稱03</li>
+                                                    <li>圖片名稱04</li>
+                                                    <li>圖片名稱05</li>
+                                                </ul>
+                                            </div>
+                                            
                                         </div>
                                         <div>
                                             <input type="button" onclick="doUpdata('<%= item.c_id %>')" value="更新資料">
@@ -148,7 +149,6 @@
                             </td>
                         </tr>
                     </tbody>
-                    <% }) %>
                         <tfoot>
 
                         </tfoot>
