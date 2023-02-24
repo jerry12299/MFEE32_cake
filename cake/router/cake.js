@@ -31,10 +31,33 @@ index.get('/', function (req, res) {
 })
 
 
-index.get('/C01', function (req, res) { //主題蛋糕頁
-    db.exec(`SELECT * FROM commodity`,[],function(data,fields){
+index.get('/C01/:class', function (req, res) { //主題蛋糕頁
+    var c_class = req.params.class
+    switch (parseInt(c_class)) {
+        case 0:
+            var class_name = '2023季節主打'
+            break;
+        case 1:
+            var class_name = '彌月蛋糕系列'
+            break;
+        case 2:
+            var class_name = '重乳酪'
+            break;
+        case 3:
+            var class_name = '生乳酪'
+            break;
+        case 4:
+            var class_name = '配件區'
+            break;
+    
+        default:
+            break;
+    }
+    // console.log(class_name)
+    db.exec(`SELECT * FROM commodity where c_class = ?`,[c_class],function(data,fields){
         res.render('C01.ejs',{
-            data:data
+            data:data,
+            c_class:class_name
         })
     })
     
@@ -630,8 +653,8 @@ index.get('/commodity',rights_api, function (req, res) {
 
 index.post('/commodity',rights_api, function (req, res) { 
     var data = req.body
-    var item = [data.c_id,data.c_name,data.price,data.illustrate,data.img_name,data.oldId];
-    var sql = `UPDATE commodity SET c_id = ?, c_name = ?, price = ?, illustrate = ?, img_name = ? WHERE commodity.c_id = ?`
+    var item = [data.c_id,data.c_name,data.price,data.illustrate,data.img_name,data.c_class,data.oldId];
+    var sql = `UPDATE commodity SET c_id = ?, c_name = ?, price = ?, illustrate = ?, img_name = ?,c_class = ? WHERE commodity.c_id = ?`
     // console.log(data)
     db.exec(sql,item,function(result, fields){
         if (result.affectedRows) {
@@ -678,8 +701,8 @@ index.get('/additem',rights_api,function(req, res){
 index.post('/additem', rights_api, function (req, res) {
     var data = req.body;
     console.log(data)
-    var sql = `INSERT INTO commodity (c_id, c_name, price,illustrate,img_name) VALUES (?, ?, ?,?,?)`
-    db.exec(sql, [data.c_id, data.c_name, data.price,data.illustrate,data.img_name], function (result, fields) {
+    var sql = `INSERT INTO commodity (c_id, c_name, price,illustrate,img_name,c_class) VALUES (?, ?, ?,?,?)`
+    db.exec(sql, [data.c_id, data.c_name, data.price,data.illustrate,data.img_name,data.c_class], function (result, fields) {
         if (result.affectedRows) {
             res.end('update success')
         } else {

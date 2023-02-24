@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>客製蛋糕頁</title>
+    <script src="js/jquery-3.6.0.js"></script>
     <link rel="stylesheet" href="css/main_ginnychen19.css">
     <link rel="stylesheet" href="css/CustomizationCake.css">
-    <script src="js/jquery-3.6.0.js"></script>
+    
 </head>
 
 <body>
@@ -16,35 +17,29 @@
         <p>我是Navbar</p>
     </nav>
 
-
+    <dialog class="showCZcakeDetail">
+        <img class ="animate-zoom" src="">
+        <img class ="animate-zoom" src="">
+    </dialog>
     <div id="workShow">
         <!-- <p>作品展示</p> 可考慮連後端-->
         <ul class="CZcake">
             <li class="item_CZcake">
-                <a href="某某網址">
-                    <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱"></a>
+                <img src="Source/IMG/cake_items/cake001.jpg" alt="商品名稱01">
             </li>
             <li class="item_CZcake">
-                <a href="某某網址">
-                    <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱"></a>
+                <img src="Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱02">
             </li>
             <li class="item_CZcake">
-                <a href="某某網址">
-                    <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱"></a>
+                <img src="Source/IMG/cake_items/cake001.jpg" alt="商品名稱03">
             </li>
             <li class="item_CZcake">
-                <a href="某某網址">
-                    <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱"></a>
-            </li>
-            <li class="item_CZcake">
-                <a href="某某網址">
-                    <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱"></a>
-            </li>
-            <li class="item_CZcake">
-                <a href="某某網址">
-                    <img src="../Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱"></a>
+                <img src="Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱04">
             </li>
         </ul>
+        <div class="bg">
+            <cake></cake>
+        </div>
     </div>
 
 
@@ -70,11 +65,18 @@
             </div>
         </div>
         <% if(!session.user){  %>
+            <!-- <div><a href="/C05">請先登入</a>
+                </div> -->
+       
         <div class="IsLogin">
-            <a href="/C05"><h2>請先登入！</h2></a>
+            <h2><a href="/C05">請先登入</a></h2>
         </div>
-    </div>
+    </div> 
     <% }else{ %>
+        <div class="IsLogin">
+            <h2>歡迎客製</h2>
+        </div>
+    </div> 
     <div class="IsLoginThen">
         <form>
             摺疊區塊
@@ -88,16 +90,13 @@
             </div>
         </game>
     </div>
-    <% } %>
+    <% }%>
 
     <footer>
-        <p>我是頁尾</p>
+        <p></p>
     </footer>
 
     <script src="js/CustomizationCake.js"></script>
-    <script>
-        
-    </script>
 
 </body>
 
