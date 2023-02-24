@@ -652,8 +652,8 @@ index.get('/commodity',rights_api, function (req, res) {
 
 index.post('/commodity',rights_api, function (req, res) { 
     var data = req.body
-    var item = [data.c_id,data.c_name,data.price,data.illustrate,data.img_name,data.c_class,data.oldId];
-    var sql = `UPDATE commodity SET c_id = ?, c_name = ?, price = ?, illustrate = ?, img_name = ?,c_class = ? WHERE commodity.c_id = ?`
+    var item = [data.c_id,data.c_name,data.price,data.illustrate,data.img_name,data.c_class,data.img1,data.img2,data.img3,data.img4,data.img5,data.oldId];
+    var sql = `UPDATE commodity SET c_id = ?, c_name = ?, price = ?, illustrate = ?, img_name = ?,c_class = ?,img1 = ?, img2 = ?, img3 = ?, img4 = ?, img5 = ? WHERE commodity.c_id = ?`
     // console.log(data)
     db.exec(sql,item,function(result, fields){
         if (result.affectedRows) {

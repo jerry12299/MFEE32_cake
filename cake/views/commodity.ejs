@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/main_ginnychen19.css">
     <link rel="stylesheet" href="css/BEndOrder.css">
     <link rel="stylesheet" href="css/customer.css">
+ 
+
     <title>commodity</title>
 </head>
 <body>
@@ -96,23 +98,6 @@
                                                 <td>價格：</td>
                                                 <td><input type="number" name="price" value=<%= item.price %> required></td>
                                             </tr>
-                                        </table>
-                                        <table>
-                                            
-                                            <tr>
-                                                <td>文案：</td>
-                                                <td>
-                                                    <textarea cols="40" rows="2" name="illustrate" required><%= item.illustrate %></textarea>
-                                                        
-                                                
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>圖片：</td>
-                                                <td>
-                                                   <input type="text" readonly style="width:20em;" id="imgId<%= item.c_id %>" name="img_name" value=<%= item.img_name %>  >
-                                                </td>
-                                            </tr>
                                             <tr>
                                                 <td>類別：</td>
                                                 <td>
@@ -121,11 +106,102 @@
                                                 </td>
                                             </tr>
                                         </table>
+                                        <table>
+                                            
+                                            <tr>
+                                                <td>文案：</td>
+                                                <td>
+                                                    <textarea style="resize:none;width:500px;height:150px;" name="illustrate" required><%= item.illustrate %></textarea>
+                                                        
+                                                
+                                                </td>
+                                            </tr>
+                                           
+                                            
+                                        </table>
+                                        
                                     </div>
-                                    <div>
-                                        <input type="file" name="img" id="img<%= item.c_id %>" accept="image/*" >
-                                        <input type="button" class="btn_red" onclick="doUpImg('<%= item.c_id %>')"  value="上傳圖片">
-                                        <input type="button" onclick="doUpdata('<%= item.c_id %>')" value="更新資料">
+                                    <div class="pic" >
+
+                                    
+                                           <table>
+                                            <tr>
+                                                <td>介紹圖片:</td>
+                                                <td>
+                                                    <input type="file" name="img" id="img<%= item.c_id %>0" accept="image/*" >
+                                                    <input type="button" class="btn_red" onclick="doUpImg('<%= item.c_id %>',0)"  value="上傳圖片">
+                                                </td>
+                                            </tr>
+                                                <tr>
+                                                    <td>主要大圖：</td>
+                                                    <td>
+                                                        <input type="file" name="img" id="img<%= item.c_id %>1"
+                                                            accept="image/*">
+                                                        <input type="button" class="btn_red"
+                                                            onclick="doUpImg('<%= item.c_id %>',1)" value="上傳圖片">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>詳細縮圖01：</td>
+                                                    <td><input type="file" name="img" id="img<%= item.c_id %>2"
+                                                            accept="image/*">
+                                                        <input type="button" class="btn_red"
+                                                            onclick="doUpImg('<%= item.c_id %>',2)" value="上傳圖片">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>詳細縮圖02：</td>
+                                                    <td><input type="file" name="img" id="img<%= item.c_id %>3"
+                                                            accept="image/*">
+                                                        <input type="button" class="btn_red"
+                                                            onclick="doUpImg('<%= item.c_id %>',3)" value="上傳圖片">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>詳細縮圖03：</td>
+                                                    <td><input type="file" name="img" id="img<%= item.c_id %>4"
+                                                            accept="image/*">
+                                                        <input type="button" class="btn_red"
+                                                            onclick="doUpImg('<%= item.c_id %>',4)" value="上傳圖片">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>詳細縮圖04：</td>
+                                                    <td><input type="file" name="img" id="img<%= item.c_id %>5"
+                                                            accept="image/*">
+                                                        <input type="button" class="btn_red"
+                                                            onclick="doUpImg('<%= item.c_id %>',5)" value="上傳圖片">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            
+                                            <ul><p>圖片名稱：</p>
+                                               
+                                                    
+                                                    
+                                                <li>介紹圖片 &nbsp; &nbsp; &nbsp;<input type="text" readonly style="width:20em;" id="img_0_<%= item.c_id%>" name="img_name" value=<%= item.img_name %>  ></li> 
+                                                    
+                                                
+                                                
+                                                <li>主要大圖 &nbsp; &nbsp; &nbsp;<input name="img1" id="img_1_<%= item.c_id%>" type="text" style="width:20em;" readonly value="<%= item.img1 %>"></li>
+                                                
+                                                <li>詳細縮圖01 <input name="img2" id="img_2_<%= item.c_id%>" type="text" style="width:20em;" readonly value="<%= item.img2 %>"></li>
+                                                
+                                                <li>詳細縮圖02 <input name="img3" id="img_3_<%= item.c_id%>" type="text" style="width:20em;" readonly value="<%= item.img3 %>"></li>
+                                                
+                                                <li>詳細縮圖03 <input name="img4" id="img_4_<%= item.c_id%>" type="text" style="width:20em;" readonly value="<%= item.img4 %>"></li>
+                                                
+                                                <li>詳細縮圖04 <input name="img5" id="img_5_<%= item.c_id%>" type="text" style="width:20em;" readonly value="<%= item.img5 %>"></li>
+                                                
+                                                
+                                            </ul>
+                                          
+                                        </div>
+                                    <div style="padding: 10px;
+                                    display: flex;
+                                    justify-content: flex-end;">
+                                      
+                                        <input  type="button" onclick="doUpdata('<%= item.c_id %>')" value="更新資料">
                                         
                                     </div>
                                 </form>
@@ -168,8 +244,8 @@
             })
         }
 
-        function doUpImg(id){
-            let file = $('#img'+id)[0].files[0];
+        function doUpImg(id,index){
+            let file = $('#img' + id + index)[0].files[0];
             console.log(file)
             let formData = new FormData();
             formData.append("img", file);
@@ -183,7 +259,7 @@
                  data:formData,
                  success: function(res) {
                     //  alert(res);
-                    $('#imgId'+id).val(res);
+                    $(`#img_${index}_${id}`).val(res);
                     
                  },
                  error: function() {

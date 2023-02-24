@@ -32,7 +32,7 @@
 .customer>form>div:first-child>table:last-child{} 
 
 
-.customer>form>div:last-child{
+.customer>form>div:last-child,.pic{
     border-top: 2px solid var(--color05);
     padding: 10px 0 0 0;
     width: 100%;
@@ -42,3 +42,13 @@
     align-items: center;
     justify-content: space-between;
 }
+ul>li{
+    list-style-position: inside;
+    list-style-type: decimal;
+}
+ .upbtn{ 
+    background-color: pink;
+        padding: 10px 0;
+        display: flex;
+        justify-content: flex-end;
+} 

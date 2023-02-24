@@ -83,48 +83,122 @@
                                             <tr>
                                                 <td>蛋糕ID：</td>
                                                 <td>
-                                                    <input type="text" name="c_id" id="c_id" onchange="doChange()">
-                                                    <span id="newId"></span>
-                                                </td>
+                                                    
+                                                    <input type="text" name="c_id" id="c_id" ></td>
                                             </tr>
                                             <tr>
                                                 <td>蛋糕名稱：</td>
-                                                <td><input type="text" name="c_name" required></td>
+                                                <td><input type="text" name="c_name"  required></td>
                                             </tr>
                                             <tr>
                                                 <td>價格：</td>
-                                                <td><input type="number" name="price" required></td>
-                                            </tr>
-                                        </table>
-                                        <table>
-
-                                            <tr>
-                                                <td>文案：</td>
-                                                <td>
-                                                    <textarea cols="40" rows="2" name="illustrate" id=""
-                                                        required></textarea>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>圖片：</td>
-                                                <td>
-                                                    <input type="text" name="img_name" id="img" style="width:20em;"
-                                                        readonly>
-                                                </td>
+                                                <td><input type="number" name="price"  required></td>
                                             </tr>
                                             <tr>
                                                 <td>類別：</td>
                                                 <td>
-                                                    <input type="text" name="c_class" >
+                                                    <input type="text" name="c_class"  >
                                                         
                                                 </td>
                                             </tr>
                                         </table>
+                                        <table>
+                                            
+                                            <tr>
+                                                <td>文案：</td>
+                                                <td>
+                                                    <textarea style="resize:none;width:500px;height:150px;" name="illustrate" required></textarea>
+                                                        
+                                                
+                                                </td>
+                                            </tr>
+                                           
+                                            
+                                        </table>
+                                        
                                     </div>
-                                    <div>
-                                        <input type="file" name="img" id="imgFile" accept="image/*">
-                                        <input type="button" onclick="doUpImg()" class="btn_red" value="上傳圖片">
-                                        <input type="button" onclick="doUpdata()" value="新增資料">
+                                    <div class="pic" >
+
+                                    
+                                           <table>
+                                            <tr>
+                                                <td>介紹圖片:</td>
+                                                <td>
+                                                    <input type="file" name="img" id="img0" accept="image/*" >
+                                                    <input type="button" class="btn_red" onclick="doUpImg()"  value="上傳圖片">
+                                                </td>
+                                            </tr>
+                                                <tr>
+                                                    <td>主要大圖：</td>
+                                                    <td>
+                                                        <input type="file" name="img" id="img1"
+                                                            accept="image/*">
+                                                        <input type="button" class="btn_red"
+                                                            onclick="doUpImg()" value="上傳圖片">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>詳細縮圖01：</td>
+                                                    <td><input type="file" name="img" id="img2"
+                                                            accept="image/*">
+                                                        <input type="button" class="btn_red"
+                                                            onclick="doUpImg()" value="上傳圖片">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>詳細縮圖02：</td>
+                                                    <td><input type="file" name="img" id="img3"
+                                                            accept="image/*">
+                                                        <input type="button" class="btn_red"
+                                                            onclick="doUpImg()" value="上傳圖片">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>詳細縮圖03：</td>
+                                                    <td><input type="file" name="img" id="img4"
+                                                            accept="image/*">
+                                                        <input type="button" class="btn_red"
+                                                            onclick="doUpImg()" value="上傳圖片">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>詳細縮圖04：</td>
+                                                    <td><input type="file" name="img" id="img5"
+                                                            accept="image/*">
+                                                        <input type="button" class="btn_red"
+                                                            onclick="doUpImg()" value="上傳圖片">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            
+                                            <ul><p>圖片名稱：</p>
+                                               
+                                                    
+                                                    
+                                                <li>介紹圖片 &nbsp; &nbsp; &nbsp;<input type="text" readonly style="width:20em;" id="img_0" name="img_name"  ></li> 
+                                                    
+                                                
+                                                
+                                                <li>主要大圖 &nbsp; &nbsp; &nbsp;<input name="img1" id="img_1" type="text" style="width:20em;" readonly ></li>
+                                                
+                                                <li>詳細縮圖01 <input name="img2" id="img_2" type="text" style="width:20em;" readonly ></li>
+                                                
+                                                <li>詳細縮圖02 <input name="img3" id="img_3" type="text" style="width:20em;" readonly ></li>
+                                                
+                                                <li>詳細縮圖03 <input name="img4" id="img_4" type="text" style="width:20em;" readonly ></li>
+                                                
+                                                <li>詳細縮圖04 <input name="img5" id="img_5" type="text" style="width:20em;" readonly ></li>
+                                                
+                                                
+                                            </ul>
+                                          
+                                        </div>
+                                    <div style="padding: 10px;
+                                    display: flex;
+                                    justify-content: flex-end;">
+                                      
+                                        <input  type="button" onclick="doUpdata()" value="新增資料">
+                                        
                                     </div>
                                 </form>
                             </div>
