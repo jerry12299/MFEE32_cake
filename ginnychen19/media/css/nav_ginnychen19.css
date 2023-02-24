@@ -1,6 +1,8 @@
 @import url("https://www.w3schools.com/w3css/4/w3.css");
 @import "main_ginnychen19.css";
-
+/* *{
+    border: 1px solid rebeccapurple;
+} */
 nav {
     position: fixed;
     width: 100%;
@@ -14,12 +16,11 @@ nav {
     justify-content: center;
     /* 垂直置中 */
     align-items: center;
-    opacity: 100%;
 
     padding: 10px 20px;
     transition: 1.0 ease;
 
-    background-color: var(--color02); 
+    background-color: hsla(0, 0%, 100%, 0.5); 
 }
 
 .BEndnav {
@@ -41,7 +42,7 @@ nav {
     padding: 40px 20px;
     transition: 1.0 ease;
 
-    background-color: var(--color05); 
+    background-color: var(--Brown02); 
 }
 
 
@@ -58,14 +59,15 @@ nav {
     align-items: center;
     margin:  0 0 30px 0;
 }
-.BEndnav>div:first-child>h6,
-.BEndnav>div:first-child>p{
+.BEndnav>div:first-child>h6{
+    color: var(--YWhite);
     margin: 0;
 }
 .BEndnav>div:first-child>p{
+    margin: 0;
     border-radius:8px;
     padding: 10px;
-    background-color: var(--color02);
+    background-color: var(--YWhite);
 }
 .BEndnav>div:first-child>img{
     width: 100px;
@@ -91,10 +93,19 @@ nav {
 p1{
     font-family: "GenJyuuGothic-B";
     font-size: 24px;
-    color: var(--color06);
+    color: var(--Brown04_BE);
     letter-spacing: 5px;
-    margin: 0;
 }
+.addline{
+    display: block;
+    width: 72%;
+    margin: 0 0 5px 0;
+    border-bottom: solid 2px var(--Brown04_BE);
+    transform: scaleX(0);
+    transform-origin:  0% ;
+    transition: transform 250ms ease-in-out;
+}
+
 .BEndnav>div:last-child>div>div{
     display: flex;
     justify-content: center;

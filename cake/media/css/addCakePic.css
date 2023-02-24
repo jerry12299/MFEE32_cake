@@ -1,0 +1,40 @@
+.pic>form{
+    width: 100%;
+    /* background-color: rgb(30, 255, 0); */
+    color: var(--Brown05_BEtxt);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*上半部分*/
+.pic>form>div:first-of-type{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    /* background-color: aquamarine; */
+}
+
+.pic>form>div:first-of-type>table{
+    /* background-color: blueviolet; */
+    width: fit-content;
+}
+.customer>form>div:first-child td:first-of-type{text-align: end; color: var(--Brown02);}/*td01*/
+.customer>form>div:first-child>table:first-child{margin: 0 30px  0 0;}
+
+
+
+ul>li{
+    list-style-position: inside;
+    list-style-type: decimal;
+}
+/*更新資料這邊*/
+.pic>form>div:last-of-type{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    /* background-color:aqua; */
+    padding: 10px;
+}
