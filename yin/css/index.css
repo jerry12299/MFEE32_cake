@@ -7,12 +7,42 @@
         url('../Source/ttc/GenSenRounded-B.ttc') format("embedded-opentype");
 }
 
+/* 色票表 */
+:root {
+    --sky: #a6dbf5;
+
+    --Green01: #368284;
+    --Green02: #628e59;
+    --Green03: #A3CF78;
+    --Green04: #87c379;
+
+    --YWhite: #F6F3E4;
+    --GWhite: #F7F8F3;
+
+    --BG_LYellow: #f0da99;
+    --BG_LOrange: #F3D1B2;
+    --BG_MOrange: #f7bc88;
+
+    --Brown01: #5c3a31;
+    --Brown02: #835B36;
+    --Brown03: #BB8058;
+
+    --Brown04_BE: #b79779;
+    --Brown05_BEtxt: #876464;
+
+    --BTN_Red: #e3344b;
+    --BTN_Green: #337e47;
+    --BTN_Yellow: #f39800;
+}
+
 /* 字型套用 */
 body {
     font-family: GenSenRounded-B !important;
     overflow-x: hidden;
-    color: #5c3a31;
+    /* color: var(--Brown03); */
 }
+
+
 
 
 .page {
@@ -48,7 +78,40 @@ body {
     margin-bottom: 30px;
 }
 
+/* -----------------主視覺視差-------------------- */
+.keyart-container {
+    width: 1518px;
+    height: 750px;
+}
 
+.keyart-layer {
+    width: 1518px;
+    height: 750px;
+    background-repeat: repeat-x;
+    position: fixed;
+    background-position: bottom center;
+    z-index: -10;
+}
+
+
+#parallax-1 {
+    background-image: url(../Source/IMG/Key-Vision/sky.png);
+}
+
+/* #parallax-2{background-image: url(./Source/IMG/Key-Vision/cloud);} */
+#parallax-3 {
+    background-image: url(../Source/IMG/Key-Vision/middle.png);
+}
+
+#parallax-4 {
+    background-image: url(../Source/IMG/Key-Vision/cake.png);
+}
+
+#parallax-5 {
+    background-image: url(../Source/IMG/Key-Vision/T.png);
+}
+
+/* ---------------------nav----------------------- */
 nav {
     --bg:#D0EBF6;
     --color:#5c3a31;
@@ -134,6 +197,7 @@ nav span {
 
 section {
     background-color: #a0d36d;
+    width: 100vw;
 }
 
 /* ---------------NEWS----------------- */
@@ -214,7 +278,6 @@ section {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    background-color: #147369;
 }
 
 #introduce_B{
@@ -225,7 +288,6 @@ section {
 #introduce_C{
     display: flex;
     align-items: flex-end;
-    background-color: #147369;
 }
 
 /* #introduce_A>span,#introduce_B>span,#introduce_C>span{
@@ -269,7 +331,6 @@ width: 100px;
     background-attachment: fixed;
     z-index: -5; */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 

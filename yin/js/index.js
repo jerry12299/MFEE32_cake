@@ -28,6 +28,22 @@ document.addEventListener('scroll',function(){
 // let observer = new IntersectionObserver(changeColor);
 // observer.observe(section);
 
+// 主視覺視差
+let layers = document.querySelectorAll('.keyart-layer');
+        let speed, ypos;
+        //視窗捲動事件
+        window.addEventListener("scroll",function (event) {
+        //文件垂直捲動的像素值
+        let fromTop = this.pageYOffset;
+        //偏移各圖層位置
+        for(let layer of layers){
+        speed = layer.getAttribute('speed');
+        //偏移捲動量*速度,再乘上個基數
+        yPos = -(fromTop * speed) * 0.01;
+        layer.style.transform=`translateY(${yPos}px)` ;
+        }
+        });
+
 
 
 // 文字跑馬燈

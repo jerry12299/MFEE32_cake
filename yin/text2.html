@@ -6,78 +6,83 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-
     <style>
-        .swiper-container {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
+        /* :root{
+            $keyart-w:600px;
+        } */
+        body {
+            overflow-x: hidden;
+            margin: 0px;
         }
-        .swiper-wrapper {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease-out;
-        }
-        .swiper-slide {
-            width: 100%;
-            height: 500px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 30px;
-        }
-        #a1,
-        #a2,
-        #a3 {
-            width: 50%;
-            height: 500px;
-            background-color: aqua;
 
+        .keyart-container {
+            width: 1518px;
+            height: 750px;
+            
+
+        }
+
+        .keyart-layer {
+            width: 1518px;
+            height: 750px;
+            background-repeat: repeat-x;
+            position: fixed;
+            background-position: bottom center;
+            z-index: -1;
+        }
+
+        .after {
+            background-color: violet;
+            height: 3000px;
+        }
+
+
+        #parallax-1 {
+            background-image: url(./Source/IMG/Key-Vision/sky.png);
+        }
+
+        /* #parallax-2{background-image: url(./Source/IMG/Key-Vision/cloud);} */
+        #parallax-3 {
+            background-image: url(./Source/IMG/Key-Vision/middle.png);
+        }
+
+        #parallax-4 {
+            background-image: url(./Source/IMG/Key-Vision/cake.png);
+        }
+
+        #parallax-5 {
+            background-image: url(./Source/IMG/Key-Vision/T.png);
         }
     </style>
 </head>
 
 <body>
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div id="a1" class="swiper-slide">Slide 1</div>
-            <div id="a2" class="swiper-slide">Slide 2</div>
-            <div id="a3" class="swiper-slide">Slide 3</div>
-        </div>
+    <div class="keyart-container">
+        <div class="keyart-layer"  id="parallax-1"></div>
+        <!-- <div class="keyart-layer" id="parallax-2"></div> -->
+        <div class="keyart-layer" speed="30" id="parallax-3"></div>
+        <div class="keyart-layer" speed="50" id="parallax-4"></div>
+        <div class="keyart-layer" speed="100" id="parallax-5"></div>
     </div>
+
+    <div class="after">下方內容</div>
+
     <script>
-        var swiperContainer = document.querySelector('.swiper-container');
-        var swiperWrapper = document.querySelector('.swiper-wrapper');
-        var swiperSlides = document.querySelectorAll('.swiper-slide');
-
-        var activeSlideIndex = 0;
-
-        swiperContainer.addEventListener('wheel', function (e) {
-            // 防止預設滾動行為
-            e.preventDefault();
-
-            // 取得滾動方向
-            var delta = e.deltaY;
-
-            // 計算要移動到的 slide 的索引
-            var targetSlideIndex = activeSlideIndex - Math.sign(delta);
-
-            // 如果目標 slide 存在
-            if (swiperSlides[targetSlideIndex]) {
-                // 計算要移動的距離
-                var targetScroll = swiperSlides[targetSlideIndex].offsetTop;
-
-                // 移動到目標 slide
-                swiperWrapper.style.transform = 'translate3d(0, -' + targetScroll + 'px, 0)';
-
-                // 更新 activeSlideIndex
-                activeSlideIndex = targetSlideIndex;
-            }
+        let layers = document.querySelectorAll('.keyart-layer');
+        let speed, ypos;
+        //視窗捲動事件
+        window.addEventListener("scroll",function (event) {
+        //文件垂直捲動的像素值
+        let fromTop = this.pageYOffset;
+        //偏移各圖層位置
+        for(let layer of layers){
+        speed = layer.getAttribute('speed');
+        //偏移捲動量*速度,再乘上個基數
+        yPos = -(fromTop * speed) * 0.01;
+        layer.style.transform=`translateY(${yPos}px)` ;
+        }
         });
-    </script>
+        </script>
 </body>
 
 </html>
