@@ -773,28 +773,12 @@ index.post('/manage',rights_api,function(req, res){
 
     })
 })
-//--------------查詢
-index.post('/search',function(req,res){
-    var data =req.body 
-    var sql = `SELECT buy_order.o_id,co_upload_date,pick_up_date,payment,pay_state,pickup_method,co_state,remark,shipping,rec_address,email,m_name,phone,order_total FROM buy_order , member, 
-    (
-    SELECT o_id, sum(total)as order_total FROM 
-    (
-    SELECT buy_order.o_id,c_name,price,quantity,price*quantity as total FROM buy_order , cake_order, commodity WHERE buy_order.o_id = cake_order.o_id and cake_order.c_id = commodity.c_id
-    )as a 
-    GROUP BY o_id
-    )as b
-    WHERE buy_order.m_id = member.m_id and buy_order.o_id = b.o_id and ${data.name} = ?`
-    db.exec(sql,[data.value],function(newData,fields){
-        res.send(newData)
-    })
-
-})
+//--------------查詢分類
 
 index.get('/C05_2_1/:name/:value/:page([0-9]+)', rights_api, function (req, res) {
     var page = req.params.page   //page=網址列的page數字
-    var name = req.params.name   //page=網址列的page數字
-    var value = req.params.value   //page=網址列的page數字
+    var name = req.params.name   
+    var value = req.params.value   
     switch (parseInt(value)) {
         case 1:
             var ans = '未製作'
@@ -891,7 +875,93 @@ index.get('/C05_2_1/:name/:value/:page([0-9]+)', rights_api, function (req, res)
         })        //function()的{}尾  第一個db.exec的()尾 
 })
 
+index.get('/C05_3_1/:name/:value/:page([0-9]+)', rights_api, function (req, res) {
+    var page = req.params.page   //page=網址列的page數字
+    var name = req.params.name   
+    var value = req.params.value 
+    switch (parseInt(value)) {
+        case 1:
+            var ans = '未製作'
+            break;
+        case 2:
+            var ans = '已製作'
+            break;
+        case 3:
+            var ans = '申請取消'
+            break;
+        case 4:
+            var ans = '已取消'
+            break;
+        case 5:
+            var ans = '未聯絡'
+            break;
+        case 6:
+            var ans = '洽談中'
+            break;
+        case 7:
+            var ans = '未付款'
+            break;
+        case 8:
+            var ans = '已付款'
+            break;
+        case 9:
+            var ans = '已退款'
+            break;
+        case 10:
+            var ans = '未配送'
+            break;
+        case 11:
+            var ans = '已配送'
+            break;
+        case 12:
+            var ans = '未取貨'
+            break;
+        case 13:
+            var ans = '已取貨'
+            break;
+        case 14:
+            var ans = '已取消'
+            break;
+       
+    
+        default:
+            break;
+    }
+    if(page == 0){
+        page += 1 ;
+    }
+    var nums_per_page = 10
+    var offset = (page - 1) * nums_per_page
+    // 使用db.js裡的exec函式，也就是apple函式                                // 給函式3個參數
+    db.exec(`SELECT cust_id,customized.m_id,m_name,cust_upload_date,cust_form,cust_state,picture,connection,cust_pay,cust_pick,cust_date,cust_price,cust_shipping,cust_pay_state,email,phone,address FROM customized,member WHERE customized.m_id = member.m_id and ${name}= ? LIMIT ${offset}, ${nums_per_page};`,  //sql指令 顯示10筆1頁
+        [ans],                                                                   //有?時填的資料，沒有就給空[]
+        function (data, fields) {             //function()的{}頭                                
+            // console.log('mask_js_data:',data);  //資料庫傳來的內容 10筆1頁
 
+            db.exec(`SELECT COUNT(*) AS COUNT FROM customized`, //sql指令 資料總和
+                [],
+                function (nums, fields) {
+                    // console.log('mask_js_nums:',nums); // [COUNT:28]
+                    // console.log('mask_js_nums[0].COUNT:',nums[0].COUNT); // 28
+                    var last_page = Math.ceil(nums[0].COUNT / nums_per_page) // 無條件進位  28/10 = 3
+
+                    if (page > last_page) { //如果大於最大頁數
+                        res.redirect('/C05_3/' + last_page) //跳轉到最後一頁
+                        return
+                    }else if(page <= 0){
+                        res.redirect('/C05_3/1') //跳轉到第一頁
+                        return
+                    }
+
+                    res.render('C05_3_1.ejs', { //跳轉到index.ejs
+                        data: data,                   //data:資料庫傳來的內容 10筆1頁
+                        curr_page: page,              //curr_page:網址列的page數字
+                        total_nums: nums[0].COUNT,    //total_nums: 28
+                        last_page: last_page          //last_page: 3
+                    })
+                })     //第二個db.exec的()尾 
+        })        //function()的{}尾  第一個db.exec的()尾 
+})
 
 
 module.exports = index;
