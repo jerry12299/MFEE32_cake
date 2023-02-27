@@ -59,6 +59,10 @@ body {
     align-items: center;
 }
 
+.img_radius{
+    border-radius: 20px;
+}
+
 /* .speace_R {
      margin-right: 80px;
 }  */
@@ -113,18 +117,18 @@ body {
 
 /* ---------------------nav----------------------- */
 nav {
-    --bg:#D0EBF6;
-    --color:#5c3a31;
+    --bg: #D0EBF6;
+    --color: #5c3a31;
     display: flex;
     justify-content: space-between;
     height: 70px;
     width: 100%;
     line-height: 70px;
     background-color: var(--bg);
-    color:var(--color);
+    color: var(--color);
     padding: 0 30px;
     position: fixed;
-    top:0;
+    top: 0;
     z-index: 50;
 }
 
@@ -164,21 +168,20 @@ nav span {
     width: 100px;
 } */
 
-#Btnlist{
+#Btnlist {
     position: fixed;
     right: 0;
     bottom: 40px;
     display: flex;
     flex-direction: column;
     z-index: 50;
-    
+
 }
 
-.mainbtn{
+.mainbtn {
     width: 50px;
     height: 50px;
     border-radius: 10px;
-    background-color: #a0d36d;
     margin: 5px 0;
 }
 
@@ -211,18 +214,19 @@ section {
     height: 200px;
     display: flex;
 }
+
 /* -------------parallax----------------- */
-#parallax{
-   overflow: hidden;
+#parallax {
+    overflow: hidden;
     z-index: -5;
     height: 500px;
-    position:relative
-    
+    position: relative;
+    width: 100vw;
 
 }
 
-#parallax_img{
-    position:absolute;
+#parallax_img {
+    position: absolute;
     top: -200px;
     background-image: url(../Source/IMG/parallax1.png);
     background-size: 100% auto;
@@ -232,10 +236,11 @@ section {
     transition: transform 0.7s ease-out;
     height: 1000px;
     z-index: -5;
-    
+
 }
+
 /* ------------------文字跑馬燈---------------------- */
-#marquee_TContaner{
+#marquee_TContaner {
     position: absolute;
     bottom: 0;
 }
@@ -264,53 +269,44 @@ section {
     font-weight: bold;
     letter-spacing: 0.02em;
 }
+
 /* ---------about--------------------- */
 
-#about_T{
+#about_T {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
-#introduce_A{
-    width: fit-content;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+
+#about_T>img {
+    margin-bottom: 50px;
 }
 
-#introduce_B{
-    display: flex;
-    align-items: center;
-}
-
-#introduce_C{
-    display: flex;
-    align-items: flex-end;
-}
-
-/* #introduce_A>span,#introduce_B>span,#introduce_C>span{
-width: 100px;
-} */
 
 /* -----------------主題蛋糕-------------------- */
-#mcake {
+#Product_M>div {
     display: flex;
     align-items: center;
-    color: #F6F3E4;
-    font-size: 1.2rem;
+    justify-content: center;
+    width: 85vw;
 }
 
 #mcake>div {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
+    flex-wrap: wrap;
+    width: 40vw;
 }
 
-#mcake>div img {
+#mcake div{
+    text-align: center;
+    margin: 20px;
+    color: #F6F3E4;
+    font-size: 1.2rem;
+}
+
+#mcake div img {
     width: 250px;
     border-radius: 20px;
     margin-bottom: 30px;
@@ -321,9 +317,35 @@ width: 100px;
     transform: scale(1.1) translateY(-5px);
 
 }
+/* --------------客製-------------------*/
+#hcake{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85vw;
+    margin: 20px;
+}
+
+#hcake>div{
+    width: 40vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+#hcake>div img{
+    width: 250px;
+    margin:30px 20px;
+}
+
+#hcake>div>span{
+    padding: 0 30px;
+}
 
 /* -------------------------------------------- */
-#Contact>div{
+#Contact>div {
     /* background-image: url(../Source/IMG/Key-Vision/middle_long.png);
     background-repeat:no-repeat;
     background-size: 100% auto;
@@ -368,17 +390,17 @@ width: 100px;
     align-items: center;
 }
 
-#footerLogo{
-    margin-right:30px;
+#footerLogo {
+    margin-right: 30px;
 }
 
 
 #icon>div>a>img {
     width: 50px;
-    margin:0px 5px;
+    margin: 0px 5px;
 }
 
-#icon>div{
+#icon>div {
     margin: 20px 0px;
 }
 
@@ -386,3 +408,7 @@ iframe {
     margin: 50px;
     border-radius: 10px;
 }
+
+/* * {
+    border: 2px solid red;
+} */
