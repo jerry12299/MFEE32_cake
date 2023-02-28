@@ -28,6 +28,31 @@ document.addEventListener('scroll',function(){
 // let observer = new IntersectionObserver(changeColor);
 // observer.observe(section);
 
+// 回到頂端
+$(document).ready(function () {
+  // 捲軸偵測距離頂部超過 100 才顯示按鈕
+  $(window).scroll(function () {
+      if ($(window).scrollTop() > 200) {
+          if ($(".goTop").hasClass("hide")) {
+              $(".goTop").toggleClass("hide");
+          }
+      } else {
+          $(".goTop").addClass("hide");
+      }
+  });
+
+  // 點擊按鈕回頂部
+  $(".goTop").on("click", function (event) {
+      $("html, body").animate(
+          {
+              scrollTop: 0
+          },
+          300 // 回頂部時間為 500 毫秒
+      );
+  });
+});
+
+
 // 主視覺視差
 let layers = document.querySelectorAll('.keyart-layer');
         let speed, ypos;
