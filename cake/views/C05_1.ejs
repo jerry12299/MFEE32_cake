@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>member-sign</title>
   <script src="js/jquery-3.6.0.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <link rel="stylesheet" href="css/08-14.css">
   <style>
     .hidden {
@@ -25,59 +26,71 @@
   <!-- 預留固定輪播的位置 -->
   <div class="slideshow-container"></div>
 
+  <div class="signUpbgcolor">
+    <div class="member_title">
+      <h2>會員註冊</h2>
+    </div>
 
-  <div class="member_title">
-    <h2>會員註冊</h2>
+    <form id="formAdd" class="signuparea">
+      <div class="changeloing"><a href="/C05">已經是會員了嗎？</a></div>
+      <div class="emailarea">
+        <label for="">EMAIL</label>
+        <input type="email" id="email" name="email" placeholder="Email為帳號" required><span id="email1"
+          class="hidden">OK</span>
+      </div>
+      <div class="emailMessege hidden" id="email0">
+        帳號重複或格式錯誤!
+      </div>
+      <div class="passwordarea">
+        <label for="">密碼</label>
+        <input type="password" name="password" value="1234" required>
+      </div>
+      <div class="password2area">
+        <label for="">確認密碼</label>
+        <input type="password" name="password2" value="1234" required>
+      </div>
+      <div class="passmessege">密碼與確認密碼輸入不一致，請重新輸入</div>
+      <div class="namearea">
+        <label for="">姓名</label>
+        <input type="text" name="name" required>
+      </div>
+      <div class="birthdayarea">
+        <label for="">生日</label>
+        <input type="date" name="birthday" required>
+      </div>
+      <div class="sexarea">
+        <label for="">性別</label>
+        <input type="radio" name="gender" value="男">生理男
+        <input type="radio" name="gender" value="女">生理女
+      </div>
+      <div class="phonearea">
+        <label for="">手機</label>
+        <input type="phone" name="phone" value="0123456" required>
+      </div>
+      <div class="addressarea">
+        <label for="">通訊地址</label>
+        <input type="text" name="address" value="台中市公益路" required>
+      </div>
+      <div class="onlyyesarea">
+        <input type="radio" required>
+        <label for="">我同意服務條款</label>
+      </div>
+      <div class="buttonarea">
+        <!-- <button id="submit"></button> -->
+        <input type="submit" id="submit" class="buttonareabutton" value="註冊">
+      </div>
+    </form>
+    <div class="showsuccessarea">
+      <div class="xbutton">
+        <button>X</button>
+      </div>
+      <div class="showsuccessword">
+        <h2>註冊成功!</h2>
+        <p>5秒將自動跳轉</p>
+      </div>
+    </div>
   </div>
-
-  <form id="formAdd" class="signuparea">
-    <div class="emailarea">
-      <label for="">EMAIL</label>
-      <input type="email" id="email" name="email" placeholder="Email為帳號" required><span id="email1"
-        class="hidden">OK</span>
-    </div>
-    <div class="emailMessege hidden" id="email0">
-      帳號重複或格式錯誤!
-    </div>
-    <div class="passwordarea">
-      <label for="">密碼</label>
-      <input type="password" name="password" value="1234" required>
-    </div>
-    <div class="password2area">
-      <label for="">確認密碼</label>
-      <input type="password" name="password2" value="1234" required>
-    </div>
-    <div class="passmessege">密碼與確認密碼輸入不一致，請重新輸入</div>
-    <div class="namearea">
-      <label for="">姓名</label>
-      <input type="text" name="name" required>
-    </div>
-    <div class="birthdayarea">
-      <label for="">生日</label>
-      <input type="date" name="birthday" required>
-    </div>
-    <div class="sexarea">
-      <label for="">性別</label>
-      <input type="radio" name="gender" value="男">生理男
-      <input type="radio" name="gender" value="女">生理女
-    </div>
-    <div class="phonearea">
-      <label for="">手機</label>
-      <input type="phone" name="phone" value="0123456" required>
-    </div>
-    <div class="addressarea">
-      <label for="">通訊地址</label>
-      <input type="text" name="address" value="台中市公益路" required>
-    </div>
-    <div class="onlyyesarea">
-      <input type="radio" required>
-      <label for="">我同意服務條款</label>
-    </div>
-    <div class="buttonarea">
-      <!-- <button id="submit"></button> -->
-      <input type="button" id="submit" value="註冊">
-    </div>
-  </form>
+  </div>
 
   <!-- 預留固定footer的位置 -->
   <div class="footer"></div>
@@ -163,6 +176,22 @@
         }
       })
     })
+
+
+
+
+  </script>
+  <script>
+    /*點擊註冊後會有浮窗並且5秒後自己關掉以及按X也可以關掉*/
+    document.getElementsByClassName("buttonareabutton")[0].onclick = function () {
+      document.getElementsByClassName("showsuccessarea")[0].style.display = "block";
+      setTimeout(function () {
+        document.getElementsByClassName("showsuccessarea")[0].style.display = "none";
+      }, 5000);
+    };
+    document.getElementsByTagName("button")[0].onclick = function () {
+      document.getElementsByClassName("showsuccessarea")[0].style.display = "none";
+    };
   </script>
 </body>
 
