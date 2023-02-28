@@ -1,31 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>蛋糕詳細頁</title>
+    <link rel="stylesheet" href="css/main_ginnychen19.css">
+    <link rel="stylesheet" href="css/permanentCake.css">
+    <link rel="stylesheet" href="css/PMCakeDetail.css">
+
     <script src="js/jquery-3.6.0.js"></script>
 </head>
+
 <body>
-    <a href="C01">1</a>
-    <div>
-        主題蛋糕頁
+    <nav>
+        <p>我是Navbar</p>
+    </nav>
+    <div class="Our-newAD">
+        <h4>我是廣告區</h4>
     </div>
-    <div>聖誕蛋糕</div>
-    <input type="radio" name="cakeSize" value="cm0106" checked> 6 吋<br>
-    <input type="radio" name="cakeSize" value="cm0108"> 8 吋<br>
-    <select name="" id="number">
-        <option value="1">1</option>
-        <option value="2">2</option>
-    </select>
-    <button id="buy">加入購物車</button>
+
+
+    <div id="PMCakeDetail">
+        <table class="PMCake_table">
+            <thead>
+                <th>主題蛋糕</th>
+            </thead>
+            <tbody class="list">
+                <tr>
+                    <td><a href="某某連結">2023季節主打</a></td>
+                </tr>
+                <tr>
+                    <td><a href="某某連結">彌月蛋糕系列</a></td>
+                </tr>
+                <tr>
+                    <td><a href="某某連結">重乳酪</a></td>
+                </tr>
+                <tr>
+                    <td><a href="某某連結">生乳捲</a></td>
+                </tr>
+                <tr>
+                    <td><a href="某某連結">配件區</a></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <!--這個地方之後可以串，然後要用ejs-->
+        <div class="PMCake_show">
+            <div class="PMCake_show_content">
+                <p>主題蛋糕 / <a href="某某網址">2023季節主打</a></p>
+            </div>
+            <div class="PMCake_show_detail">
+
+                <div class="PMCake_show_detail_up">
+                    <div class="cakePic">
+                        <img class="mainPic" src="Source/IMG/mimisbakehouse-website-8-web.jpg">
+                        <figcaption>
+                            <img class="smallPic" src="Source/IMG/mimisbakehouse-website-8-web.jpg">
+                            <img class="smallPic" src="Source/IMG/mimisbakehouse-website-8-web.jpg">
+                            <img class="smallPic" src="Source/IMG/mimisbakehouse-website-8-web.jpg">
+                            <img class="smallPic" src="Source/IMG/mimisbakehouse-website-8-web.jpg">        
+                        </figcaption>
+                    </div>
+                    <div>
+                        <div class="cakename">
+                            <h6>法芙娜草莓布朗尼蛋糕</h6>
+                        </div>
+                        <div class="caketext"><p>
+                            堅持使用最新鮮且當季的大湖草莓製作，
+                            鮮紅完熟的草莓散發自然甜香，顆顆飽
+                            滿多汁使濃郁法芙娜巧克力布朗尼蛋糕
+                            ，更添一股清爽風味！<br>
+                            此款蛋糕僅提供【台中門市自取】，
+                            因蛋糕使用鮮奶油以及新鮮草莓水果裝飾，
+                            為避免宅配運送過程中損壞，故無法提供
+                            宅配寄送服務。
+                        </p></div>
+                        <div class="Size_Quantity_pirce">
+                            <div>
+                                <!-- <div class="selectSize">
+                                    <p>尺寸：</p>
+                                    <button>F</button>
+                                    <button>6吋</button>
+                                    <button>8吋</button>
+                                </div> -->
+                                <div class="selectQuantity">
+                                    <p>數量：</p>
+                                    <select name="quantity" id="number">
+                                        <option value="1" selected="selected">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <pirce><h6>NT.999</h6></pirce>
+                        </div>
+                        <div class="gotocart">
+                            <!-- <button id="buy"><a href="">直接購買</a></button> -->
+                            <button id="buy">加入購物車</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="PMCake_show_introduce">
+                    123213145656436136
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <p>&nbsp;</p>
+    </footer>
+
+    <script src="js/CustomizationCake.js"></script>
     <script>
         $('#buy').on('click',function(){
             var num = parseInt($('#number').val()) ;
-            var cId = $("input[type=radio]:checked").val();
+            // var cId = $("input[type=radio]:checked").val();
             var cart = {
-                name: cId,
+                name: 'bd0151',
                 quantity: num,
             }
             var newcart = JSON.parse(localStorage.getItem("carts"))
@@ -67,5 +166,7 @@
             }
         })
     </script>
+
 </body>
+
 </html>

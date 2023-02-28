@@ -328,9 +328,6 @@ button#expand {
     margin-left: 50px;
 }
 
-
-
-
 .loginbutton {
     margin-top: 30px;
     width: 110px;
@@ -343,6 +340,61 @@ button#expand {
     color: white;
     letter-spacing: 7px;
     border: none;
+}
+
+
+
+.loginsuccessarea{
+    box-shadow: #222;
+    position: absolute;
+    display:none;
+    width: 400px;
+    height: 150px;
+    background-color: #BB8058;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 900px;
+    left: 560px;
+}
+
+.loginxbutton{
+    height: 40px;
+    background-color: #5D3931;
+    border-radius: 10px 10px 0px 0px;
+}
+.loginxbutton button{
+    font-size: 26px;
+    color: #F4D0BB;
+    font-weight: 800;
+    text-align: right;
+    background-color: #5D3931;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: 360px;
+    border: none;
+}
+
+
+
+.loginsuccess h2{
+    font-size: 50px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin-left: 95px;
+    margin-bottom: 0;
+    margin-top: 8px;
+    
+}
+
+.loginsuccess p{
+    display: block;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 900;
+    margin-left: 120px;
+    letter-spacing: 3px;
+    margin-top: 0;
 }
 
 /*10.memberLogin結束*/
@@ -605,7 +657,7 @@ button#expand {
 
 }
 
-.buttonarea button {
+.buttonareabutton {
     margin-top: 20px;
     margin-bottom: 30px;
     border-radius: 20px 20px 20px 20px;
@@ -618,6 +670,59 @@ button#expand {
     letter-spacing: 3px;
     background-color: #5c3a31;
     color: white;
+}
+
+.showsuccessarea{
+    box-shadow: #222;
+    position: absolute;
+    display:none;
+    width: 400px;
+    height: 150px;
+    background-color: #BB8058;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 900px;
+    left: 560px;
+}
+
+.xbutton{
+    height: 40px;
+    background-color: #5D3931;
+    border-radius: 10px 10px 0px 0px;
+}
+.xbutton button{
+    font-size: 26px;
+    color: #F4D0BB;
+    font-weight: 800;
+    text-align: right;
+    background-color: #5D3931;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: 360px;
+    border: none;
+}
+
+
+
+.showsuccessword h2{
+    font-size: 50px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin-left: 95px;
+    margin-bottom: 0;
+    margin-top: 8px;
+    
+}
+
+.showsuccessword p{
+    display: block;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 900;
+    margin-left: 120px;
+    letter-spacing: 3px;
+    margin-top: 0;
 }
 
 /*11.memberSignUp結束*/
@@ -871,7 +976,7 @@ button#expand {
 
 }
 
-.profilrevise button {
+.profilrevisebutton {
     margin-top: 20px;
     margin-bottom: 30px;
     border-radius: 20px 20px 20px 20px;
@@ -885,6 +990,66 @@ button#expand {
     color: #ffffff;
     letter-spacing: 10px;
 }
+
+.profilsuccess{
+    box-shadow: #222;
+    position: absolute;
+    display:none;
+    width: 400px;
+    height: 150px;
+    background-color: #BB8058;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 900px;
+    left: 560px;
+    color: white;
+    
+}
+
+.profilbutton{
+    height: 40px;
+    background-color: #5D3931;
+    border-radius: 10px 10px 0px 0px;
+    color: white;
+}
+.profilbutton button{
+    font-size: 26px;
+    color: #F4D0BB;
+    font-weight: 800;
+    text-align: right;
+    background-color: #5D3931;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: 360px;
+    border: none;
+    color: white;
+}
+
+
+
+.profilsuccessword h2{
+    font-size: 50px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin-left: 80px;
+    margin-bottom: 0;
+    margin-top: 8px;
+    color: white;
+    
+}
+
+.profilsuccessword p{
+    display: block;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 900;
+    margin-left: 120px;
+    letter-spacing: 3px;
+    margin-top: 0;
+    color: white;
+}
+
 
 /*12.memberProfile*/
 

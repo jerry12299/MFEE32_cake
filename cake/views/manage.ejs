@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>菓季後台-會員管理</title>
+     <script src="js/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="css/main_ginnychen19.css">
+    <link rel="stylesheet" href="css/BEndOrder.css">
+    <link rel="stylesheet" href="css/customer.css">
+   
+</head>
+
+<body>
+    <div id="BEndleft">
+        <div class="BEndnav">
+            <div>
+                <img src="Source/SVG/Weed.svg">
+                <h6>後臺管理系統</h6>
+                <p>使用者：abuser</p>
+            </div>
+            <div>
+                <div>
+                    <div>
+                        <img src="Source/SVG/Weed.svg">
+                        <h6>商品管理</h6>
+                    </div>
+                    <p1><a href="">商品列表</a></p1>
+                    <p1><a href="">新增商品</a></p1>
+                </div>
+                <div>
+                    <div>
+                        <img src="Source/SVG/Weed.svg">
+                        <h6>訂單管理</h6>
+                    </div>
+                    <p1><a href="">一般訂單</a></p1>
+                    <p1><a href="">客製訂單</a></p1>
+                </div>
+                <div>
+                    <div>
+                        <img src="Source/SVG/Weed.svg">
+                        <h6>會員相關</h6>
+                    </div>
+                    <p1><a href="">會員資料</a></p1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="BEndright">
+        <div id="PMcakeOrder">
+            <div>
+                <h6>會員資料</h6>
+                <div class="search-container">
+                    <input type="button" class="search-icon"></input>
+                    <input type="text" class="search-input" placeholder="Search...">
+                </div>
+            </div>
+            <table class="Order">
+                <thead>
+                    <tr>
+                        <td>會員帳號</td>
+                        <td>姓名</td>
+                        <td>生日</td>
+                        <td>性別</td>
+                        <td>連絡電話</td>
+                        <td>通訊地址</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <% data.forEach((item ,index) => { %>
+                
+                    <% var YY = item.birthday.getFullYear()%>
+                    <% var MM = (item.birthday.getMonth()+1).toString().padStart(2,'0')%>
+                    <% var DD = item.birthday.getDate().toString().padStart(2,'0')%>
+                    
+                <tbody>
+                    <tr class="list">
+                        <td><%= item.email %></td>
+                        <td><%= item.m_name %></td>
+                        <td><%= `${YY}-${MM}-${DD}` %></td>
+                        <td><%= item.gender %></td>
+                        <td><%= item.phone %></td>
+                        <td><%= item.address %></td>
+                        <td>
+                            <button>修改</button>
+                        </td>
+                    </tr>
+                    <tr class="detail">
+                        <td colspan="8">
+                            <div class="customer">
+                                <form id=<%= item.m_id %>>
+                                    <div>
+                                        <table>
+                                            <tr>
+                                                <td>EMAIL：</td>
+                                                <td><input type="email" name="email" id="mail" value=<%= item.email %>></td>
+                                            </tr>
+                                            <tr>
+                                                <td>權限：</td>
+                                                <td><input type="text" name="rights" value=<%= item.rights %> required></td>
+                                            </tr>
+                                            <tr>
+                                                <td>姓名：</td>
+                                                <td><input type="text" name="m_name" value=<%= item.m_name %> required></td>
+                                            </tr>
+                                            <tr>
+                                                <td>手機：</td>
+                                                <td><input type="phone" name="phone" value=<%= item.phone %> required></td>
+                                            </tr>
+                                        </table>
+                                        <table>
+                                            <tr>
+                                                <td>生日：</td>
+                                                <td><input type="date" name="birthday" value=<%=`${YY}-${MM}-${DD}` %> required></td>
+                                            </tr>
+                                            <tr>
+                                                <td>性別：</td>
+                                                <td>
+                                                    <input type="radio" name="gender" value="男" checked>生理男
+                                                    <input type="radio" name="gender" value="女">生理女
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>通訊地址：</td>
+                                                <td>
+                                                    <textarea cols="40" rows="2" name="address" id=""  required><%= item.address %>
+                                                </textarea>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div>
+                                        <button class="btn_red" >註銷帳號</button>
+                                        <input type="button" onclick="doUpdata(<%= item.m_id %>)" value="更新資料">
+                                    </div>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                <% }) %>
+                <tfoot>
+                    <!-- <tr>
+                        <td colspan="9">
+                            <div>
+
+                                <div>
+                                    <a href=""><button>最前頁</button></a>
+                                    <a href=""><button>上一頁</button></a>
+                                    <div id="pageList">
+                                        <a href="1">
+                                            <p>1</p>
+                                        </a>
+                                        <a href="2">
+                                            <p>2</p>
+                                        </a>
+                                        <a href="3">
+                                            <p>3</p>
+                                        </a>
+                                    </div>
+                                    <a href=""><button>下一頁</button></a>
+                                    <a href=""><button>最尾頁</button></a>
+                                </div>
+                                <div>
+                                    <p>共 28 筆， 1/3 頁</p>
+                                </div>
+
+                            </div>
+                        </td>
+                    </tr> -->
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <script src="js/BEndOrder.js"></script>
+    <script src="js/findNav.js"></script>
+    <script>
+    function doUpdata(id){
+        var data = $(`#${id}`).serializeArray();
+        var JSONData = {m_id : id};
+        for (index in data) {
+                JSONData[data[index].name] = data[index].value;
+            }
+
+        $.ajax({
+            url: "/manage",
+                type: "POST", 
+                contentType: "application/json; charset=utf-8",
+              
+                data: JSON.stringify(JSONData),
+                success: function(res) {
+                    alert("ok");
+                    location.href = '/manage';
+                },
+                error: function() {
+                    alert("系統錯誤!")
+                }
+        })
+    }
+    </script>
+</body>
+
+</html>

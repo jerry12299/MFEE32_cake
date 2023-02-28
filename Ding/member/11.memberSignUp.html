@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>11.菓季會員註冊</title>
     <link rel="stylesheet" href="08-14.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 </head>
 
 <body>
@@ -60,22 +61,30 @@
                 <label for="">我同意服務條款</label>
             </div>
             <div class="buttonarea">
-                <button>註冊</button>
+                <input type="submit" class="buttonareabutton" value="註冊">
             </div>
         </form>
+        <div class="showsuccessarea">
+            <div class="xbutton">
+                <button>X</button>
+            </div>
+            <div class="showsuccessword">
+                <h2>註冊成功!</h2>
+                <p>5秒將自動跳轉</p>
+            </div>
+        </div>
     </div>
 
     <!-- 預留固定footer的位置 -->
     <div class="footer"></div>
 
     <script>
+        /*密碼以及確認密碼不一樣會顯示紅字*/
         var password = document.querySelector(".passwordarea input");
         var password2 = document.querySelector(".password2area input");
         var passmessege = document.querySelector(".passmessege");
-
         // 一開始就隱藏
         passmessege.style.display = "none";
-
         password2.addEventListener("input", function () {
             if (password.value !== password2.value) {
                 passmessege.style.display = "block";
@@ -83,6 +92,20 @@
                 passmessege.style.display = "none";
             }
         });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        /*點擊註冊後會有浮窗並且5秒後自己關掉以及按X也可以關掉*/
+        document.getElementsByClassName("buttonareabutton")[0].onclick = function () {
+            document.getElementsByClassName("showsuccessarea")[0].style.display = "block";
+            setTimeout(function () {
+                document.getElementsByClassName("showsuccessarea")[0].style.display = "none";
+            }, 5000);
+        };
+        document.getElementsByTagName("button")[0].onclick = function () {
+            document.getElementsByClassName("showsuccessarea")[0].style.display = "none";
+        };
     </script>
 </body>
 

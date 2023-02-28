@@ -25,7 +25,7 @@
         <form action="" method="post" class="profileparea">
             <div class="profilnumberarea">
                 <label for="">會員編號</label>
-                <input type="text">
+                <input type="text" disabled placeholder="123456789">
             </div>
             <div class="profilemailarea">
                 <label for="">EMAIL</label>
@@ -62,7 +62,16 @@
                 <input type="text" name="" id="" required>
             </div>
             <div class="profilrevise">
-                <button>我要修改</button>
+                <input type="submit" class="profilrevisebutton" value="我要修改">
+            </div>
+            <div class="profilsuccess">
+                <div class="profilbutton">
+                    <button>X</button>
+                </div>
+                <div class="profilsuccessword">
+                    <h2>修改成功!</h2>
+                    <p>5秒將自動跳轉</p>
+                </div>
             </div>
         </form>
     </div>
@@ -71,6 +80,7 @@
     <div class="footer"></div>
 
     <script>
+        /*密碼和確認密碼若有不同會顯示紅字提醒*/
         var password = document.querySelector(".profilpasswordarea input");
         var password2 = document.querySelector(".profilpassword2area input");
         var profilpassmessege = document.querySelector(".profilpassmessege");
@@ -84,6 +94,24 @@
             } else {
                 profilpassmessege.style.display = "none";
             }
+        });
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        const loginButton = document.querySelector('.profilrevisebutton');
+        const successArea = document.querySelector('.profilsuccess');
+        loginButton.addEventListener('click', function () {
+            successArea.style.display = 'block';
+            setTimeout(function () {
+                successArea.style.display = 'none';
+            }, 5000);
+        });
+
+        const xButton = document.querySelector('.profilbutton button');
+        xButton.addEventListener('click', function () {
+            successArea.style.display = 'none';
         });
     </script>
 </body>

@@ -13,7 +13,41 @@
 
 <body>
     <div id="BEndleft">
-        <div class="BEndnav">我是nav</div>
+        <div class="BEndnav">
+            <div>
+                <img src="../Source/SVG/Weed.svg">
+                <h6>後臺管理系統</h6>
+                <p>使用者：abuser</p>
+                <form action="/logout">
+                    <input type="submit" value="登出">
+                </form>
+            </div>
+            <div>
+                <div>
+                    <div>
+                        <img src="../Source/SVG/Weed.svg">
+                        <h6>商品管理</h6>
+                    </div>
+                    <p1><a href="">商品列表</a></p1>
+                    <p1><a href="">新增商品</a></p1>
+                </div>
+                <div>
+                    <div>
+                        <img src="../Source/SVG/Weed.svg">
+                        <h6>訂單管理</h6>
+                    </div>
+                    <p1><a href="">一般訂單</a></p1>
+                    <p1><a href="/C05_3/1">客製訂單</a></p1>
+                </div>
+                <div>
+                    <div>
+                        <img src="../Source/SVG/Weed.svg">
+                        <h6>會員相關</h6>
+                    </div>
+                    <p1><a href="">會員資料</a></p1>
+                </div>
+            </div>
+        </div>
     </div>
     <div id="BEndright">
         <div id="PMcakeOrder">
@@ -138,7 +172,7 @@
                                         </tr>
                                         <tr>
                                             <td>取貨方式</td>
-                                            <td><%= item.pickup_method%></td>
+                                            <td><%= item.pickup_method%><br>地址:<%= item.rec_address%></td>
                                         </tr>
                                         <tr>
                                             <td>取貨時間</td>
@@ -231,6 +265,7 @@
         </div>
     </div>
     <script src="../js/BEndOrder.js"></script>
+    <script src="../js/findNav.js"></script>
     <script>
         function doChange(str,val,id){
             var JSONData = {
@@ -245,8 +280,10 @@
                  contentType: "application/json; charset=utf-8",
                  data: JSON.stringify(JSONData),
                  success: function(res) {
-                     alert("ok");
-                     location = '/C05_2/1'
+                    //  alert("ok");
+                    //  location = '/C05_2/1'
+                    doAjax ();
+                    
                  
                  },
                  error: function() {
@@ -254,6 +291,24 @@
                  }
              }) 
         }
+
+        // function doAjax (){
+        //     $.ajax({
+        //          url: "/C05_2/1",
+        //          type: "GET", 
+        //          contentType: "application/json; charset=utf-8",
+        //          data: "",
+        //          success: function(res) {
+        //              alert("ok");
+        //              location = '/C05_2/1'
+                    
+                 
+        //          },
+        //          error: function() {
+        //              alert("系統錯誤!")
+        //          }
+        //      }) 
+        // }
 
           
         

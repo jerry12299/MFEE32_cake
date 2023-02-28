@@ -1,59 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>14.客製訂單紀錄頁</title>
+    <link rel="stylesheet" href="../css/08-14.css">
+    <link rel="stylesheet" href="../css/main_ginnychen19.css">
+    <link rel="stylesheet" href="../css/BEndOrder.css">
 </head>
-<body>
-    <div>會員介面</div>
-    <form action="/logout">
-        <input type="submit" value="登出">
-    </form>
-    <a href="/C05_4_1">會員資料修改</a>
-    <table>
-        <thead>
-            <th>#</th>
-            <th>訂單編號</th>
-            <th>會員編號</th>
-            <th>下訂日期</th>
-            <th>需求</th>
-            <th>狀態</th>
-            <th>圖片</th>
-          
-        </thead>
-        <tbody>
-            <% data.forEach((item ,index) => { %> <!--forEach迴圈顯示資料庫內容-->
-                <% var cuYY = item.cust_upload_date.getFullYear()%>
-                <% var cuMM = (item.cust_upload_date.getMonth())+1%>
-                <% var cuDD = item.cust_upload_date.getDate()%>
-                <% var cuHr = item.cust_upload_date.getHours()%>
-                <% var cuMi = item.cust_upload_date.getMinutes()%>
-                <tr>
-                    <td><%= index+1%></td> <!--編號 -->
-                    <td><%= item.cust_id%></td> 
-                    <td><%= item.m_id%></td>
-                    <td><%= `${cuYY}年${cuMM}月${cuDD}日${cuHr}點${cuMi}分` %></td>
-                   
-                    <td><%= item.cust_form%></td>
-                    <td><%= item.cust_state%></td>
-                    <td><a href=<%= `/picture/${item.picture}` %>>圖片</a></td>
-                    <!-- 有權限 -->
-                    
-                </tr>
-            <% }) %>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="4" style="text-align: center;">
-                    <% for(var i = 1; i <= last_page; i++) { %>
-                    <span ><a href="/<%= i%>"><%= i%></a></span>
-                    <% } %>
-                </td colspan="2">
-                <td><p>總數 <%= total_nums%> 筆，共 <%= curr_page%>/<%= last_page%> 頁</p></td>
-            </tr>
-        </tfoot>
-    </table>
+
+<body class="customlOrderPage" style="margin: 0;">
+    <!-- 預留固定nav的位置 -->
+    <div class="navtop"></div>
+    <!-- 預留固定輪播的位置 -->
+    <div class="slideshow-container"></div>
+    <div class="customOrder">
+        <!-- 上面的選單 -->
+        <div class="customOrdernav generalOrdernav">
+            <ul>
+                <a href="/C05_4_1"><li>會員資訊</li></a>
+                <a href="/C05_4/1"><li>我的訂單</li></a>
+                <a href="/C05_4_2/1"><li>我的客製</li></a>
+            </ul>
+        </div>
+        <!-- 下面的選單 -->
+        <div class="customOrderDataArea">
+            <table>
+                <thead>
+                    <tr class="customDatanav">
+                        <td>訂單</td>
+                        <td>下訂日期</td>
+                        <td>預定日期</td>
+                        <td>狀態</td>
+                        <td>聯繫方式</td>
+                        <td>
+                            <select class="customDataselect">
+                                <option value="">30日內訂單</option>
+                                <option value="">60日內訂單</option>
+                                <option value="">90日內訂單</option>
+                            </select>
+                        </td>
+                    </tr>
+                </thead>
+                <% data.forEach((item ,index) => { %>
+                    <% var cuYY = item.cust_upload_date.getFullYear()%>
+                    <% var cuMM = (item.cust_upload_date.getMonth())+1%>
+                    <% var cuDD = item.cust_upload_date.getDate()%>
+                    <% var cuHr = item.cust_upload_date.getHours()%>
+                    <% var cuMi = item.cust_upload_date.getMinutes()%>
+                <tbody>
+                    <tr class="customDatalist">
+                        <td>#<%= item.cust_id%></td>
+                        <td><%= `${cuYY}年${cuMM}月${cuDD}日${cuHr}點${cuMi}分` %></td>
+                        <td><%= item.cust_date %></td>
+                        <td><%= item.cust_state%></td>
+                        <td><%= item.connection%></td>
+                        <td><button class="show_details_btn">訂單詳細 +</button></td>
+                    </tr>
+                    <tr class="showcustomDatalist hide">
+                        <td colspan="6">
+                            <div>
+                                <table class="customDetail">
+                                    <thead>
+                                        <tr>
+                                            <td>客製內容</td>
+                                            <td>估價</td>
+                                            <td>取貨方式</td>
+                                            <td>付款方式</td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><textarea readonly style="resize:none;width:400px;height:100px;"><%= item.cust_form%></textarea></td>
+                                            <% if(item.cust_price){ %>
+                                            <td><%= item.cust_price%></td>
+                                            <% }else{%>
+                                            <td>未定</td>
+                                            <% }%>
+                                            <td><%= item.cust_pick%></td>
+                                            <td><%= item.cust_pay%></td>
+                                            <td><a href=<%= `/picture/${item.picture}` %>><button class="customcheckImgbutton">查看上傳圖片</button></a><br>
+                                                <button class="customcancelbutton">申請取消</button> 
+                                            </td>     
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                <% }) %>
+               
+            </table>
+        </div>
+    </div>
+
+
+    <!-- 預留固定footer的位置 -->
+    <div class="footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        /*開細節按鈕用的*/
+        //console.log($(".show_details_btn"));
+        $(".show_details_btn").click(function () {
+            //console.log($(this).parent().parent().next())
+            const showgeneraDatalist = $(this).parent().parent().next();
+            $(showgeneraDatalist).toggleClass('hide');
+
+
+            /*為了讓細節表格-取貨方式、付款方式、按鈕可以維持置中所寫的*/
+            const RowspanNub = $(showgeneraDatalist).find("tbody>tr").length;
+            const tdRowspan = $(showgeneraDatalist).find("tbody>tr").eq(0).children().eq(1).nextAll();
+            tdRowspan.each(function (ind, elem) {
+                //console.log(ind, elem);
+                $(elem).attr({
+                    "rowspan": RowspanNub,
+                });
+            })
+
+        })
+    </script>
+
 </body>
+
 </html>

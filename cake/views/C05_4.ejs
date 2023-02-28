@@ -5,71 +5,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/08-14.css">
     <link rel="stylesheet" href="../css/main_ginnychen19.css">
     <link rel="stylesheet" href="../css/BEndOrder.css">
     <!-- <script src="https://code.jquery.com/jquery-3.6.3.js"></script> -->
     <script src="../js/jquery-3.6.0.js"></script>
+
 </head>
 
-<body>
-    <div id="BEndleft">
-        <div class="BEndnav">我是nav
-            <div>會員介面</div>
-    <form action="/logout">
-        <input type="submit" value="登出">
-    </form>
-    <a href="/C05_4_1">會員資料修改</a>
-    <a href="/C05_4_2/1">客製化訂單</a>
-        </div>
+<body class="generalOrderPage" style="margin: 0;">
+    <!-- 預留固定nav的位置 -->
+    <div class="navtop">
+        <form action="/logout">
+            <input type="submit" value="登出">
+        </form>
     </div>
-    <div id="BEndright">
-        <div id="PMcakeOrder">
-            <div>
-                <h6>一般訂單</h6>
-                <div class="search-container">
-                    <input type="button" class="search-icon"></input>
-                    <input type="text" class="search-input" placeholder="Search...">
-                </div>
-            </div>
-            <table class="Order">
+    <!-- 預留固定輪播的位置 -->
+    <div class="slideshow-container"></div>
+    <div class="generalOrder">
+        <!-- 上面的選單 -->
+        <div class="generalOrdernav">
+            <ul>
+                <!-- <li>會員資訊</li>
+                <li class="Ordernavbuttom">我的訂單</li>
+                <li>我的客製</li> -->
+                <a href="/C05_4_1"><li>會員資訊</li></a>
+                <a href="/C05_4/1"><li>我的訂單</li></a>
+                <a href="/C05_4_2/1"><li>我的客製</li></a>
+            </ul>
+        </div>
+        <!-- 下面的選單 -->
+        <div class="generalOrderDataArea">
+            <table>
                 <thead>
-                    <tr>
-                        <td>訂單編號</td>
-                        <td>會員姓名</td>
-                        <td>金額</td>
-                        <td>詳情</td>
-                        <td>成立時間 ▲</td>
-                        <td>預約時間 ▲</td>
+                    <tr class="generaDatanav">
+                        <td>訂單</td>
+                        <td>下訂日期</td>
+                        <td>預定日期</td>
+                        <td>狀態</td>
+                        <td>總計</td>
+                        
+                        <!-- <td>訂單</td> -->
                         <td>
-                            <select name="???????">
-                                <option selected="selected">訂單狀態</option>
-                                <option value="1">未製作</option>
-                                <option value="2">已製作</option>
-                                <option value="3">申請取消</option>
-                                <option value="4">已取消</option>
-                            </select>
-                        </td>
-                        <td>
-                            <select name="???????">
-                                <option selected="selected">付款狀態</option>
-                                <option value="1">未付款</option>
-                                <option value="2">已付款</option>
-                                <option value="3">已退款</option>
-                            </select>
-                        </td>
-                        <td>
-                            <select name="???????">
-                                <option selected="selected">出貨狀態</option>
-                                <option value="1">未配送</option>
-                                <option value="2">已配送</option>
-                                <option value="3">未取貨</option>
-                                <option value="4">已取貨</option>
-                                <option value="5">已取消</option>
+                            <select class="generaDataselect">
+                                <option value="">30日內訂單</option>
+                                <option value="">60日內訂單</option>
+                                <option value="">90日內訂單</option>
                             </select>
                         </td>
                     </tr>
                 </thead>
-                <% data.forEach((item ,index) => { %>
+                <% data.forEach((item ,index1) => { %>
                     <% var upYY = item.co_upload_date.getFullYear()%>
                     <% var upMM = (item.co_upload_date.getMonth())+1%>
                     <% var upDD = item.co_upload_date.getDate()%>
@@ -81,162 +67,146 @@
                     <% var puHr = item.pick_up_date.getHours()%>
                     <% var puMi = item.pick_up_date.getMinutes()%>
                 <tbody>
-                    <tr class="list">
+                    <tr class="generaDatalist">
                         <td>#<%= item.o_id%></td>
-                        <td><%= item.m_name%></td>
-                        <td>NT.<%= item.order_total%></td>
-                        <td><button>詳細</button></td>
                         <td><%= `${upYY}年${upMM}月${upDD}日${upHr}時${upMi}分` %></td>
                         <td><%= `${puYY}年${puMM}月${puDD}日${puHr}時${puMi}分` %></td>
                         <td><%= item.co_state%></td>
-                        <td><%= item.pay_state%></td>
-                        <td><%= item.shipping%></td>
+                        <td>NT.<%= item.order_total%></td>
+                        <td><%= item.payment %></td>
+                        <!-- <td><button class="cancelbutton">申請取消</button></td> -->
+                        <td><button class="show_details_btn">訂單詳細 +</button></td>
                     </tr>
-                    <tr class="detail">
-                        <td colspan="9">
+                    <tr class="showgeneraDatalist hide">
+                        <td colspan="6">
                             <div>
-                                <div class="items">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <td>訂購內容</td>
-                                                <td>單價</td>
-                                                <td>小計</td>
-                                            </tr>
-                                        </thead>
-                                        <!-- 迴圈{ -->
-                                        <% order_D.forEach((o_item ,index) => { %>    
-                                            <% if(item.o_id===o_item.o_id){  %>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <div>
-                                                       <%= o_item.c_name%>
-                                                        <div class="itemsSizeFlavorCount">
-                                                            <!-- <div>F</div>
-                                                            <div>葡萄</div> -->
-                                                            <div>x<%= o_item.quantity %></div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td><%= o_item.price%></td>
-                                                <td><%= o_item.total%></td>
-                                            </tr>
-                                        </tbody>
-                                        <% }%>
-                                        <% }) %>
-                                        <!--  }-->
-                                    </table>
-                                </div>
-                                <div class="contact">
-                                    <table class="contactLeft">
+                                <table class="Detail">
+                                    <thead>
                                         <tr>
-                                            <td>連絡電話</td>
-                                            <td><%= item.phone %></td>
-                                        </tr>
-                                        <tr>
-                                            <td>電子信箱</td>
-                                            <td><%= item.email %></td>
-                                        </tr>
-                                        <tr>
+                                            <td>訂購內容</td>
+                                            <td>數量</td>
+                                            <td>單價</td>
+                                            <td>小計</td>
                                             <td>付款方式</td>
-                                            <td><%= item.payment %></td>
-                                        </tr>
-                                        <tr>
                                             <td>取貨方式</td>
-                                            <td><%= item.pickup_method%></td>
+                                           
+    
                                         </tr>
+                                    </thead>
+                                    <% var i = 1 %>
+                                    <% order_D.forEach((o_item ,index2) => { %>    
+                                        <% if(item.o_id===o_item.o_id){  %>
+                                           
+                                            <!-- <tbody>
+                                                <tr>
+                                                    <td>
+                                                    <%= o_item.c_name%>
+                                                    </td>
+                                                    <td><%= o_item.quantity %></td>
+                                                    <td><%= o_item.price%></td>
+                                                    <td><%= o_item.total%></td>
+                                                    
+                                                    <td ><%= item.pickup_method%><br>宅配地址<br>台中市南屯區公益路18號 </td>
+                                                    
+                                                  
+                                                </tr>
+                                            </tbody> -->
+                                    <tbody>
                                         <tr>
-                                            <td>取貨時間</td>
-                                            <td><%= `${puHr}時` %></td>
+                                            <td><%= o_item.c_name%> </td>
+                                            <td><%= o_item.quantity %> </td>
+                                            <td>NT.<%= o_item.price%></td>
+                                            <td>NT.<%= o_item.total%></td>
+                                            <% if(i == 1 ) { %>
+                                            <td><%= item.payment %></td>
+                                            <td><%= item.pickup_method%><br>宅配地址<br>台中市南屯區公益路18號 </td>
+                                            <!-- <td><button class="cancelbutton">申請取消</button></td> -->
+                                            <% i = 0%>
+                                            <% }%>
                                         </tr>
-                                    </table>
-                                    <table class="contactRight">
-                                        <tr>
-                                            <td>
-                                                <div>
-                                                    <select name="???????">
-                                                        <option selected="selected">訂單狀態</option>
-                                                        <option value="1">未製作</option>
-                                                        <option value="2">已製作</option>
-                                                        <option value="3">申請取消</option>
-                                                        <option value="4">已取消</option>
-                                                    </select>
-                                                
-                                                    <select name="???????">
-                                                        <option selected="selected">付款狀態</option>
-                                                        <option value="1">未付款</option>
-                                                        <option value="2">已付款</option>
-                                                        <option value="3">已退款</option>
-                                                    </select>
-                                            
-                                                    <select name="???????">
-                                                        <option selected="selected">出貨狀態</option>
-                                                        <option value="1">未配送</option>
-                                                        <option value="2">已配送</option>
-                                                        <option value="3">未取貨</option>
-                                                        <option value="4">已取貨</option>
-                                                        <option value="5">已取消</option>
-                                                    </select>
-                                                </div>
-                                            
-                                            
-                                            </td>
-                                            <!-- <td>
-                                                
-                                                <div>取貨備註
-                                                    <div>(若是非勾同收件人，則把內容存進這裡取貨備註欄裡)無備註</div>
-                                                </div>
-                                            </td> -->
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div>訂單與取貨備註
-                                                    <div><%= item.remark%></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
+                                    </tbody>
+
+                                    <% }%>
+                                    <% }) %>
+                                    
+                                
+                                </table>
+                     
                             </div>
+                           
+                      
                         </td>
+                           
                     </tr>
                 </tbody>
                 <% }) %>
-          
-                <tfoot>
-
-                    <tr>
-                        <td colspan="9">
+                <!-- <tbody>
+                    <tr class="generaDatalist">
+                        <td>#123456</td>
+                        <td>23.01.30</td>
+                        <td>23.02.16</td>
+                        <td>未製作</td>
+                        <td>NT.1280</td>
+                        <td><button class="show_details_btn">訂單詳細 +</button></td>
+                    </tr>
+                    <tr class="showgeneraDatalist hide">
+                        <td colspan="6">
                             <div>
-
-                                <div>
-                                    <a href="/C05_2/1"><button>最前頁</button></a>
-                                    <a href="/C05_2/<%= parseInt(curr_page)-1 %>"><button>上一頁</button></a>
-                                    <div id="pageList">
-                                        <% for(var i = 1; i <= last_page; i++) { %>
-                                            <p ><a href="/C05_2/<%= i%>"><%= i%></a></p>
-                                            <% } %>
-                                        
-                                    </div>
-                                    <a href="/C05_2/<%= parseInt(curr_page)+1 %>"><button>下一頁</button></a>
-                                    <a href="/C05_2/<%= last_page%>"><button>最尾頁</button></a>
-                                </div>
-                                <div>
-                                    <p>總數 <%= total_nums%> 筆，共 <%= curr_page%>/<%= last_page%> 頁</p>
-                                  
-                                </div>
-
+                                <table class="Detail">
+                                    <thead>
+                                        <tr>
+                                            <td>訂購內容</td>
+                                            <td>單價</td>
+                                            <td>付款方式</td>
+                                            <td>取貨方式</td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>黑森林蛋糕10吋</td>
+                                            <td>NT.500</td>
+                                            <td>信用卡</td>
+                                            <td>冷凍宅配-NT180<br>宅配地址<br>台中市南屯區公益路18號 </td>
+                                            <td><button class="cancelbutton">申請取消</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </td>
                     </tr>
-                </tfoot>
+                </tbody> -->
+                
             </table>
+
         </div>
     </div>
-    <script src="../js/BEndOrder.js"></script>
+
+
+    <!-- 預留固定footer的位置 -->
+    <div class="footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
-        
+        /*開細節按鈕用的*/
+        //console.log($(".show_details_btn"));
+        $(".show_details_btn").click(function () {
+            //console.log($(this).parent().parent().next())
+            const showgeneraDatalist = $(this).parent().parent().next();
+            $(showgeneraDatalist).toggleClass('hide');
+
+
+            /*為了讓細節表格-取貨方式、付款方式、按鈕可以維持置中所寫的*/
+            const RowspanNub = $(showgeneraDatalist).find("tbody>tr").length;
+            const tdRowspan = $(showgeneraDatalist).find("tbody>tr").eq(0).children().eq(1).nextAll();
+            tdRowspan.each(function (ind, elem) {
+                //console.log(ind, elem);
+                $(elem).attr({
+                    "rowspan": RowspanNub,
+                });
+            })
+
+        })
     </script>
 
 </body>

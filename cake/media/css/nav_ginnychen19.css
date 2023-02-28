@@ -1,0 +1,116 @@
+@import url("https://www.w3schools.com/w3css/4/w3.css");
+@import "main_ginnychen19.css";
+
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+
+    /* 水平置中 */
+    justify-content: center;
+    /* 垂直置中 */
+    align-items: center;
+
+    padding: 10px 20px;
+    transition: 1.0 ease;
+
+    background-color: hsla(0, 0%, 100%, 0.5); 
+}
+
+.BEndnav {
+    position: fixed;
+    width: 20%;
+    min-width: 250px;
+    height: 100%;
+    left: 0px;
+
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+
+    /* 水平置中 */
+    justify-content: start;
+    /* 垂直置中 */
+    align-items: center;
+
+    padding: 40px 20px;
+    transition: 1.0 ease;
+
+    background-color: var(--color05); 
+}
+
+
+
+
+
+
+
+.BEndnav>div:first-child{
+ /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:  0 0 30px 0;
+}
+.BEndnav>div:first-child>h6,
+.BEndnav>div:first-child>p{
+    margin: 0;
+}
+.BEndnav>div:first-child>p{
+    border-radius:8px;
+    padding: 10px;
+    background-color: var(--color02);
+}
+.BEndnav>div:first-child>img{
+    width: 100px;
+}
+
+
+
+.BEndnav>div:last-child{
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.BEndnav>div:last-child>div{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+.BEndnav>div:last-child>div>div>h6{
+    margin: 0;
+}
+p1{
+    font-family: "GenJyuuGothic-B";
+    font-size: 24px;
+    color: var(--color06);
+    letter-spacing: 5px;
+}
+.addline{
+    display: block;
+    width: 72%;
+    margin: 0 0 5px 0;
+    border-bottom: solid 2px #019fb6;
+    transform: scaleX(0);
+    transform-origin:  0% ;
+    transition: transform 250ms ease-in-out;
+}
+
+.BEndnav>div:last-child>div>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: aqua; */
+    margin: 15px 0;
+}
+.BEndnav>div:last-child>div>div>img{
+    height: 30px;
+    margin: 0 10px 0 0;
+}
