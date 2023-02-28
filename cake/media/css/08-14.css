@@ -328,9 +328,6 @@ button#expand {
     margin-left: 50px;
 }
 
-
-
-
 .loginbutton {
     margin-top: 30px;
     width: 110px;
@@ -343,6 +340,61 @@ button#expand {
     color: white;
     letter-spacing: 7px;
     border: none;
+}
+
+
+
+.loginsuccessarea{
+    box-shadow: #222;
+    position: absolute;
+    display:none;
+    width: 400px;
+    height: 150px;
+    background-color: #BB8058;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 900px;
+    left: 560px;
+}
+
+.loginxbutton{
+    height: 40px;
+    background-color: #5D3931;
+    border-radius: 10px 10px 0px 0px;
+}
+.loginxbutton button{
+    font-size: 26px;
+    color: #F4D0BB;
+    font-weight: 800;
+    text-align: right;
+    background-color: #5D3931;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: 360px;
+    border: none;
+}
+
+
+
+.loginsuccess h2{
+    font-size: 50px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin-left: 95px;
+    margin-bottom: 0;
+    margin-top: 8px;
+    
+}
+
+.loginsuccess p{
+    display: block;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 900;
+    margin-left: 120px;
+    letter-spacing: 3px;
+    margin-top: 0;
 }
 
 /*10.memberLogin結束*/

@@ -8,15 +8,14 @@
     <title>登入</title>
 </head>
 <body>
-        <!-- 預留固定nav的位置 -->
-        <div class="navtop"></div>
-        <!-- 預留固定輪播的位置 -->
-        <div class="slideshow-container"></div>
-    
-        <!-- 登入位置 -->
+    <!-- 預留固定nav的位置 -->
+    <div class="navtop"></div>
+    <!-- 預留固定輪播的位置 -->
+    <div class="slideshow-container"></div>
+
+    <!-- 登入位置 -->
+    <div class="loginbgcolor">
         <h3 class="loginWord">會員登入</h3>
-    
-    
         <form id="formLogin" class="memberDatabox">
             <div class="memberDatamun">
                 <label for="">帳號</label>
@@ -28,44 +27,50 @@
                 <input type="password" name="password" value="1234" required />
             </div>
             <div class="aprob">
-                <a href="#">忘記密碼嗎?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="/C05_1">還不是會員嗎?</a>
+                <a href="#" class="aproba1">忘記密碼嗎?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/C05_1" class="aproba2">還不是會員嗎?</a>
             </div>
-            <div class="loginbutton">
+            <!-- 0228 DING修改原本如下 刪除第一行的classloginbutton 以及input type改成 submit 才有登入效果 -->
+            <!-- <div class="loginbutton"> -->
                 <!-- <button id="submit" class="loginbutton" >登入</button> -->
-                <input id="submit" class="loginbutton" value="登入" type="button">
+                <!-- <input id="submit" class="loginbutton" value="登入" type="button">
+            </div> -->
+            <div>
+                <!-- <button id="submit" class="loginbutton" >登入</button> -->
+                <input id="submit" class="loginbutton" value="登入" type="submit">
             </div>
         </form>
-            
-        <!-- 預留固定footer的位置 -->
-        <div class="footer"></div>
+    </div>
+
+    <!-- 預留固定footer的位置 -->
+    <div class="footer"></div>
 
     <script>
-    
-        $('#submit').on('click', function() {
+
+        $('#submit').on('click', function () {
             var data = $('#formLogin').serializeArray();
-            
+
             var JSONData = {};
             for (index in data) {
                 JSONData[data[index].name] = data[index].value;
             }
-                     
+
             $.ajax({
                 url: "/C05",
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify(JSONData),
-                success: function(res) {
+                success: function (res) {
                     // alert(res);
                     // console.log(res)
-                    if(parseInt(res)){
+                    if (parseInt(res)) {
                         location.href = '/C05_2/1';
-                    }else{
+                    } else {
                         location.href = '/';
                     }
-                    
+
                 },
-                error: function() {
+                error: function () {
                     alert("login 系統錯誤!")
                 }
             })
