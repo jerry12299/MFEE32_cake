@@ -1,26 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首頁</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/index.css">
+  <!-- JQ -->
+  <!-- 插件 -->
+  <!-- <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/> -->
+  <!-- 卡片輪播 -->
+  <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick-theme.css" />
+  <!-- ---------------bootstrap---------------------------- -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <!-- ---------------------------------- -->
+
 </head>
+
 <body>
+  <nav>
     <div>
-        <a href="/C01/0">C01主題蛋糕</a>
-        <a href="/C02">C02客制蛋糕</a>
-        <a href="/C03">C03餡料介紹</a>
-        <a href="/C04">C04常見問題</a>
-        <% if(!session.user) { %>  <!-- 如果沒登入(沒session.user) -->
-          <a href="/C05">C05登入/註冊</a>
-          <%} else if(session.user.rights) { %> <!-- 如果有權限者登入 -->
-          <a href="/C05_2/1">C05_2管理者</a>
-            <%} else{  %>
-            <a href="/C05_4/1">C05會員</a>
-            <% } %>
-        <a href="/C06">C06購物車</a>
+      <img src="https://dummyimage.com/30x30/38afeb/fff" alt="Logo">
+      <span>菓季</span>
     </div>
-    
+    <div id="navlist">
+      <a href="/C01/0">主題蛋糕</a>
+      <a href="/C02">客製蛋糕</a>
+      <a href="/C03">餡料食材介紹</a>
+      <a href="/C04">常見問題</a>
+      <a href="/C05"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill"
+        viewBox="0 0 16 16">
+        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+      </svg></a>
+      <a href="/C06"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart3"
+        viewBox="0 0 16 16">
+        <path
+          d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+      </svg></a>
+      
+    </div>
+  </nav>
+  <!-- <section id="Main"> -->
+  <!-- <img src="" alt="標題"> -->
+  <div class="keyart-container">
+    <div class="keyart-layer" id="parallax-1"></div>
+    <!-- <div class="keyart-layer" id="parallax-2"></div> -->
+    <div class="keyart-layer" speed="30" id="parallax-3"></div>
+    <div class="keyart-layer" speed="50" id="parallax-4"></div>
+    <div class="keyart-layer" speed="100" id="parallax-5"></div>
+  </div>
+  <div id="Btnlist">
+    <button id="Line" class="mainbtn btn btn-success">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-line"
+        viewBox="0 0 16 16">
+        <path
+          d="M8 0c4.411 0 8 2.912 8 6.492 0 1.433-.555 2.723-1.715 3.994-1.678 1.932-5.431 4.285-6.285 4.645-.83.35-.734-.197-.696-.413l.003-.018.114-.685c.027-.204.055-.521-.026-.723-.09-.223-.444-.339-.704-.395C2.846 12.39 0 9.701 0 6.492 0 2.912 3.59 0 8 0ZM5.022 7.686H3.497V4.918a.156.156 0 0 0-.155-.156H2.78a.156.156 0 0 0-.156.156v3.486c0 .041.017.08.044.107v.001l.002.002.002.002a.154.154 0 0 0 .108.043h2.242c.086 0 .155-.07.155-.156v-.56a.156.156 0 0 0-.155-.157Zm.791-2.924a.156.156 0 0 0-.156.156v3.486c0 .086.07.155.156.155h.562c.086 0 .155-.07.155-.155V4.918a.156.156 0 0 0-.155-.156h-.562Zm3.863 0a.156.156 0 0 0-.156.156v2.07L7.923 4.832a.17.17 0 0 0-.013-.015v-.001a.139.139 0 0 0-.01-.01l-.003-.003a.092.092 0 0 0-.011-.009h-.001L7.88 4.79l-.003-.002a.029.029 0 0 0-.005-.003l-.008-.005h-.002l-.003-.002-.01-.004-.004-.002a.093.093 0 0 0-.01-.003h-.002l-.003-.001-.009-.002h-.006l-.003-.001h-.004l-.002-.001h-.574a.156.156 0 0 0-.156.155v3.486c0 .086.07.155.156.155h.56c.087 0 .157-.07.157-.155v-2.07l1.6 2.16a.154.154 0 0 0 .039.038l.001.001.01.006.004.002a.066.066 0 0 0 .008.004l.007.003.005.002a.168.168 0 0 0 .01.003h.003a.155.155 0 0 0 .04.006h.56c.087 0 .157-.07.157-.155V4.918a.156.156 0 0 0-.156-.156h-.561Zm3.815.717v-.56a.156.156 0 0 0-.155-.157h-2.242a.155.155 0 0 0-.108.044h-.001l-.001.002-.002.003a.155.155 0 0 0-.044.107v3.486c0 .041.017.08.044.107l.002.003.002.002a.155.155 0 0 0 .108.043h2.242c.086 0 .155-.07.155-.156v-.56a.156.156 0 0 0-.155-.157H11.81v-.589h1.525c.086 0 .155-.07.155-.156v-.56a.156.156 0 0 0-.155-.157H11.81v-.589h1.525c.086 0 .155-.07.155-.156Z" />
+      </svg>
+    </button>
+    <button id="Email" class="mainbtn btn btn-danger">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-envelope-fill"
+        viewBox="0 0 16 16">
+        <path
+          d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+      </svg>
+    </button>
+    <button id="Gotop" class="mainbtn btn btn-secondary">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-up"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+      </svg></button>
+
+  </div>
+  <!-- </section> -->
+  <section id="Ad" class="page">
+    <span class="Engtitle">- Hot! -</span>
+    <span class="h1title">本季主打</span>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://dummyimage.com/1200x600/ff82ea/fff" class="d-block w-100">
+        </div>
+        <div class="carousel-item">
+          <img src="https://dummyimage.com/1200x600/b682ff/fff" class="d-block w-100">
+        </div>
+        <div class="carousel-item">
+          <img src="https://dummyimage.com/1200x600/e7f043/fff" class="d-block w-100">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <span class="Engtitle">- News -</span>
+    <span class="h1title">最新消息</span>
+    <div id="News_card" class="responsive">
+      <div class="card mb-3" style="max-width: 560px; background-color: #F2C9C9; ">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">公休通知</h5>
+              <p class="card-text">2/23-2/28員工旅遊，公休6天</p>
+              <p class="card-text"><small class="text-muted">2023/02/22</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ------------------------------------------->
+      <div class="card mb-3" style="max-width: 540px; background-color: #F2C9C9;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="..." class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">重要通知</h5>
+              <p class="card-text">由於系統升級，我們的網站將於本週五下午3點至6點進行維護，屆時可能會對訂單處理造成影響，請您提前安排好您的訂單。</p>
+              <p class="card-text"><small class="text-muted">2023/02/05</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- -------------------------------->
+      <div class="card mb-3" style="max-width: 540px; background-color: #F2C9C9;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="..." class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">優惠活動</h5>
+              <p class="card-text">感謝一直以來對菓季的支持，二月期間訂購蛋糕可享受免費送貨服務，訂單金額1500以上將獲得限定小禮品哦！</p>
+              <p class="card-text"><small class="text-muted">2023/02/01</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- -------------------------------------------->
+      <div class="card mb-3" style="max-width: 540px; background-color: #F2C9C9;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="..." class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">調漲通知</h5>
+              <p class="card-text">感謝您長期以來對菓季的支持。由於材料和運輸成本的上漲，從2023年3月1日開始，將調整部分產品的價格。</p>
+              <p class="card-text"><small class="text-muted">2023/01/15</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- -------------------------------------------->
+    </div>
+  </section>
+  <div id="parallax">
+    <div id="parallax_img">
+    </div>
+    <div id="marquee_TContaner">
+      <div id="marquee_T" class="box_T">
+        <div class="list_T">
+          <span>Apple.&nbsp;</span>
+          <span>Banana.&nbsp;</span>
+          <span>Mango.&nbsp;</span>
+          <span>Strawberry.&nbsp;</span>
+          <span>Grape.&nbsp;</span>
+          <span>Orange.&nbsp;</span>
+          <span>Grapefruit.&nbsp;</span>
+          <span>Cherry.&nbsp;</span>
+          <span>Blueberry.&nbsp;</span>
+          <span>Lemon.&nbsp;</span>
+          <span>Tangerine.&nbsp;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section id="About" class="page">
+    <span class="Engtitle">- About -</span>
+    <span class="h1title">關於菓季</span>
+    <div>
+      <div id="about_T">
+        <img class="img_radius" src="Source/IMG/aboutus.png" alt="">
+        <h1>品牌堅持</h1>
+        <p>菓季相信蛋糕不僅僅是一種食物，更是一種傳達心意的方式。<br><br>
+          因此，我們致力於創造獨一無二、美味精緻的蛋糕，讓每個人都能感受到對方滿滿的關愛和心意。<br><br>
+          為了確保蛋糕品質，堅持使用最優質的食材烘焙每一個蛋糕。<br><br>
+          不斷地尋找新穎的食材、不斷地嘗試新的口味，只為了給您帶來最美味、最新鮮的蛋糕。<br><br>
+          除了注重蛋糕的味道，我們更加重視您的健康。<br><br>
+          秉持著健康和諧的理念，使用最天然、最健康的食材，品嘗甜點對身體不再是種負擔！<br><br>
+          希望能在每一個重要的時刻與您分享，而菓季將於您共譜最美好的回憶。<br><br>
+        </p>
+      </div>
+    </div>
+
+  </section>
+  <section id="Product_M" class="page">
+    <span class="Engtitle">- Product -</span>
+    <span class="h1title">主題蛋糕 </span>
+    <div id="mcake">
+      <img class="img_radius" src="Source/IMG/p_mcake0.png" alt="主題蛋糕">
+      <div>
+        <div>
+          <a href=""><img src="Source/IMG/p_mcake1.png" alt=""></a>
+          <p>當季主打水果蛋糕</p>
+        </div>
+        <div>
+          <a href=""><img src="Source/IMG/p_mcake2.png" alt=""></a>
+          <p>重乳酪蛋糕</p>
+        </div>
+        <div>
+          <a href=""><img src="Source/IMG/p_mcake3.png" alt=""></a>
+          <p>生乳捲</p>
+        </div>
+        <div>
+          <a href=""><img src="Source/IMG/p_mcake4.png" alt=""></a>
+          <p>彌月蛋糕禮盒</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="Product_C" class="page">
+    <span class="Engtitle">- Product -</span>
+    <span class="h1title">客製蛋糕 </span>
+    <div id="hcake">
+      <img class="img_radius" src="Source/IMG/p_cake2.png" alt="主題蛋糕">
+      <div>
+        <span>菓季提供獨特的客製化蛋糕服務，讓您的特別時刻更加難忘和意義深遠。我們的烘焙師會與您深入討論，設計出獨一無二的蛋糕，確保完美地符合您的要求和喜好。<br><br>
+
+          使特別時刻更加難忘和意義深遠，無論是婚禮、生日、紀念日和寶寶彌月，菓季將為您獻上最完美的客製化蛋糕體驗。
+        </span>
+        
+          <a href=""><img class="img_radius" src="Source/IMG/p_cake1.png" alt=""></a>
+        
+        
+          <a href=""><img class="img_radius" src="Source/IMG/p_cake3.png" alt=""></a>
+       
+      </div>
+    </div>
+
+      
+
+  </section>
+  <section id="Buy" class="page">
+    <span class="Engtitle">- Buy it now! -</span>
+    <span class="h1title">心動不如馬上行動！</span>
+    <div>
+      <img src="https://dummyimage.com/500x600/d8f254/fff" alt="主題蛋糕">
+      <img src="https://dummyimage.com/500x600/9670f5/fff" alt="客製蛋糕">
+    </div>
+  </section>
+  <section class="page">
+    <span class="Engtitle">- photo -</span>
+    <span class="h1title">美好畫面 香甜滋味</span>
+    <div id="marquee" class="box">
+      <div class="list">
+        <div class="photo"><img src="Source/IMG/p1.png"></div>
+        <div class="photo"><img src="Source/IMG/p2.png"></div>
+        <div class="photo"><img src="Source/IMG/p3.png"></div>
+        <div class="photo"><img src="Source/IMG/p4.png"></div>
+        <div class="photo"><img src="Source/IMG/p5.png"></div>
+        <div class="photo"><img src="Source/IMG/p6.png"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="Contact">
+    <div>
+      <div class="speace">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.6043380241786!2d120.64890391496165!3d24.150529484393623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d9651ad5dbf%3A0x6762069c31f45f09!2z5ZyL5rOw5Lq65aO95YWs55uK5aSn5qiT!5e0!3m2!1szh-TW!2stw!4v1676512033639!5m2!1szh-TW!2stw"
+          width="450" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <div>
+        <div id="icon">
+          <div>
+            <img id="footerLogo" src="Source/IMG/Logo.png" alt="Logo" style="width: 100px;">
+            <a href=""><img src="Source/IMG/FB.png" alt=""></a>
+            <a href=""><img src="Source/IMG/ig.png" alt=""></a>
+            <a href=""><img src="Source/IMG/mail.png" alt=""></a>
+          </div>
+          <div>
+            <h4>訂購電話</h4>
+            <h6>04-1234567</h6>
+            <h4>營業時間</h4>
+            <h6>週二-週日10:00至19:00 每週一公休</h6>
+            <h4>地址</h4>
+            <h6>台中市南屯區公益路二段(國泰世華大樓18樓)</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <small>Copyright © 2023 MFEE32 第一組. All rights reserved.</small>
+    </div>
+  </section>
+
+  <script src="js/_js/jquery-3.6.0.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="slick-1.8.1/slick/slick.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="js/index.js"></script>
 </body>
+
 </html>

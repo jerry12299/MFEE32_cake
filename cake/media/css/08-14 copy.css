@@ -1,0 +1,1120 @@
+/* -----------------08-14預留的top footer slideshow----------------------- */
+.navtop {
+    width:100vw;
+    height: 100px;
+    background-color: pink;
+}
+
+.slideshow-container {
+    width:100vw;
+    height: 400px;
+    background-color: palevioletred;
+}
+
+.footer {
+    width:100vw;
+    height: 200px;
+    background-color: green;
+}
+
+/* -----------------08.IntroStuffing----------------------- */
+/*設定寬度只要60% 以及置中和圓角*/
+.stuffIngred {
+    background-color: rgb(201, 208, 208);
+    margin-top: 30px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px 15px 15px 15px;
+}
+
+.stuffingtitle{
+    margin-left: 45%;
+}
+
+.stuffingtitle img{
+    width: 20%;
+    height: 20%;
+    
+}
+
+.ingredients{
+    margin-left: 45%;
+}
+.ingredients img{
+    width: 20%;
+    height: 20%;
+}
+
+.cakeboxarea {
+    margin-top: 20px;
+    border-radius: 10px 10px 10px 10px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.cakebox{
+    width: 35%;
+    height: 35%;
+    border-radius: 5px 5px 5px 5px;
+    margin-bottom: 30px;
+    background-color: rgb(135, 135, 135);
+    box-shadow:  rgb(86, 86, 86) 0px 10px 0px 0px;
+}
+
+.cakeboximg {
+    padding: 5px 5px 0px 5px;
+    background-size: contain;
+    
+}
+
+.cakeboximg img {
+    width: 100%;
+    height: auto;
+}
+
+.cakeboxWord
+ {
+    width: 99%;
+    height: 60%;
+    background-color:rgb(240, 231, 181);
+    border-radius: 5px 5px 5px 5px;
+    padding: 2px 2px 2px 2px;
+    font-size: 10px;
+    font-weight: 700;
+    font-family: 微軟正黑體;
+    /* z-index: 1; */
+}
+
+.ingredientsflex ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+/*食材區域*/
+.container{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    flex-wrap: wrap;
+}
+
+
+.container .box{
+    position: relative;
+    width: 270px;
+    height: 270px;
+    overflow: hidden;
+    transition: 0.5s;
+    margin-bottom: 50px;
+    border-radius: 12px 12px 12px 12px;
+}
+
+
+.container .box:hover{
+    transform: scale(1.25);
+    box-shadow: 0 25px 40px rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+/* .container .box .img-box{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+} */
+
+.container .box .img-box::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top,#222,transparent);
+    z-index: 1;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.container .box:hover .img-box::before{
+    opacity: 1;
+}
+
+.container .box .img-box img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container .box .text-box{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: flex-end;
+    color: rgb(255, 255, 255);
+    z-index: 2;
+
+}
+
+
+.container .box .text-box h2{
+    font-size: 10px;
+    margin-bottom: 80px;
+    margin-right: 10px;
+    transform: translate(200px);
+    transition: 0.5s;
+}
+.container .box:hover .text-box h2{
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.container .box .text-box p{
+    font-size: 8px;
+    line-height: 15px;
+    margin-right: 40px;
+    margin-bottom: 50px;
+    transform: translateY(200px);
+    transition: 0.5s;
+}
+
+.container .box:hover .text-box p{
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+/*08.IntroStuffingr 結束*/
+
+
+/* -----------------09.commonQA----------------------- */
+
+button#expand {
+    position: absolute;
+    right: 0;
+}
+
+.qicon img,
+.addicon img {
+    width: 25px;
+}
+
+.qa_area {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    padding: 10px;
+    background-color: rgb(223, 242, 236);
+    border-radius: 20px 20px 20px 20px;
+}
+
+.faq_question {
+    font-weight: bold;
+    color: #474747;
+    cursor: pointer;
+}
+
+
+.faq_question {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/*09.commonQA 結束*/
+
+/* -----------------10.memberLogin---------------------*/
+
+/*會員登入文字置中*/
+.loginWord {
+    font-size: 30px;
+    letter-spacing: 20px;
+    text-align: center;
+}
+
+/*登入位置置中*/
+.memberDatabox {
+    border: 1px rgb(235, 245, 236) solid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    margin-top: 30px;
+    width: 600px;
+    height: 300px;
+    background-color: antiquewhite;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.memberDatamun {
+    margin-top: 30px;
+    width: 600px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 900;
+    margin-left: 100px;
+}
+
+.memberDatapass {
+    width: 550px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 900;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+
+.memberDatamun input,
+.memberDatapass input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+    font-size: 20px;
+    line-height: 1.5;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.aprob {
+    margin-left: 150px;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.loginbutton {
+    margin-top: 10px;
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: 120px;
+}
+
+/*10.memberLogin結束*/
+
+/* -----------------11.memberSignUp---------------------*/
+.signuparea {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    width: 1000px;
+    background-color: antiquewhite;
+}
+
+.member_title {
+    margin-top: 30px;
+    width: 350px;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.emailarea {
+    width: 550px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 900;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.emailarea input {
+    background-color: aquamarine;
+    margin-top: 20px;
+    width: 400px;
+    line-height: 2;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px 10px 10px 10px;
+    border: white 1px solid;
+}
+
+.passwordarea {
+    width: 500px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 900;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.passwordarea input {
+    background-color: aquamarine;
+    margin-top: 20px;
+    width: 400px;
+    line-height: 2;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px 10px 10px 10px;
+    border: white 1px solid;
+}
+
+.password2area {
+    width: 600px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 900;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.password2area input {
+    background-color: aquamarine;
+    margin-top: 20px;
+    width: 400px;
+    line-height: 2;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px 10px 10px 10px;
+    border: white 1px solid;
+}
+
+.passmessege,.emailMessege {
+    margin-left: 300px;
+    font-size: 20px;
+    color: red;
+}
+
+.namearea {
+    width: 500px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 900;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.namearea input {
+    background-color: aquamarine;
+    margin-top: 20px;
+    width: 400px;
+    line-height: 2;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px 10px 10px 10px;
+    border: white 1px solid;
+}
+
+.birthdayarea {
+    width: 500px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 900;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.birthdayarea input {
+    background-color: aquamarine;
+    margin-top: 20px;
+    width: 400px;
+    line-height: 2;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px 10px 10px 10px;
+    border: white 1px solid;
+}
+
+.sexarea {
+    width: 500px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 900;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sexarea input {
+    background-color: rgb(8, 10, 126);
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px 10px 10px 10px;
+    border: white 1px solid;
+}
+
+.phonearea {
+    width: 500px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 900;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.phonearea input {
+    background-color: aquamarine;
+    margin-top: 20px;
+    width: 400px;
+    line-height: 2;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px 10px 10px 10px;
+    border: white 1px solid;
+}
+
+
+.addressarea {
+    width: 600px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 900;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.addressarea input {
+    background-color: aquamarine;
+    margin-top: 20px;
+    width: 400px;
+    height: 100px;
+    line-height: 2;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px 10px 10px 10px;
+    border: white 1px solid;
+}
+
+.onlyyesarea {
+    width: 600px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 900;
+    margin-top: 50px;
+}
+
+.onlyyesarea input {
+    background-color: aquamarine;
+    margin-top: 20px;
+    margin-left: 400px;
+    /* width: 400px; */
+    /* line-height: 1; */
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px 10px 10px 10px;
+    border: rgb(138, 6, 6) 1px solid;
+}
+
+
+.buttonarea {
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.buttonarea input {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-radius: 20px 20px 20px 20px;
+    width: 120px;
+    height: 60px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    border: rgb(234, 227, 22);
+    font-weight: 900;
+}
+
+/*11.memberSignUp結束*/
+
+
+
+/* -----------------12.memberProfilep---------------------*/
+
+.profilnav {
+    margin-top: 30px;
+    width: 1000px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: rgb(127, 127, 137);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profilnav ul {
+    display: flex;
+}
+
+.profilnav li {
+    padding: 10px 10px 10px 10px;
+    margin: 5px 5px 5px 5px;
+    margin-right: 25px;
+    list-style: none;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: white;
+}
+
+.profilnav li:hover {
+    border-bottom: 10px white solid;
+}
+
+.profileparea {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    width: 1000px;
+    background-color: antiquewhite;
+}
+
+.profilnumberarea {
+    width: 550px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 900;
+    margin-left: 205px;
+    margin-right: auto;
+}
+
+.profilnumberarea input {
+    background-color: aquamarine;
+    margin-top: 20px;
+    width: 400px;
+    line-height: 2;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px 10px 10px 10px;
+    border: white 1px solid;
+}
+
+
+.profilemailarea {
+    width: 550px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 900;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profilemailarea input {
+    background-color: aquamarine;
+    margin-top: 20px;
+    width: 400px;
+    line-height: 2;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px 10px 10px 10px;
+    border: white 1px solid;
+}
+
+.profilpasswordarea ,.profiloldpasswordarea{
+    width: 500px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 900;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profilpasswordarea input ,.profiloldpasswordarea input{
+    background-color: aquamarine;
+    margin-top: 20px;
+    width: 400px;
+    line-height: 2;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px 10px 10px 10px;
+    border: white 1px solid;
+}
+
+.profilpassword2area {
+    width: 600px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 900;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profilpassword2area input {
+    background-color: aquamarine;
+    margin-top: 20px;
+    width: 400px;
+    line-height: 2;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px 10px 10px 10px;
+    border: white 1px solid;
+}
+
+.profilpassmessege {
+    margin-left: 300px;
+    font-size: 20px;
+    color: red;
+}
+
+.profilnamearea {
+    width: 500px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 900;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profilnamearea input {
+    background-color: aquamarine;
+    margin-top: 20px;
+    width: 400px;
+    line-height: 2;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px 10px 10px 10px;
+    border: white 1px solid;
+}
+
+.profilbirthdayarea {
+    width: 500px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 900;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profilbirthdayarea input {
+    background-color: aquamarine;
+    margin-top: 20px;
+    width: 400px;
+    line-height: 2;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px 10px 10px 10px;
+    border: white 1px solid;
+}
+
+.profilsexarea {
+    width: 500px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 900;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profilsexarea input {
+    background-color: rgb(8, 10, 126);
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px 10px 10px 10px;
+    border: white 1px solid;
+}
+
+.profilphonearea {
+    width: 500px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 900;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profilphonearea input {
+    background-color: aquamarine;
+    margin-top: 20px;
+    width: 400px;
+    line-height: 2;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px 10px 10px 10px;
+    border: white 1px solid;
+}
+
+
+.profiladdressarea {
+    width: 600px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    font-weight: 900;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.profiladdressarea input {
+    background-color: aquamarine;
+    margin-top: 20px;
+    width: 400px;
+    height: 100px;
+    line-height: 2;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 10px 10px 10px 10px;
+    border: white 1px solid;
+}
+
+
+
+.profilrevise {
+    width: 150px;
+    margin-left: 400px;
+    margin-right: auto;
+
+}
+
+.profilrevise input {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-radius: 20px 20px 20px 20px;
+    width: 200px;
+    height: 60px;
+    font-size: 24px;
+    font-family: 微軟正黑體;
+    border: rgb(234, 227, 22);
+    font-weight: 900;
+    background-color: cadetblue;
+}
+
+/*12.memberProfile*/
+
+
+
+
+/* -----------------13.generalOrderPage---------------------*/
+.generalOrderPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.generalOrder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin: 20px;
+
+    /* background-color: rgb(54, 122, 122); */
+}
+
+.generalOrdernav {
+    width: 100%;
+    min-width: 700px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    background-color: rgb(127, 127, 137);
+}
+.generalOrdernav ul {
+    display: flex;
+}
+
+.generalOrdernav li {
+    padding: 10px;
+    margin: 5px;
+    margin-right: 25px;
+    list-style: none;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: white;
+}
+.generalOrdernav li:hover {
+    border-bottom: 2px white solid;
+}
+.Ordernavbuttom {
+    border-bottom: 2px white solid;
+}
+
+/* * * * * * */
+.generalOrderDataArea{
+    width:100%;
+    min-width: 700px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(203, 190, 215);
+    /* padding: 10px 30px 30px 30px; */
+
+    border-radius: 10px;
+}
+.generalOrderDataArea>table {
+    width:100%;
+    margin: 10px 20px 20px 20px;
+    border-collapse: collapse;
+    /* background-color: blue; */
+    border-radius: 10px;
+    
+}
+
+.generalOrderDataArea>table>tbody::before{
+    content: "";
+    padding: 2px;
+}
+/*訂單 ....*/
+.generaDatanav td{
+    text-align: center;
+    
+    font-size: 20px;
+    
+    font-weight: 900;
+    padding: 10px 5px;
+    border-bottom:2px solid purple ;
+}
+
+.generaDataselect {
+    padding: 2px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    letter-spacing: 2px;
+}
+.showgeneraDatalist>td>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e2c6c6;
+    border-radius: 0 0 15px 15px;
+    padding: 20px;
+}
+
+.generaDatalist>td{
+    text-align: center;
+    padding: 10px 20px;
+    background-color: rgb(133, 155, 155);
+}
+
+.generaDatalist>td:first-child{border-radius: 10px 0 0 10px;}
+.generaDatalist>td:last-child{border-radius:  0 10px 10px 0;}
+
+.generaDatalist button{
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 50px;
+    border-radius: 15px 15px 15px 15px;
+    background-color: rgb(142, 140, 137);
+    color: white;
+}
+
+button.cancelbutton {
+    font-size: 20px;
+    font-weight: 700;
+    height: fit-content;
+    padding: 10px;;
+
+    border-radius: 10px;
+    background-color: rgb(86, 85, 83);
+    color: white;
+}
+
+.hide {
+    display: none;
+}
+
+.Detail{
+    border-collapse: collapse;
+    width: 100%;
+}
+.Detail td{
+    text-align: center;
+    padding: 10px 5px;
+}
+.Detail>thead{
+    border-bottom: 2px solid black;
+}
+.Detail>tbody>tr>td:nth-of-type(1),
+.Detail>tbody>tr>td:nth-of-type(2){
+    padding: 10px 5px 0 5px;
+    /* background-color: aqua;
+    border: 1px solid salmon; */
+}
+
+.Detail tr>td:nth-of-type(4){
+    width: fit-content;
+    text-align: start;
+    /* background-color: aqua; */
+}
+
+/* -----------------14..customOrderPage---------------------*/
+
+.customlOrderPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.customOrder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin: 20px;
+
+    /* background-color: rgb(54, 122, 122); */
+}
+
+.customnavbuttom {
+    border-bottom: 2px white solid;
+}
+
+.customOrdernav {
+    width: 100%;
+    min-width: 700px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    background-color: rgb(127, 127, 137);
+}
+.customOrdernav ul {
+    display: flex;
+}
+
+.customOrdernav li {
+    padding: 10px;
+    margin: 5px;
+    margin-right: 25px;
+    list-style: none;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: white;
+}
+.customOrdernav li:hover {
+    border-bottom: 2px white solid;
+}
+.customvbuttom {
+    border-bottom: 2px white solid;
+}
+
+/* * * * * * */
+.customOrderDataArea{
+    width:100%;
+    min-width: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(203, 190, 215);
+    border-radius: 10px;
+}
+.customOrderDataArea>table {
+    width:100%;
+    margin: 10px 20px 20px 20px;
+    border-collapse: collapse;
+    border-radius: 10px;
+    
+}
+
+.customOrderDataArea>table>tbody::before{
+    content: "";
+    padding: 2px;
+}
+/*訂單欄位*/
+.customDatanav td{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 900;
+    padding: 10px 5px;
+    border-bottom:2px solid purple ;
+}
+/*30.60.90日選單*/
+.customDataselect {
+    padding: 2px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    letter-spacing: 2px;
+}
+
+/*訂單細節*/
+.showcustomDatalist>td>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e2c6c6;
+    border-radius: 0 0 15px 15px;
+    padding: 20px;
+}
+
+.customDatalist>td{
+    text-align: center;
+    padding: 10px 20px;
+    background-color: rgb(133, 155, 155);
+}
+
+.customDatalist>td:first-child{border-radius: 10px 0 0 10px;}
+.customDatalist>td:last-child{border-radius:  0 10px 10px 0;}
+
+.customDatalist button{
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 50px;
+    border-radius: 15px 15px 15px 15px;
+    background-color: rgb(142, 140, 137);
+    color: white;
+}
+
+
+/*取消案件*/
+.customcheckImgbutton{
+    font-size: 20px;
+    font-weight: 700;
+    height: fit-content;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgb(86, 85, 83);
+    border: 5px solid  rgb(86, 85, 83);
+    color: white;
+    margin: 20px 20px 20px 20px;
+}
+
+.customcancelbutton {
+    font-size: 20px;
+    font-weight: 700;
+    height: fit-content;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgb(86, 85, 83);
+    border: 5px solid  rgb(86, 85, 83);
+    color: white;
+}
+
+.hide {
+    display: none;
+}
+
+.customDetail{
+    border-collapse: collapse;
+    width: 100%;
+    /* border: 2px saddlebrown solid; */
+}
+.customDetail td{
+    text-align: center;
+    padding: 10px 5px;
+}
+.customDetail>thead{
+    border-bottom: 2px solid black;
+}
+.customDetail>tbody>tr>td:nth-of-type(1),
+.customDetail>tbody>tr>td:nth-of-type(2){
+    padding: 10px 5px 0 5px;
+    /* background-color: aqua;
+    border: 1px solid salmon; */
+}
+
+.customDetail tr>td:nth-of-type(4){
+    width: fit-content;
+    text-align: start;
+    /* background-color: aqua; */
+}
+
+/*14.customOrderPage結束*/
+
