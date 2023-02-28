@@ -509,7 +509,7 @@ button#expand {
     color: #8C5F37;
 }
 
-.passmessege,.emailMessege {
+.passmessege {
     margin-left: 180px;
     font-size: 20px;
     color: red;
@@ -657,7 +657,7 @@ button#expand {
 
 }
 
-.buttonarea input {
+.buttonareabutton {
     margin-top: 20px;
     margin-bottom: 30px;
     border-radius: 20px 20px 20px 20px;
@@ -670,6 +670,59 @@ button#expand {
     letter-spacing: 3px;
     background-color: #5c3a31;
     color: white;
+}
+
+.showsuccessarea{
+    box-shadow: #222;
+    position: absolute;
+    display:none;
+    width: 400px;
+    height: 150px;
+    background-color: #BB8058;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 900px;
+    left: 560px;
+}
+
+.xbutton{
+    height: 40px;
+    background-color: #5D3931;
+    border-radius: 10px 10px 0px 0px;
+}
+.xbutton button{
+    font-size: 26px;
+    color: #F4D0BB;
+    font-weight: 800;
+    text-align: right;
+    background-color: #5D3931;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: 360px;
+    border: none;
+}
+
+
+
+.showsuccessword h2{
+    font-size: 50px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin-left: 95px;
+    margin-bottom: 0;
+    margin-top: 8px;
+    
+}
+
+.showsuccessword p{
+    display: block;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 900;
+    margin-left: 120px;
+    letter-spacing: 3px;
+    margin-top: 0;
 }
 
 /*11.memberSignUp結束*/
