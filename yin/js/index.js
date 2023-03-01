@@ -192,3 +192,7 @@ window.addEventListener('wheel', function(e) {
   
   parallax.style.transform = `translateY(${scrollPos}px)`;
 });
+
+const width = window.innerWidth;
+const height = window.innerHeight;
+console.log(`目前網頁視窗寬度為：${width}px，高度為：${height}px`);

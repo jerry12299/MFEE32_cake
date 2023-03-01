@@ -128,6 +128,9 @@ body {
     background-image: url(../Source/IMG/Key-Vision/T.png);
 }
 
+#parallax-6 {
+    background-image: url(../Source/IMG/Key-Vision/train_ex.png);
+}
 /* ---------------------nav----------------------- */
 nav {
     --bg: #D0EBF6;
@@ -145,7 +148,9 @@ nav {
     z-index: 50;
 }
 
-
+nav>div>img{
+    width: 20%;
+}
 
 nav span {
     margin-left: 10px;
@@ -226,6 +231,7 @@ section {
     width: 85%;
     height: 200px;
     display: flex;
+    color: var(--Brown01);
 }
 
 /* -------------parallax----------------- */
@@ -291,7 +297,7 @@ section {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color:var(--GWhite);
+    color:var(--Brown01);
 }
 
 #about_T>img {
@@ -340,7 +346,7 @@ section {
     justify-content: center;
     width: 85vw;
     margin: 20px;
-    color: var(--GWhite);
+    color: var(--Brown01);
 }
 
 #hcake>div{
@@ -365,15 +371,14 @@ section {
 /* -------------------------------------------- */
 #Contact{
 position: relative;
-width: 100%;
+width: 100vw;
 min-width: 1440px;
 height: 700px;
-
 background-image: url(../Source/IMG/Key-Vision/middle_long.png);
 background-position: top;
-background-size: 60%;
+background-size: 70%;
 background-repeat:repeat-x ;
-z-index: 3;
+z-index: 10;
 color: var(--YWhite);
 }
 
