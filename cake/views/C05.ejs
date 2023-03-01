@@ -61,12 +61,15 @@
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify(JSONData),
                 success: function (res) {
-                    // alert(res);
+                   
                     // console.log(res)
                     if (parseInt(res)) {
                         location.href = '/C05_2/1';
-                    } else {
+                    }else if(parseInt(res)===0){
                         location.href = '/';
+                    }else{
+                        alert("登入錯誤!")
+                       
                     }
 
                 },

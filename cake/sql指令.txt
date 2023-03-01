@@ -104,3 +104,6 @@ WHERE buy_order.m_id = member.m_id and buy_order.o_id = b.o_id and buy_order.o_i
 //--------
 SELECT cust_id,customized.m_id,m_name,cust_upload_date,cust_form,cust_state,picture,connection,email,phone,address FROM customized,member WHERE customized.m_id = member.m_id
 //---------
+日期區間
+SELECT * FROM `buy_order` WHERE co_upload_date >= '2023-02-01' and co_upload_date <= '2023-03-01'
+//--------

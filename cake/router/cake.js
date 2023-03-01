@@ -85,6 +85,7 @@ index.post('/C05', function (req, res) {
     // console.log(password)
     var data = [req.body.account, password] //2個?
     db.exec(sql, data, function (results, fields) {
+        console.log(results[0])
         if (results[0]) { //結果成立
             req.session.user = {    //紀錄session.user
 
