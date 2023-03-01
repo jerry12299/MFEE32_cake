@@ -47,6 +47,9 @@
                     </div>
                     <p1><a href="/manage">會員資料</a></p1>
                 </div>
+                <form action="/logout">
+                    <input type="submit" value="登出">
+                </form>
             </div>
         </div>
     </div>
@@ -184,7 +187,7 @@
                                                                     <tr>
                                                                         <td>付款方式</td>
                                                                         <td>
-                                                                            <%= item.cust_pay %>
+                                                                            <%= item.cust_pay %> &nbsp▶
                                                                                 <select name="cust_pay">
                                                                                     <option selected="selected">請選擇
                                                                                     </option>
@@ -198,7 +201,7 @@
                                                                     <tr>
                                                                         <td>取貨方式</td>
                                                                         <td>
-                                                                            <%= item.cust_pick %>
+                                                                            <%= item.cust_pick %> &nbsp▶
                                                                                 <select name="cust_pick">
                                                                                     <option selected="selected">請選擇
                                                                                     </option>
@@ -256,7 +259,7 @@
                                                                 </select>
                                                                 </form>
                                                             </diV>
-                                                            <diV><button
+                                                            <diV><button class="BE_btn"
                                                                     onclick="doUpdate(<%= item.cust_id %>)">更新詳情</button>
                                                             </diV>
                                                         

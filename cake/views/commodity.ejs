@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/main_ginnychen19.css">
     <link rel="stylesheet" href="css/BEndOrder.css">
     <link rel="stylesheet" href="css/customer.css">
+    <link rel="stylesheet" href="css/addCakePic.css">
  
 
     <title>commodity</title>
@@ -45,6 +46,9 @@
                     </div>
                     <p1><a href="/manage">會員資料</a></p1>
                 </div>
+                <form action="/logout">
+                    <input type="submit" value="登出">
+                </form>
             </div>
         </div>
     </div>
@@ -129,7 +133,7 @@
                                                 <td>介紹圖片:</td>
                                                 <td>
                                                     <input type="file" name="img" id="img<%= item.c_id %>0" accept="image/*" >
-                                                    <input type="button" class="btn_red" onclick="doUpImg('<%= item.c_id %>',0)"  value="上傳圖片">
+                                                    <input type="button"  onclick="doUpImg('<%= item.c_id %>',0)"  value="上傳圖片">
                                                 </td>
                                             </tr>
                                                 <tr>
@@ -137,7 +141,7 @@
                                                     <td>
                                                         <input type="file" name="img" id="img<%= item.c_id %>1"
                                                             accept="image/*">
-                                                        <input type="button" class="btn_red"
+                                                        <input type="button" 
                                                             onclick="doUpImg('<%= item.c_id %>',1)" value="上傳圖片">
                                                     </td>
                                                 </tr>
@@ -145,7 +149,7 @@
                                                     <td>詳細縮圖01：</td>
                                                     <td><input type="file" name="img" id="img<%= item.c_id %>2"
                                                             accept="image/*">
-                                                        <input type="button" class="btn_red"
+                                                        <input type="button" 
                                                             onclick="doUpImg('<%= item.c_id %>',2)" value="上傳圖片">
                                                     </td>
                                                 </tr>
@@ -153,7 +157,7 @@
                                                     <td>詳細縮圖02：</td>
                                                     <td><input type="file" name="img" id="img<%= item.c_id %>3"
                                                             accept="image/*">
-                                                        <input type="button" class="btn_red"
+                                                        <input type="button" 
                                                             onclick="doUpImg('<%= item.c_id %>',3)" value="上傳圖片">
                                                     </td>
                                                 </tr>
@@ -161,7 +165,7 @@
                                                     <td>詳細縮圖03：</td>
                                                     <td><input type="file" name="img" id="img<%= item.c_id %>4"
                                                             accept="image/*">
-                                                        <input type="button" class="btn_red"
+                                                        <input type="button" 
                                                             onclick="doUpImg('<%= item.c_id %>',4)" value="上傳圖片">
                                                     </td>
                                                 </tr>
@@ -169,7 +173,7 @@
                                                     <td>詳細縮圖04：</td>
                                                     <td><input type="file" name="img" id="img<%= item.c_id %>5"
                                                             accept="image/*">
-                                                        <input type="button" class="btn_red"
+                                                        <input type="button"
                                                             onclick="doUpImg('<%= item.c_id %>',5)" value="上傳圖片">
                                                     </td>
                                                 </tr>

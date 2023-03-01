@@ -11,7 +11,11 @@ class findCurrent {
             //console.log(index, element); console.log($(element).text());
             if ($(element).text() == now.text()) {
                 $(element).css({
-                    backgroundColor: "red",
+                    backgroundColor: "var(--Brown04_BE)",
+                    color:"var(--YWhite)",
+                    padding:"5px 6px 5px 10px",
+                    margin: "0 0 10px 0",
+                    borderRadius: "5px"
                 });
             }
         });

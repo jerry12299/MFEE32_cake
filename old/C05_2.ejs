@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/main_ginnychen19.css">
     <link rel="stylesheet" href="../css/BEndOrder.css">
     <!-- <script src="https://code.jquery.com/jquery-3.6.3.js"></script> -->
     <script src="../js/jquery-3.6.0.js"></script>
@@ -13,8 +13,46 @@
 
 <body>
     <div id="BEndleft">
-        <div class="BEndnav">我是nav</div>
+        <div class="BEndnav">
+            <div>
+                <img src="../Source/SVG/Weed.svg">
+                <h6>後臺管理系統</h6>
+                <p>使用者：abuser</p>
+            </div>
+            <div>
+                <div>
+                    <div>
+                        <img src="../Source/SVG/Weed.svg">
+                        <h6>商品管理</h6>
+                    </div>
+                    <p1><a href="/commodity">商品列表</a></p1>
+                    <p1><a href="/additem">新增商品</a></p1>
+                </div>
+                <div>
+                    <div>
+                        <img src="../Source/SVG/Weed.svg">
+                        <h6>訂單管理</h6>
+                    </div>
+                    <p1><a href="/C05_2/1">一般訂單</a></p1>
+                    <p1><a href="/C05_3/1">客製訂單</a></p1>
+                </div>
+                <div>
+                    <div>
+                        <img src="../Source/SVG/Weed.svg">
+                        <h6>會員相關</h6>
+                    </div>
+                    <p1><a href="/manage">會員資料</a></p1>
+                </div>
+                <form action="/logout">
+                    <input type="submit" value="登出">
+                </form>
+            </div>
+        </div>
+        
     </div>
+
+
+
     <div id="BEndright">
         <div id="PMcakeOrder">
             <div>
@@ -60,6 +98,7 @@
                                 <option value="5">已取消</option>
                             </select>
                         </td>
+                        
                     </tr>
                 </thead>
                 <% data.forEach((item ,index) => { %>
@@ -137,7 +176,7 @@
                                         </tr>
                                         <tr>
                                             <td>取貨方式</td>
-                                            <td><%= item.pickup_method%></td>
+                                            <td><%= item.pickup_method%><br>地址:<%= item.rec_address%></td>
                                         </tr>
                                         <tr>
                                             <td>取貨時間</td>
@@ -147,31 +186,35 @@
                                     <table class="contactRight">
                                         <tr>
                                             <td>
-                                                <select>
-                                                    <option selected="selected">訂單狀態</option>
-                                                    <option value="1">未製作</option>
-                                                    <option value="2">已製作</option>
-                                                    <option value="3">申請取消</option>
-                                                    <option value="4">已取消</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <select>
-                                                    <option selected="selected">付款狀態</option>
-                                                    <option value="1">未付款</option>
-                                                    <option value="2">已付款</option>
-                                                    <option value="3">已退款</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <select>
-                                                    <option selected="selected">出貨狀態</option>
-                                                    <option value="1">未配送</option>
-                                                    <option value="2">已配送</option>
-                                                    <option value="3">未取貨</option>
-                                                    <option value="4">已取貨</option>
-                                                    <option value="5">已取消</option>
-                                                </select>
+                                                <div>
+                                                    <select onchange= 'doChange("co_state",this.value,<%= item.o_id %>)' name="???????">
+                                                        <option selected="selected">訂單狀態</option>
+                                                        <option value="未製作">未製作</option>
+                                                        <option value="已製作">已製作</option>
+                                                        <option value="申請取消">申請取消</option>
+                                                        <option value="已取消">已取消</option>
+                                                    </select>
+                                                
+                                                    <select onchange= 'doChange("pay_state",this.value,<%= item.o_id %>)' name="???????">
+                                                        <option  selected="selected">付款狀態</option>
+                                                        <option value="未付款">未付款</option>
+                                                        <option value="已付款">已付款</option>
+                                                        <option value="已退款">已退款</option>
+                                                    </select>
+                                            
+                                                    <select onchange= 'doChange("shipping",this.value,<%= item.o_id %>)' name="???????">
+                                                        <option selected="selected">出貨狀態</option>
+                                                        <option value="未配送">未配送</option>
+                                                        <option value="已配送">已配送</option>
+                                                        <option value="未取貨">未取貨</option>
+                                                        <option value="已取貨">已取貨</option>
+                                                        <option value="已取貨">已取消</option>
+                                                    </select>
+                                                    
+                                                   
+                                                </div>
+                                            
+                                            
                                             </td>
                                             <!-- <td>
                                                 
@@ -182,7 +225,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <div>訂單備註
+                                                <div>訂單與取貨備註
                                                     <div><%= item.remark%></div>
                                                 </div>
                                             </td>
@@ -226,7 +269,52 @@
         </div>
     </div>
     <script src="../js/BEndOrder.js"></script>
+    <script src="../js/findNav.js"></script>
     <script>
+        function doChange(str,val,id){
+            var JSONData = {
+                dbName:str,          //要改的欄位
+                value:val,           //要改的內容
+                o_id:id              //要改的編號
+            }
+
+            $.ajax({
+                 url: "/change",
+                 type: "POST", 
+                 contentType: "application/json; charset=utf-8",
+                 data: JSON.stringify(JSONData),
+                 success: function(res) {
+                    //  alert("ok");
+                    //  location = '/C05_2/1'
+                    doAjax ();
+                    
+                 
+                 },
+                 error: function() {
+                     alert("系統錯誤!")
+                 }
+             }) 
+        }
+
+        // function doAjax (){
+        //     $.ajax({
+        //          url: "/C05_2/1",
+        //          type: "GET", 
+        //          contentType: "application/json; charset=utf-8",
+        //          data: "",
+        //          success: function(res) {
+        //              alert("ok");
+        //              location = '/C05_2/1'
+                    
+                 
+        //          },
+        //          error: function() {
+        //              alert("系統錯誤!")
+        //          }
+        //      }) 
+        // }
+
+          
         
     </script>
 

@@ -1,4 +1,3 @@
-@import url("https://www.w3schools.com/w3css/4/w3.css");
 @import "main_ginnychen19.css";
 
 body{
@@ -61,6 +60,9 @@ body{
 .mainPic {
     border-radius: 15px;
     width: 250px;
+    height: 250px;
+
+    background-color: var(--Brown04_BE);
 }
 
 figcaption {
@@ -70,6 +72,8 @@ figcaption {
 .smallPic {
     border-radius: 8px;
     width: 55px;
+    height: 55px;
+    background-color: var(--Brown04_BE);
 }
 .cakePic+div{
     display: flex;
@@ -122,7 +126,7 @@ figcaption {
 }
 
 #buy{
-    border: none;
+    border: 2px solid transparent;
     border-radius:10px;
     padding: 5px 10px;
 
@@ -132,7 +136,11 @@ figcaption {
     background-color: var(--Brown01);
     letter-spacing:2px;
 }
-
+#buy:hover{
+    border: 2px solid var(--Brown01);
+    color: var(--Brown01);
+    background-color: var(--YWhite);
+}
 .selectSize>p{
     display: inline-block;
 }

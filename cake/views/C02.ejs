@@ -8,8 +8,9 @@
     <title>客製蛋糕頁</title>
     <script src="js/jquery-3.6.0.js"></script>
     <link rel="stylesheet" href="css/main_ginnychen19.css">
+    <link rel="stylesheet" href="css/gameCanvas.css">
     <link rel="stylesheet" href="css/CustomizationCake.css">
-    
+
 </head>
 
 <body>
@@ -18,27 +19,47 @@
     </nav>
 
     <dialog class="showCZcakeDetail">
-        <img class ="animate-zoom" src="">
-        <img class ="animate-zoom" src="">
+        <img class="animate-zoom" src="">
+        <img class="animate-zoom" src="">
     </dialog>
     <div id="workShow">
         <!-- <p>作品展示</p> 可考慮連後端-->
-        <ul class="CZcake">
-            <li class="item_CZcake">
-                <img src="Source/IMG/cake_items/cake001.jpg" alt="商品名稱01">
-            </li>
-            <li class="item_CZcake">
-                <img src="Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱02">
-            </li>
-            <li class="item_CZcake">
-                <img src="Source/IMG/cake_items/cake001.jpg" alt="商品名稱03">
-            </li>
-            <li class="item_CZcake">
-                <img src="Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱04">
-            </li>
-        </ul>
+        <div>
+            <ul class="CZcake">
+                <li class="item_CZcake">
+                    <img src="Source/IMG/cake_items/cake001.jpg" alt="商品名稱01">
+                </li>
+                <li class="item_CZcake">
+                    <img src="Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱02">
+                </li>
+                <li class="item_CZcake">
+                    <img src="Source/IMG/cake_items/cake001.jpg" alt="商品名稱03">
+                </li>
+                <li class="item_CZcake">
+                    <img src="Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱04">
+                </li>
+                <li class="item_CZcake">
+                    <img src="Source/IMG/cake_items/cake001.jpg" alt="商品名稱05">
+                </li>
+                <li class="item_CZcake">
+                    <img src="Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱06">
+                </li>
+                <li class="item_CZcake">
+                    <img src="Source/IMG/cake_items/cake001.jpg" alt="商品名稱07">
+                </li>
+                <li class="item_CZcake">
+                    <img src="Source/IMG/mimisbakehouse-website-8-web.jpg" alt="商品名稱08">
+                </li>
+            </ul>
+        </div>
         <div class="bg">
             <cake></cake>
+            <div class="clouds">
+                <div class="cloud_01"></div>
+                <div class="cloud_02"></div>
+                <div class="cloud_03"></div>
+                <div class="cloud_04"></div>
+            </div>
         </div>
     </div>
 
@@ -46,57 +67,146 @@
 
     <div id="CZ_introduce">
         <div class="Feature_ITD">
-            <h4>文字介紹</h4>
-            <h6>沒有我覺把他不是有個應該會，
-                的動作一開始大控制，可以，
-                真的很回家了⋯不然說大量好
-                五条知道為，以後就代之前我是
-                直接他就。之類的但我好笑攤星
-                如果，</h6>
+            <h4>具現化您獨一無二的回憶吧！</h4>
+            <p>
+                手繪蛋糕是一種特別的客製化蛋糕，能夠將您的回憶或創意化為繪畫，呈現在蛋糕上。<br>
+                我們的手繪蛋糕是由專業師傅手工製作，每個細節都經過精心設計和精確繪製，確保您獲得最完美的蛋糕。<br>
+                <br>
+                我們接受客人提供的照片、圖像、動物照片等等~<br>
+                我們的手繪蛋糕不僅美味，而且能夠呈現出您的個性和風格，是一個非常有意義和珍貴的禮物。<br>
+                <br>
+                讓我們一起為您打造一個獨一無二的手繪蛋糕，讓您的特別時刻更加精彩難忘吧！</p>
         </div>
         <div class="process_ITD">
-            <h2>訂購流程</h2>
-            <div class="stap">
-                <div>步驟01</div>
-                <div>步驟02</div>
-                <div>步驟03</div>
-                <div>步驟04</div>
-                <div>步驟05</div>
+            <h6>訂購流程</h6>
+            <div class="staps">
+                <div class="stap"><p>填寫以下客製化表單</p></div>▶
+                <div class="stap"><p>3日內專人將與您聯絡</p></div>▶
+                <div class="stap"><p>確認蛋糕細節與報價</p></div>▶
+                <div class="stap"><p>確認匯款後開始製作</p></div>▶
+                <div class="stap"><p>完成訂購</p></div>
             </div>
         </div>
-        <% if(!session.user){  %>
+        <% if(!session.user){ %>
             <!-- <div><a href="/C05">請先登入</a>
                 </div> -->
-       
-        <div class="IsLogin">
-            <h2><a href="/C05">請先登入</a></h2>
-        </div>
-    </div> 
+
+            <div class="IsLogin">
+                <h6><a href="/C05">登入以開始填表單！</a></h6>
+            </div>
+    </div>
     <% }else{ %>
         <div class="IsLogin">
-            <h2>歡迎客製</h2>
+            <h6>歡迎客製</h6>
         </div>
-    </div> 
-    <div class="IsLoginThen">
-        <form>
-            摺疊區塊
-            <input type="text"><br>
-            <input type="text"><br>
-            <input type="text"><br>
-        </form>
-        <game>
-            <div>
-                遊戲內容
-            </div>
-        </game>
-    </div>
-    <% }%>
+        </div>
+        <div class="IsLoginThen">
+            <form class="CZcakeform" action="" method="">
+                <div>
+                    <label>訂購人姓名：</label>
+                    <input type="text" value="">
+                </div>
+                <div>
+                    <label>聯絡電話：</label>
+                    <input type="text" value="">
+                </div>
+                <div>
+                    <label>取貨日期：</label>
+                    <input type="date" value="2023-03-14">
+                </div>
+                <div>
+                    <label>希望聯絡方式：</label>
+                    <select name="???????">
+                        <option>請選擇聯絡方式</option>
+                        <option value="1" selected="selected">E-mail</option>
+                        <option value="2">手機</option>
+                        <option value="3">Line</option>
+                    </select>
+                </div>
+                <div>
+                    <label>蛋糕尺寸：</label>
+                    <select name="???????">
+                        <option>請選擇聯絡方式</option>
+                        <option value="1" selected="selected">6吋</option>
+                        <option value="2">8吋</option>
+                        <option value="3">10吋</option>
+                    </select>
+                </div>
+                <div class="type02">
+                    <p>若您選擇雙層或高蛋糕請選擇2口味, 三層選擇3種, 單層標準蛋糕選擇一種就好喔！</p>
+                    <section>
+                        <label>蛋糕口味：</label>
+                        <div>
+                            <label><input type="checkbox" id="flavor_01" name="">&nbsp; 巧克力巴瑞脆片(4吋+$50,6吋+$100,8吋+$200)</label>
+                            <label><input type="checkbox" id="flavor_02" name="">&nbsp; 草莓覆盆子(4吋+$50,6吋+$100,8吋+$200)</label>
+                            <label><input type="checkbox" id="flavor_03" name="">&nbsp; 檸檬藍莓</label>
+                            <label><input type="checkbox" id="flavor_04" name="">&nbsp; 焦糖香蕉</label>
+                        </div>
+                    </section>
+                </div>
+                <div>
+                    <label>蛋糕外觀顏色：</label>
+                    <select id="cakeColor">
+                        <option value="cake_White">白色</option>
+                        <option value="cake_cream">米色</option>
+                        <option value="cake_coffee">咖啡色</option>
+                        <option value="cake_Black">黑色</option>
+                        <option value="cake_Red">紅色</option>
+                        <option value="cake_Orange">橙色</option>
+                        <option value="cake_Yellow">黃色</option>
+                        <option value="cake_Green">綠色</option>
+                        <option value="cake_Blue">藍色</option>
+                        <option value="cake_Indigo">靛色</option>
+                        <option value="cake_Purple">紫色</option>
+                    </select>
+                </div>
+                <div>
+                    <label>是否需要配件：</label>
+                    <div>
+                        <label>生日快樂英文插旗($0)<input type="number" min="0" value="1"></label>
+                        <label>氣球($150)<input type="number" min="0" value="1"></label>
+                        <label>生日小皇冠($150)<input type="number" min="0" value="0"></label>
+                        <label>壽字插旗($50)<input type="number" min="0" value="0"></label>
+                        <label>生日派對掛旗($250)<input type="number" min="0" value="0"></label>
+                    </div>
+                </div>
+                <div class="type02">
+                    <p>若有多張參考圖，請整合成單張上傳</p>
+                    <p>找不到心儀參考圖嗎？也歡迎直接繪製表達，在上傳到這邊喔！</p>
+                    <section>
+                        <label>繪製內容參考：</label>
+                        <input type="file">
+                    </section>
+                </div>
+                <div>
+                    <label>備註：</label>
+                    <textarea placeholder="可以用文字大致填寫一下喜歡的風格、圖案、參考圖說明或其他補充等等"></textarea>
+                </div>
+                <input type="submit" value="確認送出">
+            </form>
+            <game>
+                <div>找不到心儀參考圖嗎？也歡迎嘗試用繪製表達喔！</div>
+                <div>
+                    <canvas width="600" height="600"></canvas>
+                </div>
+                <div>
+                    <button id="">橡皮擦</button>
+                    <button id="">上一步</button>
+                    <button id="">清空</button>
+                    <a id="save" href="#" download="aShareaDay.png" class=""><button>我要保存</button></a>
+                </div>
+            </game>
+        </div>
+        <% }%>
 
-    <footer>
-        <p></p>
-    </footer>
 
-    <script src="js/CustomizationCake.js"></script>
+
+            <footer>
+                <p></p>
+            </footer>
+
+            <script src="js/CustomizationCake.js"></script>
+            <script src="js/drawcake.js"></script>
 
 </body>
 

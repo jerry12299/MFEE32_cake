@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="css/main_ginnychen19.css">
+    <link rel="stylesheet" href="css/BEndOrder.css">
+    <title>commodity</title>
+    <link rel="stylesheet" href="css/customer.css">
+</head>
+
+<body>
+    <div id="BEndleft">
+        <div class="BEndnav">
+            <div>
+                <img src="Source/SVG/Weed.svg">
+                <h6>後臺管理系統</h6>
+                <p>使用者：abuser</p>
+            </div>
+            <div>
+                <div>
+                    <div>
+                        <img src="Source/SVG/Weed.svg">
+                        <h6>商品管理</h6>
+                    </div>
+                    <p1><a href="/commodity">商品列表</a></p1>
+                    <p1><a href="/additem">新增商品</a></p1>
+                </div>
+                <div>
+                    <div>
+                        <img src="Source/SVG/Weed.svg">
+                        <h6>訂單管理</h6>
+                    </div>
+                    <p1><a href="/C05_2/1">一般訂單</a></p1>
+                    <p1><a href="/C05_3/1">客製訂單</a></p1>
+                </div>
+                <div>
+                    <div>
+                        <img src="Source/SVG/Weed.svg">
+                        <h6>會員相關</h6>
+                    </div>
+                    <p1><a href="/manage">會員資料</a></p1>
+                </div>
+                <form action="/logout">
+                    <input type="submit" value="登出">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="BEndright">
+        <div id="PMcakeOrder">
+            <div>
+                <h6>新增商品</h6>
+                <div class="search-container">
+                    <input type="button" class="search-icon"></input>
+                    <input type="text" class="search-input" placeholder="Search...">
+                </div>
+            </div>
+            <table class="Order">
+                <thead>
+                    <tr>
+                        <td id="title">
+                            開始新增商品
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr class="list">
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>
+                            <button>修改</button>
+                        </td>
+                    </tr> -->
+                    <tr class="detail">
+                        <td colspan="8">
+                            <div class="customer">
+                                <form id='newCake' enctype="multipart/form-data">
+                                    <div>
+                                        <table>
+                                            <tr>
+                                                <td>蛋糕ID：</td>
+                                                <td>
+                                                    <input type="text" name="c_id" id="c_id" onchange="doChange()">
+                                                    <span id="newId"></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>蛋糕名稱：</td>
+                                                <td><input type="text" name="c_name" required></td>
+                                            </tr>
+                                            <tr>
+                                                <td>價格：</td>
+                                                <td><input type="number" name="price" required></td>
+                                            </tr>
+                                        </table>
+                                        <table>
+
+                                            <tr>
+                                                <td>文案：</td>
+                                                <td>
+                                                    <textarea cols="40" rows="2" name="illustrate" id=""
+                                                        required></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>圖片：</td>
+                                                <td>
+                                                    <input type="text" name="img_name" id="img" style="width:20em;"
+                                                        readonly>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>類別：</td>
+                                                <td>
+                                                    <input type="text" name="c_class" >
+                                                        
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div>
+                                        <input type="file" name="img" id="imgFile" accept="image/*">
+                                        <input type="button" onclick="doUpImg()" class="btn_red" value="上傳圖片">
+                                        <input type="button" onclick="doUpdata()" value="新增資料">
+                                    </div>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <!-- <script src="js/BEndOrder.js"></script> -->
+    <script src="js/findNav.js"></script>
+    <script>
+        function doChange() {
+            var cakeId = {c_id:$('#c_id').val()}
+            $.ajax({
+                url: "/cakeId", //cake.js 的註冊頁 
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(cakeId),
+                success: function (res) {
+                    console.log(res);
+                    // alert(res)
+                    if(parseInt(res)){
+                        $('#newId').text('OK')
+                    }else{
+                        $('#newId').text('ID重複')
+                    }
+                },
+                error: function () {
+                    alert("Add 系統錯誤!");
+
+                }
+            })
+        }
+
+
+
+        function doUpdata() {
+            var data = $('#newCake').serializeArray();
+
+            var JSONData = {};
+            for (index in data) {
+                JSONData[data[index].name] = data[index].value;
+            }
+
+            console.log(JSONData)
+            $.ajax({
+                url: "/additem",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(JSONData),
+                success: function (res) {
+                    alert(res);
+                    // location.href = '/';
+                    $('#title').text('新增成功!')
+                },
+                error: function () {
+                    alert("login 系統錯誤!")
+                }
+            })
+        }
+
+        function doUpImg() {
+            let file = $('#imgFile')[0].files[0];
+            console.log(file)
+            let formData = new FormData();
+            formData.append("img", file);
+            $.ajax({
+                url: "/upimg",
+                type: "POST",
+                // contentType: "application/json; charset=utf-8",
+                contentType: false,
+                processData: false,
+                // data: JSON.stringify(JSONData),
+                data: formData,
+                success: function (res) {
+                    alert(res);
+                    $('#img').val(res);
+                    //  location.href = '/';
+                },
+                error: function () {
+                    alert("login 系統錯誤!")
+                }
+            })
+
+        }
+    </script>
+</body>
+
+</html>
