@@ -32,10 +32,11 @@
                 <a href="/C05_1">還不是會員嗎?</a>
             </div>
             <div class="loginbutton">
-                <button id="submit" class="loginbutton">登入</button>
+                <!-- <button id="submit" class="loginbutton" >登入</button> -->
+                <input id="submit" class="loginbutton" value="登入" type="button">
             </div>
         </form>
-    
+            
         <!-- 預留固定footer的位置 -->
         <div class="footer"></div>
 
@@ -55,8 +56,14 @@
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify(JSONData),
                 success: function(res) {
-                    alert(res);
-                    location.href = '/';
+                    // alert(res);
+                    // console.log(res)
+                    if(parseInt(res)){
+                        location.href = '/C05_2/1';
+                    }else{
+                        location.href = '/';
+                    }
+                    
                 },
                 error: function() {
                     alert("login 系統錯誤!")

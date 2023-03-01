@@ -1,6 +1,7 @@
-@import url("https://www.w3schools.com/w3css/4/w3.css");
 @import "main_ginnychen19.css";
-
+/* *{
+    border: 1px solid rebeccapurple;
+} */
 nav {
     position: fixed;
     width: 100%;
@@ -8,19 +9,28 @@ nav {
 
     display: flex;
     flex-direction: column;
-    z-index: 1;
+    z-index: 4;
 
     /* 水平置中 */
     justify-content: center;
     /* 垂直置中 */
     align-items: center;
-    opacity: 100%;
 
     padding: 10px 20px;
     transition: 1.0 ease;
 
-    background-color: var(--color02); 
+    background-color: hsla(0, 0%, 100%, 0.5); 
 }
+
+
+
+
+
+
+
+
+
+
 
 .BEndnav {
     position: fixed;
@@ -43,13 +53,6 @@ nav {
 
     background-color: var(--Brown02); 
 }
-
-
-
-
-
-
-
 .BEndnav>div:first-child{
  /* background-color: aqua; */
     display: flex;
@@ -94,10 +97,7 @@ p1{
     font-size: 24px;
     color: var(--Brown04_BE);
     letter-spacing: 5px;
-    margin: 0;
 }
-<<<<<<< Updated upstream
-=======
 .addline{
     display: block;
     width: 72%;
@@ -108,7 +108,6 @@ p1{
     transition: transform 250ms ease-in-out;
 }
 
->>>>>>> Stashed changes
 .BEndnav>div:last-child>div>div{
     display: flex;
     justify-content: center;
@@ -119,4 +118,25 @@ p1{
 .BEndnav>div:last-child>div>div>img{
     height: 30px;
     margin: 0 10px 0 0;
+}
+
+
+/*按鈕處理*/
+input[value="登出"]{
+    padding: 3px 10px;
+    margin: 30px 0 0 0 ;
+    background-color: var(--Brown04_BE);
+
+    color: var(--YWhite);
+    font-family: "GenJyuuGothic-B";
+    font-size: var(--pSTitle);
+
+    border-radius: 5px;
+    border: 2px solid transparent;
+}
+input[value="登出"]:hover{
+    box-sizing:border-box;
+    border:2px solid var(--Brown04_BE) ;
+    background-color: var(--YWhite);
+    color: var(--Brown04_BE);
 }

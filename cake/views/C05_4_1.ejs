@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/password.js"></script>
     <link rel="stylesheet" href="css/08-14.css">
+    <!-- <link rel="stylesheet" href="css/main_ginnychen19.css"> -->
+    <!-- <link rel="stylesheet" href="css/BEndOrder.css"> -->
     <title>菓季會員修改</title>
 </head>
 
@@ -16,7 +19,7 @@
      <!-- 預留固定輪播的位置 -->
      <div class="slideshow-container"></div>
  
-     <div class="profilnav">
+     <div class="profilnav ">
          <ul>
              <a href="/C05_4_1"><li>會員資訊</li></a>
              <a href="/C05_4/1"><li>我的訂單</li></a>
@@ -36,10 +39,10 @@
              <label for="">EMAIL</label>
              <input type="email" id="mail" value=<%= data.email %> readonly placeholder="Email為帳號" required>
          </div>
-         <div class="profilpasswordarea">
+         <!-- <div class="profilpasswordarea">
              <label for="">舊密碼</label>
              <input id="oldpwd" type="password" name="oldpwd"  required>
-         </div>
+         </div> -->
          <div class="profilpasswordarea">
              <label for="">新密碼</label>
              <input type="password" id="pwd" name="pwd"  required>
@@ -71,7 +74,8 @@
              <input type="text" name="address" value=<%= data.address %> required>
          </div>
          <div class="profilrevise">
-             <button id="updata" >我要修改</button>
+             <!-- <button id="updata" >我要修改</button> -->
+             <input type="button" id="updata" value="我要修改">
          </div>
      </form>
  
@@ -127,8 +131,8 @@ $('#updata').on('click', function() {
             var data = $('#member').serializeArray();
          
             // console.log(file)
-            if( $('#oldpwd').val() == <%= data.pwd %> && $('#pwd').val() != '' ){
-
+            
+           
            var JSONData = {m_id: <%= session.user.m_id %> }; //注意!!! 需先登入!!!!不然報錯!!!!!!
                   
             for (index in data) {
@@ -153,9 +157,7 @@ $('#updata').on('click', function() {
 
 
 
-            }else{
-                alert('錯誤')
-            }
+            
           
             
             

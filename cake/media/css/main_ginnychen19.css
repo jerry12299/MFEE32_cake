@@ -1,5 +1,4 @@
 @import url("https://www.w3schools.com/w3css/4/w3.css");
-/* @import "LoadingAni.css"; */
 @import "nav_ginnychen19.css";
 
 
@@ -26,8 +25,6 @@
     --color05:#727171;
     --color06:#525152;
 
-<<<<<<< Updated upstream
-=======
     --sky:#a6dbf5;
 
     --Green01:#368284;
@@ -35,7 +32,7 @@
     --Green03:#A3CF78;
     --Green04:#87c379;
    
-    --YWhite:#F6F3E4;
+    --YWhite:#f6f3e4;
     --GWhite:#F7F8F3;
     
     --BG_LYellow:#f0da99;
@@ -53,7 +50,6 @@
     --BTN_Green:#337e47;
     --BTN_Yellow:#f39800;
     
->>>>>>> Stashed changes
     --pLabel: 80px;
     --pBTitle: 58px;
     --pMTitle: 40px;
@@ -64,7 +60,7 @@
 
 body{
     display:flex;
-    background-color: var(--color02);
+    background-color: var(--Green03);
 }
 
 
@@ -76,20 +72,20 @@ h1{
 h4{
     font-family: "GenJyuuGothic-H";
     font-size: var(--pBTitle);
-    color: var(--color06);
+    color: var(--Brown01);
     letter-spacing:20px;
 }
 h6{
     font-family: "GenJyuuGothic-B";
     font-size: var(--pSTitle);
-    color: var(--color06);
+    color: var(--Brown01);
     letter-spacing: 5px;
 }
 
 p{
-    font-family: "GenJyuuGothic-L";
+    font-family: "GenJyuuGothic-B";
     font-size: var(--pContent);
-    color: var(--color06);
+    color: var(--Brown01);
     letter-spacing:2px;
 }
 a{
@@ -110,7 +106,7 @@ a{
     margin: 80px 0 0 0;
     /* transition: 1.0 ease; */
 
-    background-color: var(--color01); 
+    background-color: rgb(231, 241, 141); 
 }
 
 
@@ -118,14 +114,20 @@ a{
 footer{
     width: 100%;
     min-width: 1440px;
-    height: 280px;
+    height: 400px;
     
-    background-image: url(../Source/IMG/f001.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    background-image: url(../Source/IMG/Key_Vision/middle_long.png);
+    background-position:top;
+    background-size: 60% ;
+    background-repeat: repeat-x;
 
     z-index: 1;
     overflow: visible;   
     /* background-color: aqua; */
 }
 
+input[type="button"]:hover{
+    border:2px solid var(--Brown04_BE) ;
+    background-color: var(--YWhite);
+    color: var(--Brown04_BE);
+}

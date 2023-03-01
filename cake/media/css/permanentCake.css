@@ -1,10 +1,11 @@
-@import url("https://www.w3schools.com/w3css/4/w3.css");
-@import "main.css";
+@import "main_ginnychen19.css";
 
-body{
+body {
     flex-direction: column;
 }
-
+/* *{
+    border: 1px solid red;
+} */
 #permanentCake {
     display: flex;
     flex-direction: row;
@@ -13,16 +14,13 @@ body{
     align-items: flex-start;
 
 
-    padding: 30px 15%;
+    padding: 30px 15% ;
     /* transition: 1.0 ease; */
+    /* border: 1px  solid salmon; */
 
-<<<<<<< Updated upstream
-    background-color: var(--color02);
-=======
-    -webkit-box-shadow: 0px 0px 40px 40px var(--Green03);
+    -webkit-box-shadow: 0px 0px 40px 40px var(--Green03); 
     /*---------------模糊程度 多擴散*/
     box-shadow: 0px 0px 40px 40px var(--Green03);
->>>>>>> Stashed changes
 }
 
 /*=========左邊種類索引列========================================*/
@@ -34,20 +32,16 @@ body{
 
 
     flex: 1;
-    min-width: 210px;
-    
+    min-width: 220px;
+
     font-family: "GenJyuuGothic-L";
     font-size: var(--pContent);
 
     border-radius: 10px;
 
-<<<<<<< Updated upstream
-    background-color: var(--color01);
-=======
     background-color: var(--YWhite);
-    -webkit-box-shadow: 0px 0px 20px 0px var(--Green02);
+    -webkit-box-shadow: 0px 0px 20px 0px var(--Green02); 
     box-shadow: 0px 0px 20px 0px var(--Green02);
->>>>>>> Stashed changes
 
     overflow: hidden;
 }
@@ -58,7 +52,7 @@ body{
     justify-content: center;
     align-items: center;
 
-    background-color: var(--color05);
+    background-color: var(--Brown01);
 
 }
 
@@ -78,16 +72,15 @@ body{
     letter-spacing: 5px;
 
     padding: 10px 20px;
-    color: var(--color01);
+    color: var(--YWhite);
 }
 
 .PMCake_table>tbody>tr>td {
     letter-spacing: 3px;
 
+    font-family: "GenJyuuGothic-B";
+
     padding: 5px 20px;
-<<<<<<< Updated upstream
-    color: var(--color06);
-=======
     color: var(--Brown01);
 }
 
@@ -96,15 +89,12 @@ body{
     content: '';
     border-bottom: solid 2px var(--Brown01);
     transform: scaleX(0);
-    transform-origin: 0%;
+    transform-origin:  0% ;
     transition: transform 250ms ease-in-out;
 }
-
 .list>tr>td>a:hover:after {
     transform: scaleX(1);
->>>>>>> Stashed changes
 }
-
 
 /*========右邊蛋糕展示區========================================*/
 /*-----標題設定------*/
@@ -135,7 +125,7 @@ body{
 
     /* background-color: aqua; */
 
-    border-bottom: 2px solid var(--color04);
+    border-bottom: 3px solid var(--Brown01);
     margin: 0 0 30px 0;
 }
 
@@ -143,6 +133,7 @@ body{
 .PMCake_show_content>p {
     margin: 0;
 }
+
 /*-----蛋糕列設定------*/
 .PMCake_show_commodity {
     width: 100%;
@@ -161,24 +152,18 @@ body{
     flex-direction: column;
 
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     /* background-color: blue;  */
 
     padding: 0 20px;
     margin: 0 20px 20px 20px;
 }
-
 .commodity_item img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-
-<<<<<<< Updated upstream
-    /* background-image: url(../Style/IMG/mimisbakehouse-website-8-web.jpg),
-                      linear-gradient( rgba(30, 75, 115, 1), rgba(255, 255, 255, 0)); */
     
-=======
->>>>>>> Stashed changes
+
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -196,29 +181,28 @@ body{
     color: var(--color01);
 }
 
-<<<<<<< Updated upstream
-=======
 .commodity_item>div:first-child {
-    transition: 0.5s ease-in-out;
+    
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    /* background-color: brown; */
+    background-color: var(--YWhite);
+    transition: 0.5s ease-in-out;
 }
 
->>>>>>> Stashed changes
 .commodity_item>div:nth-child(2) {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 150px;
 
     margin: 10px 0 0 0;
     /* background-color: rgb(124, 194, 13); */
 }
 
 .commodity_item>div:nth-child(2)>p {
-    text-align: center;
+    text-align: justify;
     margin: 0;
-    width: 150px;
-    /* border-color: aqua; */
 }
 
 /*-----蛋糕列hover用------*/
@@ -236,10 +220,11 @@ fork{
 
     background-size: contain;
     background-position: center;
-    background-repeat:no-repeat ;
-    
+    background-repeat: no-repeat;
+
 }
-color{
+
+color {
     position: absolute;
     top: -64px;
     right: 0px;
@@ -249,16 +234,5 @@ color{
 
     border-radius: 50%;
     z-index: 1;
-<<<<<<< Updated upstream
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-
-
-
-
-
-=======
     background-color: rgba(126, 126, 126, 0.5);
 }
->>>>>>> Stashed changes

@@ -1,0 +1,252 @@
+@import url("https://www.w3schools.com/w3css/4/w3.css");
+@import "main_ginnychen19.css";
+
+body{
+    flex-direction: column;
+    background-color:var(--Green02);
+}
+#workShow{  
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    /* 水平置中 */
+    justify-content: center;
+    /* 垂直置中 */
+    align-items: center;
+    opacity: 100%;
+
+    padding: 300px 0 0 0;
+    margin:0;
+    /* transition: 1.0 ease; */
+
+    background-color: var(--sky); 
+}
+.showCZcakeDetail{
+    position: fixed;
+    width:100vw;
+    height: 100vh;
+    background-color: hsla(0, 0%, 0%, 0.5);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index:3;
+}
+.showCZcakeDetail>img{
+    width: 400px;
+    min-height: 400px;
+    margin: 20px;
+    border-radius: 20px;
+    background-color: var(--Green01);
+}
+
+.animate-zoom {animation:animatezoom 0.6s}
+@keyframes animatezoom{from{transform:scale(0.5)} to{transform:scale(1)}}
+
+.bg{
+    position: relative;
+    width: 100%;
+    min-width: 1920px;
+    height: 400px;
+
+    background-image: url(../Source/IMG/Key_Vision/middle.png);
+    background-position:bottom;
+    background-size: 50% ;
+    background-repeat: repeat-x;
+    /* border: 1px solid rebeccapurple; */
+}
+cake{
+    position: absolute;
+    right: 10vw;
+    bottom: 80px;
+
+    width: 500px;
+    min-width: fit-content;
+    height: 300px;
+
+    background-image: url(../Source/IMG/Key_Vision/onlycake.png);
+    background-position: bottom;
+    background-size: contain ;
+    background-repeat: no-repeat;
+    /* border: 1px solid rebeccapurple; */
+    
+}
+
+
+
+ul.CZcake{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 150px;
+
+    position: relative;
+    
+    list-style:none;
+
+    background-color: rgb(25, 141, 102);
+}
+
+li.item_CZcake{
+    position: relative;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+
+    margin: 10px;
+    border-radius:50%;
+    transition: 0.5s ease-in-out;
+    /* background-color: blue; */
+}
+li.item_CZcake:nth-of-type(2n-1){top: -50px;}
+li.item_CZcake:nth-of-type(2n){top: 50px;}
+
+li.item_CZcake>img{
+    position: absolute;
+    width: 150px;
+    border-radius: 50%;
+    /* border: 1px solid rebeccapurple; */
+
+    background-image: url(../Style/IMG/mimisbakehouse-website-8-web.jpg);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden; 
+
+}
+
+fork{
+    position: absolute;
+    left: 100px;
+    top:0px;
+
+    height: 50px;
+    width: 50px;
+
+    transform: rotate(40deg);
+    z-index: 2;
+
+    background-image: url(../Source/SVG/fork.svg);
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+.item_CZcake>p{
+    position: absolute;
+    text-align: center;
+    color: var(--YWhite);
+    z-index: 2;
+}
+color{
+    position: absolute;
+    top: 0px;
+
+    width: 150px;
+    height: 150px;
+
+    border-radius: 50%;
+    z-index: 1;
+    background-color: rgba(126, 126, 126, 0.5);
+}
+.item_CZcake:nth-of-type(2n-1)>p    { top: 50px;}
+.item_CZcake:nth-of-type(2n)>p      { top: 50px;}
+
+
+
+#CZ_introduce{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction:column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 120px 0;
+    border-radius: 0 0 50px 50px;
+    /* transition: 1.0 ease; */
+
+    /* border: 1px  solid salmon; */
+    background-color: var(--Green04);
+    -webkit-box-shadow: 0px -40px 60px 10px var(--Green04); 
+    box-shadow: 0px -40px 60px 10px var(--Green04);
+}
+
+
+.Feature_ITD{
+    display: flex;
+    flex-direction:column;
+
+    justify-content: center;
+    align-items: center;
+    padding: 20px 100px;
+    
+}
+.Feature_ITD>h2{
+    text-align: center;
+}
+.Feature_ITD>h6{
+    text-align: justify;
+}
+.process_ITD{
+    display: flex;
+    flex-direction:column;
+
+    justify-content: center;
+    align-items: center;
+    padding: 20px 100px;
+}
+.stap{
+    display: flex;
+    flex-direction:row;
+
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: var(--color04);
+
+}
+
+.IsLogin{
+    position: absolute;
+    bottom: -40px;
+    background-color: var(--color04);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+.IsLoginThen{
+    display: flex;
+    flex-direction:row;
+
+    justify-content: center;
+    align-items: center;
+
+    
+
+}
+
+form{
+    flex: 1;
+    display: flex;
+    flex-direction:column;
+
+    justify-content: center;
+    align-items: center;
+}
+game{
+    flex: 1;
+    display: flex;
+    flex-direction:column;
+
+    justify-content: center;
+    align-items: center;
+}

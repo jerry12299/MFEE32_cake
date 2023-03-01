@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>菓季後台-一般訂單</title>
     <link rel="stylesheet" href="../css/main_ginnychen19.css">
     <link rel="stylesheet" href="../css/BEndOrder.css">
     <!-- <script src="https://code.jquery.com/jquery-3.6.3.js"></script> -->
@@ -14,14 +13,46 @@
 
 <body>
     <div id="BEndleft">
-        <div class="BEndnav">我是nav
-            <form action="/logout">
-                <input type="submit" value="登出">
-            </form>
-            <a href="/commodity">新增商品</a>
-            <a href="/manage">修改權限</a>
+        <div class="BEndnav">
+            <div>
+                <img src="../Source/SVG/Weed.svg">
+                <h6>後臺管理系統</h6>
+                <p>使用者：abuser</p>
+            </div>
+            <div>
+                <div>
+                    <div>
+                        <img src="../Source/SVG/Weed.svg">
+                        <h6>商品管理</h6>
+                    </div>
+                    <p1><a href="/commodity">商品列表</a></p1>
+                    <p1><a href="/additem">新增商品</a></p1>
+                </div>
+                <div>
+                    <div>
+                        <img src="../Source/SVG/Weed.svg">
+                        <h6>訂單管理</h6>
+                    </div>
+                    <p1><a href="/C05_2/1">一般訂單</a></p1>
+                    <p1><a href="/C05_3/1">客製訂單</a></p1>
+                </div>
+                <div>
+                    <div>
+                        <img src="../Source/SVG/Weed.svg">
+                        <h6>會員相關</h6>
+                    </div>
+                    <p1><a href="/manage">會員資料</a></p1>
+                </div>
+                <form action="/logout">
+                    <input type="submit" value="登出">
+                </form>
+            </div>
         </div>
+        
     </div>
+
+
+
     <div id="BEndright">
         <div id="PMcakeOrder">
             <div>
@@ -238,6 +269,7 @@
         </div>
     </div>
     <script src="../js/BEndOrder.js"></script>
+    <script src="../js/findNav.js"></script>
     <script>
         function doChange(str,val,id){
             var JSONData = {
