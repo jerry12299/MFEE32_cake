@@ -38,8 +38,15 @@
 /* 字型套用 */
 body {
     font-family: GenSenRounded-B !important;
-    background-color:var(--Green03);
+    background-color: var(--Green03);
 }
+
+
+.hidden{
+    display: none;
+}
+
+
 
 
 /* --------------------nav--------------- */
@@ -83,6 +90,7 @@ nav span {
 
 /* ----------------AD----------------- */
 #carouselExampleIndicators {
+    margin-top: 30px;
     width: 100%;
 }
 
@@ -106,7 +114,7 @@ section {
 
 input::placeholder,
 textarea::placeholder {
-  color:var(--Brown03);
+    color: var(--Brown03);
 }
 
 /* -----------step--------------- */
@@ -116,7 +124,7 @@ textarea::placeholder {
     align-items: center;
     justify-content: center;
     width: 80%;
-    margin-top:30px ;
+    margin-top: 30px;
 }
 
 #Step>div {
@@ -124,8 +132,9 @@ textarea::placeholder {
     flex-direction: column;
     align-items: center;
 }
-#Step div{
-    margin:0 10px;
+
+#Step div {
+    margin: 0 10px;
     text-align: center;
     line-height: 75px;
 }
@@ -155,7 +164,7 @@ textarea::placeholder {
 #Shopping_body {
     background-color: var(--Brown03);
     padding: 50px;
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     border-radius: 20px;
 }
@@ -167,7 +176,7 @@ textarea::placeholder {
 
 }
 
-select{
+select {
     color: var(--Brown03);
     border: 1px solid var(--Brown03);
     border-radius: 5px;
@@ -210,11 +219,11 @@ th {
     font-size: 1.2em;
 }
 
-#ShoppingList>thead{
+#ShoppingList>thead {
     color: var(--YWhite);
 }
 
-#ShoppingList>tbody{
+#ShoppingList>tbody {
     background-color: var(--YWhite);
     color: var(--Brown03);
 }
@@ -224,21 +233,26 @@ th {
 }
 
 #ShoppingList>tbody td>img {
-    width: 100px;   
+    width: 100px;
 }
 
-#ShoppingList>tbody td:first-of-type{border-radius: 20px 0 0 20px;}
-#ShoppingList>tbody td:last-of-type{border-radius: 0 20px 20px 0;}
+#ShoppingList>tbody td:first-of-type {
+    border-radius: 20px 0 0 20px;
+}
+
+#ShoppingList>tbody td:last-of-type {
+    border-radius: 0 20px 20px 0;
+}
 
 #ShoppingList>tbody svg {
     color: var(--Brown03);
 }
 
-#ShoppingList>tbody button{
+#ShoppingList>tbody button {
     border: 0px;
 }
 
-#Shopping_Totle>h5{
+#Shopping_Totle>h5 {
     color: var(--Brown03);
 }
 
@@ -304,7 +318,7 @@ th {
 } */
 
 #Shopping_order {
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -316,11 +330,11 @@ th {
     width: 60%;
 }
 
-#orderer>div{
+#orderer>div {
     padding: 10px 0;
 }
 
-.ordertitle{
+.ordertitle {
     font-size: 1.3rem;
 }
 
@@ -335,12 +349,12 @@ th {
 }
 
 #Shopping_order>div:nth-child(1) {
-    background-color:var(--Brown03);
+    background-color: var(--Brown03);
     padding: 50px;
 }
 
 #Shopping_order div {
-    margin:0 20px;
+    margin: 0 20px;
 }
 
 #Shopping_order>div:nth-last-child(1) {
@@ -351,7 +365,7 @@ th {
     font-size: 1.2em;
 }
 
-#btn_pay>div>a {
+#btn_pay>div>button {
     margin: 0 30px;
 }
 
@@ -359,7 +373,7 @@ th {
 input {
     border: #F6F3E4;
     border-radius: 10px;
-    background-color:var(--YWhite);
+    background-color: var(--YWhite);
 }
 
 #note {
@@ -405,7 +419,7 @@ input {
 }
 
 #meg_Succeed {
-    background-color:var(--Brown03);
+    background-color: var(--Brown03);
     padding: 50px;
     border-radius: 20px;
     text-align: center;
@@ -443,7 +457,7 @@ input {
     display: flex;
     justify-content: center;
     padding: 30px;
-    border-bottom: 2px dashed var(--Brown03);   
+    border-bottom: 2px dashed var(--Brown03);
 }
 
 #Succeed_body>table:nth-child(1) {
@@ -451,19 +465,19 @@ input {
     width: 35vw;
 }
 
-#Succeed_body>table:nth-child(1)>thead{
-    border-bottom: 3px solid var(--Brown03); 
+#Succeed_body>table:nth-child(1)>thead {
+    border-bottom: 3px solid var(--Brown03);
 }
 
-#Succeed_body>table:nth-child(1)>tbody img{
+#Succeed_body>table:nth-child(1)>tbody img {
     width: 100px;
 }
 
-#Succeed_body>div tbody{
+#Succeed_body>div tbody {
     color: var(--YWhite);
 }
 
-#Succeed_body>div>span{
+#Succeed_body>div>span {
     color: var(--YWhite);
 }
 
@@ -510,7 +524,7 @@ input {
 
 #footer {
     background-image: url(../Source/IMG/Key-Vision/middle_long.png);
-    background-size:100%;
+    background-size: 100%;
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
@@ -527,7 +541,7 @@ input {
     justify-content: center;
 }
 
-#icon>div{
+#icon>div {
     margin: 50px;
 }
 

@@ -67,7 +67,19 @@ index.get('/C01/:class', function (req, res) { //主題蛋糕頁
 //     res.render('C01_2.ejs')
 // })
 index.get('/C02', function (req, res) { //客制蛋糕頁
-    res.render('C02.ejs')
+    if(!req.session.user){
+     res.render('C02.ejs')
+    }else{
+        db.exec(`SELECT * FROM member WHERE m_id = ?`,[req.session.user.m_id],function(data,fields){
+            console.log(data)
+            res.render('C02.ejs',{
+                data:data[0]
+            })
+        })  
+        
+    }
+    
+    
 })
 index.get('/C03', function (req, res) { //餡料介紹
     res.render('C03.ejs')
@@ -327,20 +339,74 @@ var user = multer({
 });
 
 
-index.get('/C02', function (req, res) {
-    res.render('C02.ejs') //跳轉到客制化.ejs
-})
+// index.get('/C02', function (req, res) {
+//     res.render('C02.ejs') //跳轉到客制化.ejs
+// })
 
 index.post('/C02', login_api, user.single('img'), function (req, res) {
-    var body = JSON.parse(req.body.data)       //回傳的 post 資料
-    var form = `${body.size},${body.taste}口味`
+    var data = JSON.parse(req.body.data)       //回傳的 post 資料
+  
+         if(data.cakeTaste1){
+        var Taste1 = data.cakeTaste1+','
+    }else{
+        var Taste1 = ''
+    }
+  
+         if(data.cakeTaste2){
+        var Taste2 = data.cakeTaste2+','
+    }else{
+        var Taste2 = ''
+    }
+  
+         if(data.cakeTaste3){
+        var Taste3 = data.cakeTaste3+','
+    }else{
+        var Taste3 = ''
+    }
+  
+         if(data.cakeTaste4){
+        var Taste4 = data.cakeTaste4+','
+    }else{
+        var Taste4 = ''
+    }
+         if(parseInt(data.acc1)){
+        var acc1 = '生日快樂英文插旗*'+data.acc1+','
+    }else{
+        var acc1 = ''
+    }
+         if(parseInt(data.acc2)){
+        var acc2 = '氣球($150)*'+ data.acc2+','
+    }else{
+        var acc2 = ''
+    }
+         if(parseInt(data.acc3)){
+        var acc3 = '生日小皇冠($150)*'+data.acc3+','
+    }else{
+        var acc3 = ''
+    }
+         if(parseInt(data.acc4)){
+        var acc4 = '壽字插旗($50)*'+data.acc4+','
+    }else{
+        var acc4 = ''
+    }
+         if(parseInt(data.acc5)){
+        var acc5 = '生日派對掛旗($250)*'+data.acc5+','
+    }else{
+        var acc5 = ''
+    }
+  
+   
+    var form = `尺寸:${data.cakeSize},口味:${Taste1}${Taste2}${Taste3}${Taste4}顏色:${data.cakeColor},配件:${acc1}${acc2}${acc3}${acc4}${acc5}備註:${data.note}`
     // console.log(req.file.filename); //檔名
+    // console.log(data); 
+    console.log(form)
 
-    var sql = `INSERT INTO customized(m_id,cust_form,cust_state,picture) VALUES(?,?,?,?);`
+    // var sql = `INSERT INTO customized(m_id,cust_form,cust_state,picture) VALUES(?,?,?,?);`
+    var sql = `INSERT INTO customized (m_id, cust_form, cust_state, picture, connection, cust_pay, cust_pick, cust_date, cust_price, cust_shipping, cust_pay_state) VALUES (?, ?, '未製作', ?, ?, '未定', '未定', ?, '0', '未定', '未定');`
     // post資料做成陣列 傳來的必為字串
     // parseInt 轉數字
-    var data = [body.m_id, form, '未製作', req.file.filename]
-    db.exec(sql, data, function (results, fields) {
+    var item = [data.m_id, form, req.file.filename,data.connection,data.cust_date]
+    db.exec(sql, item, function (results, fields) {
         //results.insertId 新id
         if (results.insertId) {
             res.end('insert success: ' + results.insertId);

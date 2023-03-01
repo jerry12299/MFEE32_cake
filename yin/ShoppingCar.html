@@ -34,6 +34,7 @@
             </svg>
         </div>
     </nav>
+    <a name="success"></a>
     <section id="ShoppingCar">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -46,13 +47,13 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="https://dummyimage.com/1400x400/ae4aff/ffffff" class="d-block w-100" alt="...">
+                    <img src="./Source/IMG/ad1.png" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://dummyimage.com/1400x400/f55f96/ffffff" class="d-block w-100" alt="...">
+                    <img src="./Source/IMG/ad2.png" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://dummyimage.com/1400x400/ffe173/ffffff" class="d-block w-100" alt="...">
+                    <img src="./Source/IMG/ad3.png" class="d-block w-100" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -67,16 +68,16 @@
             </button>
         </div>
         <div id="Step">
-            <div>
-                <div class="circle check">1</div>
+            <div id="Step1">
+                <div id="Step1_c" class="circle check">1</div>
                 <p>選購商品</p>
             </div>
-            <div class=" uncheck">
-                <div class="circle">2</div>
+            <div id="Step2" class="uncheck">
+                <div id="Step2_c" class="circle">2</div>
                 <p>確認資料</p>
             </div>
-            <div class=" uncheck">
-                <div class="circle">3</div>
+            <div id="Step3" class=" uncheck">
+                <div id="Step3_c"class="circle">3</div>
                 <p>購物完成</p>
             </div>
 
@@ -123,7 +124,7 @@
                                     <span>$350</span>
                                 </td>
                                 <td>
-                                    <button onclick="doDel(${index})" ><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                    <button><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
                                         <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
                                       </svg></button>
                                 </td>
@@ -142,14 +143,15 @@
                     <h3>NT$350</h3>
                 </div>
                 <div>
-                    <a href=""><button class="btn_shp">回上頁繼續購物</button></a>
+                    <button onclick="history.back()" class="btn_shp">回上頁繼續購物</button>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href=""><button class="btn_shp">我要結帳</button></a>
+                    <button id="gopay" class="btn_shp">我要結帳</button>
                 </div>
             </div>
         </div>
     </section>
-    <section id="Shopping_Pay">
+    <a name="payorder"></a>
+    <section id="Shopping_Pay" class="hidden">
         <div>
                 <div>
                 <label for="pay" class="title">付款方式</label>
@@ -174,7 +176,7 @@
             </div>
         </div>
     </section>
-    <section id="Shopping_order">
+    <section id="Shopping_order" class="hidden">
         <div>
             <div id="orderer">
                     <p class="title">訂購人資料</p>
@@ -235,12 +237,12 @@
         </div>
         <div id="btn_pay">
             <div>
-                <a href=""><button class="btn_shp">回上頁</button></a>
-                <a href=""><button class="btn_shp">確認結帳</button></a>
+                <button onclick="history.back()" class="btn_shp">回上頁
+                <button id="gosuccess" class="btn_shp">確認結帳
             </div>
         </div>
     </section>
-    <section id="Shopping_success">
+    <section id="Shopping_success" class="hidden">
         <div id="Page_Succeed">
             <div id="meg_Succeed">
                 <h1>訂購成功！</h1>
@@ -317,7 +319,7 @@
             </div>
             
         </div>
-        <button class="btn_shp">回到首頁</button>
+        <a href="./index.html"><button class="btn_shp">回到首頁</button></a>
     </section>
     <footer id="footer">
         <div id="icon">
@@ -340,7 +342,7 @@
             <small>Copyright © 2023 MFEE32 第一組. All rights reserved.</small>
         </div>
     </footer>
-    <script src="js/jquery-3.6.0.js"></script>
+    <script src="./js/_js/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
@@ -385,9 +387,7 @@
                             var cname = JSON.parse(res).c_name
                             var price = JSON.parse(res).price
 
-                            $("tbody").append(`<tr><td>${cname}</td><td>${price}</td><td><input type="number" value="${e.quantity}" onchange="doChange(this.value,${index})" min="1" max="5" style ="width:50px"></td><td> <button onclick="doDel(${index})" ><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-                                        <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
-                                      </svg></button> </td></tr>`);
+                            $("tbody").append(`<tr><td>${cname}</td><td>${price}</td><td><input type="number" value="${e.quantity}" onchange="doChange(this.value,${index})" min="1" max="5" style ="width:50px"></td><td><button onclick="doDel(${index})">刪除</button> </td></tr>`);
                             // console.log(typeof(price))
                             // console.log(typeof(e.quantity))
                             sum += price * e.quantity;
