@@ -1,7 +1,61 @@
 @import "main_ginnychen19.css";
 
-body{
+body {
     flex-direction: column;
+}
+
+/*訂單成功*/
+.orderSuccess {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: hsla(0, 0%, 0%, 0.2);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border: none;
+
+    z-index: 5;
+}
+
+/* * {
+    border: 1px solid red;
+} */
+
+.orderSuccess>div {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    
+    background-color: var(--YWhite);
+
+    border-radius: 30px;
+    border: 10px solid var(--Brown01);
+}
+
+.orderSuccess>div>div:first-child {
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--Brown01);
+    width: 100%;
+}
+.orderSuccess>div>div:first-child h6 {
+    color: var(--YWhite);
+    margin: 0;
+    padding: 0px 20px 5px 20px;
+}
+.orderSuccess>div>div:last-of-type{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    padding: 20px 0 0 0;
+}
+.orderSuccess>div>div:last-of-type>img{
+    max-width:50%;
 }
 #PMCakeDetail {
     display: flex;
@@ -17,12 +71,13 @@ body{
     /* transition: 1.0 ease; */
 
 
-    -webkit-box-shadow: 0px 0px 40px 40px var(--Green03); 
+    -webkit-box-shadow: 0px 0px 40px 40px var(--Green03);
     /*---------------模糊程度 多擴散*/
     box-shadow: 0px 0px 40px 40px var(--Green03);
 }
-.PMCake_show{
-    min-width:600px;
+
+.PMCake_show {
+    min-width: 600px;
 }
 
 .PMCake_show_detail {
@@ -34,11 +89,11 @@ body{
 
     padding: 30px;
 
-    -webkit-box-shadow: 0px 0px 20px 0px var(--Green02); 
+    -webkit-box-shadow: 0px 0px 20px 0px var(--Green02);
     box-shadow: 0px 0px 20px 0px var(--Green02);
 }
 
-.PMCake_show_detail_up{
+.PMCake_show_detail_up {
     display: flex;
     flex-direction: row;
 
@@ -75,10 +130,12 @@ figcaption {
     height: 55px;
     background-color: var(--Brown04_BE);
 }
-.cakePic+div{
+
+.cakePic+div {
     display: flex;
     flex-direction: column;
 }
+
 .cakename>h6 {
     margin: 0;
 }
@@ -90,62 +147,68 @@ figcaption {
     margin: 0;
 }
 
-.caketext>p{
+.caketext>p {
     margin: 0;
 }
+
 .caketext::-webkit-scrollbar {
     width: 10px;
-    background-color:var(--Brown01);
-}
-.caketext::-webkit-scrollbar-thumb {
-    background:var(--Brown03);
+    background-color: var(--Brown01);
 }
 
-.Size_Quantity_pirce{
+.caketext::-webkit-scrollbar-thumb {
+    background: var(--Brown03);
+}
+
+.Size_Quantity_pirce {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
-    /* background-color: cadetblue; */    
+    /* background-color: cadetblue; */
 }
-.Size_Quantity_pirce>div{
+
+.Size_Quantity_pirce>div {
     display: flex;
     flex-direction: column;
 }
 
-.selectQuantity>select{
+.selectQuantity>select {
     border: 2px solid var(--Brown01);
-    border-radius:5px;
+    border-radius: 5px;
 
     font-family: "GenJyuuGothic-B";
     font-size: var(--pContent);
     color: var(--Brown01);
-    letter-spacing:2px;
+    letter-spacing: 2px;
     /* background-color: aqua; */
 }
 
-#buy{
+#buy {
     border: 2px solid transparent;
-    border-radius:10px;
+    border-radius: 10px;
     padding: 5px 10px;
 
     font-family: "GenJyuuGothic-B";
     font-size: var(--pContent);
     color: var(--YWhite);
     background-color: var(--Brown01);
-    letter-spacing:2px;
+    letter-spacing: 2px;
 }
-#buy:hover{
+
+#buy:hover {
     border: 2px solid var(--Brown01);
     color: var(--Brown01);
     background-color: var(--YWhite);
 }
-.selectSize>p{
+
+.selectSize>p {
     display: inline-block;
 }
-.selectSize>button{
-    margin:0 5px ;
+
+.selectSize>button {
+    margin: 0 5px;
     border: none;
     border-radius: 5px;
     background-color: var(--color04);
@@ -153,21 +216,22 @@ figcaption {
     color: var(--color01);
     font-family: "GenJyuuGothic-L";
     font-size: var(--pContent);
-    letter-spacing:2px;
+    letter-spacing: 2px;
 }
-.selectSize>button:hover{
+
+.selectSize>button:hover {
     background-color: var(--color01);
     color: var(--color04);
     border: 1px solid var(--color04);
 }
 
-.selectQuantity>p{
+.selectQuantity>p {
     display: inline-block;
 }
 
 
 
-.gotocart{
+.gotocart {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -178,16 +242,7 @@ figcaption {
 
 
 
-
-
-
-
-
-
-
-
-
-.PMCake_show_introduce{
+.PMCake_show_introduce {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -197,3 +252,5 @@ figcaption {
     border: 3px dashed var(--Brown01);
     border-radius: 10px;
 }
+
+

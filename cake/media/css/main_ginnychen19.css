@@ -18,38 +18,39 @@
 }
 
 :root {
-    --color01:#F7F8F8;
-    --color02:#B5B6B6;
-    --color03:#9FA0A0;
-    --color04:#898989;
-    --color05:#727171;
-    --color06:#525152;
+    --color01: #F7F8F8;
+    --color02: #B5B6B6;
+    --color03: #9FA0A0;
+    --color04: #898989;
+    --color05: #727171;
+    --color06: #525152;
 
-    --sky:#a6dbf5;
+    --sky: #a6dbf5;
 
-    --Green01:#368284;
-    --Green02:#628e59;
-    --Green03:#A3CF78;
-    --Green04:#87c379;
-   
-    --YWhite:#f6f3e4;
-    --GWhite:#F7F8F3;
-    
-    --BG_LYellow:#f0da99;
-    --BG_LOrange:#F3D1B2;
-    --BG_MOrange:#f7bc88;
-    
-    --Brown01:#5c3a31;
-    --Brown02:#835B36;
-    --Brown03:#BB8058;
+    --Green01: #368284;
+    --Green02: #628e59;
+    --Green03: #A3CF78;
+    --Green04: #87c379;
 
-    --Brown04_BE:#b79779;
-    --Brown05_BEtxt:#876464;
+    --YWhite: #f6f3e4;
+    --GWhite: #F7F8F3;
 
-    --BTN_Red:#e3344b;
-    --BTN_Green:#337e47;
-    --BTN_Yellow:#f39800;
-    
+    --BG_LYellow: #f0da99;
+    --BG_LOrange: #F3D1B2;
+    --BG_MOrange: #f7bc88;
+
+    --Brown01: #5c3a31;
+    --Brown02: #835B36;
+    --Brown03: #BB8058;
+
+    --Brown04_BE: #b79779;
+    --Brown05_BEtxt: #876464;
+
+    --BTN_Red: #e3344b;
+    --BTN_Green: #337e47;
+    --BTN_Yellow: #f39800;
+    --BTN_Blue:#0061f3;
+
     --pLabel: 80px;
     --pBTitle: 58px;
     --pMTitle: 40px;
@@ -58,42 +59,44 @@
     --pSContent: 14px;
 }
 
-body{
-    display:flex;
+body {
+    display: flex;
     background-color: var(--Green03);
 }
 
 
-h1{
+h1 {
     font-family: "GenJyuuGothic-H";
     font-size: var(--pLabel);
 }
 
-h4{
+h4 {
     font-family: "GenJyuuGothic-H";
     font-size: var(--pBTitle);
     color: var(--Brown01);
-    letter-spacing:20px;
+    letter-spacing: 20px;
 }
-h6{
+
+h6 {
     font-family: "GenJyuuGothic-B";
     font-size: var(--pSTitle);
     color: var(--Brown01);
     letter-spacing: 5px;
 }
 
-p{
+p {
     font-family: "GenJyuuGothic-B";
     font-size: var(--pContent);
     color: var(--Brown01);
-    letter-spacing:2px;
+    letter-spacing: 2px;
 }
-a{
-    text-decoration:none
+
+a {
+    text-decoration: none
 }
 
 
-.Our-newAD{
+.Our-newAD {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -106,28 +109,187 @@ a{
     margin: 80px 0 0 0;
     /* transition: 1.0 ease; */
 
-    background-color: rgb(231, 241, 141); 
+    background-color: rgb(231, 241, 141);
 }
 
+/* *{
+    border: 1px solid red;
+} */
 
+footer {
+    position: relative;
 
-footer{
     width: 100%;
     min-width: 1440px;
     height: 400px;
-    
-    background-image: url(../Source/IMG/Key_Vision/middle_long.png);
-    background-position:top;
-    background-size: 60% ;
+
+    background-image: url(../Source/IMG/Key-Vision/middle_long.png);
+    background-position: top;
+    background-size: 60%;
     background-repeat: repeat-x;
 
-    z-index: 1;
-    overflow: visible;   
+    z-index: 3;
     /* background-color: aqua; */
 }
 
-input[type="button"]:hover{
-    border:2px solid var(--Brown04_BE) ;
+input[type="button"]:hover {
+    border: 2px solid var(--Brown04_BE);
     background-color: var(--YWhite);
     color: var(--Brown04_BE);
+}
+
+
+
+
+/*================我的動畫們==================*/
+:root {
+    --animate-duration: 1s;
+    --animate-delay: 1s;
+    --animate-repeat: 1
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-duration: var(--animate-duration);
+    animation-duration: var(--animate-duration);
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+.ani_infinite {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite
+}
+
+.animate-zoom {
+    animation: animatezoom 0.6s
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0.5)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+.rubberBand {
+    -webkit-animation-name: rubberBand;
+    animation-name: rubberBand
+}
+
+@-webkit-keyframes rubberBand {
+    0% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1)
+    }
+
+    30% {
+        -webkit-transform: scale3d(1.25, .75, 1);
+        transform: scale3d(1.25, .75, 1)
+    }
+
+    40% {
+        -webkit-transform: scale3d(.75, 1.25, 1);
+        transform: scale3d(.75, 1.25, 1)
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.15, .85, 1);
+        transform: scale3d(1.15, .85, 1)
+    }
+
+    65% {
+        -webkit-transform: scale3d(.95, 1.05, 1);
+        transform: scale3d(.95, 1.05, 1)
+    }
+
+    75% {
+        -webkit-transform: scale3d(1.05, .95, 1);
+        transform: scale3d(1.05, .95, 1)
+    }
+
+    to {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1)
+    }
+}
+
+@keyframes rubberBand {
+    0% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1)
+    }
+
+    30% {
+        -webkit-transform: scale3d(1.25, .75, 1);
+        transform: scale3d(1.25, .75, 1)
+    }
+
+    40% {
+        -webkit-transform: scale3d(.75, 1.25, 1);
+        transform: scale3d(.75, 1.25, 1)
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.15, .85, 1);
+        transform: scale3d(1.15, .85, 1)
+    }
+
+    65% {
+        -webkit-transform: scale3d(.95, 1.05, 1);
+        transform: scale3d(.95, 1.05, 1)
+    }
+
+    75% {
+        -webkit-transform: scale3d(1.05, .95, 1);
+        transform: scale3d(1.05, .95, 1)
+    }
+
+    to {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1)
+    }
+}
+
+.pulse {
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out
+}
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1)
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05)
+    }
+
+    to {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1)
+    }
+}
+@keyframes pulse {
+    0% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1)
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.05, 1.05, 1.05);
+        transform: scale3d(1.05, 1.05, 1.05)
+    }
+
+    to {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1)
+    }
 }

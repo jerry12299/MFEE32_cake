@@ -77,7 +77,7 @@ body {
     height: 400px;
     z-index: 1;
 
-    background-image: url(../Source/IMG/Key_Vision/middle.png);
+    background-image: url(../Source/IMG/Key-Vision/middle.png);
     background-position: bottom;
     background-size: 50%;
     background-repeat: repeat-x;
@@ -97,7 +97,7 @@ body {
     height: 300px;
 
 
-    background-image: url(../Source/IMG/Key_Vision/cloud1.png);
+    background-image: url(../Source/IMG/Key-Vision/cloud1.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -114,7 +114,7 @@ body {
     height: 200px;
 
 
-    background-image: url(../Source/IMG/Key_Vision/cloud2.png);
+    background-image: url(../Source/IMG/Key-Vision/cloud2.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -131,7 +131,7 @@ body {
     height: 100px;
 
 
-    background-image: url(../Source/IMG/Key_Vision/cloud3.png);
+    background-image: url(../Source/IMG/Key-Vision/cloud3.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -148,7 +148,7 @@ body {
     height: 300px;
 
 
-    background-image: url(../Source/IMG/Key_Vision/cloud4.png);
+    background-image: url(../Source/IMG/Key-Vision/cloud4.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -169,7 +169,7 @@ cake {
     min-width: fit-content;
     height: 300px;
 
-    background-image: url(../Source/IMG/Key_Vision/onlycake.png);
+    background-image: url(../Source/IMG/Key-Vision/onlycake.png);
     background-position: bottom;
     background-size: contain;
     background-repeat: no-repeat;

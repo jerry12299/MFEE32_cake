@@ -14,13 +14,21 @@
 </head>
 
 <body>
+    <dialog class="orderSuccess">
+        <div class ="animate-zoom">
+            <div><h6 class ="animated ani_infinite">X</h6></div>
+            <div>
+                <img class ="animated ani_infinite pulse" src="../Source/IMG/Key-Vision/orderSuccess.png">
+                <h6>嘟嘟嘟~成功加入購物車</h6>
+            </div>
+        </div>
+    </dialog>
     <nav>
         <p>我是Navbar</p>
     </nav>
     <div class="Our-newAD">
         <h4>我是廣告區</h4>
     </div>
-
 
     <div id="PMCakeDetail">
         <table class="PMCake_table">
@@ -125,7 +133,7 @@
         <p>&nbsp;</p>
     </footer>
 
-    <script src="../js/CustomizationCake.js"></script>
+    <script src="../js/showDialog.js"></script>
     <script>
         $('#buy').on('click',function(){
             var num = parseInt($('#number').val()) ;
@@ -171,7 +179,6 @@
                 localStorage.setItem("carts", JSON.stringify(newcarts))
                 console.log(localStorage)
             }
-            alert('加入成功!')
         })
     </script>
 
