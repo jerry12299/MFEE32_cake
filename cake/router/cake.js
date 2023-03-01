@@ -420,7 +420,7 @@ index.get('/C05_4_1', login_api, function (req, res) {
 
 })
 //更新資料
-index.post('/C05_4_2', login_api, function (req, res) {
+index.post('/C05_4_1', login_api, function (req, res) {
     var sql = `UPDATE member SET pwd =?,m_name	= ?,birthday= ? ,gender= ?, phone = ?, address = ? WHERE member.m_id = ?;`;
     var newPwd = pwd.b64_sha1(req.body.pwd) 
     var data = [newPwd,

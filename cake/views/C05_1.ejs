@@ -17,6 +17,12 @@
     #email1 {
       color: #008f47;
     }
+    .emailMessege{
+      margin-left: 290px;
+    font-size: 20px;
+    color: red;
+    font-weight: 500;
+    }
   </style>
 </head>
 
@@ -35,7 +41,7 @@
       <div class="changeloing"><a href="/C05">已經是會員了嗎？</a></div>
       <div class="emailarea">
         <label for="">EMAIL</label>
-        <input type="email" id="email" name="email" placeholder="Email為帳號" required><span id="email1"
+        <input type="email" id="email" name="email" placeholder="Email為帳號" value="jack123@gmail.com" required><span id="email1"
           class="hidden">OK</span>
       </div>
       <div class="emailMessege hidden" id="email0">
@@ -52,15 +58,15 @@
       <div class="passmessege">密碼與確認密碼輸入不一致，請重新輸入</div>
       <div class="namearea">
         <label for="">姓名</label>
-        <input type="text" name="name" required>
+        <input type="text" name="name" value="jack" required>
       </div>
       <div class="birthdayarea">
         <label for="">生日</label>
-        <input type="date" name="birthday" required>
+        <input type="date" name="birthday" value="1997-05-20" required>
       </div>
       <div class="sexarea">
         <label for="">性別</label>
-        <input type="radio" name="gender" value="男">生理男
+        <input type="radio" name="gender" value="男" checked>生理男
         <input type="radio" name="gender" value="女">生理女
       </div>
       <div class="phonearea">
@@ -72,12 +78,12 @@
         <input type="text" name="address" value="台中市公益路" required>
       </div>
       <div class="onlyyesarea">
-        <input type="radio" required>
+        <input type="radio" checked required>
         <label for="">我同意服務條款</label>
       </div>
       <div class="buttonarea">
         <!-- <button id="submit"></button> -->
-        <input type="submit" id="submit" class="buttonareabutton" value="註冊">
+        <input type="button" id="submit" class="buttonareabutton" value="註冊">
       </div>
     </form>
     <div class="showsuccessarea">
@@ -86,7 +92,7 @@
       </div>
       <div class="showsuccessword">
         <h2>註冊成功!</h2>
-        <p>5秒將自動跳轉</p>
+        <p>3秒將自動跳轉</p>
       </div>
     </div>
   </div>
@@ -167,8 +173,22 @@
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(JSONData),
         success: function (res) {
-          alert(res);
-          location.href = '/';
+          // alert(res);
+          // location.href = '/';
+        
+      document.getElementsByClassName("showsuccessarea")[0].style.display = "block";
+
+      setTimeout(function () {
+        // document.getElementsByClassName("showsuccessarea")[0].style.display = "none";
+        location.href = '/';
+      }, 3000);
+    
+  
+    document.getElementsByTagName("button")[0].onclick = function () {
+      document.getElementsByClassName("showsuccessarea")[0].style.display = "none";
+      location.href = '/';
+    };
+
         },
         error: function () {
           alert("Add 系統錯誤!");
