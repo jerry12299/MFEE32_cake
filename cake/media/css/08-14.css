@@ -1223,6 +1223,7 @@ button#expand {
 .generaDatalist>td:last-child{border-radius:  0 10px 10px 0;}
 
 .generaDatalist button{
+    width: 100px;
     font-size: 18px;
     font-weight: 700;
     margin-left: 50px;
