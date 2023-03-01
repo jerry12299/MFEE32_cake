@@ -66,13 +66,13 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="Source/IMG/ad1.png" class="d-block w-100" alt="...">
+                    <img src="https://dummyimage.com/1400x400/ae4aff/ffffff" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="Source/IMG/ad2.png" class="d-block w-100" alt="...">
+                    <img src="https://dummyimage.com/1400x400/f55f96/ffffff" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="Source/IMG/ad3.png" class="d-block w-100" alt="...">
+                    <img src="https://dummyimage.com/1400x400/ffe173/ffffff" class="d-block w-100" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -87,16 +87,20 @@
             </button>
         </div>
         <div id="Step">
-            <div id="Step1">
-                <div id="Step1_c" class="circle check">1</div>
+            <div>
+                <div class="circle check">1</div>
                 <p>選購商品</p>
             </div>
-            <div id="Step2" class="uncheck">
-                <div id="Step2_c" class="circle">2</div>
+            <div class=" uncheck">
+                <div class="circle ">2</div>
+                <p>登入會員</p>
+            </div>
+            <div class=" uncheck">
+                <div class="circle">3</div>
                 <p>確認資料</p>
             </div>
-            <div id="Step3" class=" uncheck">
-                <div id="Step3_c"class="circle">3</div>
+            <div class=" uncheck">
+                <div class="circle">4</div>
                 <p>購物完成</p>
             </div>
 
@@ -155,7 +159,7 @@
                     <div id="transport">
                         <label>請選擇取件方式(請擇一)：</label>
                         <input type="radio" name="transport">來店自取
-                        <input type="radio" name="transport">黑貓冷凍宅配
+                        <input type="radio" name="transport">黑貓冷凍宅配---運費270元
                     </div>
                 </div>
                 <div id="Shopping_Totle" class="total">
@@ -168,7 +172,7 @@
                     <% if(!session.user) { %>
                         <a href="/C05"><button class="btn_shp">登入</button></a>
                         <%} else{ %>
-                             <button id="gopay" class="btn_shp">我要結帳</button>
+                             <a href=""><button class="btn_shp">我要結帳</button></a>
                             <% } %>
                    
                 </div>
@@ -176,8 +180,7 @@
         </div>
     </section>
     <!-- <form id="orderForm"> -->
-        <a name="payorder"></a>
-        <section id="Shopping_Pay" class="hidden">
+        <section id="Shopping_Pay">
             <div>
                 <div>
                     <label for="pay" class="title">付款方式</label>
@@ -205,7 +208,7 @@
 
 
 
-        <section id="Shopping_order" class="hidden">
+        <section id="Shopping_order">
             <div>
 
                 <div id="orderer">
@@ -287,14 +290,14 @@
 
                 <div>
                     <div id="hit">
-                        <p class="title">訂購注意事項</p>
+                        <span class="title">訂購注意事項</span>
                         <hr>
                         <ul>
-                            <li>客製蛋糕建議自取，蛋糕費用不含宅配，若需宅配細節請參考服務條款</li>
-                            <li>黑貓宅配(不建議採用)，摔壞、無法如期抵達的風險且無法理賠</li>
-                            <li>4吋高蛋糕尺寸與有鮮花裝飾之蛋糕不能宅配</li>
-                            <li>菓季產品最晚一週前預訂 若有急件需求請來電洽詢 04-1234567</li>
-                            <li>已確認之訂單，四日內無法更改時間或取消退費，五至七天內退款一半，八天前取消全額退費。</li>
+                            <li> 而這些並不是完全重要，更加重要的問題是，蛋糕的發生，到底需要如何實現</li>
+                            <li>我們普遍認為，若能理解透徹核心原理，對其就有了一定的了解程度。</li>
+                            <li>這不禁令我重新仔細的思考。現在，正視蛋糕的問題，是非常非常重要的。</li>
+                            <li>因為，蛋糕的出現，重寫了人生的意義。</li>
+                            <li>世界需要改革，需要對蛋糕有新的認知。</li>
                         </ul>
                     </div>
 
@@ -302,7 +305,7 @@
             </div>
             <div id="btn_pay">
                 <div>
-                    <button onclick="history.back()" class="btn_shp">回上頁</button>
+                    <a href=""><button class="btn_shp">回上頁</button></a>
                    
                             <button class="btn_shp" id="buyItem">確認結帳</button>
                             
@@ -311,7 +314,7 @@
             </div>
         </section>
     <!-- </form> -->
-    <section id="Shopping_success" class="hidden">
+    <section>
         <div id="Page_Succeed">
             <div id="meg_Succeed">
                 <h1>訂購成功！</h1>
@@ -387,21 +390,22 @@
             </div>
 
         </div>
-        <a href="/"><button class="btn_shp">回到首頁</button></a>    </section>
-        <footer>
-        <div id="footer">
+        <button class="btn_shp">回到首頁</button>
+    </section>
+    
+        <footer id="footer">
             <div id="icon">
                 <div>
                     <img id="footerLogo" src="./Source/IMG/Logo.png" alt="Logo" style="width: 100px;">
-                    <a href="https://www.facebook.com/ispanTaipei" target="_blank"><img src="./Source/IMG/FB.png" alt=""></a>
-                    <a href="https://www.instagram.com/5gutlab_zicehui/" target="_blank"><img src="./Source/IMG/ig.png" alt=""></a>
-                    <a onclick="self.location.href='mailto:iservice@ispan.com.tw;'"><img src="./Source/IMG/mail.png" alt=""></a>
+                    <a href=""><img src="./Source/IMG/FB.png" alt=""></a>
+                    <a href=""><img src="./Source/IMG/ig.png" alt=""></a>
+                    <a href=""><img src="./Source/IMG/mail.png" alt=""></a>
                 </div>
                 <div>
                     <h4>訂購電話</h4>
-                    <h6>04-1234567</h6><br>
+                    <h6>04-1234567</h6>
                     <h4>營業時間</h4>
-                    <h6>週二-週日10:00至19:00 每週一公休</h6><br>
+                    <h6>週二-週日10:00至19:00 每週一公休</h6>
                     <h4>地址</h4>
                     <h6>台中市南屯區公益路二段(國泰世華大樓18樓)</h6>
                 </div>
@@ -409,10 +413,7 @@
             <div>
                 <small>Copyright © 2023 MFEE32 第一組. All rights reserved.</small>
             </div>
-        </div>
-        </footer>
-
-        <script src="./js/_js/jquery-3.6.0.js"></script>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
