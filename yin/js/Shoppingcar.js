@@ -33,7 +33,7 @@ $("#gosuccess").click(function () {
 // -----------------點擊切換----------------------
 // 取得按鈕和要顯示的區塊
 const gopaybtn = document.getElementById('gopay');
-const gosuccessbtn = document.getElementById('gosuccess');
+const gosuccessbtn = document.getElementById('buyItem');
 
 const hiddenPay = document.getElementById('Shopping_Pay');
 const hiddenOrder = document.getElementById('Shopping_order');
