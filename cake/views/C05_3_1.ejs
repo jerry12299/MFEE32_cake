@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>菓季後台-客製訂單</title>
-    <link rel="stylesheet" href="../css/main_ginnychen19.css">
-    <link rel="stylesheet" href="../css/BEndOrder.css">
-    <link rel="stylesheet" href="../css/CZ_Order.css">
-    <script src="../js/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="../../../css/main_ginnychen19.css">
+    <link rel="stylesheet" href="../../../css/BEndOrder.css">
+    <link rel="stylesheet" href="../../../css/CZ_Order.css">
+    <script src="../../../js/jquery-3.6.0.js"></script>
 </head>
 
 <body>
     <div id="BEndleft">
         <div class="BEndnav">
             <div>
-                <img src="../Source/SVG/Weed.svg">
+                <img src="../../../Source/SVG/Weed.svg">
                 <h6>後臺管理系統</h6>
                 <p>使用者：abuser</p>
 
@@ -25,7 +25,7 @@
             <div>
                 <div>
                     <div>
-                        <img src="../Source/SVG/Weed.svg">
+                        <img src="../../../Source/SVG/Weed.svg">
                         <h6>商品管理</h6>
                     </div>
                     <p1><a href="/commodity">商品列表</a></p1>
@@ -33,7 +33,7 @@
                 </div>
                 <div>
                     <div>
-                        <img src="../Source/SVG/Weed.svg">
+                        <img src="../../../Source/SVG/Weed.svg">
                         <h6>訂單管理</h6>
                     </div>
                     <p1><a href="/C05_2/1">一般訂單</a></p1>
@@ -41,7 +41,7 @@
                 </div>
                 <div>
                     <div>
-                        <img src="../Source/SVG/Weed.svg">
+                        <img src="../../../Source/SVG/Weed.svg">
                         <h6>會員相關</h6>
                     </div>
                     <p1><a href="/manage">會員資料</a></p1>
@@ -71,7 +71,7 @@
                         <td>成立時間 ▲</td>
                         <td>預約時間 ▲</td>
                         <td>
-                            <select name="???????">
+                            <select onchange="doSearch('cust_state',this.value)" name="???????">
                                 <option selected="selected">訂單狀態</option>
                                 <option value="1">未製作</option>
                                 <option value="2">已製作</option>
@@ -82,21 +82,21 @@
                             </select>
                         </td>
                         <td>
-                            <select name="???????">
+                            <select onchange="doSearch('cust_pay_state',this.value)" name="???????">
                                 <option selected="selected">付款狀態</option>
-                                <option value="1">未付款</option>
-                                <option value="2">已付款</option>
-                                <option value="3">已退款</option>
+                                <option value="7">未付款</option>
+                                <option value="8">已付款</option>
+                                <option value="9">已退款</option>
                             </select>
                         </td>
                         <td>
-                            <select name="???????">
+                            <select onchange="doSearch('cust_shipping',this.value)" name="???????">
                                 <option selected="selected">出貨狀態</option>
-                                <option value="1">未配送</option>
-                                <option value="2">已配送</option>
-                                <option value="3">未取貨</option>
-                                <option value="4">已取貨</option>
-                                <option value="5">已取消</option>
+                                <option value="10">未配送</option>
+                                <option value="11">已配送</option>
+                                <option value="12">未取貨</option>
+                                <option value="13">已取貨</option>
+                                <option value="14">已取消</option>
                             </select>
                         </td>
                     </tr>
@@ -155,7 +155,8 @@
                                                                     </thead>
                                                                     <tbody>
                                                                         <tr>
-                                                                            <td><textarea><%=  item.cust_form %></textarea>
+                                                                            <td><textarea
+                                                                                style="resize:none;width:500px;height:250px;"><%=  item.cust_form %></textarea>
                                                                             </td>
                                                                         </tr>
                                                                     </tbody>
@@ -211,7 +212,8 @@
                                                                     <tr>
                                                                         <td>取貨時間</td>
                                                                         <td>
-                                                                            <input type="text" name="cust_date" placeholder="日期格式 20XX-XX-XX"
+                                                                            <input type="text" name="cust_date"
+                                                                                placeholder="日期格式 20XX-XX-XX"
                                                                                 value=<%=item.cust_date %>>
                                                                         </td>
                                                                     </tr>
@@ -306,8 +308,8 @@
             </table>
         </div>
     </div>
-    <script src="../js/BEndOrder.js"></script>
-    <script src="../js/findNav.js"></script>
+    <script src="../../../js/BEndOrder.js"></script>
+    <script src="../../../js/findNav.js"></script>
     <script>
         function doUpdate(id) {
             // alert(id)
@@ -336,6 +338,11 @@
             })
             
         }
+        function doSearch(who,value){
+            location = '/C05_3_1/'+who+'/'+value+'/1'
+           
+        }
+
 
     </script>
 </body>

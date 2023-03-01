@@ -402,7 +402,7 @@ index.post('/C02', login_api, user.single('img'), function (req, res) {
     console.log(form)
 
     // var sql = `INSERT INTO customized(m_id,cust_form,cust_state,picture) VALUES(?,?,?,?);`
-    var sql = `INSERT INTO customized (m_id, cust_form, cust_state, picture, connection, cust_pay, cust_pick, cust_date, cust_price, cust_shipping, cust_pay_state) VALUES (?, ?, '未製作', ?, ?, '未定', '未定', ?, '0', '未定', '未定');`
+    var sql = `INSERT INTO customized (m_id, cust_form, cust_state, picture, connection, cust_pay, cust_pick, cust_date, cust_price, cust_shipping, cust_pay_state) VALUES (?, ?, '未製作', ?, ?, '未定', '未定', ?, '0', '未配送', '未付款');`
     // post資料做成陣列 傳來的必為字串
     // parseInt 轉數字
     var item = [data.m_id, form, req.file.filename,data.connection,data.cust_date]
@@ -598,7 +598,7 @@ function one (req, res, next){
     var data = [newData.m_id, pick_up_date, newData.payment, newData.method, newData.remark, newData.rec_address]
     // console.log('buy:', data)
     //先送出訂購者資料，取得訂購編號
-    var sql = `INSERT INTO buy_order (m_id, pick_up_date, payment, pay_state, pickup_method, co_state, remark, shipping,rec_address) VALUES (?, ?, ?, '未付款', ?, '未製作', ?, '未出貨',?)`;
+    var sql = `INSERT INTO buy_order (m_id, pick_up_date, payment, pay_state, pickup_method, co_state, remark, shipping,rec_address) VALUES (?, ?, ?, '未付款', ?, '未製作', ?, '未配送',?)`;
     db.exec(sql, data, function (result, fields) {
         // console.log(result.insertId) //訂購編號 o_id
         var o_id = result.insertId
