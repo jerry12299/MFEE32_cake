@@ -97,12 +97,12 @@ body {
   }
 /* -----------------主視覺視差-------------------- */
 .keyart-container {
-    width: 1518px;
+    width: 100vw;
     height: 750px;
 }
 
 .keyart-layer {
-    width: 1518px;
+    width: 100vw;
     height: 750px;
     background-repeat: repeat-x;
     position: fixed;
