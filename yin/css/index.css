@@ -48,7 +48,7 @@ body {
 
 .page {
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 50px 150px;
@@ -309,6 +309,8 @@ section {
 
 #mcake>div {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     width: 40vw;
 }
@@ -365,7 +367,7 @@ section {
 position: relative;
 width: 100%;
 min-width: 1440px;
-height: 600px;
+height: 700px;
 
 background-image: url(../Source/IMG/Key-Vision/middle_long.png);
 background-position: top;
