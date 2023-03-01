@@ -1,3 +1,35 @@
+/* 蛋糕無縫滾動效果 */
+var speed = 50; // 每次滾動的像素數
+var interval = 30; // 每次滾動之間的時間間隔（毫秒）
+
+var container = $('.CZcake');// 取得元素和元素寬
+$('#workShow>div:first-of-type').append(container.parent().html()).append(container.parent().html());// 複製清單
+
+//開始滾動
+var currentPosition = 0;
+var timer;
+var isPaused = false; // 是否暫停滾動
+
+// 滾動動畫
+function scroll() {
+    if (!isPaused) {
+        currentPosition -= speed / (1000 / interval);
+        container.parent().css('transform', 'translateX(' + currentPosition + 'px)');
+        if (currentPosition <= -(container.outerWidth())) {
+            currentPosition = 0;
+        }
+    }
+}
+
+//開始滾動
+var currentPosition = 0;
+var timer = setInterval(scroll, interval);
+// 滑鼠移到蛋糕時暫停滾動
+$('.item_CZcake').on('mouseenter', function () {isPaused = true;});
+// 滑鼠移開蛋糕時繼續滾動
+$('.item_CZcake').on('mouseleave', function () {isPaused = false;});
+
+
 /* 蛋糕hover效果 */
 const CakePic = $("li.item_CZcake");
 $(CakePic).hover(
@@ -31,6 +63,7 @@ $(CakePic).hover(
 /* 蛋糕點擊出現浮窗 */
 const showDialog = $("dialog");
 CakePic.on("click", function () {
+    isPaused = true;
     showDialog.css({ display: "flex", });
 
     const src_Real = $(this).find("img").prop("src");
@@ -41,12 +74,12 @@ CakePic.on("click", function () {
 
 /* 任意點擊關閉浮窗 */
 const showDialogChild = showDialog.children();
-
 showDialog.on("click", function (a) {
-    if($(a.target).is(showDialogChild)){
+    if ($(a.target).is(showDialogChild)) {
         return;
-    }else{
+    } else {
         showDialog.css({ display: "none", });
+        isPaused = false;
     }
 })
 
@@ -58,3 +91,30 @@ function stopBubble(e) {
         window.event.cancelBubble = true; //IE
     }
 }
+
+// /* 雲無縫滾動效果 */
+// var speed_cioud = 50; // 每次滾動的像素數
+// var interval = 30; // 每次滾動之間的時間間隔（毫秒）
+
+// var container = $('.clouds');// 取得元素和元素寬
+// $('#workShow>div:first-of-type').append(container.parent().html()).append(container.parent().html());// 複製清單
+
+// //開始滾動
+// var currentPosition = 0;
+// var timer;
+// var isPaused = false; // 是否暫停滾動
+
+// // 滾動動畫
+// function scroll() {
+//     if (!isPaused) {
+//         currentPosition -= speed / (1000 / interval);
+//         container.parent().css('transform', 'translateX(' + currentPosition + 'px)');
+//         if (currentPosition <= -(container.outerWidth())) {
+//             currentPosition = 0;
+//         }
+//     }
+// }
+
+// //開始滾動
+// var currentPosition = 0;
+// var timer = setInterval(scroll, interval);

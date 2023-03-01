@@ -1,10 +1,11 @@
-@import url("https://www.w3schools.com/w3css/4/w3.css");
 @import "main_ginnychen19.css";
 
 body {
     flex-direction: column;
 }
-
+/* *{
+    border: 1px solid red;
+} */
 #permanentCake {
     display: flex;
     flex-direction: row;
@@ -31,8 +32,7 @@ body {
 
 
     flex: 1;
-    max-width: 200px;
-    min-width: 160px;
+    min-width: 220px;
 
     font-family: "GenJyuuGothic-L";
     font-size: var(--pContent);
@@ -151,21 +151,18 @@ body {
     display: flex;
     flex-direction: column;
 
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     /* background-color: blue;  */
 
     padding: 0 20px;
     margin: 0 20px 20px 20px;
 }
-
 .commodity_item img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-
-    /* background-image: url(../Style/IMG/mimisbakehouse-website-8-web.jpg),
-                      linear-gradient( rgba(30, 75, 115, 1), rgba(255, 255, 255, 0)); */
+    
 
     background-size: cover;
     background-position: center;
@@ -184,7 +181,12 @@ body {
     color: var(--color01);
 }
 
-.commodity_item>div {
+.commodity_item>div:first-child {
+    
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: var(--YWhite);
     transition: 0.5s ease-in-out;
 }
 
@@ -192,17 +194,19 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 150px;
 
     margin: 10px 0 0 0;
     /* background-color: rgb(124, 194, 13); */
 }
 
 .commodity_item>div:nth-child(2)>p {
+    text-align: justify;
     margin: 0;
 }
 
 /*-----蛋糕列hover用------*/
-fork {
+fork{
     height: 50px;
     width: 50px;
 

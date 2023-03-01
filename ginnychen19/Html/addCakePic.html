@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/BEndOrder.css">
     <link rel="stylesheet" href="css/customer.css">
     <link rel="stylesheet" href="css/addCakePic.css">
-    <title>commodity</title>
+    <title>addimg</title>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
                         <h6>商品管理</h6>
                     </div>
                     <p1><a href="/commodity">商品列表</a></p1>
-                    <p1><a href="">商品圖片</a></p1>
+                    <p1><a href="/addimg">商品圖片</a></p1>
                     <p1><a href="/additem">新增商品</a></p1>
                 </div>
                 <div>
@@ -63,7 +63,6 @@
                     <tr>
                         <td>蛋糕ID</td>
                         <td>蛋糕名稱</td>
-                        <td>蛋糕價格</td>
                     </tr>
                 </thead>
                     <tbody>
@@ -75,71 +74,65 @@
                                 皇冠
                             </td>
                             <td>
-                                780
-                            </td>
-                            <td>
                                 <button>修改</button>
                             </td>
                         </tr>
                         <tr class="detail">
-                            <td colspan="8">
+                            <td colspan="3">
                                 <div class="pic">
-                                    <form enctype="multipart/form-data" id="" >
+                                    <form enctype="multipart/form-data" id=<%=item.c_id %>
                                         <div>
                                             <table>
                                                 <tr>
                                                     <td>主要大圖：</td>
                                                     <td>
-                                                        <input type="file" name="img" id="img<%= item.c_id %>"
+                                                        <input type="file" name="img" id="img<%= item.c_id %>1"
                                                             accept="image/*">
                                                         <input type="button" class="btn_red"
-                                                            onclick="doUpImg('<%= item.c_id %>')" value="上傳圖片">
+                                                            onclick="doUpImg('<%= item.c_id %>',1)" value="上傳圖片">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>詳細縮圖01：</td>
-                                                    <td><input type="file" name="img" id="img<%= item.c_id %>"
+                                                    <td><input type="file" name="img" id="img<%= item.c_id %>2"
                                                             accept="image/*">
                                                         <input type="button" class="btn_red"
-                                                            onclick="doUpImg('<%= item.c_id %>')" value="上傳圖片">
+                                                            onclick="doUpImg('<%= item.c_id %>',2)" value="上傳圖片">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>詳細縮圖02：</td>
-                                                    <td><input type="file" name="img" id="img<%= item.c_id %>"
+                                                    <td><input type="file" name="img" id="img<%= item.c_id %>3"
                                                             accept="image/*">
                                                         <input type="button" class="btn_red"
-                                                            onclick="doUpImg('<%= item.c_id %>')" value="上傳圖片">
+                                                            onclick="doUpImg('<%= item.c_id %>',3)" value="上傳圖片">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>詳細縮圖03：</td>
-                                                    <td><input type="file" name="img" id="img<%= item.c_id %>"
+                                                    <td><input type="file" name="img" id="img<%= item.c_id %>4"
                                                             accept="image/*">
                                                         <input type="button" class="btn_red"
-                                                            onclick="doUpImg('<%= item.c_id %>')" value="上傳圖片">
+                                                            onclick="doUpImg('<%= item.c_id %>',4)" value="上傳圖片">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>詳細縮圖04：</td>
-                                                    <td><input type="file" name="img" id="img<%= item.c_id %>"
+                                                    <td><input type="file" name="img" id="img<%= item.c_id %>5"
                                                             accept="image/*">
                                                         <input type="button" class="btn_red"
-                                                            onclick="doUpImg('<%= item.c_id %>')" value="上傳圖片">
+                                                            onclick="doUpImg('<%= item.c_id %>',5)" value="上傳圖片">
                                                     </td>
                                                 </tr>
                                             </table>
-                                            <div>
-                                                <ul>
-                                                    <p>圖片名稱：</p>
-                                                    <li>圖片名稱01</li>
-                                                    <li>圖片名稱02</li>
-                                                    <li>圖片名稱03</li>
-                                                    <li>圖片名稱04</li>
-                                                    <li>圖片名稱05</li>
-                                                </ul>
-                                            </div>
-                                            
+                                            <ul><p>圖片名稱：</p>
+                                                
+                                                <li>圖片名稱01 <input name="img1" id="img_1_<%= item.c_id%>" type="text" style="width:20em;" readonly value="<%= item.img1 %>"></li>
+                                                <li>圖片名稱02 <input name="img2" id="img_2_<%= item.c_id%>" type="text" style="width:20em;" readonly value="<%= item.img2 %>"></li>
+                                                <li>圖片名稱03 <input name="img3" id="img_3_<%= item.c_id%>" type="text" style="width:20em;" readonly value="<%= item.img3 %>"></li>
+                                                <li>圖片名稱04 <input name="img4" id="img_4_<%= item.c_id%>" type="text" style="width:20em;" readonly value="<%= item.img4 %>"></li>
+                                                <li>圖片名稱05 <input name="img5" id="img_5_<%= item.c_id%>" type="text" style="width:20em;" readonly value="<%= item.img5 %>"></li>
+                                            </ul>                            
                                         </div>
                                         <div>
                                             <input type="button" onclick="doUpdata('<%= item.c_id %>')" value="更新資料">
@@ -162,20 +155,20 @@
             alert(id);
             var data = $(`#${id}`).serializeArray();
 
-            var JSONData = { oldId: id };
+            var JSONData = { c_id: id };
             for (index in data) {
                 JSONData[data[index].name] = data[index].value;
             }
 
             console.log(JSONData)
             $.ajax({
-                url: "/commodity",
+                url: "/updateImg",
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify(JSONData),
                 success: function (res) {
                     // alert(res);
-                    location.href = '/commodity';
+                    location.href = '/addimg';
                 },
                 error: function () {
                     alert("login 系統錯誤!")
@@ -183,9 +176,9 @@
             })
         }
 
-        function doUpImg(id) {
-            let file = $('#img' + id)[0].files[0];
-            console.log(file)
+        function doUpImg(id,index) {
+            let file = $('#img' + id + index)[0].files[0];
+            // console.log(file)
             let formData = new FormData();
             formData.append("img", file);
             $.ajax({
@@ -198,8 +191,7 @@
                 data: formData,
                 success: function (res) {
                     //  alert(res);
-                    $('#imgId' + id).val(res);
-
+                    $(`#img_${index}_${id}`).val(res);
                 },
                 error: function () {
                     alert("login 系統錯誤!")

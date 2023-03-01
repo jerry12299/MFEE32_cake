@@ -1,4 +1,3 @@
-@import url("https://www.w3schools.com/w3css/4/w3.css");
 @import "main_ginnychen19.css";
 
 body {
@@ -305,12 +304,11 @@ tfoot>tr>td>div>div {
 tfoot>tr>td>div>div button {
     font-family: "GenJyuuGothic-B";
     background-color: var(--Brown02);
-    border: none;
+    border: 2px solid transparent;
     border-radius: 5px;
     color: var(--YWhite);
-    letter-spacing: 2px;
     margin: 0 5px;
-    padding: 5px;
+    padding: 3px 10px;
 }
 
 tfoot>tr>td>div>div button:hover {
@@ -335,4 +333,39 @@ tfoot>tr>td>div>div>p {
     margin: 0 1px;
     padding: 5px;
     color: var(--Brown02);
+}
+
+/*input按鈕設定*/
+
+input[type="button"],
+.BE_btn{
+    padding: 3px 10px;
+    background-color: var(--Brown04_BE);
+    color: var(--YWhite);
+    border-radius: 5px;
+    border: 2px solid transparent;
+}
+input[type="button"]:hover,
+.BE_btn:hover,
+.customer .btn_red:hover{
+    box-sizing:border-box;
+    border:2px solid var(--Brown04_BE) ;
+    background-color: var(--YWhite);
+    color: var(--Brown04_BE);
+}
+
+textarea{
+    width: 100%;
+
+    border-radius: 8px;
+    border: 2px solid var(--Brown04_BE);
+    color: var(--Brown05_BEtxt);
+    
+}
+.btn_red{
+    padding: 3px 10px;
+    background-color: var(--BTN_Red);
+    color: var(--YWhite);
+    border-radius: 5px;
+    border: 2px solid transparent;
 }

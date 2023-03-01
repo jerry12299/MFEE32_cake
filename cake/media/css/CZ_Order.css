@@ -27,7 +27,8 @@ tr.detail>td>div>div{
 div>div:nth-child(2).confirm{
     width:90%;
     
-    border-top:2px solid var(--color05);
+    color: var(--Brown05_BEtxt);
+    border-top:3px solid var(--Brown05_BEtxt);
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -37,4 +38,8 @@ div>div:nth-child(2).confirm{
 input#addPrice{
     border: none;
     max-width: 60px;
+}
+
+textarea{
+    height: 20vh;
 }

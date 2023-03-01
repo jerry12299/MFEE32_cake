@@ -58,3 +58,24 @@ function stopBubble(e) {
         window.event.cancelBubble = true; //IE
     }
 }
+
+/* 蛋糕無縫銜接動畫 */
+var speed = 50; // 每秒滾動的像素數
+var interval = 1000; // 每次滾動之間的時間間隔（毫秒）
+
+// 取得元素和元素寬度
+var container = $('.CZcake');
+var itemWidth = $('.item_CZcake').outerWidth(true);
+
+// 複製一份清單
+container.append(container.html());
+
+// 開始滾動
+var currentPosition = 0;
+var timer = setInterval(function() {
+    currentPosition -= speed / (1000 / interval);
+    container.css('transform', 'translateX(' + currentPosition + 'px)');
+    if (currentPosition <= -container.width() / 2) {
+        currentPosition = 0;
+    }
+}, interval);

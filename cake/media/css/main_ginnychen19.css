@@ -1,5 +1,4 @@
 @import url("https://www.w3schools.com/w3css/4/w3.css");
-/* @import "LoadingAni.css"; */
 @import "nav_ginnychen19.css";
 
 
@@ -33,7 +32,7 @@
     --Green03:#A3CF78;
     --Green04:#87c379;
    
-    --YWhite:#F6F3E4;
+    --YWhite:#f6f3e4;
     --GWhite:#F7F8F3;
     
     --BG_LYellow:#f0da99;
@@ -127,3 +126,8 @@ footer{
     /* background-color: aqua; */
 }
 
+input[type="button"]:hover{
+    border:2px solid var(--Brown04_BE) ;
+    background-color: var(--YWhite);
+    color: var(--Brown04_BE);
+}

@@ -29,7 +29,6 @@
                         <h6>商品管理</h6>
                     </div>
                     <p1><a href="/commodity">商品列表</a></p1>
-                    <p1><a href="/addimg">商品圖片</a></p1>
                     <p1><a href="/additem">新增商品</a></p1>
                 </div>
                 <div>
@@ -47,6 +46,9 @@
                     </div>
                     <p1><a href="/manage">會員資料</a></p1>
                 </div>
+                <form action="/logout">
+                    <input type="submit" value="登出">
+                </form>
             </div>
         </div>
     </div>
@@ -153,8 +155,7 @@
                                                                     </thead>
                                                                     <tbody>
                                                                         <tr>
-                                                                            <td><textarea
-                                                                                style="resize:none;width:500px;height:250px;"><%=  item.cust_form %></textarea>
+                                                                            <td><textarea><%=  item.cust_form %></textarea>
                                                                             </td>
                                                                         </tr>
                                                                     </tbody>
@@ -184,7 +185,7 @@
                                                                     <tr>
                                                                         <td>付款方式</td>
                                                                         <td>
-                                                                            <%= item.cust_pay %>
+                                                                            <%= item.cust_pay %> &nbsp▶
                                                                                 <select name="cust_pay">
                                                                                     <option selected="selected">請選擇
                                                                                     </option>
@@ -198,7 +199,7 @@
                                                                     <tr>
                                                                         <td>取貨方式</td>
                                                                         <td>
-                                                                            <%= item.cust_pick %>
+                                                                            <%= item.cust_pick %> &nbsp▶
                                                                                 <select name="cust_pick">
                                                                                     <option selected="selected">請選擇
                                                                                     </option>
@@ -256,7 +257,7 @@
                                                                 </select>
                                                                 </form>
                                                             </diV>
-                                                            <diV><button
+                                                            <diV><button class="BE_btn"
                                                                     onclick="doUpdate(<%= item.cust_id %>)">更新詳情</button>
                                                             </diV>
                                                         

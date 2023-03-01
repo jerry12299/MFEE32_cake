@@ -1,0 +1,18 @@
+@import "main_ginnychen19.css";
+
+game {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 600px;
+
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+}
+
+canvas{
+    background-color: var(--YWhite);/* 保存時沒用 */
+    border: 1px solid red;
+    border-radius: 20px;
+}

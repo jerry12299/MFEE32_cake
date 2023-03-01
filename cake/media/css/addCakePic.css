@@ -1,45 +1,39 @@
-
-.pic>form{
+/* *{
+    border: 1px solid rebeccapurple;
+} */
+.pic{
     width: 100%;
     /* background-color: rgb(30, 255, 0); */
     color: var(--Brown05_BEtxt);
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-start;
     justify-content: center;
+    margin: 20px 0 0 0;
 }
 
 /*上半部分*/
-.pic>form>div:first-of-type{
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
+.pic>table td:first-of-type{text-align: end; color: var(--Brown02);}/*td01*/
+.pic>table td{padding: 0 0 5px 0;}/*td01*/
 
-    /* background-color: aqua; */
-}
 
-.pic>form>div:first-of-type>table{
-    margin: 17px 0 0 0;
-}
-.pic>form>div:first-child td:first-of-type{text-align: end; color: var(--Brown02);}/*td01*/
-.pic>form>div:first-child td{padding: 0;}/*td01*/
-
-.pic>form>div:first-child div{
-    display: flex;
-    margin: 0;
-}
-ul>p{margin: 0;}
+ul>p{margin: 0 0 10px 0;text-align: start;}
 ul>li{
     list-style-position: inside;
     list-style-type: decimal;
-    background-color: rgba(240, 255, 255, 0.39);
+    border-radius: 5px;
+    /* background-color: rgba(240, 255, 255, 0.39); */
 }
+
+
+
+
 /*更新資料這邊*/
-.pic>form>div:last-of-type{
+.customer>form>div:last-of-type{
     display: flex;
     width: 100%;
     justify-content: flex-end;
+    border-top: 3px solid var(--Brown05_BEtxt);
     /* background-color:aqua; */
     padding: 10px;
 }
