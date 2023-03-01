@@ -786,6 +786,8 @@ button#expand {
 .memberbgcolor{
     background-color: #9EC778;
 }
+
+
 .profilnav {
     /* margin-top: 30px; */
     width: 50%;
@@ -810,6 +812,10 @@ button#expand {
     letter-spacing: 5px;
     color: white;
 }
+.profilnav a {
+    text-decoration:none;
+}
+
 
 .profilnav li:hover {
     border-bottom: 10px white solid;
@@ -852,11 +858,11 @@ button#expand {
 
 
 .profilemailarea {
-    width: 550px;
+    width: 600px;
     font-size: 24px;
     font-family: 微軟正黑體;
     font-weight: 900;
-    margin-left: auto;
+    margin-left: 125px;
     margin-right: auto;
 }
 
@@ -881,7 +887,6 @@ button#expand {
 }
 
 .profilpasswordarea input ,.profiloldpasswordarea input{
-    background-color: #DDDDDD;
     margin-top: 20px;
     width: 400px;
     line-height: 2;
@@ -889,6 +894,7 @@ button#expand {
     font-weight: 900;
     border-radius: 10px 10px 10px 10px;
     border: none;
+    background-color: #DDDDDD;
 }
 
 .profilpassword2area {
@@ -923,7 +929,7 @@ button#expand {
     font-size: 24px;
     font-family: 微軟正黑體;
     font-weight: 900;
-    margin-left: auto;
+    margin-left: 150px;
     margin-right: auto;
     
 }
@@ -944,7 +950,7 @@ button#expand {
     font-size: 24px;
     font-family: 微軟正黑體;
     font-weight: 900;
-    margin-left: auto;
+    margin-left: 150px;
     margin-right: auto;
 }
 
@@ -964,7 +970,7 @@ button#expand {
     font-size: 24px;
     font-family: 微軟正黑體;
     font-weight: 900;
-    margin-left: auto;
+    margin-left: 150px;
     margin-right: auto;
 }
 
@@ -982,7 +988,7 @@ button#expand {
     font-size: 24px;
     font-family: 微軟正黑體;
     font-weight: 900;
-    margin-left: auto;
+    margin-left: 150px;
     margin-right: auto;
 }
 
@@ -1003,7 +1009,7 @@ button#expand {
     font-size: 24px;
     font-family: 微軟正黑體;
     font-weight: 900;
-    margin-left: auto;
+    margin-left: 100px;
     margin-right: auto;
 }
 
@@ -1043,6 +1049,65 @@ button#expand {
     color: #ffffff;
     letter-spacing: 10px;
 }
+/* .profilsuccess{
+    box-shadow: #222;
+    position: absolute;
+    display:none;
+    width: 400px;
+    height: 150px;
+    background-color: #BB8058;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 900px;
+    left: 560px;
+    color: white;
+    
+}
+
+.profilbutton{
+    height: 40px;
+    background-color: #5D3931;
+    border-radius: 10px 10px 0px 0px;
+    color: white;
+}
+.profilbutton button{
+    font-size: 26px;
+    color: #F4D0BB;
+    font-weight: 800;
+    text-align: right;
+    background-color: #5D3931;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: 360px;
+    border: none;
+    color: white;
+}
+
+
+
+.profilsuccessword h2{
+    font-size: 50px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin-left: 80px;
+    margin-bottom: 0;
+    margin-top: 8px;
+    color: white;
+    
+}
+
+.profilsuccessword p{
+    display: block;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 900;
+    margin-left: 120px;
+    letter-spacing: 3px;
+    margin-top: 0;
+    color: white;
+} */
+
 
 /*12.memberProfile*/
 
@@ -1138,6 +1203,7 @@ button#expand {
     font-weight: 800;
 }
 .showgeneraDatalist>td>div{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1157,7 +1223,7 @@ button#expand {
 .generaDatalist>td:last-child{border-radius:  0 10px 10px 0;}
 
 .generaDatalist button{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     margin-left: 50px;
     border-radius: 5px 5px 5px 5px;
@@ -1209,7 +1275,8 @@ button.cancelbutton {
 }
 
 /* -----------------14..customOrderPage---------------------*/
-.memberbgcolor{
+.custombgcolor{
+    width: 100%;
     background-color: #9EC778;
 }
 
@@ -1226,6 +1293,8 @@ button.cancelbutton {
     align-items: center;
     width: 60%;
     margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
 
     /* background-color: rgb(54, 122, 122); */
 }
