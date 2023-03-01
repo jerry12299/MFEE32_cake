@@ -22,76 +22,109 @@ body{
 }
 
 /* -----------------08.IntroStuffing----------------------- */
-.bgcolor{
-    background-color: #9EC778;
+.cakearea{
+    background-color:#9EC778;
 }
-
-.stuffIngred {
+.cakeprobox{
+    border-radius: 15px 15px 15px 15px;
     background-color: #BF815E;
-    /* margin-top: 30px; */
-    width: 80%;
+    width: 1100px;
+    height: 100%;
+    /* border: #df03ad 5px solid; */
+    margin: 0px 0px 0px 0px;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 15px 15px 15px 15px;
+    padding: 30px 30px 30px 30px;
+    border: #222   1px solid;
 }
-
-.stuffingtitle{
-    margin-left: 45%;
-}
-
-.stuffingtitle img{
-    width: 20%;
-    height: 20%;
-    
-}
-
-.ingredients{
-    margin-left: 45%;
-}
-.ingredients img{
-    width: 20%;
-    height: 20%;
-}
-
-.cakeboxarea {
-    margin-top: 20px;
-    border-radius: 10px 10px 10px 10px;
+.cakebox{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    border-radius: 20px 20px 20px 20px;
+}
+.card{
+    width: 49%;
+    height: 300px;
+    /* border: solid 5px rgb(120, 120, 120) ; */
+    cursor: pointer;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 5px 5px 5px 5px;
+    box-shadow: 0 0 0 0 rgba(0,0,0,0.1),inset 0 0 8px 9px rgba(63, 31, 31, 0.1);
 }
 
-.cakebox{
-    width: 35%;
-    height: 35%;
-    border-radius: 5px 5px 5px 5px;
-    margin-bottom: 30px;
-    background-color:#F9CDCC;
-    box-shadow: #835b37 0px 10px 0px 0px;
-}
-
-.cakeboximg {
-    padding: 5px 5px 0px 5px;
-    background-size: contain;
-    
-}
-
-.cakeboximg img {
+.card_body{
     width: 100%;
-    height: auto;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px rgb(0,0,0,0.2);
+    transition: transform 1.6s;
+
 }
 
-.cakeboxWord
- {
-    width: 99%;
-    height: 60%;
-    background-color:#BF4E63;
-    border-radius: 5px 5px 5px 5px;
-    padding: 2px 2px 2px 2px;
-    font-size: 10px;
-    font-weight: 700;
-    font-family: 微軟正黑體;
-    /* z-index: 1; */
+.card_img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card_front,
+.card_back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility:hidden;
+}
+
+.card_back{
+    background-color: #eab48d;
+    padding: 3px 3px 3px 3px;
+    color: #5f3802;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    transform: rotateY(180deg);
+}
+.card_links{
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card_link{
+    padding: 8px;
+    width: 55px;
+    height: 55px;
+    background-color: transparent;
+    border: 2px solid #df03ad;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.card_link:hover{
+    background-color: #df03ad;
+}
+
+.card_link_img{
+    width: 100%;
+    display: block;
+}
+
+.card:hover .card_body{
+    transform: rotateY(180deg);
+}
+.card_title{
+    margin: 0px 0px 0px 0px;
 }
 
 .ingredientsflex ul {
@@ -101,6 +134,10 @@ body{
 }
 
 /*食材區域*/
+
+.box{
+    margin:3px ;
+}
 .container{
     position: relative;
     display: flex;
@@ -112,7 +149,7 @@ body{
 
 .container .box{
     position: relative;
-    width: 270px;
+    width: 240px;
     height: 270px;
     overflow: hidden;
     transition: 0.5s;
@@ -201,7 +238,23 @@ body{
     transform: translateY(0);
     transition-delay: 0.4s;
 }
+.stuffingtitle{
+    margin-left: 45%;
+}
 
+.stuffingtitle img{
+    width: 20%;
+    height: 20%;
+    
+}
+
+.ingredients{
+    margin-left: 45%;
+}
+.ingredients img{
+    width: 20%;
+    height: 20%;
+}
 /*08.IntroStuffingr 結束*/
 
 
