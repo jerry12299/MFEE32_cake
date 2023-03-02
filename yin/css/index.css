@@ -115,7 +115,7 @@ body {
     background-image: url(../Source/IMG/Key-Vision/sky.png);
 }
 
-/* #parallax-2{background-image: url(./Source/IMG/Key-Vision/cloud);} */
+#parallax-2{background-image: url(../Source/IMG/Key-Vision/title.png);}
 #parallax-3 {
     background-image: url(../Source/IMG/Key-Vision/middle.png);
 }
@@ -290,6 +290,9 @@ section {
 }
 
 /* ---------about--------------------- */
+#About{
+    position: relative;
+}
 
 #about_T {
     display: flex;
@@ -303,6 +306,48 @@ section {
 #about_T>img {
     margin-bottom: 50px;
 }
+
+#rabbit1{
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    /* rotate: 30deg; */
+    animation: rotate1 0.5s linear infinite alternate;
+width: 15vw;
+}
+
+#rabbit2{
+    position: absolute;
+    bottom:100px;
+    right: 20px;
+    /* rotate: -45deg; */
+    animation: rotate2 0.6s linear infinite alternate;
+
+}
+
+@keyframes rotate1 {
+    0% {
+      transform: rotate(30deg);
+    }
+    50% {
+      transform: rotate(30deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes rotate2 {
+    0% {
+      transform: rotate(-45deg);
+    }
+    50% {
+      transform: rotate(-45deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
 
 
 /* -----------------主題蛋糕-------------------- */
@@ -361,6 +406,11 @@ section {
 #hcake>div img{
     width: 250px;
     margin:30px 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+#hcake>div img:hover {
+    transform: scale(1.1) translateY(-5px);
 }
 
 #hcake>div>span{
