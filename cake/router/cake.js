@@ -766,7 +766,7 @@ index.get('/additem',rights_api,function(req, res){
 
 index.post('/additem', rights_api, function (req, res) {
     var data = req.body;
-    console.log(data)
+    // console.log(data)
     var sql = `INSERT INTO commodity (c_id, c_name, price,illustrate,img_name,c_class,img1 , img2 , img3 , img4, img5) VALUES (?, ?, ?,?,?,?, ?, ?,?,?,?)`
     db.exec(sql, [data.c_id, data.c_name, data.price,data.illustrate,data.img_name,data.c_class,data.img1,data.img2,data.img3,data.img4,data.img5], function (result, fields) {
         if (result.affectedRows) {

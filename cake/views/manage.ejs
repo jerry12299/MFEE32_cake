@@ -103,7 +103,17 @@
                                             </tr>
                                             <tr>
                                                 <td>權限：</td>
-                                                <td><input type="text" name="rights" value="<%= item.rights %>" required></td>
+                                                <td>
+                                                 <% if(item.rights){%>
+                                                    <input type="radio" name="rights" value="0">&nbsp;&nbsp;<label>一般會員</label><br>
+                                                    <input type="radio" name="rights" value="1" checked>&nbsp;&nbsp;<label>管理員</label>
+                                                    <%}else{%>
+                                                    <input type="radio" name="rights" value="0" checked>&nbsp;&nbsp;<label>一般會員</label><br>
+                                                  <input type="radio" name="rights" value="1">&nbsp;&nbsp;<label>管理員</label>
+                                                        <%}%>   
+                                                
+                                                </td>
+                                                
                                             </tr>
                                             <tr>
                                                 <td>姓名：</td>
@@ -122,8 +132,18 @@
                                             <tr>
                                                 <td>性別：</td>
                                                 <td>
+                                                    <%if(item.gender==="男"){%>
                                                     <input type="radio" name="gender" value="男" checked>生理男
                                                     <input type="radio" name="gender" value="女">生理女
+                                                    <%}else if(item.gender==="女"){%>
+                                                    <input type="radio" name="gender" value="男" >生理男
+                                                    <input type="radio" name="gender" value="女" checked>生理女
+                                                    <%}else{%>
+                                                        <input type="radio" name="gender" value="男" >生理男
+                                                    <input type="radio" name="gender" value="女" >生理女
+                                                        <%}%>
+
+                                                   
                                                 </td>
                                             </tr>
                                             <tr>
@@ -188,6 +208,7 @@
         for (index in data) {
                 JSONData[data[index].name] = data[index].value;
             }
+            console.log(JSONData)
 
         $.ajax({
             url: "/manage",
