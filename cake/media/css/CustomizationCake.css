@@ -349,7 +349,7 @@ color {
 .stap>p{margin: 5px 10px; text-align: justify;}
 
 
-.IsLogin {
+.IsLogin,.onLogin {
     position: absolute;
     min-width: 400px;
     bottom: -40px;
@@ -357,6 +357,12 @@ color {
     padding: 10px 20px;
     border-radius: 10px;
 
+    text-align: center;
+    transition: 0.5s ease;
+}
+
+.IsLogin:hover {
+    background-color: var(--YWhite);
     text-align: center;
 }
 
