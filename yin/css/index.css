@@ -87,7 +87,7 @@ body {
 .h1title {
     font-size: 3rem;
     color: #fff;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 /* ---------------回頂端----------------------- */
 .goTop.hide {
@@ -130,7 +130,19 @@ body {
 
 #parallax-6 {
     background-image: url(../Source/IMG/Key-Vision/train_ex.png);
+    animation: mainmove 3s linear forwards
+
 }
+
+@keyframes mainmove {
+    0% {
+      right: -1000px;
+    }
+    100% {
+     right: -100px;
+     animation-timing-function: cubic-bezier(1,.63,0,1.03)
+    }
+  }
 /* ---------------------nav----------------------- */
 nav {
     --bg: #D0EBF6;
@@ -305,6 +317,10 @@ section {
 
 #about_T>img {
     margin-bottom: 50px;
+}
+
+#about_T>img:nth-child(2){
+    width: 10vw;
 }
 
 #rabbit1{
