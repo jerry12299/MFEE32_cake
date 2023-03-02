@@ -132,8 +132,18 @@
                                             <tr>
                                                 <td>性別：</td>
                                                 <td>
+                                                    <%if(item.gender==="男"){%>
                                                     <input type="radio" name="gender" value="男" checked>生理男
                                                     <input type="radio" name="gender" value="女">生理女
+                                                    <%}else if(item.gender==="女"){%>
+                                                    <input type="radio" name="gender" value="男" >生理男
+                                                    <input type="radio" name="gender" value="女" checked>生理女
+                                                    <%}else{%>
+                                                        <input type="radio" name="gender" value="男" >生理男
+                                                    <input type="radio" name="gender" value="女" >生理女
+                                                        <%}%>
+
+                                                   
                                                 </td>
                                             </tr>
                                             <tr>

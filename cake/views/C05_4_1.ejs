@@ -70,8 +70,18 @@
                             </div>
                             <div class="profilsexarea">
                                 <label for="">性別</label>
-                                <input type="radio" name="gender" value="男" checked>生理男
-                                <input type="radio" name="gender" value="女">生理女
+                                <%if(data.gender==="男"){%>
+                                    <input type="radio" name="gender" value="男" checked>生理男
+                                    <input type="radio" name="gender" value="女">生理女
+                                    <%}else if(data.gender==="女"){%>
+                                    <input type="radio" name="gender" value="男" >生理男
+                                    <input type="radio" name="gender" value="女" checked>生理女
+                                    <%}else{%>
+                                        <input type="radio" name="gender" value="男" >生理男
+                                    <input type="radio" name="gender" value="女" >生理女
+                                        <%}%>
+                                <!-- <input type="radio" name="gender" value="男" checked>生理男
+                                <input type="radio" name="gender" value="女">生理女 -->
                             </div>
                             <div class="profilphonearea">
                                 <label for="">手機</label>
