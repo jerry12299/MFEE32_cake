@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2023-03-02 04:13:50
+-- 產生時間： 2023-03-02 09:21:59
 -- 伺服器版本： 10.4.25-MariaDB
 -- PHP 版本： 8.1.10
 
@@ -203,7 +203,7 @@ CREATE TABLE `member` (
   `m_name` varchar(50) NOT NULL,
   `birthday` date DEFAULT NULL,
   `gender` varchar(10) DEFAULT NULL,
-  `phone` int(11) DEFAULT NULL,
+  `phone` varchar(15) DEFAULT NULL,
   `address` varchar(100) DEFAULT NULL,
   `rights` tinyint(3) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -218,13 +218,13 @@ TRUNCATE TABLE `member`;
 --
 
 INSERT INTO `member` (`m_id`, `email`, `pwd`, `m_name`, `birthday`, `gender`, `phone`, `address`, `rights`) VALUES
-(1, 'asd123@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', '曉明', '2017-02-01', '男', 123456, 'qwdfasf\r\n                                                \r\n                                         ', 0),
+(1, 'asd123@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', '陳昱廷', '1990-02-08', '男', '0312345678', '420 臺中市豐原區豐年路28號                                                \r\n                                  ', 0),
 (2, 'user@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', '管理者', '1990-01-01', NULL, NULL, NULL, 1),
-(3, 'abc123@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', '小明', '2015-01-14', '女', 123456, '台中市', 0),
-(6, 'jerrt@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', '寶可夢', '2023-01-02', '男', 123456, 'sssssssssssss\r\n                                                ', 0),
-(33, 'qwe@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', 'aaa', '1997-05-07', '男', 123456, 'aaaaaaaaaaaa\r\n                                                ', 0),
-(34, 'abc@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', '小英', '1996-02-21', '女', 123456, '台中市公益路', 0),
-(44, 'jack123@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', 'jack', '1997-05-20', '男', 123456, '台中市公益路', 0);
+(3, 'abc123@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', '羅淑晶', '1989-06-21', '女', '091234567', '414 臺中市烏日區大同六街33號', 0),
+(6, 'jerrt@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', '寶可夢', '2023-01-02', '男', '123456', 'sssssssssssss\r\n                                                ', 0),
+(33, 'qwe@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', 'aaa', '1997-05-07', '男', '123456', 'aaaaaaaaaaaa\r\n                                                ', 0),
+(34, 'abc@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', '小英', '1996-02-21', '女', '123456', '台中市公益路', 0),
+(44, 'jack123@gmail.com', 'cRDtpNCeBiql5KOQsKVyrA0sAiA', 'jack', '1997-05-20', '男', '123456', '台中市公益路', 0);
 
 --
 -- 已傾印資料表的索引
