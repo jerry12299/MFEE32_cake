@@ -7,9 +7,8 @@
     color: var(--Brown05_BEtxt);
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    margin: 20px 0 0 0;
 }
 
 /*上半部分*/
@@ -22,18 +21,36 @@ ul>li{
     list-style-position: inside;
     list-style-type: decimal;
     border-radius: 5px;
+    margin: 0 0 10px 0;
     /* background-color: rgba(240, 255, 255, 0.39); */
 }
-
-
-
+li>input{
+    width:fit-content;
+    margin: 0 0 0 10px;
+    background-color: transparent;
+    border: none;
+    color: var(--Brown05_BEtxt);
+}
 
 /*更新資料這邊*/
 .customer>form>div:last-of-type{
     display: flex;
     width: 100%;
-    justify-content: flex-end;
+    justify-content: space-between;
     border-top: 3px solid var(--Brown05_BEtxt);
     /* background-color:aqua; */
     padding: 10px;
+}
+
+.customer>form>div:last-of-type .btn_red{
+    padding: 3px 10px;
+    background-color: var(--BTN_Red);
+    color: var(--YWhite);
+    border-radius: 5px;
+    border: 2px solid transparent;
+}
+.customer>form>div:last-of-type .btn_red:hover{
+    border: 2px solid var(--BTN_Red);
+    background-color: var(--YWhite);
+    color: var(--BTN_Red);
 }

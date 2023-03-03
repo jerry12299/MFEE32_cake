@@ -16,24 +16,23 @@
     <div id="BEndleft">
         <div class="BEndnav">
             <div>
-                <img src="../Source/SVG/Weed.svg">
+                <img src="../Source/IMG/Logo.png">
                 <h6>後臺管理系統</h6>
                 <p>使用者：abuser</p>
-
             </div>
-
             <div>
                 <div>
                     <div>
-                        <img src="../Source/SVG/Weed.svg">
+                        <img src="../Source/SVG/commodity_cake.svg">
                         <h6>商品管理</h6>
                     </div>
                     <p1><a href="/commodity">商品列表</a></p1>
+                    <!-- <p1><a href="/addimg">商品圖片</a></p1> -->
                     <p1><a href="/additem">新增商品</a></p1>
                 </div>
                 <div>
                     <div>
-                        <img src="../Source/SVG/Weed.svg">
+                        <img src="../Source/SVG/order.svg">
                         <h6>訂單管理</h6>
                     </div>
                     <p1><a href="/C05_2/1">一般訂單</a></p1>
@@ -41,7 +40,7 @@
                 </div>
                 <div>
                     <div>
-                        <img src="../Source/SVG/Weed.svg">
+                        <img src="../Source/SVG/member.svg">
                         <h6>會員相關</h6>
                     </div>
                     <p1><a href="/manage">會員資料</a></p1>
@@ -144,23 +143,10 @@
                                             <tr class="detail">
                                                 <td colspan="9">
                                                     <div>
-                                                       
-                                                        <diV>
+                                                        <div>
                                                             <div class="items">
-                                                                <table>
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <td>訂單詳情</td>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td><textarea
-                                                                                style="resize:none;width:500px;height:250px;"><%=  item.cust_form %></textarea>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
+                                                                <p>訂單詳情</p>
+                                                                <textarea><%=  item.cust_form %></textarea>
                                                             </div>
                                                             <div class="contact_UpDown">
                                                                 <table class="contactUP">

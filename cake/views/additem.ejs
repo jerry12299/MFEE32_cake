@@ -14,17 +14,28 @@
 </head>
 
 <body>
+    <dialog class="SomethingSuccess">
+        <div class="animate-zoom">
+            <div>
+                <h6 class="animated ani_infinite">X</h6>
+            </div>
+            <div>
+                <h6 class="msg"></h6>
+                <img class="animated ani_infinite pulse" src="">
+            </div>
+        </div>
+    </dialog>
     <div id="BEndleft">
         <div class="BEndnav">
             <div>
-                <img src="Source/SVG/Weed.svg">
+                <img src="../Source/IMG/Logo.png">
                 <h6>後臺管理系統</h6>
                 <p>使用者：abuser</p>
             </div>
             <div>
                 <div>
                     <div>
-                        <img src="Source/SVG/Weed.svg">
+                        <img src="../Source/SVG/commodity_cake.svg">
                         <h6>商品管理</h6>
                     </div>
                     <p1><a href="/commodity">商品列表</a></p1>
@@ -33,7 +44,7 @@
                 </div>
                 <div>
                     <div>
-                        <img src="Source/SVG/Weed.svg">
+                        <img src="../Source/SVG/order.svg">
                         <h6>訂單管理</h6>
                     </div>
                     <p1><a href="/C05_2/1">一般訂單</a></p1>
@@ -41,7 +52,7 @@
                 </div>
                 <div>
                     <div>
-                        <img src="Source/SVG/Weed.svg">
+                        <img src="../Source/SVG/member.svg">
                         <h6>會員相關</h6>
                     </div>
                     <p1><a href="/manage">會員資料</a></p1>
@@ -56,10 +67,10 @@
         <div id="PMcakeOrder">
             <div>
                 <h6>新增商品</h6>
-                <div class="search-container">
+                <!-- <div class="search-container">
                     <input type="button" class="search-icon"></input>
                     <input type="text" class="search-input" placeholder="Search...">
-                </div>
+                </div> -->
             </div>
             <table class="Order">
                 <thead>
@@ -70,14 +81,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- <tr class="list">
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>
-                            <button>修改</button>
-                        </td>
-                    </tr> -->
                     <tr class="detail">
                         <td colspan="8">
                             <div class="customer">
@@ -229,8 +232,6 @@
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify(cakeId),
                 success: function (res) {
-                    console.log(res);
-                    // alert(res)
                     if (parseInt(res)) {
                         $('#newId').text('OK')
                     } else {

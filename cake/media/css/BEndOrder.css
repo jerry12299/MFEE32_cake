@@ -243,7 +243,6 @@ tr.detail>td>div {
 .contact>table.contactLeft,
 .contact_UpDown>table.contactUP {
     color: var(--YWhite);
-
 }
 
 .contact>table.contactLeft tr,
@@ -346,8 +345,7 @@ input[type="button"],
     border: 2px solid transparent;
 }
 input[type="button"]:hover,
-.BE_btn:hover,
-.customer .btn_red:hover{
+.BE_btn:hover{
     box-sizing:border-box;
     border:2px solid var(--Brown04_BE) ;
     background-color: var(--YWhite);
@@ -359,8 +357,7 @@ textarea{
 
     border-radius: 8px;
     border: 2px solid var(--Brown04_BE);
-    color: var(--Brown05_BEtxt);
-    
+    color: var(--Brown05_BEtxt);  
 }
 .btn_red{
     padding: 3px 10px;
@@ -368,4 +365,68 @@ textarea{
     color: var(--YWhite);
     border-radius: 5px;
     border: 2px solid transparent;
+}
+.btn_red:hover{
+    border: 2px solid var(--BTN_Red);
+    background-color: var(--YWhite);
+    color: var(--BTN_Red);
+}
+/*福窗*/
+.SomethingSuccess {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: hsla(0, 0%, 0%, 0.2);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border: none;
+
+    z-index: 5;
+    cursor: pointer;
+}
+
+/* * {
+    border: 1px solid red;
+} */
+
+.SomethingSuccess>div {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    
+    background-color: var(--Brown04_BE);
+
+    border-radius: 30px;
+    border: 10px solid var(--Brown01);
+    cursor: default;
+}
+
+.SomethingSuccess>div>div:first-child {
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--Brown01);
+    width: 100%;
+}
+.SomethingSuccess>div>div:first-child h6 {
+    color: var(--Brown04_BE);
+    margin: 0;
+    padding: 0px 20px 5px 20px;
+    cursor: pointer;
+}
+.SomethingSuccess>div>div:last-of-type{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+.SomethingSuccess>div>div:last-of-type>img{
+    max-width:40%;
+}
+.SomethingSuccess>div>div:last-of-type>h6{
+    max-width:40%;
+    font-size: var(--pBTitle);
 }

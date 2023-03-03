@@ -354,7 +354,6 @@ color {
     min-width: 400px;
     bottom: -40px;
     background-color: var(--BG_MOrange);
-    padding: 10px 20px;
     border-radius: 10px;
 
     text-align: center;
@@ -365,7 +364,11 @@ color {
     background-color: var(--YWhite);
     text-align: center;
 }
-
+.IsLogin h6{
+    width: 100%;
+    height: 100%;
+    padding: 5px 20px;
+}
 
 .IsLoginThen {
     display: flex;

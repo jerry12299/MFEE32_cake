@@ -13,14 +13,10 @@ body {
     justify-content: center;
     align-items: flex-start;
 
-
     padding: 30px 15% ;
     /* transition: 1.0 ease; */
     /* border: 1px  solid salmon; */
 
-    -webkit-box-shadow: 0px 0px 40px 40px var(--Green03); 
-    /*---------------模糊程度 多擴散*/
-    box-shadow: 0px 0px 40px 40px var(--Green03);
 }
 
 /*=========左邊種類索引列========================================*/

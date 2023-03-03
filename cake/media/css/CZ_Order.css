@@ -1,29 +1,44 @@
+/* *{
+    border: 1px solid rebeccapurple;
+} */
+/*detail最外面*/
 tr.detail>td>div{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    
 }
-tr.detail>td>div>div{
+/*detail裡的第一列*/
+tr.detail>td>div>div:first-of-type{
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-}
-.items tbody>tr:nth-child(4)>td:nth-child(2){
+
     /* background-color: aqua; */
-    padding: 0 8%  0 18%;
 }
-/* .items tbody>tr:nth-child(4)>td:nth-child(3){} */
 
-.items tbody>tr:nth-child(4)>td:nth-child(2)>div{
-    /* background-color: blue; */
+.items{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+}
+.items>p{
+    width: 100% ;
+    margin: 0 0 10px 0;
+    padding: 5px 0;
+    color: var(--Brown05_BEtxt);
+    border-bottom: 3px solid var(--Brown05_BEtxt);
+}
+.items>textarea{
+    resize: none;
+    width: 100% ;
+    height: 300px;
 }
 
+/*confirm那層*/
 div>div:nth-child(2).confirm{
     width:90%;
     
@@ -40,6 +55,29 @@ input#addPrice{
     max-width: 60px;
 }
 
-textarea{
-    height: 20vh;
+.contact_UpDown>table.contactUP select{
+    color: var(--YWhite);
+    background-color: var(--Brown04_BE);
+}
+.contact_UpDown>table.contactUP input{
+    border-radius: 5px;
+    border: 2px solid var(--Brown05_BEtxt);
+    color: var(--Brown05_BEtxt);
+    background-color: var(--YWhite);
+}
+
+
+
+
+#show_pic{
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    background-color: var(--Brown01);
+    color: var(--YWhite);
+    transition: 0.5s ease;
+}
+#show_pic:hover{
+    background-color: var(--YWhite);
+    color: var(--Brown01);
 }
