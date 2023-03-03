@@ -580,10 +580,10 @@ index.post('/buy', function (req, res) {
         res.end(JSON.stringify(result[0]))
     })
 
+//-----------------
 
-
-
-
+//-------------------送出購買
+//---
 })
 function one (req, res, next){
     var newData = req.body
