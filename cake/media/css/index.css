@@ -138,13 +138,13 @@ body {
 
 #parallax-6 {
     background-image: url(../Source/IMG/Key-Vision/train_ex.png);
-    animation: mainmove 3s linear forwards;
+    animation: mainmove 3.5s linear forwards;
     background-repeat:no-repeat;
 }
 
 @keyframes mainmove {
     0% {
-        right: -1000px;
+        right: -1500px;
     }
 
     100% {
@@ -345,7 +345,7 @@ nav a{
 }
 
 section {
-    background-color: #fae8b3;
+    background-color: #fff1c5;
     /* width: 100vw; */
 }
 
@@ -418,10 +418,9 @@ section {
     width: 25vw;
   }
 
- #newscard>img{
+ .news>img{
     border-radius: 10px 0 0 10px;
-    margin-right: 20px;
-  }
+ }
 
 /* -------------parallax----------------- */
 #parallax {
@@ -497,7 +496,7 @@ section {
 }
 
 #about_T>img:nth-child(2) {
-    width: 10vw;
+    width: 15vw;
 }
 
 #rabbit1 {
