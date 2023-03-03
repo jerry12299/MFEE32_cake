@@ -580,23 +580,24 @@ index.post('/buy', function (req, res) {
         res.end(JSON.stringify(result[0]))
     })
 
+//-----------------
 
-
-
-
+//-------------------送出購買
+//---
 })
 function one (req, res, next){
     var newData = req.body
-     if (newData.method === "自取") {
+    //  if (newData.method === "自取") {
 
-        var pick_up_date = `${newData.pickupDate} ${newData.pickupTime}`
-        // console.log('1',pick_up_date)
-    } else {
-        var pick_up_date = `${newData.pickupDate2} ${newData.pickupTime2}`
-        // console.log('2',pick_up_date)
-    }
+    //     var pick_up_date = `${newData.pickupDate} ${newData.pickupTime}`
+    //     // console.log('1',pick_up_date)
+    // } else {
+    //     var pick_up_date = `${newData.pickupDate2} ${newData.pickupTime2}`
+    //     // console.log('2',pick_up_date)
+    // }
+    var pick_up_date = `${newData.pickupDate} ${newData.pickupTime}`
     var data = [newData.m_id, pick_up_date, newData.payment, newData.method, newData.remark, newData.rec_address]
-    // console.log('buy:', data)
+    console.log('buy:', data)
     //先送出訂購者資料，取得訂購編號
     var sql = `INSERT INTO buy_order (m_id, pick_up_date, payment, pay_state, pickup_method, co_state, remark, shipping,rec_address) VALUES (?, ?, ?, '未付款', ?, '未製作', ?, '未配送',?)`;
     db.exec(sql, data, function (result, fields) {

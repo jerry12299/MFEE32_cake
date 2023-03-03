@@ -15,20 +15,84 @@
 
 <body>
     <dialog class="orderSuccess">
-        <div class ="animate-zoom">
-            <div><h6 class ="animated ani_infinite">X</h6></div>
+        <div class="animate-zoom">
             <div>
-                <img class ="animated ani_infinite pulse" src="../Source/IMG/Key-Vision/orderSuccess.png">
+                <h6 class="animated ani_infinite">X</h6>
+            </div>
+            <div>
+                <img class="animated ani_infinite pulse" src="../Source/IMG/Key-Vision/orderSuccess.png">
                 <h6>嘟嘟嘟~成功加入購物車</h6>
             </div>
         </div>
     </dialog>
     <nav>
-        <p>我是Navbar</p>
+        <div>
+            <a href="/"><img src="../Source/IMG/Logo.png" alt="Logo"></a>
+            <a href="/"><p>菓季</p></a>
+        </div>
+        <div id="navlist">
+            <a href="/C01/0">
+                <p>主題蛋糕</p>
+            </a>
+            <a href="/C02">
+                <p>客製蛋糕</p>
+            </a>
+            <a href="/C03">
+                <p>餡料食材介紹</p>
+            </a>
+            <a href="/C04">
+                <p>常見問題</p>
+            </a>
+            <% if(!session.user) { %>
+                <a href="/C05"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                        class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                    </svg></a>
+                <% }else if(session.user.rights){%>
+                    <a href="/C05_2/1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                            fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                        </svg></a>
+                    <%}else{%>
+                        <a href="/C05_4/1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                            </svg></a>
+                        <%}%>
+                            <a href="/C06"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                    fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                </svg></a>
+        </div>
     </nav>
     <div class="Our-newAD">
         <h4>我是廣告區</h4>
     </div>
+    <div id="Btnlist">
+        <a href="https://line.me/ti/g2/99v75ccSrL9DvGLINwJ8XfZOttMVRKRNNx7gbA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"target="_blank">
+          <div class="mainbtn Line">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-line"
+              viewBox="0 0 16 16">
+              <path
+                d="M8 0c4.411 0 8 2.912 8 6.492 0 1.433-.555 2.723-1.715 3.994-1.678 1.932-5.431 4.285-6.285 4.645-.83.35-.734-.197-.696-.413l.003-.018.114-.685c.027-.204.055-.521-.026-.723-.09-.223-.444-.339-.704-.395C2.846 12.39 0 9.701 0 6.492 0 2.912 3.59 0 8 0ZM5.022 7.686H3.497V4.918a.156.156 0 0 0-.155-.156H2.78a.156.156 0 0 0-.156.156v3.486c0 .041.017.08.044.107v.001l.002.002.002.002a.154.154 0 0 0 .108.043h2.242c.086 0 .155-.07.155-.156v-.56a.156.156 0 0 0-.155-.157Zm.791-2.924a.156.156 0 0 0-.156.156v3.486c0 .086.07.155.156.155h.562c.086 0 .155-.07.155-.155V4.918a.156.156 0 0 0-.155-.156h-.562Zm3.863 0a.156.156 0 0 0-.156.156v2.07L7.923 4.832a.17.17 0 0 0-.013-.015v-.001a.139.139 0 0 0-.01-.01l-.003-.003a.092.092 0 0 0-.011-.009h-.001L7.88 4.79l-.003-.002a.029.029 0 0 0-.005-.003l-.008-.005h-.002l-.003-.002-.01-.004-.004-.002a.093.093 0 0 0-.01-.003h-.002l-.003-.001-.009-.002h-.006l-.003-.001h-.004l-.002-.001h-.574a.156.156 0 0 0-.156.155v3.486c0 .086.07.155.156.155h.56c.087 0 .157-.07.157-.155v-2.07l1.6 2.16a.154.154 0 0 0 .039.038l.001.001.01.006.004.002a.066.066 0 0 0 .008.004l.007.003.005.002a.168.168 0 0 0 .01.003h.003a.155.155 0 0 0 .04.006h.56c.087 0 .157-.07.157-.155V4.918a.156.156 0 0 0-.156-.156h-.561Zm3.815.717v-.56a.156.156 0 0 0-.155-.157h-2.242a.155.155 0 0 0-.108.044h-.001l-.001.002-.002.003a.155.155 0 0 0-.044.107v3.486c0 .041.017.08.044.107l.002.003.002.002a.155.155 0 0 0 .108.043h2.242c.086 0 .155-.07.155-.156v-.56a.156.156 0 0 0-.155-.157H11.81v-.589h1.525c.086 0 .155-.07.155-.156v-.56a.156.156 0 0 0-.155-.157H11.81v-.589h1.525c.086 0 .155-.07.155-.156Z" />
+            </svg>
+          </div>
+        </a>
+        <div class="mainbtn Email" onclick="self.location.href='mailto:GuoJicake@gmail.com'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-envelope-fill"
+            viewBox="0 0 16 16">
+            <path
+              d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+          </svg>
+        </div>
+        <div class="mainbtn goTop">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-up"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+          </svg></div>
+      </div>
 
     <div id="PMCakeDetail">
         <table class="PMCake_table">
@@ -58,7 +122,7 @@
         <!--這個地方之後可以串，然後要用ejs-->
         <div class="PMCake_show">
             <div class="PMCake_show_content">
-               
+
                 <p>主題蛋糕 / <a href="某某網址">2023季節主打</a></p>
             </div>
             <div class="PMCake_show_detail">
@@ -67,23 +131,26 @@
                     <div class="cakePic">
                         <img class="mainPic" src="../Source/IMG/<%= data.img1 %>">
                         <figcaption>
-                         
+
                             <img class="smallPic" src="../Source/IMG/<%= data.img2 %>">
                             <img class="smallPic" src="../Source/IMG/<%= data.img3 %>">
                             <img class="smallPic" src="../Source/IMG/<%= data.img4 %>">
                             <img class="smallPic" src="../Source/IMG/<%= data.img5 %>">
-                               
-                                 
+
+
                         </figcaption>
                     </div>
                     <div>
                         <div class="cakename">
                             <!-- <h6>法芙娜草莓布朗尼蛋糕</h6> -->
-                            <h6><%= data.c_name %></h6>
-                           
+                            <h6>
+                                <%= data.c_name %>
+                            </h6>
+
                         </div>
-                        <div class="caketext"><p>
-                            <!-- 堅持使用最新鮮且當季的大湖草莓製作，
+                        <div class="caketext">
+                            <p>
+                                <!-- 堅持使用最新鮮且當季的大湖草莓製作，
                             鮮紅完熟的草莓散發自然甜香，顆顆飽
                             滿多汁使濃郁法芙娜巧克力布朗尼蛋糕
                             ，更添一股清爽風味！<br>
@@ -91,8 +158,9 @@
                             因蛋糕使用鮮奶油以及新鮮草莓水果裝飾，
                             為避免宅配運送過程中損壞，故無法提供
                             宅配寄送服務。 -->
-                            <%= data.illustrate%>
-                        </p></div>
+                                <%= data.illustrate%>
+                            </p>
+                        </div>
                         <div class="Size_Quantity_pirce">
                             <div>
                                 <!-- <div class="selectSize">
@@ -111,7 +179,10 @@
                                     </select>
                                 </div>
                             </div>
-                            <pirce><h6>NT.<%= data.price%></h6></pirce>
+                            <pirce>
+                                <h6>NT.<%= data.price%>
+                                </h6>
+                            </pirce>
                         </div>
                         <div class="gotocart">
                             <!-- <button id="buy"><a href="">直接購買</a></button> -->
@@ -121,7 +192,7 @@
                 </div>
 
                 <div class="PMCake_show_introduce">
-                 
+
                 </div>
 
             </div>
@@ -130,13 +201,37 @@
 
 
     <footer>
-        <p>&nbsp;</p>
+        <div>
+            <div>
+                <div id="icon">
+                    <img src="../Source/IMG/Logo.png" alt="Logo">
+                    <div>
+                        <a href="https://www.facebook.com/ispanTaipei" target="_blank"><img src="../Source/IMG/FB.png"
+                                alt="FB"></a>
+                        <a href="https://www.instagram.com/5gutlab_zicehui/" target="_blank"><img
+                                src="../Source/IMG/ig.png" alt="ig"></a>
+                        <a onclick="self.location.href='mailto:GuoJicake@gmail.com'"><img
+                                src="../Source/IMG/mail.png" alt="mail"></a>
+                    </div>
+                </div>
+                <div>
+                    <h6>訂購電話</h6>
+                    <p>04-1234567</p><br>
+                    <h6>營業時間</h6>
+                    <p>週二-週日10:00至19:00 每週一公休</p><br>
+                    <h6>地址</h6>
+                    <p>台中市南屯區公益路二段(國泰世華大樓18樓)</p>
+                </div>
+            </div>
+            <small>Copyright © 2023 MFEE32 第一組. All rights reserved.</small>
+        </div>
     </footer>
 
     <script src="../js/showDialog.js"></script>
+    <script src="../js/goTop.js"></script>
     <script>
-        $('#buy').on('click',function(){
-            var num = parseInt($('#number').val()) ;
+        $('#buy').on('click', function () {
+            var num = parseInt($('#number').val());
             var cId = '<%= data.c_id %>';
             var cart = {
                 name: cId,
@@ -164,7 +259,7 @@
                     carts.push(cart)
                     localStorage.setItem("carts", JSON.stringify(carts))
                     console.log(localStorage)
-                 
+
                 } else {//判斷如果沒有相同物件
                     console.log("有相同物件，物件內數量加上新物件數量")
                     carts[test].quantity += cart.quantity

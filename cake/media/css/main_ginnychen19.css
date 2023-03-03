@@ -49,7 +49,7 @@
     --BTN_Red: #e3344b;
     --BTN_Green: #337e47;
     --BTN_Yellow: #f39800;
-    --BTN_Blue:#0061f3;
+    --BTN_Blue: #0061f3;
 
     --pLabel: 80px;
     --pBTitle: 58px;
@@ -64,38 +64,33 @@ body {
     background-color: var(--Green03);
 }
 
-
 h1 {
     font-family: "GenJyuuGothic-H";
     font-size: var(--pLabel);
 }
-
 h4 {
     font-family: "GenJyuuGothic-H";
     font-size: var(--pBTitle);
     color: var(--Brown01);
     letter-spacing: 20px;
 }
-
 h6 {
     font-family: "GenJyuuGothic-B";
     font-size: var(--pSTitle);
     color: var(--Brown01);
     letter-spacing: 5px;
 }
-
 p {
     font-family: "GenJyuuGothic-B";
     font-size: var(--pContent);
     color: var(--Brown01);
     letter-spacing: 2px;
 }
-
 a {
     text-decoration: none
 }
 
-
+/* ----------------AD----------------- */
 .Our-newAD {
     width: 100%;
     display: flex;
@@ -106,22 +101,66 @@ a {
     opacity: 100%;
 
     padding: 120px 0;
-    margin: 80px 0 0 0;
+    margin: 70px 0 0 0;
     /* transition: 1.0 ease; */
 
     background-color: rgb(231, 241, 141);
+}
+.Our-newAD>div {
+    width: 100vw;
+}
+.carousel {
+    position: relative
+}
+.carousel-indicators {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin-right: 15%;
+    margin-bottom: 1rem;
+    margin-left: 15%;
+    list-style: none
 }
 
 /* *{
     border: 1px solid red;
 } */
 
+/* ---------------側邊btn----------------- */
+#Btnlist{
+    position: fixed;
+    right: 0;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    z-index: 50;
+}
+.mainbtn {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+#Btnlist div{display: flex; justify-content: center; align-items: center; transition: 0.2s ease-in-out;}
+.Line{background-color: #198754; color: white; border: 3px solid transparent;}
+.Line:hover{background-color: white; color: #198754; border: 3px solid #198754;}
+.Email{background-color: #dc3545; color: white; border: 3px solid transparent;}
+.Email:hover{background-color:white ; color: #dc3545; border: 3px solid #dc3545;}
+.goTop{background-color: #6c757d; color: white; border: 3px solid transparent;}
+.goTop:hover{background-color:white ; color: #6c757d; border: 3px solid #6c757d;}
+
+/* ----------------footer----------------- */
 footer {
     position: relative;
 
     width: 100%;
     min-width: 1440px;
-    height: 400px;
+    height: 500px;
 
     background-image: url(../Source/IMG/Key-Vision/middle_long.png);
     background-position: top;
@@ -130,16 +169,84 @@ footer {
 
     z-index: 3;
     /* background-color: aqua; */
+    padding: 30vw 0 0 0;
 }
 
+footer>div {
+    position: absolute;
+    bottom: 0px;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+}
+/*icon部分*/
+footer>div>div{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+    /* background-color: aqua; */
+}
+#icon{
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     align-items: center;
+}
+#icon>img {
+    height: 100px;
+    margin: 30px;
+}
+#icon>a {
+    height: fit-content;
+    margin: 0 10px 0 0;
+}
+#icon a>img {
+    height: 50px;
+    transition: 1s ease-in-out;
+}
+/*文字部分*/
+footer>div>div>div:last-of-type {
+    min-width: fit-content; /* 這個方法可以控制不跑版*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 0 0 80px;
+}
+footer>div>div>div:last-of-type>h6 {
+    color: var(--GWhite);
+    font-size: 24px;
+    margin: 0;
+    letter-spacing: 0;
+}
+footer>div>div>div:last-of-type>p {
+    color: var(--GWhite);
+    font-size: 16px;
+    margin: 0;
+}
+small {
+    font-family: "GenJyuuGothic-B";
+    color: var(--GWhite);
+    font-size: var(--pSContent);
+    margin: 20px 0 0 0;
+    text-align: center;
+}
+
+
+
+
+/*================按鈕們==================*/
+input[type="button"]{
+    transition: 0.3s ease-in-out;
+}
+button{transition: 0.3s ease-in-out;}
 input[type="button"]:hover {
     border: 2px solid var(--Brown04_BE);
     background-color: var(--YWhite);
     color: var(--Brown04_BE);
 }
-
-
-
 
 /*================我的動畫們==================*/
 :root {
@@ -147,7 +254,6 @@ input[type="button"]:hover {
     --animate-delay: 1s;
     --animate-repeat: 1
 }
-
 .animated {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
@@ -180,7 +286,6 @@ input[type="button"]:hover {
     -webkit-animation-name: rubberBand;
     animation-name: rubberBand
 }
-
 @-webkit-keyframes rubberBand {
     0% {
         -webkit-transform: scaleX(1);
@@ -261,6 +366,7 @@ input[type="button"]:hover {
     -webkit-animation-timing-function: ease-in-out;
     animation-timing-function: ease-in-out
 }
+
 @-webkit-keyframes pulse {
     0% {
         -webkit-transform: scaleX(1);
@@ -277,6 +383,7 @@ input[type="button"]:hover {
         transform: scaleX(1)
     }
 }
+
 @keyframes pulse {
     0% {
         -webkit-transform: scaleX(1);
