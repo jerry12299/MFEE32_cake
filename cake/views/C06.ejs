@@ -154,8 +154,8 @@
                     </table>
                     <div id="transport">
                         <label>請選擇取件方式(請擇一)：</label>
-                        <input type="radio" name="transport">來店自取
-                        <input type="radio" name="transport">黑貓冷凍宅配
+                        <input type="radio" name="transport" value="來店自取" checked>來店自取
+                        <input type="radio" name="transport" value="黑貓冷凍宅配">黑貓冷凍宅配
                     </div>
                 </div>
                 <div id="Shopping_Totle" class="total">
@@ -219,18 +219,18 @@
 
                         <label for="">姓名：</label>
                         <input name="m_name" class="text_W" type="text" placeholder="王小明" readonly required
-                            value=<%=data.m_name %> ><br>
+                            value="<%=data.m_name %>" ><br>
 
                     </div>
                     <div>
                         <label for="">連絡電話：</label>
                         <input name="phone" class="text_W" type="tel" placeholder="0900-000-000" readonly required
-                            value=<%=data.phone %> >
+                            value="<%=data.phone %>" >
                     </div>
                     <div>
                         <label for="">電子郵件：</label>
                         <input name="email" class="text_W" type="email" placeholder="請輸入電子信箱" readonly required
-                            value=<%=data.email %> >
+                            value="<%=data.email %>" >
                     </div>
                     <div>
                         <label for="">自取/宅配日期：</label>
@@ -272,7 +272,7 @@
                         <!-- <input type="text" class="address_input" placeholder="請輸入3+2郵遞區號" required> -->
                         <!-- <br> -->
                         <input name="rec_address" type="text" class="text_W" placeholder="請填入地址" required
-                            value=<%=data.address %>>
+                            value="<%=data.address %>">
                     </div>
                     <div>
                         <label for="">備註：</label>
@@ -419,6 +419,10 @@
     <script src="js/Shoppingcar.js"></script>
 
     <script>
+        // $('input[name=transport]').on('click',function(){
+        //      console.log($('input[name=transport]:checked').val())
+        // })
+        
  
         function doDel(index) {
             var newitem = JSON.parse(localStorage.getItem('carts'));
@@ -529,7 +533,7 @@
         $('#buyItem').on('click', function () {
             var buyItem = JSON.parse(localStorage.getItem('carts'));
             var data = $('#orderForm').serializeArray()
-            // console.log(data);
+            console.log(data);
             var JSONData = {}
 
                 <% if (!session.user) {  %>
