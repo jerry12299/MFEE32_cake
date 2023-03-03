@@ -1,38 +1,8 @@
-// nav上滑出現，下滑消失
-let lastPos = 0
-const nav = document.querySelector('nav');
-
-// 監聽scroll事件
-document.addEventListener('scroll',function(){
-  let currentPos =  window.scrollY;
-  //   往下滑
-  if(currentPos > lastPos){
-        nav.style.top = "-80px"; //讓nav bar消失
-  }else{
-    nav.style.top = "0px"; //讓nav bar出現
-  }
-  lastPos = currentPos;//再記住現在位置，跟未來的位置做比較
-});
-
-// const changeColor = (entries, observer) =>{
-//   entries.forEach(entry=>{
-//     if(!entry.isIntersecting){
-//       nav.classList.add('scrolled');
-//     }else{
-//        nav.classList.remove('scrolled');
-//     }
-//   })
-  
-// }
-
-// let observer = new IntersectionObserver(changeColor);
-// observer.observe(section);
-
 // 回到頂端
 $(document).ready(function () {
   // 捲軸偵測距離頂部超過 100 才顯示按鈕
   $(window).scroll(function () {
-      if ($(window).scrollTop() > 200) {
+      if ($(window).scrollTop() > 250) {
           if ($(".goTop").hasClass("hide")) {
               $(".goTop").toggleClass("hide");
           }
@@ -191,4 +161,30 @@ window.addEventListener('wheel', function(e) {
   }
   
   parallax.style.transform = `translateY(${scrollPos}px)`;
+});
+
+// ----------------------------------------------------------------
+const progressCircle = document.querySelector(".autoplay-progress svg");
+const progressContent = document.querySelector(".autoplay-progress span");
+var swiper = new Swiper(".mySwiper", {
+  spaceBetween: 30,
+  centeredSlides: true,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  },
+  on: {
+    autoplayTimeLeft(s, time, progress) {
+      progressCircle.style.setProperty("--progress", 1 - progress);
+      progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+    }
+  }
 });

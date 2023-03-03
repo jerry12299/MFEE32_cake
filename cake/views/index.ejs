@@ -7,50 +7,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>菓季</title>
   <link rel="stylesheet" href="css/index.css">
-  <!-- JQ -->
   <!-- 插件 -->
-  <!-- <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
-/> -->
   <!-- 卡片輪播 -->
   <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick.css" />
   <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick-theme.css" />
   <!-- ---------------bootstrap---------------------------- -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
   <!-- ---------------------------------- -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 </head>
 
 <body>
   <nav>
     <div>
-      <img src="Source/IMG/Logo.png" alt="Logo">      <a href="/"><span>菓季</span></a>
+      <a href="/"><img src="../Source/IMG/Logo.png" alt="Logo"></a>
+      <a href="/">
+        <p>菓季</p>
+      </a>
     </div>
     <div id="navlist">
-      <a href="/C01/0">主題蛋糕</a>
-      <a href="/C02">客製蛋糕</a>
-      <a href="/C03">餡料食材介紹</a>
-      <a href="/C04">常見問題</a>
-      <% if(!session.user){ %> 
-      <a href="/C05"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill"
-        viewBox="0 0 16 16">
-        <% } else if(session.user.rights){ %>
-          <a href="/C05_2/1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill"
-            viewBox="0 0 16 16">
-          <% } else{ %>
-            <a href="/C05_4/1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill"
-              viewBox="0 0 16 16">
-            <% } %>
-        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-      </svg></a>
-      <a href="/C06"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart3"
-        viewBox="0 0 16 16">
-        <path
-          d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-      </svg></a>
-      
+      <a href="/C01/0">
+        <p>主題蛋糕</p>
+      </a>
+      <a href="/C02">
+        <p>客製蛋糕</p>
+      </a>
+      <a href="/C03">
+        <p>餡料食材介紹</p>
+      </a>
+      <a href="/C04">
+        <p>常見問題</p>
+      </a>
+      <% if(!session.user) { %>
+        <a href="/C05"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+            class="bi bi-person-fill" viewBox="0 0 16 16">
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+          </svg></a>
+        <% }else if(session.user.rights){%>
+          <a href="/C05_2/1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+              class="bi bi-person-fill" viewBox="0 0 16 16">
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+            </svg></a>
+          <%}else{%>
+            <a href="/C05_4/1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                class="bi bi-person-fill" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+              </svg></a>
+            <%}%>
+              <a href="/C06"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                  class="bi bi-cart3" viewBox="0 0 16 16">
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </svg></a>
     </div>
   </nav>
   <!-- <section id="Main"> -->
@@ -65,62 +72,56 @@
 
   </div>
   <div id="Btnlist">
-    <a href="https://line.me/ti/g2/99v75ccSrL9DvGLINwJ8XfZOttMVRKRNNx7gbA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
-      target="_blank"><button type="button" id="Line" class="mainbtn btn btn-success" data-bs-container="body"
-        data-bs-toggle="popover" data-bs-placement="left" data-bs-content="Left popover">
+    <a href="https://line.me/ti/g2/99v75ccSrL9DvGLINwJ8XfZOttMVRKRNNx7gbA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"target="_blank">
+      <div id="Line" class="mainbtn">
         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-line"
           viewBox="0 0 16 16">
           <path
             d="M8 0c4.411 0 8 2.912 8 6.492 0 1.433-.555 2.723-1.715 3.994-1.678 1.932-5.431 4.285-6.285 4.645-.83.35-.734-.197-.696-.413l.003-.018.114-.685c.027-.204.055-.521-.026-.723-.09-.223-.444-.339-.704-.395C2.846 12.39 0 9.701 0 6.492 0 2.912 3.59 0 8 0ZM5.022 7.686H3.497V4.918a.156.156 0 0 0-.155-.156H2.78a.156.156 0 0 0-.156.156v3.486c0 .041.017.08.044.107v.001l.002.002.002.002a.154.154 0 0 0 .108.043h2.242c.086 0 .155-.07.155-.156v-.56a.156.156 0 0 0-.155-.157Zm.791-2.924a.156.156 0 0 0-.156.156v3.486c0 .086.07.155.156.155h.562c.086 0 .155-.07.155-.155V4.918a.156.156 0 0 0-.155-.156h-.562Zm3.863 0a.156.156 0 0 0-.156.156v2.07L7.923 4.832a.17.17 0 0 0-.013-.015v-.001a.139.139 0 0 0-.01-.01l-.003-.003a.092.092 0 0 0-.011-.009h-.001L7.88 4.79l-.003-.002a.029.029 0 0 0-.005-.003l-.008-.005h-.002l-.003-.002-.01-.004-.004-.002a.093.093 0 0 0-.01-.003h-.002l-.003-.001-.009-.002h-.006l-.003-.001h-.004l-.002-.001h-.574a.156.156 0 0 0-.156.155v3.486c0 .086.07.155.156.155h.56c.087 0 .157-.07.157-.155v-2.07l1.6 2.16a.154.154 0 0 0 .039.038l.001.001.01.006.004.002a.066.066 0 0 0 .008.004l.007.003.005.002a.168.168 0 0 0 .01.003h.003a.155.155 0 0 0 .04.006h.56c.087 0 .157-.07.157-.155V4.918a.156.156 0 0 0-.156-.156h-.561Zm3.815.717v-.56a.156.156 0 0 0-.155-.157h-2.242a.155.155 0 0 0-.108.044h-.001l-.001.002-.002.003a.155.155 0 0 0-.044.107v3.486c0 .041.017.08.044.107l.002.003.002.002a.155.155 0 0 0 .108.043h2.242c.086 0 .155-.07.155-.156v-.56a.156.156 0 0 0-.155-.157H11.81v-.589h1.525c.086 0 .155-.07.155-.156v-.56a.156.156 0 0 0-.155-.157H11.81v-.589h1.525c.086 0 .155-.07.155-.156Z" />
         </svg>
-      </button>
+      </div>
     </a>
-    <button id="Email" class="mainbtn btn btn-danger" onclick="self.location.href='mailto:107051062@gm.asia.edu.tw'">
+    <div id="Email" class="mainbtn" onclick="self.location.href='mailto:GuoJicake@gmail.com'">
       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-envelope-fill"
         viewBox="0 0 16 16">
         <path
           d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
       </svg>
-    </button>
-    <button class="mainbtn btn btn-secondary goTop">
+    </div>
+    <div id="goTop" class="mainbtn">
       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-up"
         viewBox="0 0 16 16">
         <path fill-rule="evenodd"
           d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
-      </svg></button>
-
+      </svg></div>
   </div>
   <!-- </section> -->
   <section id="Ad" class="page">
     <span class="Engtitle">- Hot! -</span>
     <span class="h1title">本季主打</span>
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="Source/IMG/banner1.png" class="d-block w-100">
-        </div>
-        <div class="carousel-item">
-          <img src="Source/IMG/banner2.png" class="d-block w-100">
-        </div>
-        <div class="carousel-item">
-          <img src="Source/IMG/banner3.png" class="d-block w-100">
-        </div>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="../Source/IMG/banner1.png" alt=""></div>
+        <div class="swiper-slide"><img src="../Source/IMG/banner2.png" alt=""></div>
+        <div class="swiper-slide"><img src="../Source/IMG/banner3.png" alt=""></div>
+
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+      <div id="btn_next" class="swiper-button-next"></div>
+      <div id="btn_prev" class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+      <div class="autoplay-progress">
+        <svg viewBox="0 0 48 48">
+          <circle cx="24" cy="24" r="20"></circle>
+        </svg>
+        <span></span>
+      </div>
     </div>
+  </section>
+    <section class="page">
     <span class="Engtitle">- News -</span>
     <span class="h1title">最新消息</span>
     <div id="News_card" class="responsive">
-      <div class="card mb-3" style="max-width: 560px; background-color: #F2C9C9; ">
+      <!-- <div class="card mb-3" style="max-width: 560px; background-color: #F2C9C9; ">
         <div class="row g-0">
           <div class="col-md-4">
             <img src="./Source/IMG/news_B.png" class="img-fluid rounded-start" alt="...">
@@ -133,52 +134,42 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
+      <!-- <div id="newscard" class="news">
+        <img src="https://dummyimage.com/300x300/000/fff" alt="">
+        <div>
+        <h2>最新消息</h2>
+        <p>內容</p>
+        <small>2023/02/28</small>
+        </div>
+      </div> -->
       <!-- ------------------------------------------->
-      <div class="card mb-3" style="max-width: 540px; background-color: #F2C9C9;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="./Source/IMG/news_G.png" class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">重要通知</h5>
-              <p class="card-text">由於系統升級，我們的網站將於本週五下午3點至6點進行維護，屆時可能會對訂單處理造成影響，請您提前安排好您的訂單。</p>
-              <p class="card-text"><small class="text-muted">2023/02/05</small></p>
-            </div>
-          </div>
+      <!-- <div id="newscard1" class="news">
+        <img src="https://dummyimage.com/300x300/000/fff" alt="">
+        <div>
+        <h2>最新消息</h2>
+        <p>內容</p>
+        <small>2023/02/28</small>
         </div>
-      </div>
+      </div> -->
       <!-- -------------------------------->
-      <div class="card mb-3" style="max-width: 540px; background-color: #F2C9C9;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="./Source/IMG/news_R.png" class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">優惠活動</h5>
-              <p class="card-text">感謝一直以來對菓季的支持，二月期間訂購蛋糕可享受免費送貨服務，訂單金額1500以上將獲得限定小禮品哦！</p>
-              <p class="card-text"><small class="text-muted">2023/02/01</small></p>
-            </div>
-          </div>
+      <!-- <div id="newscard2" class="news">
+        <img src="https://dummyimage.com/300x300/000/fff" alt="">
+        <div>
+        <h2>最新消息</h2>
+        <p>內容</p>
+        <small>2023/02/28</small>
         </div>
-      </div>
+      </div> -->
       <!-- -------------------------------------------->
-      <div class="card mb-3" style="max-width: 540px; background-color: #F2C9C9;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="./Source/IMG/news_BR.png" class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">調漲通知</h5>
-              <p class="card-text">感謝您長期以來對菓季的支持。由於材料和運輸成本的上漲，從2023年3月1日開始，將調整部分產品的價格。</p>
-              <p class="card-text"><small class="text-muted">2023/01/15</small></p>
-            </div>
-          </div>
+      <!-- <div id="newscard3" class="news">
+        <img src="https://dummyimage.com/300x300/000/fff" alt="">
+        <div>
+        <h2>最新消息</h2>
+        <p>內容</p>
+        <small>2023/02/28</small>
         </div>
-      </div>
+      </div> -->
       <!-- -------------------------------------------->
     </div>
   </section>
@@ -205,8 +196,8 @@
   </div>
   <section id="About" class="page">
     <div class="flex_column">
-    <span class="Engtitle">- About -</span>
-    <span class="h1title">關於菓季</span>
+      <span class="Engtitle">- About -</span>
+      <span class="h1title">關於菓季</span>
     </div>
     <div>
       <div id="about_T">
@@ -230,8 +221,8 @@
   <section id="Product_M" class="page">
     <div class="flex_column">
 
-    <span class="Engtitle">- Product -</span>
-    <span class="h1title">主題蛋糕 </span>
+      <span class="Engtitle">- Product -</span>
+      <span class="h1title">主題蛋糕 </span>
     </div>
     <div id="mcake">
       <img class="img_radius" src="Source/IMG/p_mcake0.png" alt="主題蛋糕">
@@ -257,9 +248,9 @@
   </section>
   <section id="Product_C" class="page">
     <div class="flex_column">
-    <span class="Engtitle">- Product -</span>
-    <span class="h1title">客製蛋糕 </span>
-  </div>
+      <span class="Engtitle">- Product -</span>
+      <span class="h1title">客製蛋糕 </span>
+    </div>
     <div id="hcake">
       <img class="img_radius" src="Source/IMG/p_cake2.png" alt="主題蛋糕">
       <div>
@@ -267,16 +258,16 @@
 
           &nbsp&nbsp&nbsp&nbsp使特別時刻更加難忘和意義深遠，無論是婚禮、生日、紀念日和寶寶彌月，菓季將為您獻上最完美的客製化蛋糕體驗。
         </span>
-        
-          <a href="/C02"><img class="img_radius" src="Source/IMG/p_cake1.png" alt=""></a>
-        
-        
-          <a href="/C02"><img class="img_radius" src="Source/IMG/p_cake3.png" alt=""></a>
-       
+
+        <a href="/C02"><img class="img_radius" src="Source/IMG/p_cake1.png" alt=""></a>
+
+
+        <a href="/C02"><img class="img_radius" src="Source/IMG/p_cake3.png" alt=""></a>
+
       </div>
     </div>
 
-      
+
 
   </section>
   <!-- <section id="Buy" class="page">
@@ -317,9 +308,9 @@
             <img id="footerLogo" src="Source/IMG/Logo.png" alt="Logo" style="width: 100px;">
             <a href="https://www.facebook.com/ispanTaipei" target="_blank"><img src="./Source/IMG/FB.png" alt=""></a>
             <a href="https://www.instagram.com/5gutlab_zicehui/" target="_blank"><img src="./Source/IMG/ig.png"
-              alt=""></a>
-              <a onclick="self.location.href='mailto:iservice@ispan.com.tw;'"><img src="./Source/IMG/mail.png" alt=""></a>
-            </div>
+                alt=""></a>
+            <a onclick="self.location.href='mailto:iservice@ispan.com.tw;'"><img src="./Source/IMG/mail.png" alt=""></a>
+          </div>
           <div>
             <h4>訂購電話</h4>
             <h6>04-1234567</h6>
@@ -340,9 +331,7 @@
   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="slick-1.8.1/slick/slick.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script src="js/index.js"></script>
 </body>
 
