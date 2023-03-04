@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>08.餡料食材介紹</title>
+    <title>菓季-餡料食材介紹</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -109,13 +109,12 @@
             position: relative;
             width: 100%;
             min-width: 1440px;
-            height: 400px;
             background-image: url(../Source/IMG/Key-Vision/middle_long.png);
             background-position: top;
             background-size: 60%;
             background-repeat: repeat-x;
             z-index: 3;
-            height: 550px;
+            height: 600px;
             color:var(--GWhite) ;
         }
 
@@ -157,19 +156,31 @@
             <span>菓季</span>
         </div>
         <div id="navlist">
-            <a href="">主題蛋糕</a>
-            <a href="">客製蛋糕</a>
-            <a href="">餡料食材介紹</a>
-            <a href="">常見問題</a>
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill"
-                viewBox="0 0 16 16">
-                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart3"
-                viewBox="0 0 16 16">
-                <path
-                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-            </svg>
+            <a href="/C01/0">主題蛋糕</a>
+            <a href="/C02">客製蛋糕</a>
+            <a href="/C03">餡料食材介紹</a>
+            <a href="/C04">常見問題</a>
+            <% if(!session.user) { %>
+                <a href="/C05"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                    class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                  </svg></a>
+                <% }else if(session.user.rights){%>
+                  <a href="/C05_2/1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                      class="bi bi-person-fill" viewBox="0 0 16 16">
+                      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                    </svg></a>
+                  <%}else{%>
+                    <a href="/C05_4/1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                        class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                      </svg></a>
+                    <%}%>
+                      <a href="/C06"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                          class="bi bi-cart3" viewBox="0 0 16 16">
+                          <path
+                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                        </svg></a>
         </div>
     </nav>
 
@@ -205,8 +216,6 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
-
     <!-- 食材與內餡區域 -->
     <div class="cakearea">
         <div class="cakeprobox">
@@ -484,7 +493,6 @@
             </div>
         </div>
     </footer>
-
     <!-- ---------------------------引用區---------------------------------------- -->
     <script src="./js/_js/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
