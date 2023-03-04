@@ -1,3 +1,6 @@
+// 初始化 wow.js
+new WOW().init();
+
 // 回到頂端
 $(document).ready(function () {
   // 捲軸偵測距離頂部超過 100 才顯示按鈕

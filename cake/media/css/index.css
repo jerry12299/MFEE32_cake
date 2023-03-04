@@ -37,7 +37,7 @@
 
 /* 字型套用 */
 body {
-    font-family: GenSenRounded-B ;
+    font-family: GenSenRounded-B;
     overflow-x: hidden;
     /* color: var(--Brown03); */
     width: 100vw;
@@ -45,7 +45,7 @@ body {
     display: flex;
     flex-direction: column;
     font-size: 1.2em;
-    
+
 
 }
 
@@ -140,7 +140,7 @@ body {
 #parallax-6 {
     background-image: url(../Source/IMG/Key-Vision/train_ex.png);
     animation: mainmove 3.5s linear forwards;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
 }
 
 @keyframes mainmove {
@@ -160,7 +160,7 @@ nav {
     position: fixed;
     top: 0px;
     margin: 0;
-    
+
 
 
     display: flex;
@@ -240,11 +240,7 @@ nav>div>a>p:hover:after {
     transform: scaleX(1);
 }
 
-#Product_C p {
-    margin-left: 80px;
-}
-
-#Btnlist{
+#Btnlist {
     position: fixed;
     right: 0;
     bottom: 40px;
@@ -252,6 +248,7 @@ nav>div>a>p:hover:after {
     flex-direction: column;
     z-index: 50;
 }
+
 .mainbtn {
     width: 50px;
     height: 50px;
@@ -309,10 +306,10 @@ section {
 
 /* ------LINE彈跳視窗------------------------------- */
 
-#LINE_QR{
+#LINE_QR {
     position: fixed;
     right: 60px;
-    bottom:180px;
+    bottom: 180px;
     background-color: #fff;
     display: flex;
     flex-direction: column;
@@ -322,9 +319,10 @@ section {
     width: 15vw;
     border-radius: 10px;
     z-index: 99;
-    visibility:hidden;
+    visibility: hidden;
 }
-#LINE_QR>div{
+
+#LINE_QR>div {
     background-color: #07B53B;
     display: flex;
     justify-content: space-between;
@@ -335,17 +333,17 @@ section {
 
 }
 
-#LINE_QR>div>svg{
+#LINE_QR>div>svg {
     color: #fff;
     padding: 15px;
 }
 
-#LINE_QR>img{
+#LINE_QR>img {
     width: 8vw;
     padding-top: 20px;
 }
 
-#LINE_QR>p{
+#LINE_QR>p {
     font-size: 1rem;
     padding: 20px;
 
@@ -355,24 +353,24 @@ section {
 .swiper {
     width: 100%;
     height: 800px;
-  }
+}
 
-  .swiper-slide {
+.swiper-slide {
     text-align: center;
     font-size: 18px;
     background: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
 
-  .swiper-slide img {
+.swiper-slide img {
     display: block;
     width: 100%;
     object-fit: cover;
-  }
+}
 
-  .autoplay-progress {
+.autoplay-progress {
     right: 16px;
     bottom: 16px;
     z-index: 10;
@@ -384,9 +382,9 @@ section {
     font-weight: bold;
     color: var(--swiper-theme-color);
     visibility: hidden;
-  }
+}
 
-  .autoplay-progress svg {
+.autoplay-progress svg {
     --progress: 0;
     position: absolute;
     left: 0;
@@ -399,17 +397,13 @@ section {
     fill: none;
     stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
     stroke-dasharray: 125.6;
-    transform: rotate(-90deg); 
-  }
+    transform: rotate(-90deg);
+}
 
-  #btn_next,#btn_prev{
-      color: #fff;
-  }
-
-/* #carouselExampleControls {
-    width: 100%;
-    margin-bottom: 80px;
-} */
+#btn_next,
+#btn_prev {
+    color: #fff;
+}
 
 .news {
     display: flex;
@@ -421,7 +415,7 @@ section {
     width: 25vw;
 }
 
-.news>div{
+.news>div {
     padding: 0 20px 30px 0px;
 }
 
@@ -434,16 +428,22 @@ section {
     width: 100%;
 }
 
-#newscard,#newscard1,#newscard2,#newscard3{
+#newscard,
+#newscard1,
+#newscard2,
+#newscard3 {
     display: flex;
     color: var(--Brown01);
 }
 
-#newscard>img,#newscard1>img,#newscard2>img,#newscard3>img
-{
+#newscard>img,
+#newscard1>img,
+#newscard2>img,
+#newscard3>img {
     margin-right: 20px;
 }
-#News_card{
+
+#News_card {
     height: 200px;
 }
 
@@ -572,6 +572,10 @@ section {
 
 
 /* -----------------主題蛋糕-------------------- */
+#mcake>img {
+    width: 30vw;
+}
+
 #Product_M>div {
     display: flex;
     align-items: center;
@@ -584,7 +588,7 @@ section {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    width: 40vw;
+    width: 35vw;
 }
 
 #mcake div {
@@ -597,7 +601,7 @@ section {
 #mcake div img {
     width: 250px;
     border-radius: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -616,14 +620,19 @@ section {
     color: var(--Brown01);
 }
 
-#hcake div {
-    width: 40vw;
+#hcake>img {
+    width: 30vw;
+}
+
+#hcake>div {
+    width: 35vw;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
     margin: 20px;
 }
+
 
 #hcake div img {
     width: 250px;
@@ -641,6 +650,32 @@ section {
     width: 30vw;
 }
 
+#btn_buy {
+    background-color: var(--Green03);
+    width: 10vw;
+
+    border-radius: 20px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#btn_buy:hover{
+    background-color: var(--BTN_Red);
+}
+
+
+#btn_buy>div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    text-align: center;
+    color: var(--YWhite);
+    margin: 7px;
+    border: 4px dotted #fff;
+
+}
+
 /* -------------------------------------------- */
 #Contact {
     position: relative;
@@ -656,12 +691,6 @@ section {
 }
 
 #Contact>div {
-    /* background-image: url(../Source/IMG/Key-Vision/middle_long.png);
-    background-repeat:no-repeat;
-    background-size: 100% auto;
-    background-position: center;
-    background-attachment: fixed;
-    z-index: -5; */
     position: absolute;
     bottom: 0;
     width: 100%;
