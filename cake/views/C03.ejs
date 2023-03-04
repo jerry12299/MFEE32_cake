@@ -6,14 +6,205 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>08.餡料食材介紹</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="css/08-14.css">
+    <style>
+        /* 字型引用 */
+        @font-face {
+            font-family: 'GenSenRounded-B';
+            src: local("GenSenRounded-B"),
+                url('../Source/ttc/GenSenRounded-B.ttc') format("woff"),
+                url('../Source/ttc/GenSenRounded-B.ttc') format("opentype"),
+                url('../Source/ttc/GenSenRounded-B.ttc') format("embedded-opentype");
+        }
+
+        /* 色票表 */
+        :root {
+            --sky: #a6dbf5;
+
+            --Green01: #368284;
+            --Green02: #628e59;
+            --Green03: #A3CF78;
+            --Green04: #87c379;
+
+            --YWhite: #F6F3E4;
+            --GWhite: #F7F8F3;
+
+            --BG_LYellow: #f0da99;
+            --BG_LOrange: #F3D1B2;
+            --BG_MOrange: #f7bc88;
+
+            --Brown01: #5c3a31;
+            --Brown02: #835B36;
+            --Brown03: #BB8058;
+
+            --Brown04_BE: #b79779;
+            --Brown05_BEtxt: #876464;
+
+            --BTN_Red: #e3344b;
+            --BTN_Green: #337e47;
+            --BTN_Yellow: #f39800;
+        }
+
+        /* 字型套用 */
+        body {
+            font-family: GenSenRounded-B !important;
+            background-color: var(--Green03);
+        }
+
+        nav {
+            --bg: #D0EBF6;
+            --color: #5c3a31;
+            display: flex;
+            justify-content: space-between;
+            height: 70px;
+            width: 100%;
+            line-height: 70px;
+            background-color: var(--bg);
+            color: var(--color);
+            padding: 0 30px;
+            position: fixed;
+            top: 0;
+            z-index: 50;
+        }
+
+        nav>div>img {
+            width: 20%;
+        }
+
+        nav span {
+            margin-left: 10px;
+            color: #8C623E;
+            font-size: 1.3rem;
+        }
+
+        #navlist>a {
+            /* padding: 0px 10px; */
+            margin-right: 30px;
+            text-decoration: none;
+            color: #8C623E;
+            font-size: 1.3rem;
+        }
+
+        #navlist>svg {
+            padding: 0px 10px;
+            width: 50px;
+            color: #8C623E;
+        }
+
+        /* ----------------AD----------------- */
+        #carouselExampleIndicators {
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        /* ----------------------------------------- */
+        #footer>img {
+            width: 100vw;
+        }
+
+        footer {
+            position: relative;
+            width: 100%;
+            min-width: 1440px;
+            height: 400px;
+            background-image: url(../Source/IMG/Key-Vision/middle_long.png);
+            background-position: top;
+            background-size: 60%;
+            background-repeat: repeat-x;
+            z-index: 3;
+            height: 550px;
+            color:var(--GWhite) ;
+        }
+
+        #footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 30px 0px 30px;
+            color: var(--YWhite);
+        }
+
+        #icon {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #icon>div {
+            margin: 50px;
+        }
+
+        #icon a>img {
+            width: 50px;
+            margin: 0 10px;
+        }
+    </style>
 </head>
 
 <body>
-    <!-- 預留固定nav的位置 -->
-    <div class="navtop"></div>
+    <!-- nav-->
+    <nav>
+        <div>
+            <img src="./Source/IMG/Logo.png" alt="Logo">
+            <span>菓季</span>
+        </div>
+        <div id="navlist">
+            <a href="">主題蛋糕</a>
+            <a href="">客製蛋糕</a>
+            <a href="">餡料食材介紹</a>
+            <a href="">常見問題</a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-fill"
+                viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart3"
+                viewBox="0 0 16 16">
+                <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+            </svg>
+        </div>
+    </nav>
+
     <!-- 預留固定輪播的位置 -->
-    <div class="slideshow-container"></div>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="active"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" class="active"
+             aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="Source/IMG/ad1.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item active">
+                <img src="Source/IMG/ad1.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item active">
+                <img src="Source/IMG/ad1.png" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
 
 
     <!-- 食材與內餡區域 -->
@@ -267,7 +458,38 @@
         </div>
     </div>
     <!-- 預留固定footer的位置 -->
-    <div class="footer"></div>
+    <footer>
+        <div id="footer">
+            <div id="icon">
+                <div>
+                    <img id="footerLogo" src="./Source/IMG/Logo.png" alt="Logo" style="width: 100px;">
+                    <a href="https://www.facebook.com/ispanTaipei" target="_blank"><img src="./Source/IMG/FB.png"
+                            alt=""></a>
+                    <a href="https://www.instagram.com/5gutlab_zicehui/" target="_blank"><img src="./Source/IMG/ig.png"
+                            alt=""></a>
+                    <a onclick="self.location.href='mailto:iservice@ispan.com.tw;'"><img src="./Source/IMG/mail.png"
+                            alt=""></a>
+                </div>
+                <div>
+                    <h4>訂購電話</h4>
+                    <h6>04-1234567</h6><br>
+                    <h4>營業時間</h4>
+                    <h6>週二-週日10:00至19:00 每週一公休</h6><br>
+                    <h4>地址</h4>
+                    <h6>台中市南屯區公益路二段(國泰世華大樓18樓)</h6>
+                </div>
+            </div>
+            <div>
+                <small>Copyright © 2023 MFEE32 第一組. All rights reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ---------------------------引用區---------------------------------------- -->
+    <script src="./js/_js/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
