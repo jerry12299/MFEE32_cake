@@ -12,7 +12,7 @@ $(document).ready(function () {
   });
 
   // 點擊按鈕回頂部
-  $(".goTop").on("click", function (event) {
+  $("#goTop").on("click", function (event) {
       $("html, body").animate(
           {
               scrollTop: 0
@@ -187,4 +187,15 @@ var swiper = new Swiper(".mySwiper", {
       progressContent.textContent = `${Math.ceil(time / 1000)}s`;
     }
   }
+});
+
+// news
+$(document).ready(function () {
+  $('.multiple-items').slick({
+      infinite: true,
+      slidesToShow: 2,
+      slidesToScroll: 2
+  });
+
+
 });

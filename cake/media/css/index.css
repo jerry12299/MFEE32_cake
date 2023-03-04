@@ -410,18 +410,38 @@ section {
     margin-bottom: 80px;
 } */
 
-.news{
+.news {
     display: flex;
-    height: 150px;
+    flex-direction: row;
+    /* height: 150px; */
     padding: 0px 20px 0px 0px;
-    background-color: aqua;
+    background-color: var(--YWhite);
     border-radius: 10px;
     width: 25vw;
-  }
 
- .news>img{
+}
+
+.news>img {
     border-radius: 10px 0 0 10px;
- }
+    width: 10vw;
+}
+
+.multiple-items {
+    width: 60%;
+}
+
+#newscard,#newscard1,#newscard2,#newscard3{
+    display: flex;
+    color: var(--Brown01);
+}
+
+#newscard>img,#newscard1>img,#newscard2>img,#newscard3>img
+{
+    margin-right: 20px;
+}
+#News_card{
+    height: 200px;
+}
 
 /* -------------parallax----------------- */
 #parallax {
@@ -592,7 +612,7 @@ section {
     color: var(--Brown01);
 }
 
-#hcake>div {
+#hcake div {
     width: 40vw;
     display: flex;
     align-items: center;
@@ -601,19 +621,20 @@ section {
     margin: 20px;
 }
 
-#hcake>div img {
+#hcake div img {
     width: 250px;
     margin: 30px 20px;
     transition: transform 0.3s ease-in-out;
 }
 
-#hcake>div img:hover {
+#hcake div img:hover {
     transform: scale(1.1) translateY(-5px);
 }
 
-#hcake>div>span {
+#hcake div>span {
     padding: 0 30px;
     color: var(--color);
+    width: 30vw;
 }
 
 /* -------------------------------------------- */
@@ -621,7 +642,7 @@ section {
     position: relative;
     width: 100vw;
     min-width: 1440px;
-    height: 700px;
+    height: 750px;
     background-image: url(../Source/IMG/Key-Vision/middle_long.png);
     background-position: top;
     background-size: 70%;

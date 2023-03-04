@@ -9,8 +9,10 @@
   <link rel="stylesheet" href="css/index.css">
   <!-- 插件 -->
   <!-- 卡片輪播 -->
-  <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick.css" />
-  <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick-theme.css" />
+  <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" />
   <!-- ---------------bootstrap---------------------------- -->
   <!-- ---------------------------------- -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -120,44 +122,44 @@
     <section class="page">
     <span class="Engtitle">- News -</span>
     <span class="h1title">最新消息</span>
-    <div id="News_card">
+    <div id="News_card" class="multiple-items">
       <div id="newscard" class="news">
-        <img src="https://dummyimage.com/300x300/000/fff" alt="">
-        <div>
-        <h2>最新消息</h2>
-        <p>內容</p>
-        <small>2023/02/28</small>
-        </div>
+          <img src="/Source/IMG/news_G.png" alt="">
+          <div>
+              <h2>最新消息</h2>
+              <p>內容</p>
+              <small>2023/02/28</small>
+          </div>
       </div>
       <!-- ------------------------------------------->
       <div id="newscard1" class="news">
-        <img src="https://dummyimage.com/300x300/000/fff" alt="">
-        <div>
-        <h2>最新消息</h2>
-        <p>內容</p>
-        <small>2023/02/28</small>
-        </div>
+          <img src="/Source/IMG/news_R.png" alt="">
+          <div>
+              <h2>最新消息</h2>
+              <p>內容</p>
+              <small>2023/02/28</small>
+          </div>
       </div>
       <!-- -------------------------------->
       <div id="newscard2" class="news">
-        <img src="https://dummyimage.com/300x300/000/fff" alt="">
-        <div>
-        <h2>最新消息</h2>
-        <p>內容</p>
-        <small>2023/02/28</small>
-        </div>
+          <img src="/Source/IMG/news_B.png" alt="">
+          <div>
+              <h2>最新消息</h2>
+              <p>內容</p>
+              <small>2023/02/28</small>
+          </div>
       </div>
       <!-- -------------------------------------------->
       <div id="newscard3" class="news">
-        <img src="https://dummyimage.com/300x300/000/fff" alt="">
-        <div>
-        <h2>最新消息</h2>
-        <p>內容</p>
-        <small>2023/02/28</small>
-        </div>
+          <img src="/Source/IMG/news_BR.png" alt="">
+          <div>
+              <h2>最新消息</h2>
+              <p>內容</p>
+              <small>2023/02/28</small>
+          </div>
       </div>
       <!-- -------------------------------------------->
-    </div>
+  </div>
   </section>
   <div id="parallax">
     <div id="parallax_img">
@@ -240,6 +242,7 @@
     <div id="hcake">
       <img class="img_radius" src="Source/IMG/p_cake2.png" alt="主題蛋糕">
       <div>
+      <div>
         <span>&nbsp&nbsp&nbsp&nbsp菓季提供獨特的客製化蛋糕服務，讓您的特別時刻更加難忘和意義深遠。我們的烘焙師會與您深入討論，設計出獨一無二的蛋糕，確保完美地符合您的要求和喜好。<br><br>
 
           &nbsp&nbsp&nbsp&nbsp使特別時刻更加難忘和意義深遠，無論是婚禮、生日、紀念日和寶寶彌月，菓季將為您獻上最完美的客製化蛋糕體驗。
@@ -251,19 +254,13 @@
         <a href="/C02"><img class="img_radius" src="Source/IMG/p_cake3.png" alt=""></a>
 
       </div>
+      <div id="btn_buy">123</div>
+    </div>
     </div>
 
 
 
   </section>
-  <!-- <section id="Buy" class="page">
-    <span class="Engtitle">- Buy it now! -</span>
-    <span class="h1title">心動不如馬上行動！</span>
-    <div>
-      <img src="https://dummyimage.com/500x600/d8f254/fff" alt="主題蛋糕">
-      <img src="https://dummyimage.com/500x600/9670f5/fff" alt="客製蛋糕">
-    </div>
-  </section> -->
   <section class="page">
     <span class="Engtitle">- photo -</span>
     <span class="h1title">美好畫面 香甜滋味</span>
@@ -298,12 +295,12 @@
             <a onclick="self.location.href='mailto:iservice@ispan.com.tw;'"><img src="./Source/IMG/mail.png" alt=""></a>
           </div>
           <div>
-            <h4>訂購電話</h4>
-            <h6>04-1234567</h6>
-            <h4>營業時間</h4>
-            <h6>週二-週日10:00至19:00 每週一公休</h6>
-            <h4>地址</h4>
-            <h6>台中市南屯區公益路二段(國泰世華大樓18樓)</h6>
+            <h2>訂購電話</h2>
+            <h4>04-1234567</h4>
+            <h2>營業時間</h2>
+            <h4>週二-週日10:00至19:00 每週一公休</h4>
+            <h2>地址</h2>
+            <h4>台中市南屯區公益路二段(國泰世華大樓18樓)</h4>
           </div>
         </div>
       </div>
@@ -314,8 +311,10 @@
   </section>
 
   <script src="js/_js/jquery-3.6.0.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>  
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
   <script src="js/index.js"></script>
 </body>
 
