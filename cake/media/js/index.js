@@ -22,6 +22,25 @@ $(document).ready(function () {
   });
 });
 
+// LINE視窗
+const line = document.getElementById("Line");
+const Close = document.getElementById("close");
+const Linediv = document.getElementById("LINE_QR");
+
+line.addEventListener("click", function() {
+  Linediv.style.visibility = "visible";
+  Linediv.classList.remove("animate__bounceOutDown");
+  Linediv.classList.add("animate__bounceInUp")
+});
+
+Close.addEventListener("click", function() {
+  Linediv.classList.remove("animate__bounceInUp")
+  Linediv.classList.add("animate__bounceOutDown")
+  setTimeout(function() {
+    Linediv.style.visibility = "hidden";
+  }, 2000);
+});
+
 
 // 主視覺視差
 let layers = document.querySelectorAll('.keyart-layer');

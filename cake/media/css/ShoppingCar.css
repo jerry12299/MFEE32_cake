@@ -38,7 +38,7 @@
 /* 字型套用 */
 body {
     font-family: GenSenRounded-B !important;
-    background-color: var(--Green03);
+    background-color:#fff1c5 ;
 }
 
 
@@ -199,7 +199,7 @@ textarea::placeholder {
 }
 
 .check {
-    background-color: rgb(255, 223, 109);
+    background-color: var(--Green04);
 }
 
 .uncheck {

@@ -9,13 +9,13 @@
   <link rel="stylesheet" href="css/index.css">
   <!-- 插件 -->
   <!-- 卡片輪播 -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" />
+  <!------------------------------------ -->
   <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" />
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" />
-  <!-- ---------------bootstrap---------------------------- -->
-  <!-- ---------------------------------- -->
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <!-- 引用animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 
 <body>
@@ -73,8 +73,25 @@
     <div class="keyart-layer" speed="100" id="parallax-6"></div>
 
   </div>
+
+  <div id="LINE_QR" class="animate__animated ">
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-line"
+        viewBox="0 0 16 16">
+        <path
+          d="M8 0c4.411 0 8 2.912 8 6.492 0 1.433-.555 2.723-1.715 3.994-1.678 1.932-5.431 4.285-6.285 4.645-.83.35-.734-.197-.696-.413l.003-.018.114-.685c.027-.204.055-.521-.026-.723-.09-.223-.444-.339-.704-.395C2.846 12.39 0 9.701 0 6.492 0 2.912 3.59 0 8 0ZM5.022 7.686H3.497V4.918a.156.156 0 0 0-.155-.156H2.78a.156.156 0 0 0-.156.156v3.486c0 .041.017.08.044.107v.001l.002.002.002.002a.154.154 0 0 0 .108.043h2.242c.086 0 .155-.07.155-.156v-.56a.156.156 0 0 0-.155-.157Zm.791-2.924a.156.156 0 0 0-.156.156v3.486c0 .086.07.155.156.155h.562c.086 0 .155-.07.155-.155V4.918a.156.156 0 0 0-.155-.156h-.562Zm3.863 0a.156.156 0 0 0-.156.156v2.07L7.923 4.832a.17.17 0 0 0-.013-.015v-.001a.139.139 0 0 0-.01-.01l-.003-.003a.092.092 0 0 0-.011-.009h-.001L7.88 4.79l-.003-.002a.029.029 0 0 0-.005-.003l-.008-.005h-.002l-.003-.002-.01-.004-.004-.002a.093.093 0 0 0-.01-.003h-.002l-.003-.001-.009-.002h-.006l-.003-.001h-.004l-.002-.001h-.574a.156.156 0 0 0-.156.155v3.486c0 .086.07.155.156.155h.56c.087 0 .157-.07.157-.155v-2.07l1.6 2.16a.154.154 0 0 0 .039.038l.001.001.01.006.004.002a.066.066 0 0 0 .008.004l.007.003.005.002a.168.168 0 0 0 .01.003h.003a.155.155 0 0 0 .04.006h.56c.087 0 .157-.07.157-.155V4.918a.156.156 0 0 0-.156-.156h-.561Zm3.815.717v-.56a.156.156 0 0 0-.155-.157h-2.242a.155.155 0 0 0-.108.044h-.001l-.001.002-.002.003a.155.155 0 0 0-.044.107v3.486c0 .041.017.08.044.107l.002.003.002.002a.155.155 0 0 0 .108.043h2.242c.086 0 .155-.07.155-.156v-.56a.156.156 0 0 0-.155-.157H11.81v-.589h1.525c.086 0 .155-.07.155-.156v-.56a.156.156 0 0 0-.155-.157H11.81v-.589h1.525c.086 0 .155-.07.155-.156Z" />
+      </svg>
+      <svg id="close" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+      </svg>
+    </div>
+    <img src="/Source/IMG/LINE.jpg" alt="">
+    <p>請在LINE應用程式上開啟「好友」分頁，點選畫面右上方用來加入好友的圖示，
+      接著點選「行動條碼」，然後掃描此行動條碼。</p>
+
+  </div>
+
   <div id="Btnlist">
-    <a href="https://line.me/ti/g2/99v75ccSrL9DvGLINwJ8XfZOttMVRKRNNx7gbA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"target="_blank">
       <div id="Line" class="mainbtn">
         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-line"
           viewBox="0 0 16 16">
@@ -95,7 +112,8 @@
         viewBox="0 0 16 16">
         <path fill-rule="evenodd"
           d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
-      </svg></div>
+      </svg>
+    </div>
   </div>
   <!-- </section> -->
   <section id="Ad" class="page">
@@ -119,47 +137,47 @@
       </div>
     </div>
   </section>
-    <section class="page">
+  <section class="page">
     <span class="Engtitle">- News -</span>
     <span class="h1title">最新消息</span>
     <div id="News_card" class="multiple-items">
       <div id="newscard" class="news">
-          <img src="/Source/IMG/news_G.png" alt="">
-          <div>
-              <h2>最新消息</h2>
-              <p>內容</p>
-              <small>2023/02/28</small>
-          </div>
+        <img src="/Source/IMG/news_G.png" alt="">
+        <div>
+          <h2>公休通知</h2>
+          <p>2/23-2/28員工旅遊，公休6天</p>
+          <small>2023/02/18</small>
+        </div>
       </div>
       <!-- ------------------------------------------->
       <div id="newscard1" class="news">
-          <img src="/Source/IMG/news_R.png" alt="">
-          <div>
-              <h2>最新消息</h2>
-              <p>內容</p>
-              <small>2023/02/28</small>
-          </div>
+        <img src="/Source/IMG/news_R.png" alt="">
+        <div>
+          <h2>調漲通知</h2>
+          <p>感謝您長期以來對菓季的支持。由於材料和運輸成本的上漲，從2023年3月1日開始，將調整部分產品的價格。</p>
+          <small>2023/02/11</small>
+        </div>
       </div>
       <!-- -------------------------------->
       <div id="newscard2" class="news">
-          <img src="/Source/IMG/news_B.png" alt="">
-          <div>
-              <h2>最新消息</h2>
-              <p>內容</p>
-              <small>2023/02/28</small>
-          </div>
+        <img src="/Source/IMG/news_B.png" alt="">
+        <div>
+          <h2>重要通知</h2>
+          <p>由於系統升級，我們的網站將於本週五下午3點至6點進行維護，屆時可能會對訂單處理造成影響，請您提前安排好您的訂單。</p>
+          <small>2023/02/07</small>
+        </div>
       </div>
       <!-- -------------------------------------------->
       <div id="newscard3" class="news">
-          <img src="/Source/IMG/news_BR.png" alt="">
-          <div>
-              <h2>最新消息</h2>
-              <p>內容</p>
-              <small>2023/02/28</small>
-          </div>
+        <img src="/Source/IMG/news_BR.png" alt="">
+        <div>
+          <h2>優惠活動</h2>
+          <p>感謝一直以來對菓季的支持，二月期間訂購蛋糕可享受免費送貨服務，訂單金額1500以上將獲得限定小禮品哦！</p>
+          <small>2023/02/02</small>
+        </div>
       </div>
       <!-- -------------------------------------------->
-  </div>
+    </div>
   </section>
   <div id="parallax">
     <div id="parallax_img">
@@ -242,20 +260,20 @@
     <div id="hcake">
       <img class="img_radius" src="Source/IMG/p_cake2.png" alt="主題蛋糕">
       <div>
-      <div>
-        <span>&nbsp&nbsp&nbsp&nbsp菓季提供獨特的客製化蛋糕服務，讓您的特別時刻更加難忘和意義深遠。我們的烘焙師會與您深入討論，設計出獨一無二的蛋糕，確保完美地符合您的要求和喜好。<br><br>
+        <div>
+          <span>&nbsp&nbsp&nbsp&nbsp菓季提供獨特的客製化蛋糕服務，讓您的特別時刻更加難忘和意義深遠。我們的烘焙師會與您深入討論，設計出獨一無二的蛋糕，確保完美地符合您的要求和喜好。<br><br>
 
-          &nbsp&nbsp&nbsp&nbsp使特別時刻更加難忘和意義深遠，無論是婚禮、生日、紀念日和寶寶彌月，菓季將為您獻上最完美的客製化蛋糕體驗。
-        </span>
+            &nbsp&nbsp&nbsp&nbsp使特別時刻更加難忘和意義深遠，無論是婚禮、生日、紀念日和寶寶彌月，菓季將為您獻上最完美的客製化蛋糕體驗。
+          </span>
 
-        <a href="/C02"><img class="img_radius" src="Source/IMG/p_cake1.png" alt=""></a>
+          <a href="/C02"><img class="img_radius" src="Source/IMG/p_cake1.png" alt=""></a>
 
 
-        <a href="/C02"><img class="img_radius" src="Source/IMG/p_cake3.png" alt=""></a>
+          <a href="/C02"><img class="img_radius" src="Source/IMG/p_cake3.png" alt=""></a>
 
+        </div>
+        <div id="btn_buy">123</div>
       </div>
-      <div id="btn_buy">123</div>
-    </div>
     </div>
 
 
@@ -312,7 +330,7 @@
 
   <script src="js/_js/jquery-3.6.0.js"></script>
   <script type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>  
+    src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
   <script src="js/index.js"></script>
