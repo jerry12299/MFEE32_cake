@@ -261,6 +261,27 @@ body{
 
 /* -----------------09.commonQA----------------------- */
 
+.qadiv{
+    margin-top: 20px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.qadiv h3{
+    color:#544132;
+    text-align: center;
+    font-size: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.qadiv p{
+    color:#544132;
+    text-align: center;
+    font-size: 20px;
+}
+
 button#expand {
     position: absolute;
     right: 0;
@@ -303,18 +324,22 @@ button#expand {
 
 /*會員登入文字置中*/
 .loginbgcolor{
-    background-color: #9EC778;
+    background-color:  #A3CF78;
     
 }
 .loginWord {
-    font-size: 60px;
+    font-size: 50px;
     letter-spacing: 20px;
     text-align: center;
     color: #705a43;
     font-weight: 900;
-    background-color: #9EC778;
-    margin-bottom: 0;
-    margin-top: 0;
+    background-color:  #A3CF78;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.loginWord h3{
+    
+    display: block;
 }
 
 /*登入位置置中*/
@@ -457,7 +482,7 @@ button#expand {
 
 /* -----------------11.memberSignUp---------------------*/
 .signUpbgcolor{
-    background-color: #9EC778;
+    background-color: #A3CF78;
 }
 .changeloing{
     width: 150px;
@@ -486,19 +511,21 @@ button#expand {
 
 
 .member_title {
+    /* background-color: #4C2A20; */
     /* margin-top: 30px; */
     height: 20px;   
     width: 350px;
-    font-size: 30px;
     text-align: center;
     letter-spacing: 5px;
     margin-left: auto;
     margin-right: auto;
     color: #5C3A30;
-    margin-bottom: 80px;
+    margin-top: 30px;
+    margin-bottom: 50px;
 }
 .member_title h2{
     display: inline-block;
+    font-size: 50px;
 }
 
 .emailarea {
@@ -787,12 +814,12 @@ button#expand {
 
 /* -----------------12.memberProfilep---------------------*/
 .memberbgcolor{
-    background-color: #9EC778;
+    background-color: #A3CF78;
 }
 
 
 .profilnav {
-    /* margin-top: 30px; */
+    margin-top: 30px;
     width: 50%;
     border-radius: 10px 10px 10px 10px;
     background-color: #8c623e;
@@ -804,7 +831,9 @@ button#expand {
     display: flex;
     margin-top: 0px;
 }
-
+.profilnav_bottom li{
+    border-bottom:5px white solid ;
+}
 .profilnav li {
     padding: 10px 10px 10px 10px;
     margin: 5px 5px 5px 5px;
@@ -1119,12 +1148,13 @@ button#expand {
 
 /* -----------------13.generalOrderPage---------------------*/
 
+
 .generalOrderPage{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #9EC778;
+    background-color: #A3CF78;
 }
 .generalOrder {
     display: flex;
@@ -1134,6 +1164,12 @@ button#expand {
     width: 60%;
     margin: 20px;
 }
+
+.team_leader{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 
 .generalOrdernav {
     width: 100%;
@@ -1145,7 +1181,12 @@ button#expand {
 .generalOrdernav ul {
     display: flex;
 }
-
+.generalOrdernav ul a{
+    text-decoration: none;
+}
+.genorderline ul .genorderline{
+    border: 5px white solid;
+}
 .generalOrdernav li {
     padding: 10px;
     margin: 5px;
@@ -1281,7 +1322,7 @@ button.cancelbutton {
 /* -----------------14..customOrderPage---------------------*/
 .custombgcolor{
     width: 100%;
-    background-color: #9EC778;
+    background-color: #A3CF78;
 }
 
 .customlOrderPage{
