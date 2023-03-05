@@ -104,12 +104,12 @@ body {
 /* -----------------主視覺視差-------------------- */
 .keyart-container {
     width: 100%;
-    height: 750px;
+    height: 950px;
 }
 
 .keyart-layer {
     width: 100vw;
-    height: 750px;
+    height: 950px;
     background-repeat: repeat-x;
     position: fixed;
     background-position: bottom center;
@@ -118,7 +118,7 @@ body {
 
 
 #parallax-1 {
-    background-image: url(../Source/IMG/Key-Vision/sky.png);
+   background-color: #A7E4FF;
 }
 
 #parallax-2 {
@@ -126,7 +126,7 @@ body {
 }
 
 #parallax-3 {
-    background-image: url(../Source/IMG/Key-Vision/middle.png);
+    background-image: url(../Source/IMG/Key-Vision/M_middle.png);
 }
 
 #parallax-4 {
@@ -518,6 +518,7 @@ section {
 
 #about_T>img {
     margin-bottom: 50px;
+    width: 40vw;
 }
 
 #about_T>img:nth-child(2) {
@@ -707,6 +708,7 @@ section {
     width: 10vw;
     border-radius: 20px;
     transition: background-color 0.3s ease-in-out;
+    margin-top:30px ;
 }
 
 #btn_buy:hover{
