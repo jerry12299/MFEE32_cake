@@ -34,6 +34,7 @@
 
     --YWhite: #f6f3e4;
     --GWhite: #F7F8F3;
+    --myBG:#fff1c5;
 
     --BG_LYellow: #f0da99;
     --BG_LOrange: #F3D1B2;
@@ -61,7 +62,7 @@
 
 body {
     display: flex;
-    background-color: var(--YWhite);
+        background-color: var(--myBG);
 }
 
 h1 {
@@ -81,6 +82,7 @@ h6 {
     font-size: var(--pSTitle);
     color: var(--Brown01);
     letter-spacing: 5px;
+    margin: 0;
 }
 
 p {
@@ -88,6 +90,7 @@ p {
     font-size: var(--pContent);
     color: var(--Brown01);
     letter-spacing: 2px;
+    margin: 0;
 }
 
 a {
@@ -174,6 +177,55 @@ a {
     color: #fff;
 }
 
+/* ------LINE彈跳視窗------------------------------- */
+
+#LINE_QR {
+    position: fixed;
+    right: 60px;
+    bottom: 180px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+    border-radius: 10px;
+    z-index: 99;
+    visibility: hidden;
+}
+
+#LINE_QR>div {
+    background-color: #07B53B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+
+
+}
+
+#LINE_QR>div>svg {
+    color: var(--color01);
+    padding: 15px;
+}
+#LINE_QR>div>p{
+    margin: 0 10px 0 0;
+    color: var(--color01);
+    cursor: pointer;
+}
+
+#LINE_QR>img {
+    width: 8vw;
+    padding-top: 20px;
+}
+
+#LINE_QR>p {
+    font-size: 1rem;
+    padding: 20px;
+
+}
 
 
 /* ---------------側邊btn----------------- */
@@ -235,7 +287,61 @@ a {
     color: #6c757d;
     border: 3px solid #6c757d;
 }
+/*福窗*/
+.ShowMSG {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: hsla(0, 0%, 0%, 0.2);
 
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border: none;
+
+    z-index: 5;
+    cursor: pointer;
+}
+
+.ShowMSG>div {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    
+    background-color: var(--Brown04_BE);
+
+    border-radius: 30px;
+    border: 10px solid var(--Brown01);
+    cursor: default;
+}
+
+.ShowMSG>div>div:first-child {
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--Brown01);
+    width: 100%;
+}
+.ShowMSG>div>div:first-child h6 {
+    color: var(--Brown04_BE);
+    margin: 0;
+    padding: 0px 20px 5px 20px;
+    cursor: pointer;
+}
+.ShowMSG>div>div:last-of-type{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+.ShowMSG>div>div:last-of-type>img{
+    max-width:40%;
+}
+.ShowMSG>div>div:last-of-type>h6{
+    max-width:40%;
+    font-size: var(--pBTitle);
+}
 /* ----------------footer----------------- */
 footer {
     position: relative;

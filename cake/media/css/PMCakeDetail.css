@@ -5,7 +5,8 @@ body {
 }
 
 /*訂單成功*/
-.orderSuccess {
+.orderSuccess,
+.ShowBigPic {
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -20,15 +21,28 @@ body {
     cursor: pointer;
 }
 
+.ShowBigPic>div {
+    width: 900px;
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.ShowBigPic img {
+    width: 900px;
+    height: 900px;
+
+    background-color: var(--Brown04_BE);
+    transition: 0.3s ease-in;
+}
+
 /* * {
     border: 1px solid red;
 } */
-
 .orderSuccess>div {
     display: flex;
     flex-direction: column;
     max-width: 450px;
-    
+
     background-color: var(--YWhite);
 
     border-radius: 30px;
@@ -42,13 +56,15 @@ body {
     background-color: var(--Brown01);
     width: 100%;
 }
+
 .orderSuccess>div>div:first-child h6 {
     color: var(--YWhite);
     margin: 0;
     padding: 0px 20px 5px 20px;
     cursor: pointer;
 }
-.orderSuccess>div>div:last-of-type{
+
+.orderSuccess>div>div:last-of-type {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -57,11 +73,12 @@ body {
 
     padding: 20px 0 0 0;
 }
-.orderSuccess>div>div:last-of-type>img{
-    max-width:50%;
+
+.orderSuccess>div>div:last-of-type>img {
+    max-width: 50%;
 }
 
-
+/*======================================================*/
 #PMCakeDetail {
     display: flex;
     flex-direction: row;
@@ -72,13 +89,12 @@ body {
     align-items: flex-start;
 
 
-    padding: 30px 15%;
+    padding: 70px 15%;
     /* transition: 1.0 ease; */
-
-
-    -webkit-box-shadow: 0px 0px 40px 40px var(--Green03);
-    /*---------------模糊程度 多擴散*/
-    box-shadow: 0px 0px 40px 40px var(--Green03);
+    background-image: radial-gradient(var(--BG_LOrange) 2px, transparent 2px),
+        radial-gradient(var(--BG_LOrange) 2px, transparent 2px);
+    background-size: calc(20 * 2px) calc(20 * 2px);
+    background-position: 0 0, calc(10 * 2px) calc(10 * 2px);
 }
 
 .PMCake_show {
@@ -94,8 +110,8 @@ body {
 
     padding: 30px;
 
-    -webkit-box-shadow: 0px 0px 20px 0px var(--Green02);
-    box-shadow: 0px 0px 20px 0px var(--Green02);
+    -webkit-box-shadow: 0px 0px 20px 0px var(--Brown04_BE);
+    box-shadow: 0px 0px 20px 0px var(--Brown04_BE);
 }
 
 .PMCake_show_detail_up {
@@ -113,19 +129,81 @@ body {
     align-items: center;
 
     /* background-color: aqua; */
-
     margin: 0 30px 0 0;
 }
 
-.mainPic {
+.cakePic>div {
+    position: relative;
     border-radius: 15px;
     width: 250px;
     height: 250px;
 
-    background-color: var(--Brown04_BE);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    overflow: hidden;
 }
 
 figcaption {
+    cursor: pointer;
+}
+
+.cakePic>div>figcaption {
+    transform: translateX(0px);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    transition: 0.1s ease-in-out;
+}
+.cakePic>div>figcaption>img{transition: 0.3s ease-in;}
+.cakePic>div>figcaption>img:hover {transform: scale(1.3);}
+
+.cakePic>div>div {
+    position: absolute;
+    width: 100%;
+    top: 110px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.cakePic>div>div>button {
+    font-family: "GenJyuuGothic-B";
+    font-size: var(--pSTitle);
+    color: var(--Brown01);
+    text-align: center;
+    border: none;
+
+
+    background-color: rgba(246, 243, 228, 0.6);
+    transition: 0.3s ease;
+    z-index: 1;
+}
+
+.cakePic>div>div>button:first-of-type {
+    border-radius: 0 5px 5px 0;
+}
+
+.cakePic>div>div>button:last-of-type {
+    border-radius: 5px 0 0 5px;
+}
+
+.cakePic>div>div>button:hover {
+    color: var(--Brown03);
+    background-color: rgba(246, 243, 228, 1);
+    cursor: pointer;
+}
+
+
+.mainPic {
+    width: 250px;
+    height: 250px;
+    background-color: var(--Brown04_BE);
+}
+
+.cakePic>div+figcaption {
     padding: 10px 0 0 0;
 }
 
@@ -253,9 +331,13 @@ figcaption {
     justify-content: center;
     align-items: center;
     margin: 20px 0 0 0;
-    padding: 400px 20px;
     border: 3px dashed var(--Brown01);
     border-radius: 10px;
+    padding: 10px;
+    overflow: hidden;
 }
 
+.PMCake_show_introduce>img {
+    width: 100%;
 
+}

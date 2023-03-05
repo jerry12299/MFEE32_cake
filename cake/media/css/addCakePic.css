@@ -54,3 +54,18 @@ li>input{
     background-color: var(--YWhite);
     color: var(--BTN_Red);
 }
+
+
+#title{
+    width: 100%;
+    transition: 0.5s ease;
+}
+
+.updateOK{
+    background-color: var(--Brown04_BE);
+    padding: 20px;
+
+    border-radius: 10px;
+    color: var(--YWhite);
+    transition: 0.5s ease;
+}

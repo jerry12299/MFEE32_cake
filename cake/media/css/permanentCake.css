@@ -1,11 +1,13 @@
 @import "main_ginnychen19.css";
 
-body {
-    flex-direction: column;
-}
 /* *{
     border: 1px solid red;
 } */
+
+body {
+    flex-direction: column;
+}
+
 #permanentCake {
     display: flex;
     flex-direction: row;
@@ -13,9 +15,12 @@ body {
     justify-content: center;
     align-items: flex-start;
 
-    padding: 30px 15% ;
-    /* transition: 1.0 ease; */
+    padding: 70px 15% ;
     /* border: 1px  solid salmon; */
+    background-image:radial-gradient(var(--BG_LOrange) 2px, transparent 2px),
+                     radial-gradient(var(--BG_LOrange) 2px, transparent 2px);
+    background-size:calc(20 * 2px) calc(20 * 2px);
+    background-position:0 0,calc(10 * 2px) calc(10 * 2px);
 
 }
 
@@ -23,21 +28,23 @@ body {
 .PMCake_table {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
 
     flex: 1;
     min-width: 220px;
+    height: 100vh;
 
     font-family: "GenJyuuGothic-L";
     font-size: var(--pContent);
 
     border-radius: 10px;
+    border: 3px solid var(--Brown01);
 
     background-color: var(--YWhite);
-    -webkit-box-shadow: 0px 0px 20px 0px var(--Green02); 
-    box-shadow: 0px 0px 20px 0px var(--Green02);
+    -webkit-box-shadow: 0px 0px 20px 0px var(--Brown04_BE); 
+    box-shadow: 0px 0px 20px 0px var(--Brown04_BE);
 
     overflow: hidden;
 }
@@ -137,7 +144,7 @@ body {
     display: flex;
     flex-wrap: wrap;
 
-    justify-content: center;
+    justify-content: space-evenly;
 
     /* background-color: rgb(16, 16, 59); */
 
@@ -151,12 +158,11 @@ body {
     align-items: center;
     /* background-color: blue;  */
 
-    padding: 0 20px;
-    margin: 0 20px 20px 20px;
+    margin: 0 10px 30px 10px;
 }
 .commodity_item img {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     
 
@@ -171,16 +177,16 @@ body {
 
 .commodity_item a>p {
     position: absolute;
-    top: -15px;
-    right: 25px;
+    top: -20px;
+    right: 40px;
     z-index: 2;
     color: var(--color01);
+    letter-spacing: 2px;
 }
 
 .commodity_item>div:first-child {
-    
-    width: 150px;
-    height: 150px;
+    width: fit-content;
+    height: fit-content;
     border-radius: 50%;
     background-color: var(--YWhite);
     transition: 0.5s ease-in-out;
@@ -190,7 +196,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 150px;
+    width: 180px;
 
     margin: 10px 0 0 0;
     /* background-color: rgb(124, 194, 13); */
@@ -203,12 +209,12 @@ body {
 
 /*-----蛋糕列hover用------*/
 fork{
-    height: 50px;
-    width: 50px;
+    height: 80px;
+    width: 80px;
 
     position: absolute;
-    top: -70px;
-    right: 0px;
+    top: -100px;
+    right: -20px;
     transform: rotate(40deg);
     z-index: 2;
 
@@ -222,11 +228,11 @@ fork{
 
 color {
     position: absolute;
-    top: -64px;
+    top: -79px;
     right: 0px;
 
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
 
     border-radius: 50%;
     z-index: 1;

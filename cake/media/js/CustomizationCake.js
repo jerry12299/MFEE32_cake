@@ -61,21 +61,20 @@ $(CakePic).hover(
 
 
 /* 蛋糕點擊出現浮窗 */
-const showDialog = $("dialog");
+const showDialog = $("dialog.showCZcakeDetail");
 CakePic.on("click", function () {
     isPaused = true;
     showDialog.css({ display: "flex", });
 
     const src_Real = $(this).find("img").prop("src");
     const src_Draw = src_Real.replace(".jpg", "") + "_draw.jpg";
-    $(showDialog.children()[0]).prop("src", src_Real);
-    $(showDialog.children()[1]).prop("src", src_Draw);
+    $(showDialog.children().children()[0]).prop("src", src_Real);
+    $(showDialog.children().children()[1]).prop("src", src_Draw);
 })
 
 /* 任意點擊關閉浮窗 */
-const showDialogChild = showDialog.children();
 showDialog.on("click", function (a) {
-    if ($(a.target).is(showDialogChild)) {
+    if ($(a.target).is("img") || $(a.target).is("div") || $(a.target).is("section") || $(a.target).is("price")|| $(a.target).is("h6")|| $(a.target).is("p")) {
         return;
     } else {
         showDialog.css({ display: "none", });

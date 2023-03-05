@@ -35,10 +35,10 @@ index.get('/C01/:class', function (req, res) { //主題蛋糕頁
     var c_class = req.params.class
     switch (parseInt(c_class)) {
         case 0:
-            var class_name = '2023季節主打'
+            var class_name = '🔥當月季節主打'
             break;
         case 1:
-            var class_name = '彌月蛋糕系列'
+            var class_name = '彌月蛋糕'
             break;
         case 2:
             var class_name = '重乳酪'
