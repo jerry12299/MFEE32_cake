@@ -527,22 +527,74 @@ section {
 #rabbit1 {
     position: absolute;
     top: 100px;
-    left: 100px;
+    left: 50px;
     /* rotate: 30deg; */
-    animation: rotate1 0.5s linear infinite alternate;
-    width: 15vw;
+    /* animation: rotate1 0.5s linear infinite alternate; */
+    width: 20vw;
 }
 
 #rabbit2 {
     position: absolute;
     bottom: 100px;
     right: 20px;
+    width: 20vw;
     /* rotate: -45deg; */
-    animation: rotate2 0.6s linear infinite alternate;
+    /* animation: rotate2 0.6s linear infinite alternate; */
 
 }
 
-@keyframes rotate1 {
+#rabbit3 {
+    position: absolute;
+   bottom: 0px;
+    left: 15px;
+    width: 15vw;
+}
+
+#fruit_st{
+    position: absolute;
+   top:80px;
+    right: 250px;
+   
+}
+
+#fruit_sth{
+    position: absolute;
+    top:280px;
+     right: 150px;
+     /* width: 10vw;   */
+}
+
+#LoveMeg{
+    position: absolute;
+    bottom: 500px;
+     right: 250px;
+     width: 10vw;
+     width: 8vw;
+
+}
+
+#SmileMeg{
+    position: absolute;
+    bottom: 280px;
+    left: 250px;
+    width: 5vw;
+}
+
+#fruit_org{
+    position: absolute;
+    left: 250px;
+    top: 550px;
+
+}
+
+#fruit_orgh{
+    position: absolute;
+    left: 100px;
+    top: 700px;
+    
+}
+
+/* @keyframes rotate1 {
     0% {
         transform: rotate(30deg);
     }
@@ -568,7 +620,7 @@ section {
     100% {
         transform: rotate(0deg);
     }
-}
+} */
 
 
 /* -----------------主題蛋糕-------------------- */
@@ -653,7 +705,6 @@ section {
 #btn_buy {
     background-color: var(--Green03);
     width: 10vw;
-
     border-radius: 20px;
     transition: background-color 0.3s ease-in-out;
 }
@@ -673,7 +724,14 @@ section {
     color: var(--YWhite);
     margin: 7px;
     border: 4px dotted #fff;
+    padding: 15px;
 
+
+}
+
+#btn_buy a{
+    text-decoration: none;
+    color: var(--GWhite);
 }
 
 /* -------------------------------------------- */
