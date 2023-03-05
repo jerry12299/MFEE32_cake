@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <dialog class="SomethingSuccess">
+    <dialog class="ShowMSG">
         <div class="animate-zoom">
             <div>
                 <h6 class="animated ani_infinite">X</h6>
@@ -75,8 +75,7 @@
             <table class="Order">
                 <thead>
                     <tr>
-                        <td id="title">
-                            開始新增商品
+                        <td id="title" class="">
                         </td>
                     </tr>
                 </thead>
@@ -224,6 +223,40 @@
     <!-- <script src="js/BEndOrder.js"></script> -->
     <script src="js/findNav.js"></script>
     <script>
+        class ShowDialog {
+            constructor() {
+                this.showDialog_BEnd = $('.ShowMSG');
+                this.img = this.showDialog_BEnd.children().children().eq(1).find("img");
+                this.h6 = this.showDialog_BEnd.children().children().eq(1).find("h6");
+            }
+
+            show(imgUrl, msg) {
+                this.showDialog_BEnd.css({ display: "flex", });
+                this.img.attr('src', imgUrl);
+                this.h6.text(msg);
+            }
+
+            /* 任意點擊關閉浮窗 */
+            onClickOutside(Needlocation=true) {
+                const self = this; // 保存当前上下文
+                this.showDialog_BEnd.on("click", function (a) {
+                    // console.log(a.target);
+                    if ($(a.target).is("div") || $(a.target).is("img") || $(a.target).is("h6.msg")) {
+                        return;
+                    } else {
+                        if (Needlocation) {
+                            location.href = '/additem';
+                        }else{
+                            self.showDialog_BEnd.css({ display: "none", });
+                        }
+                    }
+                })
+                if (location) {
+                    setTimeout(() => { location.href = '/additem'; }, 5000);
+                }
+            }
+        }
+
         function doChange() {
             var cakeId = { c_id: $('#c_id').val() }
             $.ajax({
@@ -240,7 +273,6 @@
                 },
                 error: function () {
                     alert("Add 系統錯誤!");
-
                 }
             })
         }
@@ -264,7 +296,8 @@
                 success: function (res) {
                     alert(res);
                     // location.href = '/';
-                    $('#title').text('新增成功!')
+                    $('#title').addClass("updateOK");
+                    $('#title').text('新增成功!');
                 },
                 error: function () {
                     alert("login 系統錯誤!")

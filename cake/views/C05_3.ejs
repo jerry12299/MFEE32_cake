@@ -13,6 +13,17 @@
 </head>
 
 <body>
+    <dialog class="ShowMSG">
+        <div class="animate-zoom">
+            <div>
+                <h6 class="animated ani_infinite">X</h6>
+            </div>
+            <div>
+                <h6 class="msg"></h6>
+                <img class="animated ani_infinite pulse" src="">
+            </div>
+        </div>
+    </dialog>
     <div id="BEndleft">
         <div class="BEndnav">
             <div>
@@ -151,78 +162,105 @@
                                                             <div class="contact_UpDown">
                                                                 <table class="contactUP">
                                                                     <form action="" id="form1_<%= item.cust_id %>">
-                                                                    <tr>
-                                                                        <td>連絡電話</td>
-                                                                        <td>
-                                                                            <%= item.phone %>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>電子信箱</td>
-                                                                        <td>
-                                                                            <%= item.email %>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>希望聯絡方式</td>
-                                                                        <td>
-                                                                            <%= item.connection %>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>付款方式</td>
-                                                                        <td>
-                                                                           
+                                                                        <tr>
+                                                                            <td>連絡電話</td>
+                                                                            <td>
+                                                                                <%= item.phone %>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>電子信箱</td>
+                                                                            <td>
+                                                                                <%= item.email %>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>希望聯絡方式</td>
+                                                                            <td>
+                                                                                <%= item.connection %>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>付款方式</td>
+                                                                            <td>
+
                                                                                 <select name="cust_pay">
                                                                                     <option selected="selected">請選擇
                                                                                     </option>
-                                                                                    <% if(item.cust_pay==="銀行轉帳"){%>
-                                                                                    <option value="銀行轉帳" selected="selected">銀行轉帳</option>
-                                                                                    <%}else{%>
-                                                                                    <option value="銀行轉帳">銀行轉帳</option>
-                                                                                    <%}%> 
-                                                                                    <% if(item.cust_pay==="黑貓貨到付款"){%>
-                                                                                    <option value="黑貓貨到付款" selected="selected">黑貓貨到付款</option>
-                                                                                    <%}else{%>
-                                                                                    <option value="黑貓貨到付款">黑貓貨到付款</option>
-                                                                                    <%}%>
-                                                                                    <% if(item.cust_pay==="來店付款"){%>
-                                                                                    <option value="來店付款" selected="selected">來店付款</option>
-                                                                                    <%}else{%>
-                                                                                    <option value="來店付款">來店付款</option>
-                                                                                    <%}%>
+                                                                                    <% if(item.cust_pay==="銀行轉帳" ){%>
+                                                                                        <option value="銀行轉帳"
+                                                                                            selected="selected">銀行轉帳
+                                                                                        </option>
+                                                                                        <%}else{%>
+                                                                                            <option value="銀行轉帳">銀行轉帳
+                                                                                            </option>
+                                                                                            <%}%>
+                                                                                                <% if(item.cust_pay==="黑貓貨到付款"
+                                                                                                    ){%>
+                                                                                                    <option
+                                                                                                        value="黑貓貨到付款"
+                                                                                                        selected="selected">
+                                                                                                        黑貓貨到付款</option>
+                                                                                                    <%}else{%>
+                                                                                                        <option
+                                                                                                            value="黑貓貨到付款">
+                                                                                                            黑貓貨到付款
+                                                                                                        </option>
+                                                                                                        <%}%>
+                                                                                                            <% if(item.cust_pay==="來店付款"
+                                                                                                                ){%>
+                                                                                                                <option
+                                                                                                                    value="來店付款"
+                                                                                                                    selected="selected">
+                                                                                                                    來店付款
+                                                                                                                </option>
+                                                                                                                <%}else{%>
+                                                                                                                    <option
+                                                                                                                        value="來店付款">
+                                                                                                                        來店付款
+                                                                                                                    </option>
+                                                                                                                    <%}%>
                                                                                 </select>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>取貨方式</td>
-                                                                        <td>
-                                                                            
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>取貨方式</td>
+                                                                            <td>
+
                                                                                 <select name="cust_pick">
                                                                                     <option selected="selected">請選擇
                                                                                     </option>
-                                                                                    <% if(item.cust_pick==="來店自取"){%>
-                                                                                    <option value="來店自取" selected="selected">來店自取</option>
-                                                                                    <%}else{%>
-                                                                                    <option value="來店自取" >來店自取</option>
-                                                                                    <%}%>
-                                                                                    <% if(item.cust_pick==="冷凍宅配"){%>
-                                                                                    <option value="冷凍宅配" selected="selected">冷凍宅配</option>
-                                                                                    <%}else{%>
-                                                                                    <option value="冷凍宅配">冷凍宅配</option>
-                                                                                    <%}%>
+                                                                                    <% if(item.cust_pick==="來店自取" ){%>
+                                                                                        <option value="來店自取"
+                                                                                            selected="selected">來店自取
+                                                                                        </option>
+                                                                                        <%}else{%>
+                                                                                            <option value="來店自取">來店自取
+                                                                                            </option>
+                                                                                            <%}%>
+                                                                                                <% if(item.cust_pick==="冷凍宅配"
+                                                                                                    ){%>
+                                                                                                    <option value="冷凍宅配"
+                                                                                                        selected="selected">
+                                                                                                        冷凍宅配</option>
+                                                                                                    <%}else{%>
+                                                                                                        <option
+                                                                                                            value="冷凍宅配">
+                                                                                                            冷凍宅配
+                                                                                                        </option>
+                                                                                                        <%}%>
                                                                                 </select>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>取貨時間</td>
-                                                                        <td>
-                                                                            <input type="text" name="cust_date"
-                                                                                placeholder="日期格式 20XX-XX-XX"
-                                                                                value=<%=item.cust_date %>>
-                                                                        </td>
-                                                                    </tr>
-                                                                </form>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>取貨時間</td>
+                                                                            <td>
+                                                                                <input type="text" name="cust_date"
+                                                                                    placeholder="日期格式 20XX-XX-XX"
+                                                                                    value=<%=item.cust_date %>>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </form>
                                                                 </table>
                                                                 <table class="contactDOWN">
                                                                     <tr>
@@ -234,99 +272,165 @@
                                                             </div>
                                                         </diV>
                                                         <diV class="confirm">
-                                                            <form action="" id="price_<%= item.cust_id %>" >
-                                                            <diV>總估價：NT.<input type="text" name="cust_price" id="addPrice"
-                                                                    value=<%=item.cust_price %>></diV></form>
+                                                            <form action="" id="price_<%= item.cust_id %>">
+                                                                <diV>總估價：NT.<input type="text" name="cust_price"
+                                                                        id="addPrice" value=<%=item.cust_price %>></diV>
+                                                            </form>
                                                             <diV>
                                                                 <form action="" id="form2_<%= item.cust_id %>">
-                                                                    
-                                                                <select name="cust_state">
-                                                                    <option selected="selected">訂單狀態</option>
-                                                                    <%if(item.cust_state==="未製作"){%>
-                                                                    <option value="未製作" selected="selected">未製作</option>
-                                                                    <% }else{%>
-                                                                    <option value="未製作">未製作</option>
-                                                                    <%}%>
-                                                                    <%if(item.cust_state==="已製作"){%>
-                                                                    <option value="已製作" selected="selected">已製作</option>
-                                                                    <% }else{%>
-                                                                    <option value="已製作" >已製作</option>
-                                                                    <%}%>
-                                                                    <%if(item.cust_state==="申請取消"){%>
-                                                                    <option value="申請取消" selected="selected">申請取消</option>
-                                                                    <% }else{%>
-                                                                    <option value="申請取消">申請取消</option>
-                                                                    <%}%>
-                                                                    <%if(item.cust_state==="已取消"){%>
-                                                                    <option value="已取消" selected="selected">已取消</option>
-                                                                    <% }else{%>
-                                                                    <option value="已取消">已取消</option>
-                                                                    <%}%>
-                                                                    <%if(item.cust_state==="未聯絡"){%>
-                                                                    <option value="未聯絡" selected="selected">未聯絡</option>
-                                                                    <% }else{%>
-                                                                    <option value="未聯絡">未聯絡</option>
-                                                                    <%}%>
-                                                                    <%if(item.cust_state==="洽談中"){%>
-                                                                    <option value="洽談中" selected="selected">洽談中</option>
-                                                                    <% }else{%>
-                                                                    <option value="洽談中">洽談中</option>
-                                                                    <%}%>
-                                                                </select>
-                                                                <select name="cust_pay_state">
-                                                                    <option selected="selected">付款狀態</option>
-                                                                    <%if(item.cust_pay_state==="未付款"){%>
-                                                                    <option value="未付款" selected="selected">未付款</option>
-                                                                    <% }else{%>
-                                                                    <option value="未付款" >未付款</option>
-                                                                    <%}%>
-                                                                    <%if(item.cust_pay_state==="已付款"){%>
-                                                                    <option value="已付款" selected="selected">已付款</option>
-                                                                    <% }else{%>
-                                                                    <option value="已付款">已付款</option>
-                                                                    <%}%>
-                                                                    <%if(item.cust_pay_state==="已退款"){%>
-                                                                    <option value="已退款" selected="selected">已退款</option>
-                                                                    <% }else{%>
-                                                                    <option value="已退款">已退款</option>
-                                                                    <%}%>
-                                                                </select>
-                                                                <select name="cust_shipping">
-                                                                    <option selected="selected">出貨狀態</option>
-                                                                    <%if(item.cust_shipping==="未配送"){%>
-                                                                    <option value="未配送" selected="selected">未配送</option>
-                                                                    <% }else{%>
-                                                                    <option value="未配送">未配送</option>
-                                                                    <%}%>
-                                                                    <%if(item.cust_shipping==="已配送"){%>
-                                                                    <option value="已配送" selected="selected">已配送</option>
-                                                                    <% }else{%>
-                                                                    <option value="已配送">已配送</option>
-                                                                    <%}%>
-                                                                    <%if(item.cust_shipping==="未取貨"){%>
-                                                                    <option value="未取貨" selected="selected">未取貨</option>
-                                                                    <% }else{%>
-                                                                    <option value="未取貨">未取貨</option>
-                                                                    <%}%>
-                                                                    <%if(item.cust_shipping==="已取貨"){%>
-                                                                    <option value="已取貨" selected="selected">已取貨</option>
-                                                                    <% }else{%>
-                                                                    <option value="已取貨">已取貨</option>
-                                                                    <%}%>
-                                                                    <%if(item.cust_shipping==="已取消"){%>
-                                                                    <option value="已取消" selected="selected">已取消</option>
-                                                                    <% }else{%>
-                                                                    <option value="已取消">已取消</option>
-                                                                    <%}%>
-                                                                </select>
+
+                                                                    <select name="cust_state">
+                                                                        <option selected="selected">訂單狀態</option>
+                                                                        <%if(item.cust_state==="未製作"){%>
+                                                                            <option value="未製作" selected="selected">未製作
+                                                                            </option>
+                                                                            <% }else{%>
+                                                                                <option value="未製作">未製作</option>
+                                                                                <%}%>
+                                                                                    <%if(item.cust_state==="已製作"){%>
+                                                                                        <option value="已製作"
+                                                                                            selected="selected">已製作
+                                                                                        </option>
+                                                                                        <% }else{%>
+                                                                                            <option value="已製作">已製作
+                                                                                            </option>
+                                                                                            <%}%>
+                                                                                                <%if(item.cust_state==="申請取消"){%>
+                                                                                                    <option value="申請取消"
+                                                                                                        selected="selected">
+                                                                                                        申請取消</option>
+                                                                                                    <% }else{%>
+                                                                                                        <option
+                                                                                                            value="申請取消">
+                                                                                                            申請取消
+                                                                                                        </option>
+                                                                                                        <%}%>
+                                                                                                            <%if(item.cust_state==="已取消"){%>
+                                                                                                                <option
+                                                                                                                    value="已取消"
+                                                                                                                    selected="selected">
+                                                                                                                    已取消
+                                                                                                                </option>
+                                                                                                                <%
+                                                                                                                    }else{%>
+                                                                                                                    <option
+                                                                                                                        value="已取消">
+                                                                                                                        已取消
+                                                                                                                    </option>
+                                                                                                                    <%}%>
+                                                                                                                        <%if(item.cust_state==="未聯絡"){%>
+                                                                                                                            <option
+                                                                                                                                value="未聯絡"
+                                                                                                                                selected="selected">
+                                                                                                                                未聯絡
+                                                                                                                            </option>
+                                                                                                                            <%
+                                                                                                                                }else{%>
+                                                                                                                                <option
+                                                                                                                                    value="未聯絡">
+                                                                                                                                    未聯絡
+                                                                                                                                </option>
+                                                                                                                                <%}%>
+                                                                                                                                    <%if(item.cust_state==="洽談中"){%>
+                                                                                                                                        <option
+                                                                                                                                            value="洽談中"
+                                                                                                                                            selected="selected">
+                                                                                                                                            洽談中
+                                                                                                                                        </option>
+                                                                                                                                        <%
+                                                                                                                                            }else{%>
+                                                                                                                                            <option
+                                                                                                                                                value="洽談中">
+                                                                                                                                                洽談中
+                                                                                                                                            </option>
+                                                                                                                                            <%}%>
+                                                                    </select>
+                                                                    <select name="cust_pay_state">
+                                                                        <option selected="selected">付款狀態</option>
+                                                                        <%if(item.cust_pay_state==="未付款"){%>
+                                                                            <option value="未付款" selected="selected">未付款
+                                                                            </option>
+                                                                            <% }else{%>
+                                                                                <option value="未付款">未付款</option>
+                                                                                <%}%>
+                                                                                    <%if(item.cust_pay_state==="已付款"){%>
+                                                                                        <option value="已付款"
+                                                                                            selected="selected">已付款
+                                                                                        </option>
+                                                                                        <% }else{%>
+                                                                                            <option value="已付款">已付款
+                                                                                            </option>
+                                                                                            <%}%>
+                                                                                                <%if(item.cust_pay_state==="已退款"){%>
+                                                                                                    <option value="已退款"
+                                                                                                        selected="selected">
+                                                                                                        已退款</option>
+                                                                                                    <% }else{%>
+                                                                                                        <option
+                                                                                                            value="已退款">
+                                                                                                            已退款</option>
+                                                                                                        <%}%>
+                                                                    </select>
+                                                                    <select name="cust_shipping">
+                                                                        <option selected="selected">出貨狀態</option>
+                                                                        <%if(item.cust_shipping==="未配送"){%>
+                                                                            <option value="未配送" selected="selected">未配送
+                                                                            </option>
+                                                                            <% }else{%>
+                                                                                <option value="未配送">未配送</option>
+                                                                                <%}%>
+                                                                                    <%if(item.cust_shipping==="已配送"){%>
+                                                                                        <option value="已配送"
+                                                                                            selected="selected">已配送
+                                                                                        </option>
+                                                                                        <% }else{%>
+                                                                                            <option value="已配送">已配送
+                                                                                            </option>
+                                                                                            <%}%>
+                                                                                                <%if(item.cust_shipping==="未取貨"){%>
+                                                                                                    <option value="未取貨"
+                                                                                                        selected="selected">
+                                                                                                        未取貨</option>
+                                                                                                    <% }else{%>
+                                                                                                        <option
+                                                                                                            value="未取貨">
+                                                                                                            未取貨</option>
+                                                                                                        <%}%>
+                                                                                                            <%if(item.cust_shipping==="已取貨"){%>
+                                                                                                                <option
+                                                                                                                    value="已取貨"
+                                                                                                                    selected="selected">
+                                                                                                                    已取貨
+                                                                                                                </option>
+                                                                                                                <%
+                                                                                                                    }else{%>
+                                                                                                                    <option
+                                                                                                                        value="已取貨">
+                                                                                                                        已取貨
+                                                                                                                    </option>
+                                                                                                                    <%}%>
+                                                                                                                        <%if(item.cust_shipping==="已取消"){%>
+                                                                                                                            <option
+                                                                                                                                value="已取消"
+                                                                                                                                selected="selected">
+                                                                                                                                已取消
+                                                                                                                            </option>
+                                                                                                                            <%
+                                                                                                                                }else{%>
+                                                                                                                                <option
+                                                                                                                                    value="已取消">
+                                                                                                                                    已取消
+                                                                                                                                </option>
+                                                                                                                                <%}%>
+                                                                    </select>
                                                                 </form>
                                                             </diV>
                                                             <diV><button class="BE_btn"
                                                                     onclick="doUpdate(<%= item.cust_id %>)">更新詳情</button>
                                                             </diV>
-                                                        
+
                                                         </diV>
-                                                       
+
                                                     </div>
                                                 </td>
                                             </tr>
@@ -372,36 +476,70 @@
     <script src="../js/BEndOrder.js"></script>
     <script src="../js/findNav.js"></script>
     <script>
+        class ShowDialog {
+            constructor() {
+                this.showDialog_BEnd = $('.ShowMSG');
+                this.img = this.showDialog_BEnd.children().children().eq(1).find("img");
+                this.h6 = this.showDialog_BEnd.children().children().eq(1).find("h6");
+            }
+
+            show(imgUrl, msg) {
+                this.showDialog_BEnd.css({ display: "flex", });
+                this.img.attr('src', imgUrl);
+                this.h6.text(msg);
+            }
+
+            /* 任意點擊關閉浮窗 */
+            onClickOutside(Needlocation = true) {
+                const self = this; // 保存当前上下文
+                this.showDialog_BEnd.on("click", function (a) {
+                    // console.log(a.target);
+                    if ($(a.target).is("div") || $(a.target).is("img") || $(a.target).is("h6.msg")) {
+                        return;
+                    } else {
+                        if (Needlocation) {
+                            location.href = '/C05_3/1';
+                        } else {
+                            self.showDialog_BEnd.css({ display: "none", });
+                        }
+                    }
+                })
+                if (location) {
+                    setTimeout(() => { location.href = '/C05_3/1'; }, 5000);
+                }
+            }
+        }
         function doUpdate(id) {
             // alert(id)
             var data = []
-            data = data.concat($(`#form1_${id}`).serializeArray()) 
-            data = data.concat($(`#form2_${id}`).serializeArray()) 
-            data = data.concat($(`#price_${id}`).serializeArray()) 
-            
-            var JSONData = {cust_id:id}
+            data = data.concat($(`#form1_${id}`).serializeArray())
+            data = data.concat($(`#form2_${id}`).serializeArray())
+            data = data.concat($(`#price_${id}`).serializeArray())
+
+            var JSONData = { cust_id: id }
             for (index in data) {
-                    JSONData[data[index].name] = data[index].value;
-                }
-                console.log(JSONData)      
+                JSONData[data[index].name] = data[index].value;
+            }
+            console.log(JSONData)
             $.ajax({
                 url: "/custUpdate",
-                    type: "POST",
-                    contentType: "application/json; charset=utf-8",
-                    data: JSON.stringify(JSONData),
-                    success: function (res) {
-                        alert(res)
-                        location.href = '/C05_3/1'
-                    },
-                    error: function () {
-                        alert("系統錯誤!")
-                    }
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(JSONData),
+                success: function (res) {
+                    const dialog = new ShowDialog();
+                    dialog.show("../Source/IMG/rabbit.png", "更新成功");
+                    dialog.onClickOutside();
+                },
+                error: function () {
+                    alert("系統錯誤!")
+                }
             })
-            
+
         }
-        function doSearch(who,value){
-            location = '/C05_3_1/'+who+'/'+value+'/1'
-           
+        function doSearch(who, value) {
+            location = '/C05_3_1/' + who + '/' + value + '/1'
+
         }
 
 

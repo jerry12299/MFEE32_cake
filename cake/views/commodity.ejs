@@ -55,7 +55,7 @@
         </div>
     </div>
 
-    <dialog class="SomethingSuccess">
+    <dialog class="ShowMSG">
         <div class="animate-zoom">
             <div>
                 <h6 class="animated ani_infinite">X</h6>
@@ -239,6 +239,40 @@
     <script src="js/findNav.js"></script>
     <script src="js/showDialog.js"></script>
     <script>
+        class ShowDialog {
+            constructor() {
+                this.showDialog_BEnd = $('.ShowMSG');
+                this.img = this.showDialog_BEnd.children().children().eq(1).find("img");
+                this.h6 = this.showDialog_BEnd.children().children().eq(1).find("h6");
+            }
+
+            show(imgUrl, msg) {
+                this.showDialog_BEnd.css({ display: "flex", });
+                this.img.attr('src', imgUrl);
+                this.h6.text(msg);
+            }
+
+            /* 任意點擊關閉浮窗 */
+            onClickOutside(Needlocation=true) {
+                const self = this; // 保存当前上下文
+                this.showDialog_BEnd.on("click", function (a) {
+                    // console.log(a.target);
+                    if ($(a.target).is("div") || $(a.target).is("img") || $(a.target).is("h6.msg")) {
+                        return;
+                    } else {
+                        if (Needlocation) {
+                            location.href = '/commodity';
+                        }else{
+                            self.showDialog_BEnd.css({ display: "none", });
+                        }
+                    }
+                })
+                if (location) {
+                    setTimeout(() => { location.href = '/commodity'; }, 5000);
+                }
+            }
+        }
+
         function doUpdata(id) {
             var data = $(`#${id}`).serializeArray();
 
@@ -255,41 +289,16 @@
                 data: JSON.stringify(JSONData),
                 success: function (res) {
                     // alert(res);
+
                     /* 後臺頁，更新成功出現浮窗 */
-                    const showDialog_BEnd = $('.SomethingSuccess');
-
-                    showDialog_BEnd.css({ display: "flex", });
-                    let img = showDialog_BEnd.children().children().eq(1).find("img");
-                    let h6 = showDialog_BEnd.children().children().eq(1).find("h6");
-                    img.attr("src","../Source/IMG/rabbit.png");
-                    h6.text("更新成功")
-
-                    /* 任意點擊關閉浮窗 */
-                    showDialog_BEnd.on("click", function (a) {
-                        console.log(a.target);
-                        if ($(a.target).is("div") || $(a.target).is("img") || $(a.target).is("h6.msg")) {
-                            return;
-                        } else {
-                            location.href = '/commodity';
-                        }
-                    })
-                    setTimeout(()=>{location.href = '/commodity';},5000);
+                    const dialog = new ShowDialog();
+                    dialog.show("../Source/IMG/rabbit.png", "更新成功");
+                    dialog.onClickOutside();
                 },
                 error: function () {
-                    showDialog_BEnd.css({ display: "flex", });
-                    let img = showDialog_BEnd.children().children().eq(1).find("img");
-                    let h6 = showDialog_BEnd.children().children().eq(1).find("h6");
-                    img.attr("src","../Source/IMG/Key-Vision/Rabbit_NO.png");
-                    h6.text("修改失敗")
-
-                    showDialog_BEnd.on("click", function (a) {
-                        console.log(a.target);
-                        if ($(a.target).is("div") || $(a.target).is("img") || $(a.target).is("h6.msg")) {
-                            return;
-                        } else {
-                            location.href = '/commodity';
-                        }
-                    })
+                    const dialog = new ShowDialog();
+                    dialog.show("../Source/IMG/Key-Vision/Rabbit_NO.png", "修改失敗");
+                    dialog.onClickOutside();
                 }
             })
         }
@@ -311,8 +320,15 @@
                     // //  alert(res);
                     $(`#img_${index}_${id}`).val(res);
 
+                    const dialog = new ShowDialog();
+                    dialog.show("../Source/IMG/rabbit.png", "上傳成功");
+                    dialog.onClickOutside(false);
+
                 },
                 error: function () {
+                    const dialog = new ShowDialog();
+                    dialog.show("../Source/IMG/Key-Vision/Rabbit_NO.png", "系統錯誤!");
+                    dialog.onClickOutside(false);
                     alert("login 系統錯誤!")
                 }
             })
