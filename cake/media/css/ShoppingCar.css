@@ -572,6 +572,16 @@ input {
     color: red;
 }
 
+#btn_pay button{
+    background-color:var(--Green02);
+    color: var(--YWhite);
+}
+
+#Shopping_success>div:last-child{
+    color: var(--YWhite);
+    background-color: var(--Green02);
+}
+
 #footer>img {
     width: 100vw;
 }

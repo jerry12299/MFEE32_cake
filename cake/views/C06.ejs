@@ -11,59 +11,59 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/ShoppingCar.css">
-    
+
     <style>
         .mainPic {
-    border-radius: 15px;
-    width: 250px;
-}
+            border-radius: 15px;
+            width: 250px;
+        }
     </style>
 </head>
 
 <body>
     <nav>
         <div>
-          <a href="/"><img src="../Source/IMG/Logo.png" alt="Logo"></a>
-          <a href="/">
-            <p>菓季</p>
-          </a>
+            <a href="/"><img src="../Source/IMG/Logo.png" alt="Logo"></a>
+            <a href="/">
+                <p>菓季</p>
+            </a>
         </div>
         <div id="navlist">
-          <a href="/C01/0">
-            <p>主題蛋糕</p>
-          </a>
-          <a href="/C02">
-            <p>客製蛋糕</p>
-          </a>
-          <a href="/C03">
-            <p>餡料食材介紹</p>
-          </a>
-          <a href="/C04">
-            <p>常見問題</p>
-          </a>
-          <% if(!session.user) { %>
-            <a href="/C05"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                class="bi bi-person-fill" viewBox="0 0 16 16">
-                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-              </svg></a>
-            <% }else if(session.user.rights){%>
-              <a href="/C05_2/1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                  class="bi bi-person-fill" viewBox="0 0 16 16">
-                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                </svg></a>
-              <%}else{%>
-                <a href="/C05_4/1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                    class="bi bi-person-fill" viewBox="0 0 16 16">
-                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                  </svg></a>
-                <%}%>
-                  <a href="/C06"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                      class="bi bi-cart3" viewBox="0 0 16 16">
-                      <path
-                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+            <a href="/C01/0">
+                <p>主題蛋糕</p>
+            </a>
+            <a href="/C02">
+                <p>客製蛋糕</p>
+            </a>
+            <a href="/C03">
+                <p>餡料食材介紹</p>
+            </a>
+            <a href="/C04">
+                <p>常見問題</p>
+            </a>
+            <% if(!session.user) { %>
+                <a href="/C05"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                        class="bi bi-person-fill" viewBox="0 0 16 16">
+                        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                     </svg></a>
+                <% }else if(session.user.rights){%>
+                    <a href="/C05_2/1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                            fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                        </svg></a>
+                    <%}else{%>
+                        <a href="/C05_4/1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                            </svg></a>
+                        <%}%>
+                            <a href="/C06"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                                    fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                </svg></a>
         </div>
-      </nav>
+    </nav>
     <section id="ShoppingCar">
         <div id="Step">
             <div id="Step1">
@@ -75,13 +75,13 @@
                 <p>確認資料</p>
             </div>
             <div id="Step3" class=" uncheck">
-                <div id="Step3_c"class="circle">3</div>
+                <div id="Step3_c" class="circle">3</div>
                 <p>購物完成</p>
             </div>
 
         </div>
         <div id="Shopping_body">
-           
+
             <div>
                 <div>
                     <table id="ShoppingList">
@@ -147,47 +147,47 @@
                     <% if(!session.user) { %>
                         <a href="/C05"><button class="btn_shp">登入</button></a>
                         <%} else{ %>
-                             <button id="gopay" class="btn_shp">我要結帳</button>
+                            <button id="gopay" class="btn_shp">我要結帳</button>
                             <% } %>
-                   
+
                 </div>
             </div>
         </div>
     </section>
     <!-- <form id="orderForm"> -->
-        <a name="payorder"></a>
-        <section id="Shopping_Pay" class="hidden">
+    <a name="payorder"></a>
+    <section id="Shopping_Pay" class="hidden">
+        <div>
             <div>
-                <div>
-                    <label for="pay" class="title">付款方式</label>
-                    <select name="payment" class="text_W" id="pay">
-                        <option value="銀行轉帳">銀行轉帳</option>
-                        <option value="黑貓貨到付款">黑貓貨到付款</option>
-                        <option value="來店付款">來店付款(限來店自取)</option>
-                    </select>
-                </div>
-                <div>
-                    <p>銀行代碼：822(中國信託)<br>
-                        匯款帳號：015-203-745-369
-                    </p>
-                    <p>郵局代碼：700<br>
-                        匯款帳號：7842-1953-7531-81
-                    </p>
-                    <p>銀行代碼：013(國泰世華)<br>
-                        匯款帳號：1287-6942-0001-78
-                    </p>
-                    <br>
-                    <p>麻煩於匯款後告知您的訂單編號、匯款日期及匯款後五碼，非常感謝！</p>
-                </div>
+                <label for="pay" class="title">付款方式</label>
+                <select name="payment" class="text_W" id="pay">
+                    <option value="銀行轉帳">銀行轉帳</option>
+                    <option value="黑貓貨到付款">黑貓貨到付款</option>
+                    <option value="來店付款">來店付款(限來店自取)</option>
+                </select>
             </div>
-        </section>
-
-
-
-        <section id="Shopping_order" class="hidden">
             <div>
+                <p>銀行代碼：822(中國信託)<br>
+                    匯款帳號：015-203-745-369
+                </p>
+                <p>郵局代碼：700<br>
+                    匯款帳號：7842-1953-7531-81
+                </p>
+                <p>銀行代碼：013(國泰世華)<br>
+                    匯款帳號：1287-6942-0001-78
+                </p>
+                <br>
+                <p>麻煩於匯款後告知您的訂單編號、匯款日期及匯款後五碼，非常感謝！</p>
+            </div>
+        </div>
+    </section>
 
-                <div id="orderer">
+
+
+    <section id="Shopping_order" class="hidden">
+        <div>
+
+            <div id="orderer">
                 <form id="orderForm">
 
                     <div>
@@ -198,32 +198,32 @@
 
                         <label for="">姓名：</label>
                         <input name="m_name" class="text_W" type="text" placeholder="王小明" readonly required
-                            value="<%=data.m_name %>" ><br>
+                            value="<%=data.m_name %>"><br>
 
                     </div>
                     <div>
                         <label for="">連絡電話：</label>
                         <input name="phone" class="text_W" type="tel" placeholder="0900-000-000" readonly required
-                            value="<%=data.phone %>" >
+                            value="<%=data.phone %>">
                     </div>
                     <div>
                         <label for="">電子郵件：</label>
                         <input name="email" class="text_W" type="email" placeholder="請輸入電子信箱" readonly required
-                            value="<%=data.email %>" >
+                            value="<%=data.email %>">
                     </div>
                     <div>
-                    <label class="ordertitle">自取/宅配日期：</label>&nbsp;
-                    <input type="radio" name="method" value="自取">自取
-                    <input type="radio" name="method" value="宅配">宅配
-                    &nbsp;&nbsp;
-                    <label for="">日期</label>
-                    <input type="date" name="pickupDate" value="2023-03-20">
-                    &nbsp;&nbsp;
-                    <label for="">時間</label>
-                    <select name="pickupTime">
-                    <option value="11:00:00">上午</option>
-                    <option value="13:00:00">下午</option>
-                    </select>
+                        <label class="ordertitle">自取/宅配日期：</label>&nbsp;
+                        <input type="radio" name="method" value="自取">自取
+                        <input type="radio" name="method" value="宅配">宅配
+                        &nbsp;&nbsp;
+                        <label for="">日期</label>
+                        <input type="date" name="pickupDate" value="2023-03-20">
+                        &nbsp;&nbsp;
+                        <label for="">時間</label>
+                        <select name="pickupTime">
+                            <option value="11:00:00">上午</option>
+                            <option value="13:00:00">下午</option>
+                        </select>
                         <!-- <label for="">自取/宅配日期：</label>
                         <br>
                         <br>
@@ -274,33 +274,33 @@
 
                 </form>
 
-                </div>
-
-                <div>
-                    <div id="hit">
-                        <p class="title">訂購注意事項</p>
-                        <hr>
-                        <ul>
-                            <li>客製蛋糕建議自取，蛋糕費用不含宅配，若需宅配細節請參考服務條款</li>
-                            <li>黑貓宅配(不建議採用)，摔壞、無法如期抵達的風險且無法理賠</li>
-                            <li>4吋高蛋糕尺寸與有鮮花裝飾之蛋糕不能宅配</li>
-                            <li>菓季產品最晚一週前預訂 若有急件需求請來電洽詢 04-23265860</li>
-                            <li>已確認之訂單，四日內無法更改時間或取消退費，五至七天內退款一半，八天前取消全額退費。</li>
-                        </ul>
-                    </div>
-
-                </div>
             </div>
-            <div id="btn_pay">
-                <div>
-                    <button onclick="history.back()" class="btn_shp">回上頁</button>
-                   
-                            <button class="btn_shp" id="buyItem">確認結帳</button>
-                            
 
+            <div>
+                <div id="hit">
+                    <p class="title">訂購注意事項</p>
+                    <hr>
+                    <ul>
+                        <li>客製蛋糕建議自取，蛋糕費用不含宅配，若需宅配細節請參考服務條款</li>
+                        <li>黑貓宅配(不建議採用)，摔壞、無法如期抵達的風險且無法理賠</li>
+                        <li>4吋高蛋糕尺寸與有鮮花裝飾之蛋糕不能宅配</li>
+                        <li>菓季產品最晚一週前預訂 若有急件需求請來電洽詢 04-23265860</li>
+                        <li>已確認之訂單，四日內無法更改時間或取消退費，五至七天內退款一半，八天前取消全額退費。</li>
+                    </ul>
                 </div>
+
             </div>
-        </section>
+        </div>
+        <div id="btn_pay">
+            <div>
+                <button onclick="history.back()" class="btn_shp">回上頁</button>
+
+                <button class="btn_shp" id="buyItem">確認結帳</button>
+
+
+            </div>
+        </div>
+    </section>
     <!-- </form> -->
     <section id="Shopping_success" class="hidden">
         <div id="Page_Succeed">
@@ -367,26 +367,30 @@
                         </table>
                         <span class="list_title">訂單與取貨備註：</span>
                         <div class="textarea" id="remark">
-                            
+
                         </div>
                     </div>
                 </div>
                 <div class="Totle">
                     <h5>總金額：</h5>
-                    <h3  id="total">NT$0</h3>
+                    <h3 id="total">NT$0</h3>
                 </div>
             </div>
 
         </div>
-        <a href="/"><button class="btn_shp">回到首頁</button></a>    </section>
-        <footer>
+        <a href="/"><button class="btn_shp">回到首頁</button></a>
+    </section>
+    <footer>
         <div id="footer">
             <div id="icon">
                 <div>
                     <img id="footerLogo" src="./Source/IMG/Logo.png" alt="Logo" style="width: 100px;">
-                    <a href="https://www.facebook.com/ispanTaipei" target="_blank"><img src="./Source/IMG/FB.png" alt=""></a>
-                    <a href="https://www.instagram.com/5gutlab_zicehui/" target="_blank"><img src="./Source/IMG/ig.png" alt=""></a>
-                    <a onclick="self.location.href='mailto:iservice@ispan.com.tw;'"><img src="./Source/IMG/mail.png" alt=""></a>
+                    <a href="https://www.facebook.com/ispanTaipei" target="_blank"><img src="./Source/IMG/FB.png"
+                            alt=""></a>
+                    <a href="https://www.instagram.com/5gutlab_zicehui/" target="_blank"><img src="./Source/IMG/ig.png"
+                            alt=""></a>
+                    <a onclick="self.location.href='mailto:iservice@ispan.com.tw;'"><img src="./Source/IMG/mail.png"
+                            alt=""></a>
                 </div>
                 <div>
                     <h4>訂購電話</h4>
@@ -401,9 +405,9 @@
                 <small>Copyright © 2023 MFEE32 第一組. All rights reserved.</small>
             </div>
         </div>
-        </footer>
+    </footer>
 
-        <script src="./js/_js/jquery-3.6.0.js"></script>
+    <script src="./js/_js/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
@@ -413,8 +417,8 @@
         // $('input[name=transport]').on('click',function(){
         //      console.log($('input[name=transport]:checked').val())
         // })
-        
- 
+
+
         function doDel(index) {
             var newitem = JSON.parse(localStorage.getItem('carts'));
             newitem.splice(index, 1);
@@ -488,7 +492,7 @@
                                       </svg></button>
                                 </td>
                             </tr>`);
-                            
+
                             $(`#s1_${index}`).children().each(function () {
                                 if ($(this).text() == e.quantity) {
                                     //jQuery給法
@@ -531,8 +535,8 @@
            //沒登入就無視
        <% } else { %> //注意!!! 需先登入!!!!不然報錯!!!!!!    
                 JSONData.m_id = <%= session.user.m_id %>
-                    JSONData.item =  buyItem ;
-                    JSONData.payment = $('#pay').val() ;
+                    JSONData.item =  buyItem;
+                JSONData.payment = $('#pay').val();
                 for (index in data) {
                     JSONData[data[index].name] = data[index].value;
                 }         
@@ -565,8 +569,8 @@
                         $('#time').text(`${data.pick_up_date.split('T')[0]} ${h}時後`)
                         $('#remark').text(`${data.remark}`)
                         $('#total').text(`${data.order_total}`)
-                        item.forEach((item)=>{
-                                $(".tbody2").append(`<tr>
+                        item.forEach((item) => {
+                            $(".tbody2").append(`<tr>
                                 <td>
                                     <img class='mainPic' src="Source/IMG/${item.img_name}" alt="商品圖">
                                 </td>
@@ -587,7 +591,7 @@
                                
                             </tr>`);
                         })
-                    
+
                         // location.href = '/C06';
 
                     },
