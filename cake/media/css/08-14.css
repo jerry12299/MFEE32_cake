@@ -861,7 +861,6 @@ button#expand {
     text-decoration: none;
 }
 
-
 .profilnav li:hover {
     border-bottom: 10px white solid;
 }
@@ -1214,6 +1213,10 @@ button#expand {
 .genorderline ul .genorderline {
     border: 5px white solid;
 }
+.borderbottom li{
+    border-bottom: 5px white solid;
+}
+
 
 .generalOrdernav li {
     padding: 10px;
