@@ -52,6 +52,7 @@ body {
     align-items: center;
 
     z-index: 5;
+    
 }
 
 .showCZcakeDetail>figcaption {
@@ -99,7 +100,7 @@ price>h6{color: var(--BTN_Red);}
     height: 150px;
     position: absolute;
     bottom: -60px;
-    left: -0px;
+    left: -50px;
     transform: rotate(-20deg);
 
 }
@@ -350,8 +351,7 @@ color {
     justify-content: center;
     align-items: center;
     padding: 20px 0;
-
-
+    background-color: blue;
 }
 
 .Feature_ITD>h4 {

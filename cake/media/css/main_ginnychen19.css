@@ -339,6 +339,7 @@ a {
     max-width:40%;
 }
 .ShowMSG>div>div:last-of-type>h6{
+    text-align: center;
     max-width:40%;
     font-size: var(--pBTitle);
 }
