@@ -91,10 +91,6 @@ body {
 
     padding: 70px 15%;
     /* transition: 1.0 ease; */
-    background-image: radial-gradient(var(--BG_LOrange) 2px, transparent 2px),
-        radial-gradient(var(--BG_LOrange) 2px, transparent 2px);
-    background-size: calc(20 * 2px) calc(20 * 2px);
-    background-position: 0 0, calc(10 * 2px) calc(10 * 2px);
 }
 
 .PMCake_show {
@@ -159,6 +155,17 @@ figcaption {
 .cakePic>div>figcaption>img{transition: 0.3s ease-in;}
 .cakePic>div>figcaption>img:hover {transform: scale(1.3);}
 
+.cakePic>div>p {
+    text-align: center;
+    position: absolute;
+    opacity: 0%;
+    background-color: rgba(240, 248, 255, 0.5);
+    width: 100%;
+    bottom: 0px;
+    z-index: 1;
+
+    transition: 0.3s ease-in;
+}
 .cakePic>div>div {
     position: absolute;
     width: 100%;
