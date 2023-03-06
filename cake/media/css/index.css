@@ -292,6 +292,7 @@ nav>div#navlist>a:hover:after,
 nav>div>a>p:hover:after {
     transform: scaleX(1);
 }
+/* ------------------------------------------- */
 
 #Btnlist {
     position: fixed;
