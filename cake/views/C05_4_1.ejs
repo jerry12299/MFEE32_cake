@@ -269,6 +269,20 @@
             width: 50px;
             margin: 0 10px;
         }
+
+        .team_leader input{
+            margin-top: 15px;
+            font-size: 30px;
+            margin-left: 280px;
+            background-color:  #87c379;
+            border: none;
+            border-radius: 5px 5px 5px 5px;
+            color: white;
+        }
+        .team_leader input:hover{
+            background-color: rgb(240, 237, 237);
+            color: #d6b290;
+        } 
     </style>
 </head>
 
@@ -351,6 +365,9 @@
                 <a href="/C05_4_2/1">
                     <li>客製訂單</li>
                 </a>
+                <form action="/logout" class="team_leader">
+                    <input type="submit" value="登出" >
+                </form>
             </ul>
         </div>
         <% var YY=data.birthday.getFullYear().toString()%>
