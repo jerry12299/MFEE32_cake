@@ -234,8 +234,13 @@ body{
     margin-left: 45%;
 }
 .ingredients img{
-    width: 20%;
-    height: 20%;
+    display: block;
+    width: 50%;
+    height: 50%;
+    margin-left: 0px;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 /*08.IntroStuffingr 結束*/
 
