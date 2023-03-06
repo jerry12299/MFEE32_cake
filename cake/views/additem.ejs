@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/BEndOrder.css">
     <link rel="stylesheet" href="css/customer.css">
     <link rel="stylesheet" href="css/addCakePic.css">
-    <title>commodity</title>
+    <title>菓季後台-新增商品</title>
 </head>
 
 <body>
@@ -257,8 +257,9 @@
             }
         }
 
-        function doChange() {
-            var cakeId = { c_id: $('#c_id').val() }
+        function doChange() {  //檢查id是否重複
+            var cakeId = { c_id:$('#c_id').val() }
+           
             $.ajax({
                 url: "/cakeId", //cake.js 的註冊頁 
                 type: "POST",
@@ -267,42 +268,74 @@
                 success: function (res) {
                     if (parseInt(res)) {
                         $('#newId').text('OK')
+                       
                     } else {
                         $('#newId').text('ID重複')
+                       
                     }
                 },
                 error: function () {
-                    alert("Add 系統錯誤!");
+                    alert("系統錯誤!");
                 }
             })
+            
         }
 
 
 
-        function doUpdata() {
-            var data = $('#newCake').serializeArray();
-
-            var JSONData = {};
-            for (index in data) {
-                JSONData[data[index].name] = data[index].value;
-            }
-
-            // console.log(JSONData)
+        function doUpdata() {  //更新
+            var cakeId = { c_id:$('#c_id').val() }
+           
             $.ajax({
-                url: "/additem",
+                url: "/cakeId", //cake.js 的註冊頁 
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
-                data: JSON.stringify(JSONData),
-                success: function (res) {
-                    alert(res);
-                    // location.href = '/';
-                    $('#title').addClass("updateOK");
-                    $('#title').text('新增成功!');
+                data: JSON.stringify(cakeId),
+                success: function (res) {  //先判斷是否重複
+                    if (parseInt(res)) {   //沒重複再繼續
+                            var data = $('#newCake').serializeArray();
+
+                            var JSONData = {};
+                            for (index in data) {
+                                JSONData[data[index].name] = data[index].value;
+                            }
+
+                            // console.log(JSONData)
+                            $.ajax({
+                                url: "/additem",
+                                type: "POST",
+                                contentType: "application/json; charset=utf-8",
+                                data: JSON.stringify(JSONData),
+                                success: function (res) {
+                                    // alert(res);
+                                    // // location.href = '/';
+                                    // $('#title').addClass("updateOK");
+                                    // $('#title').text('新增成功!');
+                                    const dialog = new ShowDialog();
+                                    dialog.show("../Source/IMG/rabbit.png", "新增成功");
+                                    dialog.onClickOutside();
+                                },
+                                error: function () {
+                                    const dialog = new ShowDialog();
+                                    dialog.show("../Source/IMG/Key-Vision/Rabbit_NO.png", "新增失敗");
+                                    dialog.onClickOutside();
+                                }
+                            })
+                       
+                    } else {
+                        $('#newId').text('ID重複')
+                        const dialog = new ShowDialog();
+                        dialog.show("../Source/IMG/Key-Vision/Rabbit_NO.png", "id重複");
+                        dialog.onClickOutside();
+                       
+                    }
                 },
                 error: function () {
-                    alert("login 系統錯誤!")
+                    alert("系統錯誤!");
                 }
             })
+            
+           
         }
 
         function doUpImg(id) {

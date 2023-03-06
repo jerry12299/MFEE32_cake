@@ -1,13 +1,18 @@
 /* -----------------08-14預留的top footer slideshow----------------------- */
-body{
+body {
     margin: 0;
+    background-image: radial-gradient(var(--BG_LOrange) 2px, transparent 2px),
+        radial-gradient(var(--BG_LOrange) 2px, transparent 2px);
+    background-size: calc(20 * 2px) calc(20 * 2px);
+    background-position: 0 0, calc(10 * 2px) calc(10 * 2px);
 }
+
 /* -----------------08.IntroStuffing----------------------- */
-.cakearea{
-    background-color:#fff1c5 ;
+.cakearea {
     margin-top: 50px;
 }
-.cakeprobox{
+
+.cakeprobox {
     border-radius: 15px 15px 15px 15px;
     background-color: #C2856A;
     width: 1200px;
@@ -17,15 +22,20 @@ body{
     margin-left: auto;
     margin-right: auto;
     padding: 30px 30px 30px 30px;
-    
+
+    -webkit-box-shadow: 0px 0px 20px 0px var(--Brown04_BE); 
+    box-shadow: 0px 0px 20px 0px var(--Brown04_BE);
+
 }
-.cakebox{
+
+.cakebox {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     border-radius: 20px 20px 20px 20px;
 }
-.card{
+
+.card {
     width: 49%;
     height: 300px;
     /* border: solid 5px rgb(120, 120, 120) ; */
@@ -33,20 +43,20 @@ body{
     justify-content: space-around;
     flex-wrap: wrap;
     margin: 5px 5px 5px 5px;
-    box-shadow: 0 0 0 0 rgba(0,0,0,0.1),inset 0 0 8px 9px rgba(63, 31, 31, 0.1);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1), inset 0 0 8px 9px rgba(63, 31, 31, 0.1);
 }
 
-.card_body{
+.card_body {
     width: 100%;
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    box-shadow: 0 4px 8px rgb(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgb(0, 0, 0, 0.2);
     transition: transform 1.6s;
 
 }
 
-.card_img{
+.card_img {
     display: block;
     width: 100%;
     height: 100%;
@@ -54,14 +64,14 @@ body{
 }
 
 .card_front,
-.card_back{
+.card_back {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility:hidden;
+    backface-visibility: hidden;
 }
 
-.card_back{
+.card_back {
     background-color: #eab48d;
     padding: 3px 3px 3px 3px;
     color: #5f3802;
@@ -72,7 +82,8 @@ body{
     gap: 10px;
     transform: rotateY(180deg);
 }
-.card_links{
+
+.card_links {
     padding-top: 20px;
     display: flex;
     align-items: center;
@@ -80,7 +91,7 @@ body{
     gap: 20px;
 }
 
-.card_link{
+.card_link {
     padding: 8px;
     width: 55px;
     height: 55px;
@@ -93,19 +104,20 @@ body{
     transition: background-color 0.2s;
 }
 
-.card_link:hover{
+.card_link:hover {
     background-color: #df03ad;
 }
 
-.card_link_img{
+.card_link_img {
     width: 100%;
     display: block;
 }
 
-.card:hover .card_body{
+.card:hover .card_body {
     transform: rotateY(180deg);
 }
-.card_title{
+
+.card_title {
     margin: 0px 0px 0px 0px;
 }
 
@@ -117,19 +129,20 @@ body{
 
 /*食材區域*/
 
-.box{
-    margin:3px ;
+.box {
+    margin: 3px;
 }
-.container{
+
+.container {
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content:space-around;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
 
-.container .box{
+.container .box {
     position: relative;
     width: 260px;
     height: 270px;
@@ -140,9 +153,9 @@ body{
 }
 
 
-.container .box:hover{
+.container .box:hover {
     transform: scale(1.25);
-    box-shadow: 0 25px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
@@ -154,24 +167,24 @@ body{
     height: 100%;
 } */
 
-.container .box .img-box::before{
+.container .box .img-box::before {
     content: "";
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top,#222,transparent);
+    background: linear-gradient(to top, #222, transparent);
     z-index: 1;
     opacity: 0;
     transition: 0.5s;
 }
 
-.container .box:hover .img-box::before{
+.container .box:hover .img-box::before {
     opacity: 1;
 }
 
-.container .box .img-box img{
+.container .box .img-box img {
     position: absolute;
     left: 0;
     top: 0;
@@ -180,7 +193,7 @@ body{
     object-fit: cover;
 }
 
-.container .box .text-box{
+.container .box .text-box {
     position: absolute;
     left: 0;
     top: 0;
@@ -195,19 +208,20 @@ body{
 }
 
 
-.container .box .text-box h2{
+.container .box .text-box h2 {
     font-size: 10px;
     margin-bottom: 80px;
     margin-right: 10px;
     transform: translate(200px);
     transition: 0.5s;
 }
-.container .box:hover .text-box h2{
+
+.container .box:hover .text-box h2 {
     transform: translateY(0);
     transition-delay: 0.3s;
 }
 
-.container .box .text-box p{
+.container .box .text-box p {
     font-size: 8px;
     line-height: 15px;
     margin-right: 40px;
@@ -216,25 +230,27 @@ body{
     transition: 0.5s;
 }
 
-.container .box:hover .text-box p{
+.container .box:hover .text-box p {
     transform: translateY(0);
     transition-delay: 0.4s;
 }
-.stuffingtitle{
+
+.stuffingtitle {
     margin-left: 34%;
-   
+
 }
 
-.stuffingtitle img{
+.stuffingtitle img {
     width: 50%;
     height: 50%;
 }
 
-.ingredients{
+.ingredients {
     margin-left: 34%;
     margin-bottom: 15px;
 }
-.ingredients img{
+
+.ingredients img {
     display: block;
     width: 50%;
     height: 50%;
@@ -243,28 +259,29 @@ body{
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 /*08.IntroStuffingr 結束*/
 
 
 /* -----------------09.commonQA----------------------- */
 
-.qadiv{
+.qadiv {
     margin-top: 20px;
     width: 500px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.qadiv h3{
-    color:#544132;
+.qadiv h3 {
+    color: #544132;
     text-align: center;
     font-size: 50px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.qadiv p{
-    color:#544132;
+.qadiv p {
+    color: #544132;
     text-align: center;
     font-size: 20px;
 }
@@ -278,11 +295,12 @@ button#expand {
 .addicon img {
     width: 25px;
 }
-.qa_bgcolor{
-    background-color: #fff1c5 ;
+
+.qa_bgcolor {    
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
 .qa_area {
     margin-left: auto;
     margin-right: auto;
@@ -290,11 +308,13 @@ button#expand {
     padding: 10px;
     background-color: #ffffff;
     border-radius: 20px 20px 20px 20px;
+    -webkit-box-shadow: 0px 0px 20px 0px var(--Brown04_BE); 
+    box-shadow: 0px 0px 20px 0px var(--Brown04_BE);
 }
 
-.faq_question{
+.faq_question {
     border-bottom: solid 0.2rem #544132;
-    
+
 }
 
 .faq_question {
@@ -310,31 +330,32 @@ button#expand {
 /* -----------------10.memberLogin---------------------*/
 
 /*會員登入文字置中*/
-.loginbgcolor{
-    background-color:  #fff1c5 ;
-    
+.loginbgcolor {
+    /* background-color: #fff1c5; */
+
 }
+
 .loginWord {
     font-size: 50px;
     letter-spacing: 20px;
     text-align: center;
     color: #705a43;
     font-weight: 900;
-    background-color:  #fff1c5 ;
     margin-bottom: 20px;
     margin-top: 20px;
 }
-.loginWord h3{
-    
+
+.loginWord h3 {
+
     display: block;
 }
 
 /*登入位置置中*/
 .memberDatabox {
-    border: 1px rgb(235, 245, 236) solid;
+    border: 1px transparent solid;
     margin-left: auto;
     margin-right: auto;
-    
+
     /* margin-bottom: 50px; */
     width: 600px;
     height: 320px;
@@ -342,9 +363,11 @@ button#expand {
     border-radius: 10px 10px 10px 10px;
     color: #8C5F37;
     box-shadow: #222;
+    -webkit-box-shadow: 0px 0px 20px 0px var(--Brown04_BE); 
+    box-shadow: 0px 0px 20px 0px var(--Brown04_BE);
 }
 
-.memberDatamun {    
+.memberDatamun {
     width: 600px;
     margin-top: 40px;
     font-size: 24px;
@@ -363,7 +386,7 @@ button#expand {
     font-weight: 900;
     margin-left: 100px;
     margin-top: 30px;
-    
+
 }
 
 .memberDatamun input,
@@ -383,16 +406,17 @@ button#expand {
 
 }
 
-.aprob a{
+.aprob a {
     color: #8C5F37;
-    text-decoration:none;
+    text-decoration: none;
 
 }
 
-.aproba1{
+.aproba1 {
     margin-left: 100px;
 }
-.aproba2{
+
+.aproba2 {
     margin-left: 50px;
 }
 
@@ -412,10 +436,10 @@ button#expand {
 
 
 
-.loginsuccessarea{
+.loginsuccessarea {
     box-shadow: #222;
     position: absolute;
-    display:none;
+    display: none;
     width: 400px;
     height: 150px;
     background-color: #BB8058;
@@ -426,12 +450,13 @@ button#expand {
     left: 560px;
 }
 
-.loginxbutton{
+.loginxbutton {
     height: 40px;
     background-color: #5D3931;
     border-radius: 10px 10px 0px 0px;
 }
-.loginxbutton button{
+
+.loginxbutton button {
     font-size: 26px;
     color: #F4D0BB;
     font-weight: 800;
@@ -444,7 +469,7 @@ button#expand {
 
 
 
-.loginsuccess h2{
+.loginsuccess h2 {
     font-size: 50px;
     color: white;
     font-weight: 600;
@@ -452,10 +477,10 @@ button#expand {
     margin-left: 95px;
     margin-bottom: 0;
     margin-top: 8px;
-    
+
 }
 
-.loginsuccess p{
+.loginsuccess p {
     display: block;
     color: rgb(255, 255, 255);
     font-size: 20px;
@@ -468,10 +493,11 @@ button#expand {
 /*10.memberLogin結束*/
 
 /* -----------------11.memberSignUp---------------------*/
-.signUpbgcolor{
-    background-color: #fff1c5 ;
+.signUpbgcolor {
+    /* background-color: #fff1c5; */
 }
-.changeloing{
+
+.changeloing {
     width: 150px;
     text-align: right;
     margin-top: 20px;
@@ -479,11 +505,12 @@ button#expand {
     font-weight: 900;
 }
 
-.changeloing a{
+.changeloing a {
     margin-top: 20px;
     text-decoration: none;
     color: #5c3a31;
 }
+
 .signuparea {
     margin-left: auto;
     margin-right: auto;
@@ -492,15 +519,16 @@ button#expand {
     width: 50%;
     background-color: #F3D2B3;
     border-radius: 20px 20px 20px 20px;
-    border: #aaa6a6 solid 1px;
     color: #8C5F37;
+    -webkit-box-shadow: 0px 0px 20px 0px var(--Brown04_BE); 
+    box-shadow: 0px 0px 20px 0px var(--Brown04_BE);
 }
 
 
 .member_title {
     /* background-color: #4C2A20; */
     /* margin-top: 30px; */
-    height: 20px;   
+    height: 20px;
     width: 350px;
     text-align: center;
     letter-spacing: 5px;
@@ -510,7 +538,8 @@ button#expand {
     margin-top: 30px;
     margin-bottom: 50px;
 }
-.member_title h2{
+
+.member_title h2 {
     display: inline-block;
     font-size: 50px;
 }
@@ -618,7 +647,7 @@ button#expand {
 }
 
 .birthdayarea input {
-    background-color:  #FCE9E5;
+    background-color: #FCE9E5;
     margin-top: 20px;
     width: 400px;
     line-height: 2;
@@ -660,7 +689,7 @@ button#expand {
 }
 
 .phonearea input {
-    background-color:  #FCE9E5;
+    background-color: #FCE9E5;
     margin-top: 20px;
     width: 400px;
     line-height: 2;
@@ -695,6 +724,7 @@ button#expand {
     border: white 1px solid;
     color: #8C5F37;
 }
+
 .onlyyesarea {
     width: 400px;
     font-size: 24px;
@@ -706,7 +736,7 @@ button#expand {
 }
 
 .onlyyesarea input {
-    background-color:  #FCE9E5;
+    background-color: #FCE9E5;
     margin-top: 10px;
     margin-left: 400px;
     /* width: 400px; */
@@ -742,10 +772,10 @@ button#expand {
     color: white;
 }
 
-.showsuccessarea{
+.showsuccessarea {
     box-shadow: #222;
     position: absolute;
-    display:none;
+    display: none;
     width: 400px;
     height: 150px;
     background-color: #BB8058;
@@ -756,12 +786,13 @@ button#expand {
     left: 760px;
 }
 
-.xbutton{
+.xbutton {
     height: 40px;
     background-color: #5D3931;
     border-radius: 10px 10px 0px 0px;
 }
-.xbutton button{
+
+.xbutton button {
     font-size: 26px;
     color: #F4D0BB;
     font-weight: 800;
@@ -774,7 +805,7 @@ button#expand {
 
 
 
-.showsuccessword h2{
+.showsuccessword h2 {
     font-size: 50px;
     color: white;
     font-weight: 600;
@@ -782,10 +813,10 @@ button#expand {
     margin-left: 95px;
     margin-bottom: 0;
     margin-top: 8px;
-    
+
 }
 
-.showsuccessword p{
+.showsuccessword p {
     display: block;
     color: rgb(255, 255, 255);
     font-size: 20px;
@@ -800,10 +831,6 @@ button#expand {
 
 
 /* -----------------12.memberProfilep---------------------*/
-.memberbgcolor{
-    background-color: #fff1c5 ;
-}
-
 
 .profilnav {
     margin-top: 30px;
@@ -812,15 +839,20 @@ button#expand {
     background-color: #8c623e;
     margin-left: auto;
     margin-right: auto;
+
+    -webkit-box-shadow: 0px 0px 20px 0px var(--Brown04_BE); 
+    box-shadow: 0px 0px 20px 0px var(--Brown04_BE);
 }
 
 .profilnav ul {
     display: flex;
     margin-top: 0px;
 }
-.profilnav_bottom li{
-    border-bottom:5px white solid ;
+
+.profilnav_bottom li {
+    border-bottom: 5px white solid;
 }
+
 .profilnav li {
     padding: 10px 10px 10px 10px;
     margin: 5px 5px 5px 5px;
@@ -831,8 +863,9 @@ button#expand {
     letter-spacing: 5px;
     color: white;
 }
+
 .profilnav a {
-    text-decoration:none;
+    text-decoration: none;
 }
 
 
@@ -849,6 +882,9 @@ button#expand {
     background-color: #F3D2B3;
     border-radius: 20px 20px 20px 20px;
     color: #8C5F37;
+
+    -webkit-box-shadow: 0px 0px 20px 0px var(--Brown04_BE); 
+    box-shadow: 0px 0px 20px 0px var(--Brown04_BE);
 }
 
 .profilnumberarea {
@@ -860,11 +896,11 @@ button#expand {
     margin-right: auto;
     color: #8C5F37;
     border: none;
-    
+
 }
 
 .profilnumberarea input {
-    background-color:  #DDDDDD;
+    background-color: #DDDDDD;
     margin-top: 20px;
     width: 400px;
     line-height: 2;
@@ -886,7 +922,7 @@ button#expand {
 }
 
 .profilemailarea input {
-    background-color:  #DDDDDD;
+    background-color: #DDDDDD;
     margin-top: 20px;
     width: 400px;
     line-height: 2;
@@ -896,7 +932,8 @@ button#expand {
     border: none;
 }
 
-.profilpasswordarea ,.profiloldpasswordarea{
+.profilpasswordarea,
+.profiloldpasswordarea {
     width: 500px;
     font-size: 24px;
     font-family: 微軟正黑體;
@@ -905,7 +942,8 @@ button#expand {
     margin-right: auto;
 }
 
-.profilpasswordarea input ,.profiloldpasswordarea input{
+.profilpasswordarea input,
+.profiloldpasswordarea input {
     margin-top: 20px;
     width: 400px;
     line-height: 2;
@@ -926,7 +964,7 @@ button#expand {
 }
 
 .profilpassword2area input {
-    background-color:  #DDDDDD;
+    background-color: #DDDDDD;
     margin-top: 20px;
     width: 400px;
     line-height: 2;
@@ -935,7 +973,7 @@ button#expand {
     border-radius: 10px 10px 10px 10px;
     border: none;
 }
- 
+
 .profilpassmessege {
     margin-left: 280px;
     font-size: 20px;
@@ -950,11 +988,11 @@ button#expand {
     font-weight: 900;
     margin-left: 250px;
     margin-right: auto;
-    
+
 }
 
 .profilnamearea input {
-    background-color:  #DDDDDD;
+    background-color: #DDDDDD;
     margin-top: 20px;
     width: 400px;
     line-height: 2;
@@ -974,7 +1012,7 @@ button#expand {
 }
 
 .profilbirthdayarea input {
-    background-color:  #DDDDDD;
+    background-color: #DDDDDD;
     margin-top: 20px;
     width: 400px;
     line-height: 2;
@@ -994,7 +1032,7 @@ button#expand {
 }
 
 .profilsexarea input {
-    background-color:  #DDDDDD;
+    background-color: #DDDDDD;
     margin-top: 20px;
     font-size: 20px;
     font-weight: 900;
@@ -1012,7 +1050,7 @@ button#expand {
 }
 
 .profilphonearea input {
-    background-color:  #DDDDDD;
+    background-color: #DDDDDD;
     margin-top: 20px;
     width: 400px;
     line-height: 2;
@@ -1068,6 +1106,7 @@ button#expand {
     color: #ffffff;
     letter-spacing: 10px;
 }
+
 /* .profilsuccess{
     box-shadow: #222;
     position: absolute;
@@ -1136,13 +1175,14 @@ button#expand {
 /* -----------------13.generalOrderPage---------------------*/
 
 
-.generalOrderPage{
+.generalOrderPage {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #fff1c5 ;
+    background-color: #fff1c5;
 }
+
 .generalOrder {
     display: flex;
     flex-direction: column;
@@ -1152,7 +1192,7 @@ button#expand {
     margin: 20px;
 }
 
-.team_leader{
+.team_leader {
     margin-top: 30px;
     margin-bottom: 30px;
 }
@@ -1163,17 +1203,24 @@ button#expand {
     min-width: 700px;
     margin-bottom: 30px;
     border-radius: 10px;
-    background-color:#bc8159;
+    background-color: #bc8159;
+
+    -webkit-box-shadow: 0px 0px 20px 0px var(--Brown04_BE); 
+    box-shadow: 0px 0px 20px 0px var(--Brown04_BE);
 }
+
 .generalOrdernav ul {
     display: flex;
 }
-.generalOrdernav ul a{
+
+.generalOrdernav ul a {
     text-decoration: none;
 }
-.genorderline ul .genorderline{
+
+.genorderline ul .genorderline {
     border: 5px white solid;
 }
+
 .generalOrdernav li {
     padding: 10px;
     margin: 5px;
@@ -1184,45 +1231,53 @@ button#expand {
     letter-spacing: 5px;
     color: white;
 }
+
 .generalOrdernav li:hover {
     border-bottom: 5px white solid;
 }
+
 .Ordernavbuttom {
     border-bottom: px white solid;
 }
 
 /* * * * * * */
-.generalOrderDataArea{
-    width:100%;
+.generalOrderDataArea {
+    width: 100%;
     min-width: 700px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #F3D2b3;
     border-radius: 10px;
-    color:#5a3311;
+    color: #5a3311;
+
+    -webkit-box-shadow: 0px 0px 20px 0px var(--Brown04_BE); 
+    box-shadow: 0px 0px 20px 0px var(--Brown04_BE);
 }
+
 .generalOrderDataArea>table {
-    width:100%;
+    width: 100%;
     margin: 10px 20px 20px 20px;
     border-collapse: collapse;
     border-radius: 10px;
 }
 
-.generalOrderDataArea>table>tbody::before{
+.generalOrderDataArea>table>tbody::before {
     content: "";
     padding: 2px;
 }
+
 /*訂單 ....*/
-.generaDatanav{
- letter-spacing: 5px;
+.generaDatanav {
+    letter-spacing: 5px;
 }
-.generaDatanav td{
+
+.generaDatanav td {
     text-align: center;
     font-size: 20px;
     font-weight: 900;
     padding: 10px 5px;
-    border-bottom:2px solid #5b3834 ;
+    border-bottom: 2px solid #5b3834;
 }
 
 .generaDataselect {
@@ -1233,7 +1288,8 @@ button#expand {
     color: #4C2A20;
     font-weight: 800;
 }
-.showgeneraDatalist>td>div{
+
+.showgeneraDatalist>td>div {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -1242,18 +1298,24 @@ button#expand {
     border-radius: 0 0 15px 15px;
     padding: 20px;
 }
-.generaDatalist>td{
+
+.generaDatalist>td {
     text-align: center;
     padding: 10px 20px;
-    background-color:#BC8159;
+    background-color: #BC8159;
     color: white;
     font-weight: 800;
 }
 
-.generaDatalist>td:first-child{border-radius: 10px 0 0 10px;}
-.generaDatalist>td:last-child{border-radius:  0 10px 10px 0;}
+.generaDatalist>td:first-child {
+    border-radius: 10px 0 0 10px;
+}
 
-.generaDatalist button{
+.generaDatalist>td:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+.generaDatalist button {
     width: 100px;
     font-size: 18px;
     font-weight: 700;
@@ -1268,13 +1330,15 @@ button.cancelbutton {
     font-size: 20px;
     font-weight: 700;
     height: fit-content;
-    padding: 10px;;
+    padding: 10px;
+    ;
     border-radius: 10px;
     background-color: #CC6D6B;
     color: white;
     border: none;
 }
-.generaDatalist button{
+
+.generaDatalist button {
     border: none;
 }
 
@@ -1282,42 +1346,45 @@ button.cancelbutton {
     display: none;
 }
 
-.Detail{
+.Detail {
     border-collapse: collapse;
     width: 100%;
 }
-.Detail td{
+
+.Detail td {
     text-align: center;
     padding: 10px 5px;
 }
-.Detail>thead{
+
+.Detail>thead {
     border-bottom: 3px solid #BB7C51;
 }
+
 .Detail>tbody>tr>td:nth-of-type(1),
-.Detail>tbody>tr>td:nth-of-type(2){
+.Detail>tbody>tr>td:nth-of-type(2) {
     padding: 10px 5px 0 5px;
     /* background-color: aqua;
     border: 1px solid salmon; */
 }
 
-.Detail tr>td:nth-of-type(4){
+.Detail tr>td:nth-of-type(4) {
     width: fit-content;
     text-align: start;
     /* background-color: aqua; */
 }
 
 /* -----------------14..customOrderPage---------------------*/
-.custombgcolor{
+.custombgcolor {
     width: 100%;
-    background-color: #fff1c5 ;
 }
 
-.customlOrderPage{
+.customlOrderPage {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 .customOrder {
     display: flex;
     flex-direction: column;
@@ -1342,6 +1409,7 @@ button.cancelbutton {
     border-radius: 10px;
     background-color: #BC8159;
 }
+
 .customOrdernav ul {
     display: flex;
 }
@@ -1356,44 +1424,52 @@ button.cancelbutton {
     letter-spacing: 5px;
     color: white;
 }
+
 .customOrdernav li:hover {
     border-bottom: 5px white solid;
 }
+
 .customvbuttom {
     border-bottom: 5px white solid;
 }
 
 /* * * * * * */
-.customOrderDataArea{
-    width:100%;
+.customOrderDataArea {
+    width: 100%;
     min-width: 700px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #F3D2B3;
     border-radius: 10px;
+
+    -webkit-box-shadow: 0px 0px 20px 0px var(--Brown04_BE); 
+    box-shadow: 0px 0px 20px 0px var(--Brown04_BE);
 }
+
 .customOrderDataArea>table {
-    width:100%;
+    width: 100%;
     margin: 10px 20px 20px 20px;
     border-collapse: collapse;
     border-radius: 10px;
 }
 
-.customOrderDataArea>table>tbody::before{
+.customOrderDataArea>table>tbody::before {
     content: "";
     padding: 2px;
 }
+
 /*訂單欄位*/
-.customDatanav td{
+.customDatanav td {
     text-align: center;
     font-size: 20px;
     font-weight: 900;
     padding: 10px 5px;
-    border-bottom:4px solid #5b3834 ;
+    border-bottom: 4px solid #5b3834;
     color: #5b3834;
     letter-spacing: 10px;
 }
+
 /*30.60.90日選單*/
 .customDataselect {
     padding: 2px 10px;
@@ -1401,11 +1477,11 @@ button.cancelbutton {
     border-radius: 5px;
     letter-spacing: 2px;
     font-weight: 600;
-    color:#4C2A20;
+    color: #4C2A20;
 }
 
 /*訂單細節*/
-.showcustomDatalist>td>div{
+.showcustomDatalist>td>div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1414,17 +1490,22 @@ button.cancelbutton {
     padding: 20px;
 }
 
-.customDatalist>td{
+.customDatalist>td {
     text-align: center;
     padding: 10px 20px;
     background-color: #BC8159;
     color: white;
 }
 
-.customDatalist>td:first-child{border-radius: 10px 0 0 10px;}
-.customDatalist>td:last-child{border-radius:  0 10px 10px 0;}
+.customDatalist>td:first-child {
+    border-radius: 10px 0 0 10px;
+}
 
-.customDatalist button{
+.customDatalist>td:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+.customDatalist button {
     font-size: 20px;
     font-weight: 700;
     margin-left: 50px;
@@ -1436,7 +1517,7 @@ button.cancelbutton {
 
 
 /*取消案件*/
-.customcheckImgbutton{
+.customcheckImgbutton {
     width: 100px;
     font-size: 20px;
     font-weight: 700;
@@ -1456,7 +1537,7 @@ button.cancelbutton {
     height: fit-content;
     padding: 5px;
     border-radius: 10px;
-    background-color:#CC6E6E;
+    background-color: #CC6E6E;
     border: none;
     color: white;
 }
@@ -1465,31 +1546,33 @@ button.cancelbutton {
     display: none;
 }
 
-.customDetail{
+.customDetail {
     border-collapse: collapse;
     width: 100%;
     color: #5a3311;
     /* border: 2px saddlebrown solid; */
 }
-.customDetail td{
+
+.customDetail td {
     text-align: center;
     padding: 10px 5px;
 }
-.customDetail>thead{
+
+.customDetail>thead {
     border-bottom: 2px solid black;
 }
+
 .customDetail>tbody>tr>td:nth-of-type(1),
-.customDetail>tbody>tr>td:nth-of-type(2){
+.customDetail>tbody>tr>td:nth-of-type(2) {
     padding: 10px 5px 0 5px;
     /* background-color: aqua;
     border: 1px solid salmon; */
 }
 
-.customDetail tr>td:nth-of-type(4){
+.customDetail tr>td:nth-of-type(4) {
     width: fit-content;
     text-align: start;
     /* background-color: aqua; */
 }
 
 /*14.customOrderPage結束*/
-
