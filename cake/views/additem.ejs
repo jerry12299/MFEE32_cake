@@ -252,14 +252,14 @@
                         return;
                     } else {
                         if (Needlocation) {
-                            location.href = '/additem';
+                            location.href = '/commodity';
                         } else {
                             self.showDialog_BEnd.css({ display: "none", });
                         }
                     }
                 })
                 if (location) {
-                    setTimeout(() => { location.href = '/additem'; }, 5000);
+                    setTimeout(() => { location.href = '/commodity'; }, 5000);
                 }
             }
         }
@@ -362,16 +362,16 @@
                 // data: JSON.stringify(JSONData),
                 data: formData,
                 success: function (res) {
-                    const dialog = new ShowDialog();
-                    dialog.show("../Source/IMG/rabbit.png",res);
-                    dialog.onClickOutside(false);
+                    // const dialog = new ShowDialog();
+                    // dialog.show("../Source/IMG/rabbit.png",res);
+                    // dialog.onClickOutside(false);
                     $('#img_' + id).val(res);
                     //  location.href = '/';
                 },
                 error: function () {
-                    const dialog = new ShowDialog();
-                    dialog.show("../Source/IMG/Key-Vision/Rabbit_NO.png", "系統錯誤");
-                    dialog.onClickOutside(false);
+                    // const dialog = new ShowDialog();
+                    // dialog.show("../Source/IMG/Key-Vision/Rabbit_NO.png", "系統錯誤");
+                    // dialog.onClickOutside(false);
                     alert("login 系統錯誤!")
                 }
             })
