@@ -6,6 +6,10 @@
 
 body {
     flex-direction: column;
+    background-image: radial-gradient(var(--BG_LOrange) 2px, transparent 2px),
+        radial-gradient(var(--BG_LOrange) 2px, transparent 2px);
+    background-size: calc(20 * 2px) calc(20 * 2px);
+    background-position: 0 0, calc(10 * 2px) calc(10 * 2px);
 }
 
 #permanentCake {
@@ -17,11 +21,6 @@ body {
 
     padding: 70px 15% ;
     /* border: 1px  solid salmon; */
-    background-image:radial-gradient(var(--BG_LOrange) 2px, transparent 2px),
-                     radial-gradient(var(--BG_LOrange) 2px, transparent 2px);
-    background-size:calc(20 * 2px) calc(20 * 2px);
-    background-position:0 0,calc(10 * 2px) calc(10 * 2px);
-
 }
 
 /*=========左邊種類索引列========================================*/
@@ -177,7 +176,7 @@ body {
 
 .commodity_item a>p {
     position: absolute;
-    top: -20px;
+    top: 0px;
     right: 40px;
     z-index: 2;
     color: var(--color01);

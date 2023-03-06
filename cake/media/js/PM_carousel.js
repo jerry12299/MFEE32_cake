@@ -31,6 +31,14 @@ $(".smallPic").on("click", function () {
     //0 -250 -500 -750
 });
 
+
+figcaption.hover(function(){
+    $(".cakePic>div>p").css("opacity","100%");
+},function(){
+    $(".cakePic>div>p").css("opacity","0%");
+});
+
+
 /* 詳細蛋糕頁，點擊出現浮窗 */
 const showPicDialog = $("dialog.ShowBigPic");
 
