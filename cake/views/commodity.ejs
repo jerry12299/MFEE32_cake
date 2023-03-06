@@ -86,6 +86,25 @@
                     </tr>
                 </thead>
                 <% data.forEach((item,index)=>{ %>
+                    <% switch(parseInt(item.c_class)){
+                        case 0:
+                        var classname = "當月季節主打";
+                        break;
+                        case 1:
+                        var classname = "彌月蛋糕";
+                        break;
+                        case 2:
+                        var classname = "重乳酪";
+                        break;
+                        case 3:
+                        var classname = "生乳捲";
+                        break;
+                        case 4:
+                        var classname = "配件區";
+                        break;
+                        default:
+
+                    } %>
                     <tbody>
                         <tr class="list">
                             <td>
@@ -98,7 +117,7 @@
                                 <%= item.price %>
                             </td>
                             <td>
-                                <%= item.c_class %>
+                                <%= classname %>
                             </td>
                             <td>
                                 <button>修改</button>
@@ -107,30 +126,58 @@
                         <tr class="detail">
                             <td colspan="5">
                                 <div class="customer">
-                                    <form enctype="multipart/form-data" id=<%=item.c_id %> >
+                                    <form enctype="multipart/form-data" id="<%=item.c_id %>" >
                                         <div>
                                             <table>
                                                 <tr>
                                                     <td>蛋糕ID：</td>
                                                     <td>
                                                         <!-- <textarea cols="40" rows="2" name="illustrate" id=""  required><%= item.illustrate %> </textarea></td> -->
-                                                        <input type="text" name="c_id" id="c_id" value=<%=item.c_id %>>
+                                                        <input type="text" name="c_id" id="c_id" value="<%=item.c_id %>">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>蛋糕名稱：</td>
-                                                    <td><input type="text" name="c_name" value=<%=item.c_name %>
+                                                    <td><input type="text" name="c_name" value="<%=item.c_name %>"
                                                         required></td>
                                                 </tr>
                                                 <tr>
                                                     <td>價格：</td>
-                                                    <td><input type="number" name="price" value=<%=item.price %>
+                                                    <td><input type="number" name="price" value="<%=item.price %>"
                                                         required></td>
                                                 </tr>
                                                 <tr>
                                                     <td>類別：</td>
                                                     <td>
-                                                        <input type="text" name="c_class" value=<%=item.c_class %> >
+                                                        <!-- <input type="text" name="c_class" value="<%=item.c_class %>" > -->
+                                                        
+                                                        <select name="c_class">
+                                                            <% if(item.c_class==0){ %>
+                                                            <option value="0" selected>當月季節主打</option>
+                                                            <%} else{%>
+                                                            <option value="0">當月季節主打</option>
+                                                            <%}%>
+                                                            <% if(item.c_class==1){ %>
+                                                            <option value="1" selected>彌月蛋糕</option>
+                                                            <%} else{%>
+                                                            <option value="1" >彌月蛋糕</option>
+                                                            <%}%>
+                                                            <% if(item.c_class==2){ %>
+                                                            <option value="2" selected>重乳酪</option>
+                                                            <%} else{%>
+                                                            <option value="2" >重乳酪</option>
+                                                            <%}%>
+                                                            <% if(item.c_class==3){ %>
+                                                            <option value="3" selected>生乳捲</option>
+                                                            <%} else{%>
+                                                            <option value="3" >生乳捲</option>
+                                                            <%}%>
+                                                            <% if(item.c_class==4){ %>
+                                                            <option value="4" selected>配件區</option>
+                                                            <%} else{%>
+                                                            <option value="4" >配件區</option>
+                                                            <%}%>
+                                                        </select>
 
                                                     </td>
                                                 </tr>
