@@ -27,234 +27,234 @@
       font-weight: 500;
     }
   </style>
-    <style>
-      /* 字型引用 */
-      @font-face {
-          font-family: 'GenSenRounded-B';
-          src: local("GenSenRounded-B"),
-              url('../Source/ttc/GenSenRounded-B.ttc') format("woff"),
-              url('../Source/ttc/GenSenRounded-B.ttc') format("opentype"),
-              url('../Source/ttc/GenSenRounded-B.ttc') format("embedded-opentype");
-      }
+  <style>
+    /* 字型引用 */
+    @font-face {
+      font-family: 'GenSenRounded-B';
+      src: local("GenSenRounded-B"),
+        url('../Source/ttc/GenSenRounded-B.ttc') format("woff"),
+        url('../Source/ttc/GenSenRounded-B.ttc') format("opentype"),
+        url('../Source/ttc/GenSenRounded-B.ttc') format("embedded-opentype");
+    }
 
-      /* 色票表 */
-      :root {
-          --sky: #a6dbf5;
+    /* 色票表 */
+    :root {
+      --sky: #a6dbf5;
 
-          --Green01: #368284;
-          --Green02: #628e59;
-          --Green03: #fff1c5;
-          --Green04: #87c379;
+      --Green01: #368284;
+      --Green02: #628e59;
+      --Green03: #fff1c5;
+      --Green04: #87c379;
 
-          --YWhite: #F6F3E4;
-          --GWhite: #F7F8F3;
+      --YWhite: #F6F3E4;
+      --GWhite: #F7F8F3;
 
-          --BG_LYellow: #f0da99;
-          --BG_LOrange: #F3D1B2;
-          --BG_MOrange: #f7bc88;
+      --BG_LYellow: #f0da99;
+      --BG_LOrange: #F3D1B2;
+      --BG_MOrange: #f7bc88;
 
-          --Brown01: #5c3a31;
-          --Brown02: #835B36;
-          --Brown03: #BB8058;
+      --Brown01: #5c3a31;
+      --Brown02: #835B36;
+      --Brown03: #BB8058;
 
-          --Brown04_BE: #b79779;
-          --Brown05_BEtxt: #876464;
+      --Brown04_BE: #b79779;
+      --Brown05_BEtxt: #876464;
 
-          --BTN_Red: #e3344b;
-          --BTN_Green: #337e47;
-          --BTN_Yellow: #f39800;
-      }
+      --BTN_Red: #e3344b;
+      --BTN_Green: #337e47;
+      --BTN_Yellow: #f39800;
+    }
 
-      /* 字型套用 */
-      body {
-          font-family: GenSenRounded-B !important;
-          background-color: var(--Green03);
-      }
+    /* 字型套用 */
+    body {
+      font-family: GenSenRounded-B !important;
+      background-color: var(--Green03);
+    }
 
-      nav {
-          width: 100vw;
-          position: fixed;
-          top: 0px;
-          margin: 0;
+    nav {
+      width: 100vw;
+      position: fixed;
+      top: 0px;
+      margin: 0;
 
 
 
-          display: flex;
-          flex-direction: row;
-          z-index: 4;
+      display: flex;
+      flex-direction: row;
+      z-index: 4;
 
-          justify-content: space-between;
-          align-items: center;
+      justify-content: space-between;
+      align-items: center;
 
-          padding: 10px 100px 10px 40px;
-          transition: 1.0 ease;
+      padding: 10px 100px 10px 40px;
+      transition: 1.0 ease;
 
-          background-color: hsla(0, 0%, 100%, 0.5);
+      background-color: hsla(0, 0%, 100%, 0.5);
 
-          color: var(--Brown02);
-          letter-spacing: 2px;
-      }
+      color: var(--Brown02);
+      letter-spacing: 2px;
+    }
 
-      nav>div:first-of-type {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-      }
+    nav>div:first-of-type {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
 
-      nav>div img {
-          height: 50px;
-          margin: 0 20px 0 0;
-      }
+    nav>div img {
+      height: 50px;
+      margin: 0 20px 0 0;
+    }
 
-      nav a {
-          text-decoration: none;
-      }
+    nav a {
+      text-decoration: none;
+    }
 
-      nav>div:first-of-type>a>p {
-          font-size: 1.4em;
-          margin: 0;
-          color: var(--Brown01);
-      }
+    nav>div:first-of-type>a>p {
+      font-size: 1.4em;
+      margin: 0;
+      color: var(--Brown01);
+    }
 
-      nav>#navlist>a>p {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          margin: 0;
-          font-size: 1.2em;
-          color: var(--Brown01);
-      }
+    nav>#navlist>a>p {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      font-size: 1.2em;
+      color: var(--Brown01);
+    }
 
-      #navlist {
-          min-width: 600px;
-          display: flex;
-          justify-content: space-between;
-          margin: 0 100px 0 0;
-      }
+    #navlist {
+      min-width: 600px;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 100px 0 0;
+    }
 
-      #navlist svg {
-          width: fit-content;
-          height: fit-content;
-          color: var(--Brown01);
-      }
+    #navlist svg {
+      width: fit-content;
+      height: fit-content;
+      color: var(--Brown01);
+    }
 
-      /*線段hover功能*/
-      nav>div#navlist>a:after,
-      nav>div>a>p:after {
-          display: block;
-          content: '';
-          border-bottom: solid 2px var(--Brown01);
-          transform: scaleX(0);
-          transform-origin: 0%;
-          transition: transform 250ms ease-in-out;
-      }
+    /*線段hover功能*/
+    nav>div#navlist>a:after,
+    nav>div>a>p:after {
+      display: block;
+      content: '';
+      border-bottom: solid 2px var(--Brown01);
+      transform: scaleX(0);
+      transform-origin: 0%;
+      transition: transform 250ms ease-in-out;
+    }
 
-      nav>div#navlist>a:hover:after,
-      nav>div>a>p:hover:after {
-          transform: scaleX(1);
-      }
+    nav>div#navlist>a:hover:after,
+    nav>div>a>p:hover:after {
+      transform: scaleX(1);
+    }
 
-      /* ----------------AD----------------- */
-      #carouselExampleIndicators {
-          margin-top: 30px;
-          width: 100%;
-      }
+    /* ----------------AD----------------- */
+    #carouselExampleIndicators {
+      margin-top: 70px;
+      width: 100%;
+    }
 
-      /* ----------------------------------------- */
-      #footer>img {
-          width: 100vw;
-      }
+    /* ----------------------------------------- */
+    #footer>img {
+      width: 100vw;
+    }
 
-      footer {
-          position: relative;
-          width: 100%;
-          min-width: 1440px;
-          background-image: url(../Source/IMG/Key-Vision/middle_long.png);
-          background-position: top;
-          background-size: 60%;
-          background-repeat: repeat-x;
-          z-index: 3;
-          height: 600px;
-          color:var(--GWhite) ;
-      }
+    footer {
+      position: relative;
+      width: 100%;
+      min-width: 1440px;
+      background-image: url(../Source/IMG/Key-Vision/middle_long.png);
+      background-position: top;
+      background-size: 60%;
+      background-repeat: repeat-x;
+      z-index: 3;
+      height: 600px;
+      color: var(--GWhite);
+    }
 
-      #footer {
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          padding: 30px 30px 0px 30px;
-          color: var(--YWhite);
-      }
+    #footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 30px 0px 30px;
+      color: var(--YWhite);
+    }
 
-      #icon {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-      }
+    #icon {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
 
-      #icon>div {
-          margin: 50px;
-      }
+    #icon>div {
+      margin: 50px;
+    }
 
-      #icon a>img {
-          width: 50px;
-          margin: 0 10px;
-      }
+    #icon a>img {
+      width: 50px;
+      margin: 0 10px;
+    }
   </style>
 </head>
 
 <body>
   <!-- nav-->
-    <!-- nav-->
-    <nav>
-      <div>
-          <a href="/"><img src="../Source/IMG/Logo.png" alt="Logo"></a>
-          <a href="/">
-              <p>菓季</p>
-          </a>
-      </div>
-      <div id="navlist">
-          <a href="/C01/0">
-              <p>主題蛋糕</p>
-          </a>
-          <a href="/C02">
-              <p>客製蛋糕</p>
-          </a>
-          <a href="/C03">
-              <p>餡料食材介紹</p>
-          </a>
-          <a href="/C04">
-              <p>常見問題</p>
-          </a>
-          <% if(!session.user) { %>
-              <a href="/C05"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                      class="bi bi-person-fill" viewBox="0 0 16 16">
-                      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                  </svg></a>
-              <% }else if(session.user.rights){%>
-                  <a href="/C05_2/1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                          fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                      </svg></a>
-                  <%}else{%>
-                      <a href="/C05_4/1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                              fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                          </svg></a>
-                      <%}%>
-                          <a href="/C06"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                                  fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
-                                  <path
-                                      d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                              </svg></a>
-      </div>
+  <!-- nav-->
+  <nav>
+    <div>
+      <a href="/"><img src="../Source/IMG/Logo.png" alt="Logo"></a>
+      <a href="/">
+        <p>菓季</p>
+      </a>
+    </div>
+    <div id="navlist">
+      <a href="/C01/0">
+        <p>主題蛋糕</p>
+      </a>
+      <a href="/C02">
+        <p>客製蛋糕</p>
+      </a>
+      <a href="/C03">
+        <p>餡料食材介紹</p>
+      </a>
+      <a href="/C04">
+        <p>常見問題</p>
+      </a>
+      <% if(!session.user) { %>
+        <a href="/C05"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+            class="bi bi-person-fill" viewBox="0 0 16 16">
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+          </svg></a>
+        <% }else if(session.user.rights){%>
+          <a href="/C05_2/1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+              class="bi bi-person-fill" viewBox="0 0 16 16">
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+            </svg></a>
+          <%}else{%>
+            <a href="/C05_4/1"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                class="bi bi-person-fill" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+              </svg></a>
+            <%}%>
+              <a href="/C06"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                  class="bi bi-cart3" viewBox="0 0 16 16">
+                  <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </svg></a>
+    </div>
   </nav>
   <!-- 預留固定輪播的位置 -->
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">

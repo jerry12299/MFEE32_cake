@@ -330,10 +330,7 @@ button#expand {
 /* -----------------10.memberLogin---------------------*/
 
 /*會員登入文字置中*/
-.loginbgcolor {
-    /* background-color: #fff1c5; */
 
-}
 
 .loginWord {
     font-size: 50px;
@@ -493,9 +490,6 @@ button#expand {
 /*10.memberLogin結束*/
 
 /* -----------------11.memberSignUp---------------------*/
-.signUpbgcolor {
-    /* background-color: #fff1c5; */
-}
 
 .changeloing {
     width: 150px;
