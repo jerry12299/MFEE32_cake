@@ -769,7 +769,6 @@ section {
     background-color: var(--BTN_Red);
 }
 
-
 #btn_buy>div {
     display: flex;
     flex-direction: row;
