@@ -39,13 +39,16 @@
 body {
     font-family: GenSenRounded-B !important;
     background-color:#fff1c5 ;
+    background-image: radial-gradient(var(--BG_LOrange) 2px, transparent 2px),
+        radial-gradient(var(--BG_LOrange) 2px, transparent 2px);
+    background-size: calc(20 * 2px) calc(20 * 2px);
+    background-position: 0 0, calc(10 * 2px) calc(10 * 2px);
 }
 
 
 .hidden {
     display: none;
 }
-
 
 
 
