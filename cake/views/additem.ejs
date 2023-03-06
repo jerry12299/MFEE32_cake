@@ -90,7 +90,8 @@
                                                 <td>蛋糕ID：</td>
                                                 <td>
 
-                                                    <input type="text" name="c_id" id="c_id" value="cake0601" onchange="doChange()">
+                                                    <input type="text" name="c_id" id="c_id" value="cake0601"
+                                                        onchange="doChange()">
                                                     <span id="newId"></span>
                                                 </td>
                                             </tr>
@@ -106,12 +107,12 @@
                                                 <td>類別：</td>
                                                 <td>
                                                     <!-- <input type="text" value="1" name="c_class"> -->
-                                                    <select name="c_class" >
-                                                            <option value="0" selected>當月季節主打</option>
-                                                            <option value="1" >彌月蛋糕</option>
-                                                            <option value="2" >重乳酪</option>
-                                                            <option value="3" >生乳捲</option>          
-                                                            <option value="4" >配件區</option>
+                                                    <select name="c_class">
+                                                        <option value="0" selected>當月季節主打</option>
+                                                        <option value="1">彌月蛋糕</option>
+                                                        <option value="2">重乳酪</option>
+                                                        <option value="3">生乳捲</option>
+                                                        <option value="4">配件區</option>
                                                     </select>
                                                 </td>
                                             </tr>
@@ -239,11 +240,11 @@
             show(imgUrl, msg) {
                 this.showDialog_BEnd.css({ display: "flex", });
                 this.img.attr('src', imgUrl);
-                this.h6.text(msg);
+                this.h6.html(msg);
             }
 
             /* 任意點擊關閉浮窗 */
-            onClickOutside(Needlocation=true) {
+            onClickOutside(Needlocation = true) {
                 const self = this; // 保存当前上下文
                 this.showDialog_BEnd.on("click", function (a) {
                     // console.log(a.target);
@@ -252,7 +253,7 @@
                     } else {
                         if (Needlocation) {
                             location.href = '/additem';
-                        }else{
+                        } else {
                             self.showDialog_BEnd.css({ display: "none", });
                         }
                     }
@@ -264,8 +265,8 @@
         }
 
         function doChange() {  //檢查id是否重複
-            var cakeId = { c_id:$('#c_id').val() }
-           
+            var cakeId = { c_id: $('#c_id').val() }
+
             $.ajax({
                 url: "/cakeId", //cake.js 的註冊頁 
                 type: "POST",
@@ -274,24 +275,24 @@
                 success: function (res) {
                     if (parseInt(res)) {
                         $('#newId').text('OK')
-                       
+
                     } else {
                         $('#newId').text('ID重複')
-                       
+
                     }
                 },
                 error: function () {
                     alert("系統錯誤!");
                 }
             })
-            
+
         }
 
 
 
         function doUpdata() {  //更新
-            var cakeId = { c_id:$('#c_id').val() }
-           
+            var cakeId = { c_id: $('#c_id').val() }
+
             $.ajax({
                 url: "/cakeId", //cake.js 的註冊頁 
                 type: "POST",
@@ -299,49 +300,52 @@
                 data: JSON.stringify(cakeId),
                 success: function (res) {  //先判斷是否重複
                     if (parseInt(res)) {   //沒重複再繼續
-                            var data = $('#newCake').serializeArray();
+                        var data = $('#newCake').serializeArray();
 
-                            var JSONData = {};
-                            for (index in data) {
-                                JSONData[data[index].name] = data[index].value;
+                        var JSONData = {};
+                        for (index in data) {
+                            JSONData[data[index].name] = data[index].value;
+                        }
+
+                        // console.log(JSONData)
+                        $.ajax({
+                            url: "/additem",
+                            type: "POST",
+                            contentType: "application/json; charset=utf-8",
+                            data: JSON.stringify(JSONData),
+                            success: function (res) {
+                                // alert(res);
+                                // // location.href = '/';
+                                // $('#title').addClass("updateOK");
+                                // $('#title').text('新增成功!');
+                                const dialog = new ShowDialog();
+                                dialog.show("../Source/IMG/rabbit.png", "新增成功");
+                                dialog.onClickOutside();
+                            },
+                            error: function () {
+                                const dialog = new ShowDialog();
+                                dialog.show("../Source/IMG/Key-Vision/Rabbit_NO.png", "新增失敗");
+                                dialog.onClickOutside();
                             }
+                        })
 
-                            // console.log(JSONData)
-                            $.ajax({
-                                url: "/additem",
-                                type: "POST",
-                                contentType: "application/json; charset=utf-8",
-                                data: JSON.stringify(JSONData),
-                                success: function (res) {
-                                    // alert(res);
-                                    // // location.href = '/';
-                                    // $('#title').addClass("updateOK");
-                                    // $('#title').text('新增成功!');
-                                    const dialog = new ShowDialog();
-                                    dialog.show("../Source/IMG/rabbit.png", "新增成功");
-                                    dialog.onClickOutside();
-                                },
-                                error: function () {
-                                    const dialog = new ShowDialog();
-                                    dialog.show("../Source/IMG/Key-Vision/Rabbit_NO.png", "新增失敗");
-                                    dialog.onClickOutside();
-                                }
-                            })
-                       
                     } else {
                         $('#newId').text('ID重複')
                         const dialog = new ShowDialog();
-                        dialog.show("../Source/IMG/Key-Vision/Rabbit_NO.png", "id重複");
+                        dialog.show("../Source/IMG/Key-Vision/Rabbit_NO.png", "id<br>重複");
                         dialog.onClickOutside();
-                       
+
                     }
                 },
                 error: function () {
+                    const dialog = new ShowDialog();
+                    dialog.show("../Source/IMG/Key-Vision/Rabbit_NO.png", "系統錯誤");
+                    dialog.onClickOutside(false);
                     alert("系統錯誤!");
                 }
             })
-            
-           
+
+
         }
 
         function doUpImg(id) {
@@ -358,11 +362,16 @@
                 // data: JSON.stringify(JSONData),
                 data: formData,
                 success: function (res) {
-                    alert(res);
+                    const dialog = new ShowDialog();
+                    dialog.show("../Source/IMG/rabbit.png",res);
+                    dialog.onClickOutside(false);
                     $('#img_' + id).val(res);
                     //  location.href = '/';
                 },
                 error: function () {
+                    const dialog = new ShowDialog();
+                    dialog.show("../Source/IMG/Key-Vision/Rabbit_NO.png", "系統錯誤");
+                    dialog.onClickOutside(false);
                     alert("login 系統錯誤!")
                 }
             })
