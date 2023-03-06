@@ -2,28 +2,9 @@
 body{
     margin: 0;
 }
-.navtop {
-    width:100%;
-    height: 200px;
-    background-color: pink;
-}
-
-.slideshow-container {
-    width:100%;
-    height: 400px;
-    background-color: palevioletred;
-    margin-bottom: 0px;
-}
-
-.footer {
-    width:100%;
-    height: 200px;
-    background-color: green;
-}
-
 /* -----------------08.IntroStuffing----------------------- */
 .cakearea{
-    background-color:#A3CF78;
+    background-color:#fff1c5 ;
     margin-top: 50px;
 }
 .cakeprobox{
@@ -292,7 +273,7 @@ button#expand {
     width: 25px;
 }
 .qa_bgcolor{
-    background-color: #A3CF78;
+    background-color: #fff1c5 ;
     margin-top: 50px;
     margin-bottom: 50px;
 }
@@ -324,7 +305,7 @@ button#expand {
 
 /*會員登入文字置中*/
 .loginbgcolor{
-    background-color:  #A3CF78;
+    background-color:  #fff1c5 ;
     
 }
 .loginWord {
@@ -333,7 +314,7 @@ button#expand {
     text-align: center;
     color: #705a43;
     font-weight: 900;
-    background-color:  #A3CF78;
+    background-color:  #fff1c5 ;
     margin-bottom: 20px;
     margin-top: 20px;
 }
@@ -482,7 +463,7 @@ button#expand {
 
 /* -----------------11.memberSignUp---------------------*/
 .signUpbgcolor{
-    background-color: #A3CF78;
+    background-color: #fff1c5 ;
 }
 .changeloing{
     width: 150px;
@@ -814,7 +795,7 @@ button#expand {
 
 /* -----------------12.memberProfilep---------------------*/
 .memberbgcolor{
-    background-color: #A3CF78;
+    background-color: #fff1c5 ;
 }
 
 
@@ -1154,7 +1135,7 @@ button#expand {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #A3CF78;
+    background-color: #fff1c5 ;
 }
 .generalOrder {
     display: flex;
@@ -1322,7 +1303,7 @@ button.cancelbutton {
 /* -----------------14..customOrderPage---------------------*/
 .custombgcolor{
     width: 100%;
-    background-color: #A3CF78;
+    background-color: #fff1c5 ;
 }
 
 .customlOrderPage{
