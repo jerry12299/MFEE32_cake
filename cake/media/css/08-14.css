@@ -330,10 +330,7 @@ button#expand {
 /* -----------------10.memberLogin---------------------*/
 
 /*會員登入文字置中*/
-.loginbgcolor {
-    /* background-color: #fff1c5; */
 
-}
 
 .loginWord {
     font-size: 50px;
@@ -493,9 +490,6 @@ button#expand {
 /*10.memberLogin結束*/
 
 /* -----------------11.memberSignUp---------------------*/
-.signUpbgcolor {
-    /* background-color: #fff1c5; */
-}
 
 .changeloing {
     width: 150px;
@@ -839,7 +833,6 @@ button#expand {
     background-color: #8c623e;
     margin-left: auto;
     margin-right: auto;
-
     -webkit-box-shadow: 0px 0px 20px 0px var(--Brown04_BE); 
     box-shadow: 0px 0px 20px 0px var(--Brown04_BE);
 }
@@ -868,7 +861,6 @@ button#expand {
     text-decoration: none;
 }
 
-
 .profilnav li:hover {
     border-bottom: 10px white solid;
 }
@@ -892,10 +884,11 @@ button#expand {
     font-size: 24px;
     font-family: 微軟正黑體;
     font-weight: 900;
-    margin-left: 185px;
+    margin-left: 18%;
     margin-right: auto;
     color: #8C5F37;
     border: none;
+    min-width: 60%;
 
 }
 
@@ -917,7 +910,7 @@ button#expand {
     font-size: 24px;
     font-family: 微軟正黑體;
     font-weight: 900;
-    margin-left: 225px;
+    margin-left: 22.5%;   
     margin-right: auto;
 }
 
@@ -938,7 +931,7 @@ button#expand {
     font-size: 24px;
     font-family: 微軟正黑體;
     font-weight: 900;
-    margin-left: auto;
+    margin-left: 22.5%;  
     margin-right: auto;
 }
 
@@ -959,7 +952,7 @@ button#expand {
     font-size: 24px;
     font-family: 微軟正黑體;
     font-weight: 900;
-    margin-left: auto;
+    margin-left: 17%;
     margin-right: auto;
 }
 
@@ -986,7 +979,7 @@ button#expand {
     font-size: 24px;
     font-family: 微軟正黑體;
     font-weight: 900;
-    margin-left: 250px;
+    margin-left: 25%;
     margin-right: auto;
 
 }
@@ -1007,7 +1000,7 @@ button#expand {
     font-size: 24px;
     font-family: 微軟正黑體;
     font-weight: 900;
-    margin-left: 250px;
+    margin-left: 25%;
     margin-right: auto;
 }
 
@@ -1027,7 +1020,7 @@ button#expand {
     font-size: 24px;
     font-family: 微軟正黑體;
     font-weight: 900;
-    margin-left: 250px;
+    margin-left: 25%;
     margin-right: auto;
 }
 
@@ -1045,7 +1038,7 @@ button#expand {
     font-size: 24px;
     font-family: 微軟正黑體;
     font-weight: 900;
-    margin-left: 250px;
+    margin-left: 25%;
     margin-right: auto;
 }
 
@@ -1066,7 +1059,7 @@ button#expand {
     font-size: 24px;
     font-family: 微軟正黑體;
     font-weight: 900;
-    margin-left: 200px;
+    margin-left: 19%;
     margin-right: auto;
 }
 
@@ -1220,6 +1213,10 @@ button#expand {
 .genorderline ul .genorderline {
     border: 5px white solid;
 }
+.borderbottom li{
+    border-bottom: 5px white solid;
+}
+
 
 .generalOrdernav li {
     padding: 10px;
