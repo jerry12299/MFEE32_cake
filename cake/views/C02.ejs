@@ -174,7 +174,7 @@
         </div>
     </div>
     <div id="CZ_introduce">
-        <div class="Feature_ITD">
+        <div class="Feature_ITD animate__animated">
             <h4>具現化您獨一無二的回憶吧！</h4>
             <p>
                 手繪蛋糕是一種特別的客製化蛋糕，能夠將您的回憶或創意化為繪畫，呈現在蛋糕上。<br>
@@ -207,9 +207,6 @@
             </div>
         </div>
         <% if(!session.user){ %>
-            <!-- <div><a href="/C05">請先登入</a>
-                </div> -->
-
             <div class="IsLogin">
                 <a href="/C05">
                     <h6>登入以開始填表單！</h6>
@@ -351,6 +348,29 @@
                 </div>
             </footer>
 
+            <script>
+                const target = $('.Feature_ITD')[0];
+                const myObserve = $('.IsLogin')[0];
+                const options = {
+                    threshold: 0.5
+                };
+
+                const addAni = (entries) => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) {
+                            console.log("我進來了");
+                        } else {
+                            console.log("我出來了");
+                            if (entry.intersectionRatio === 1) {
+                                $(target).addClass('animate__fadeInUp');
+                            }
+                        }
+                    })
+                }
+                console.log(myObserve);
+                let observer = new IntersectionObserver(addAni, options);
+                observer.observe(target);
+            </script>
             <script src="js/CustomizationCake.js"></script>
             <script src="js/goTop.js"></script>
             <script src="js/drawcake.js"></script>
@@ -397,14 +417,14 @@
                                 return;
                             } else {
                                 if (Needlocation) {
-                                    location.href = '/C05_4_2/1';
+                                    location.href = '/C02';
                                 } else {
                                     self.showDialog_BEnd.css({ display: "none", });
                                 }
                             }
                         })
-                        if (location) {
-                            setTimeout(() => { location.href = '/C05_4_2/1'; }, 5000);
+                        if (Needlocation) {
+                            setTimeout(() => { location.href = '/C02'; }, 5000);
                         }
                     }
                 }
