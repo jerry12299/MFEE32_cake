@@ -9,7 +9,7 @@ body{
 }
 .cakeprobox{
     border-radius: 15px 15px 15px 15px;
-    background-color: #BF815E;
+    background-color: #C2856A;
     width: 1200px;
     height: 100%;
     /* border: #df03ad 5px solid; */
@@ -222,7 +222,7 @@ body{
 }
 .stuffingtitle{
     margin-left: 34%;
-    margin-bottom: 15px;
+   
 }
 
 .stuffingtitle img{
