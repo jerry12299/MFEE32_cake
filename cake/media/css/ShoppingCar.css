@@ -577,7 +577,7 @@ input {
     color: var(--YWhite);
 }
 
-#Shopping_success>div:last-child{
+#Shopping_success>a:last-child>button{
     color: var(--YWhite);
     background-color: var(--Green02);
 }
