@@ -294,6 +294,8 @@ button#expand {
 .qicon img,
 .addicon img {
     width: 25px;
+    margin-left: 10px;
+    margin-right: 12px;
 }
 
 .qa_bgcolor {    
