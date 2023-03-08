@@ -55,6 +55,10 @@ body {
     transition: transform 1.6s;
 
 }
+.card_back p{
+    color: #e3344b;
+    font-size: 26px;
+}
 
 .card_img {
     display: block;
