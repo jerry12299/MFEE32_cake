@@ -718,6 +718,19 @@ index.get('/commodity',rights_api, function (req, res) {
 
 })
 
+index.get('/commodity_1/:val',rights_api, function (req, res) { 
+   var c_class = req.params.val
+
+    db.exec(`SELECT * FROM commodity WHERE c_class = ?`, [c_class], function (data, fields) {
+        // console.log(data)
+
+        res.render('commodity_1.ejs', {
+            data: data
+        })
+    })
+
+})
+
 index.post('/commodity',rights_api, function (req, res) { 
     var data = req.body
     var item = [data.c_id,data.c_name,data.price,data.illustrate,data.img_name,data.c_class,data.img1,data.img2,data.img3,data.img4,data.img5,data.oldId];
