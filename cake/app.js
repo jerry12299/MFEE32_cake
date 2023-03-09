@@ -1,8 +1,3 @@
-
-// 1. 這個範例依照 PDF練習題改寫來的:  28_PDF練習題\16\Module_16_example
-// 2. 原始範例的部分內容被精簡或改編，
-// 3. 整個專案都沒有註解，請添加註解上去
-
 var express = require('express');
 var app = express();
 

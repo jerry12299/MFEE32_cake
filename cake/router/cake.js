@@ -30,8 +30,8 @@ index.get('/', function (req, res) {
     res.render('index.ejs')
 })
 
-
-index.get('/C01/:class', function (req, res) { //主題蛋糕頁
+//--------------------主題蛋糕頁
+index.get('/C01/:class', function (req, res) { 
     var c_class = req.params.class
     switch (parseInt(c_class)) {
         case 0:
@@ -63,10 +63,8 @@ index.get('/C01/:class', function (req, res) { //主題蛋糕頁
     
 })
 
-// index.get('/C01_2', function (req, res) { //主題蛋糕頁
-//     res.render('C01_2.ejs')
-// })
-index.get('/C02', function (req, res) { //客制蛋糕頁
+//----------------------------客制蛋糕頁
+index.get('/C02', function (req, res) { 
     if(!req.session.user){
      res.render('C02.ejs')
     }else{
@@ -93,7 +91,7 @@ index.get('/C05', function (req, res) { //登入頁
 //-----------登入
 index.post('/C05', function (req, res) {
     var sql = `SELECT m_id,rights FROM member WHERE email=? and pwd=?;` //查詢使用者帳密
-    var password = pwd.b64_sha1(req.body.password)
+    var password = pwd.b64_sha1(req.body.password)   //轉暗碼
     // console.log(password)
     var data = [req.body.account, password] //2個?
     db.exec(sql, data, function (results, fields) {
@@ -106,7 +104,7 @@ index.post('/C05', function (req, res) {
 
             }
             // console.log(results[0].rights);
-            var rights = String(results[0].rights) 
+            var rights = String(results[0].rights)  //判斷登入者權限
             res.end(rights)
         } else {
             res.end('login failed')
@@ -117,12 +115,12 @@ index.post('/C05', function (req, res) {
 
 
 index.get('/C06', function (req, res) { //購物車
-    if (!req.session.user) {
+    if (!req.session.user) {        //沒登入
         res.render('C06.ejs', {
             data: {}
         })
     } else {
-        var sql = `SELECT m_name,email,phone,address FROM member WHERE m_id = ?`
+        var sql = `SELECT m_name,email,phone,address FROM member WHERE m_id = ?`  //有登入帶入使用者資訊
         db.exec(sql, [req.session.user.m_id], function (data, fields) {
             // console.log(data[0])
             res.render('C06.ejs', {
@@ -139,7 +137,7 @@ index.get('/C06', function (req, res) { //購物車
 
 
 
-//--------------------- 主題蛋糕
+//---------------------後臺管理 一般訂單
 //([0-9]+) 0-9 不限數量
 index.get('/C05_2/:page([0-9]+)', rights_api, function (req, res) {
     var page = req.params.page   //page=網址列的page數字
@@ -197,7 +195,7 @@ index.get('/C05_2/:page([0-9]+)', rights_api, function (req, res) {
                 })     //第二個db.exec的()尾 
         })        //function()的{}尾  第一個db.exec的()尾 
 })
-//-------------------------客製化頁面
+//-------------------------後臺管理 客製訂單
 index.get('/C05_3/:page([0-9]+)', rights_api, function (req, res) {
     var page = req.params.page   //page=網址列的page數字
     if(page == 0){
@@ -236,7 +234,7 @@ index.get('/C05_3/:page([0-9]+)', rights_api, function (req, res) {
         })        //function()的{}尾  第一個db.exec的()尾 
 })
 
-//--------------客製 更新
+//--------------客製訂單 更新資料
 
 index.post('/custUpdate',rights_api, function (req, res){
     var data = req.body
@@ -259,11 +257,12 @@ index.post('/custUpdate',rights_api, function (req, res){
 
 //-----------------------註冊
 index.get('/C05_1', function (req, res) {
-    res.render('C05_1.ejs') //跳轉註冊頁
+    res.render('C05_1.ejs') //渲染註冊頁
 })
 
 
 // //從C05_1.ejs傳回來
+//送入註冊資料
 index.post('/C05_1', function (req, res) {
     var body = req.body      //回傳的 post 資料
     // console.log('body-t:', body);
@@ -300,7 +299,7 @@ index.post('/C05_1', function (req, res) {
     })
 })
 
-//-----------驗證
+//-----------驗證e-mail是否註冊
 index.post('/email', function (req, res) {
     var email = req.body.email;
 
@@ -308,9 +307,9 @@ index.post('/email', function (req, res) {
     db.exec(sql, [email], function (results, fields) {
         //    console.log(results[0]) 
         if (results[0]) {
-            res.end('0');
+            res.end('0'); //有被註冊
         } else {
-            res.end('1');
+            res.end('1'); //沒被註冊
         }
 
 
@@ -319,7 +318,7 @@ index.post('/email', function (req, res) {
 
 
 
-//---------------上傳檔案
+//---------------上傳圖片
 
 var userImg = multer.diskStorage({
     destination: function (req, file, cb) {  //固定，不能改
@@ -338,14 +337,10 @@ var user = multer({
 
 });
 
-
-// index.get('/C02', function (req, res) {
-//     res.render('C02.ejs') //跳轉到客制化.ejs
-// })
-
+//--------------客製訂單 傳來圖片與表單
 index.post('/C02', login_api, user.single('img'), function (req, res) {
     var data = JSON.parse(req.body.data)       //回傳的 post 資料
-  
+  //把表單資料重新整理
          if(data.cakeTaste1){
         var Taste1 = data.cakeTaste1+','
     }else{
@@ -399,12 +394,11 @@ index.post('/C02', login_api, user.single('img'), function (req, res) {
     var form = `尺寸:${data.cakeSize},口味:${Taste1}${Taste2}${Taste3}${Taste4}顏色:${data.cakeColor},配件:${acc1}${acc2}${acc3}${acc4}${acc5}備註:${data.note}`
     // console.log(req.file.filename); //檔名
     // console.log(data); 
-    console.log(form)
+    // console.log(form)
 
-    // var sql = `INSERT INTO customized(m_id,cust_form,cust_state,picture) VALUES(?,?,?,?);`
+   //新增客製訂單
     var sql = `INSERT INTO customized (m_id, cust_form, cust_state, picture, connection, cust_pay, cust_pick, cust_date, cust_price, cust_shipping, cust_pay_state) VALUES (?, ?, '未製作', ?, ?, '未定', '未定', ?, '0', '未配送', '未付款');`
-    // post資料做成陣列 傳來的必為字串
-    // parseInt 轉數字
+   //            會員id     表單     檔名             聯繫方式         取貨時間
     var item = [data.m_id, form, req.file.filename,data.connection,data.cust_date]
     db.exec(sql, item, function (results, fields) {
         //results.insertId 新id
@@ -419,7 +413,7 @@ index.post('/C02', login_api, user.single('img'), function (req, res) {
 
 //-----------------------------會員介面
 
-//---------------主題蛋糕訂單頁
+//---------------會員介面 一般訂單頁
 index.get('/C05_4/:page([0-9]+)', login_api, function (req, res) {
     var page = req.params.page   //page=網址列的page數字
     var nums_per_page = 10
@@ -473,9 +467,10 @@ index.get('/logout', function (req, res) {
     res.redirect('/')
 
 })
-//---------------會員資料修改
+//---------------會員資料修改頁
+
 index.get('/C05_4_1', login_api, function (req, res) {
-    var sql = `SELECT * FROM member WHERE m_id = ?`;
+    var sql = `SELECT * FROM member WHERE m_id = ?`;     //帶入會員資料
     var data = [req.session.user.m_id];
     db.exec(sql, data, function (data, fields) {
         // console.log(data[0]); //資料是[{}]形式
@@ -485,7 +480,7 @@ index.get('/C05_4_1', login_api, function (req, res) {
     })
 
 })
-//更新資料
+//--------------更新會員資料
 index.post('/C05_4_1', login_api, function (req, res) {
     var sql = `UPDATE member SET pwd =?,m_name	= ?,birthday= ? ,gender= ?, phone = ?, address = ? WHERE member.m_id = ?;`;
     var newPwd = pwd.b64_sha1(req.body.pwd) 
@@ -505,7 +500,7 @@ index.post('/C05_4_1', login_api, function (req, res) {
         }
     })
 })
-//----------------------客製蛋糕頁面
+//----------------------會員介面 客製訂單頁面
 
 index.get('/C05_4_2/:page([0-9]+)', login_api, function (req, res) {
     var page = req.params.page   //page=網址列的page數字
@@ -550,7 +545,7 @@ index.get('/picture/:pname', login_api, function (req, res) {
     })
 
 })
-//---------------------------顯示商品
+//---------------------------顯示個別商品
 index.get('/C01_2/:cname', function (req, res) {
     // console.log(req.params.cname)
     db.exec(`SELECT * FROM commodity WHERE commodity.c_id = ?;`,[req.params.cname],function(data,fields){
@@ -579,33 +574,24 @@ index.post('/buy', function (req, res) {
         // console.log(result[0]) 
         res.end(JSON.stringify(result[0]))
     })
-
-//-----------------
-
-//-------------------送出購買
-//---
 })
+
+//-----------------------購買商品
+
+//--------第一步 送出購買人資料 取得訂單編號
 function one (req, res, next){
     var newData = req.body
-    //  if (newData.method === "自取") {
-
-    //     var pick_up_date = `${newData.pickupDate} ${newData.pickupTime}`
-    //     // console.log('1',pick_up_date)
-    // } else {
-    //     var pick_up_date = `${newData.pickupDate2} ${newData.pickupTime2}`
-    //     // console.log('2',pick_up_date)
-    // }
     var pick_up_date = `${newData.pickupDate} ${newData.pickupTime}`
     var data = [newData.m_id, pick_up_date, newData.payment, newData.method, newData.remark, newData.rec_address]
-    console.log('buy:', data)
+    // console.log('buy:', data)
     //先送出訂購者資料，取得訂購編號
     var sql = `INSERT INTO buy_order (m_id, pick_up_date, payment, pay_state, pickup_method, co_state, remark, shipping,rec_address) VALUES (?, ?, ?, '未付款', ?, '未製作', ?, '未配送',?)`;
     db.exec(sql, data, function (result, fields) {
         // console.log(result.insertId) //訂購編號 o_id
         var o_id = result.insertId
-        // console.log('o_id',o_id)
-        res.locals.id = o_id;
-        // res.locals.item =  newData.item;
+       
+        res.locals.id = o_id;    //把訂單編號傳給 function two
+        
       
         next()
        })
@@ -613,18 +599,21 @@ function one (req, res, next){
        
     
 }
+
+//----------------第二步 用第一步的訂單編號儲存 商品資料
 function two(req, res, next){
     var newData = req.body
     var o_id = res.locals.id
     var sql =``
     var data = []
+    //複數商品做迴圈
     newData.item.forEach((x) => {
     
         sql += `INSERT INTO cake_order (o_id, c_id, quantity) VALUES ( ?, ?, ?);`
         data.push(o_id, x.name, x.quantity)
 
     })
-
+    //送出蛋糕訂單資料
     db.exec(sql, data, function (result, fields) {
         // console.log(result2.insertId)
          next()
@@ -635,7 +624,7 @@ function two(req, res, next){
 
 
 
-
+//--------------第三步 取得該筆訂單的購買資料與總金額
 function three (req, res, next){
     var o_id = res.locals.id
     // console.log('res.locals.id',o_id)
@@ -651,7 +640,7 @@ function three (req, res, next){
     [o_id],
      function (resData, fields) {
         // console.log('Data1:',resData)
-        res.locals.resData = resData
+        res.locals.resData = resData //資料傳給function four
         next()
 
      })
@@ -661,6 +650,7 @@ function three (req, res, next){
 
 }
 
+//---------------第四步 取得該訂單商品資料與小計金額
 function four (req, res, next){
     var o_id = res.locals.id
     var resData = res.locals.resData
@@ -674,12 +664,12 @@ function four (req, res, next){
         // console.log('item', resItem)
         res.end(JSON.stringify(
             {
-            resData:resData,
-            resItem:resItem
+            resData:resData,  //該筆訂單的購買資料與總金額
+            resItem:resItem  //該筆訂單的商品資料與小計金額
         }
         )
         )
-        // res.end()
+        
       
       
     })
@@ -687,13 +677,13 @@ function four (req, res, next){
 
 
 
-//-------------------送出購買
+//-------------------送出購買 從這裡開始 one -> two -> three -> four
 index.post('/buyitem',[one,two,three,four]);
 
 
-//----------------顯示最新訂單
 
-//----------------修改狀態
+
+//----------------修改一般訂單狀態
 index.post('/change', function (req, res) {
     var data = req.body;
 
@@ -706,7 +696,9 @@ index.post('/change', function (req, res) {
 
         })
 })
-//-----------------更新商品
+
+
+//-----------------顯示商品列
 index.get('/commodity',rights_api, function (req, res) { 
     db.exec(`SELECT * FROM commodity`, [], function (data, fields) {
         // console.log(data)
@@ -717,7 +709,7 @@ index.get('/commodity',rights_api, function (req, res) {
     })
 
 })
-
+//------------------顯示分類後的商品
 index.get('/commodity_1/:val',rights_api, function (req, res) { 
    var c_class = req.params.val
 
@@ -731,6 +723,7 @@ index.get('/commodity_1/:val',rights_api, function (req, res) {
 
 })
 
+//-----------------更新商品資料
 index.post('/commodity',rights_api, function (req, res) { 
     var data = req.body
     var item = [data.c_id,data.c_name,data.price,data.illustrate,data.img_name,data.c_class,data.img1,data.img2,data.img3,data.img4,data.img5,data.oldId];
@@ -746,6 +739,7 @@ index.post('/commodity',rights_api, function (req, res) {
     })
 })
 
+//-------------儲存商品圖片
 var cakeImg = multer.diskStorage({
     destination: function (req, file, cb) {  //固定，不能改
         cb(null, "./media/Source/IMG");  //儲存路徑
@@ -763,21 +757,20 @@ var cake = multer({
 
 });
 
-
+//-------------上傳商品圖片
 index.post('/upimg',rights_api,cake.single('img'),function(req, res){
-            res.end(req.file.filename)
+            res.end(req.file.filename) //回傳檔名
 })
 
 
 
-
-//--------------------------新增商品
-
+//-------------------------渲染新增商品頁
 index.get('/additem',rights_api,function(req, res){
     res.render('additem.ejs')
 
 })
 
+//--------------------------新增商品
 index.post('/additem', rights_api, function (req, res) {
     var data = req.body;
     // console.log(data)
@@ -790,7 +783,7 @@ index.post('/additem', rights_api, function (req, res) {
         }
     })
 })
-
+//--------------檢查新增商品id是否重複 
 index.post('/cakeId',rights_api,function(req,res){
     var data = req.body
     // console.log(data)
@@ -803,36 +796,7 @@ index.post('/cakeId',rights_api,function(req,res){
         }
     })
 })
-//------------新增圖片
-index.get('/addimg',rights_api,function(req,res){
-    db.exec(`SELECT * FROM commodity`,[],function(data,fields){
-        
-            
-              res.render('addimg.ejs',{
-            data:data,
-            
-        })
-        
-      
-    })
-            
-})
-
-index.post('/updateImg',rights_api,function(req,res){
-    var data = req.body
-    var item = [data.img1,data.img2,data.img3,data.img4,data.img5,data.c_id];
-    var sql = `UPDATE commodity SET img1 = ?, img2 = ?, img3 = ?, img4 = ?, img5 = ? WHERE commodity.c_id = ?`
-    // console.log(data)
-    db.exec(sql,item,function(result, fields){
-        if (result.affectedRows) {
-            res.end('update success')
-        } else {
-            res.end('update failed')
-        }
-
-    })
-})
-//-----------改權限
+//-----------顯示會員資訊
 index.get('/manage',rights_api,function(req, res){
     db.exec(`SELECT * FROM member;`,[],function(data, fields){
         res.render('manage.ejs',{
@@ -841,6 +805,7 @@ index.get('/manage',rights_api,function(req, res){
     })
     
 })
+//----------修改會員資料
 index.post('/manage',rights_api,function(req, res){
     var data = req.body;
     // console.log(data)
@@ -854,7 +819,8 @@ index.post('/manage',rights_api,function(req, res){
 
     })
 })
-//--------------查詢分類
+
+//--------------一般訂單分類顯示
 
 index.get('/C05_2_1/:name/:value/:page([0-9]+)', rights_api, function (req, res) {
     var page = req.params.page   //page=網址列的page數字
@@ -955,7 +921,7 @@ index.get('/C05_2_1/:name/:value/:page([0-9]+)', rights_api, function (req, res)
                 })     //第二個db.exec的()尾 
         })        //function()的{}尾  第一個db.exec的()尾 
 })
-
+//--------------客製訂單分類顯示
 index.get('/C05_3_1/:name/:value/:page([0-9]+)', rights_api, function (req, res) {
     var page = req.params.page   //page=網址列的page數字
     var name = req.params.name   
