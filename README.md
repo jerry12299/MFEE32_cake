@@ -34,6 +34,8 @@
 
 ## 專案展示
 ### 消費者相關功能
+
+
 ![](./img/userflow-client-v3-20210104.png)
 #### `菓季-主頁`
 
@@ -51,11 +53,19 @@ babababababababababababababababababababababababababababababababababababababababa
 
 說明：<br>
 babababababababababababababababababababababababababababababababababababababababa<br>
+
+提供資訊：<br>
+- 首頁：主打活動輪播區、顯示人氣產品。
+- 關於我們：瀏覽網站架設理念。
+- 最新消息：瀏覽最新消息列表。
+- 聯絡我們：瀏覽店家相關聯絡資訊、Google Maps 實體地址。
 功能：<br>
 - 功能01：寫有哪些區塊，為消費者提供什麼。
 - 功能02：寫有哪些區塊，為消費者提供什麼。
 - 功能03：寫有哪些區塊，為消費者提供什麼。
 <br>
+
+
 
 
 
@@ -79,12 +89,13 @@ babababababababababababababababababababababababababababababababababababababababa
 
 ![](./img/model_login.gif)
 #### `菓季-客製蛋糕頁`
-
-- 首頁：主打活動輪播區、顯示人氣產品。
-- 關於我們：瀏覽網站架設理念。
-- 最新消息：瀏覽最新消息列表。
-- 聯絡我們：瀏覽店家相關聯絡資訊、Google Maps 實體地址。
-
+說明：<br>
+babababababababababababababababababababababababababababababababababababababababa<br>
+功能：<br>
+- 功能01：寫有哪些區塊，為消費者提供什麼。
+- 功能02：寫有哪些區塊，為消費者提供什麼。
+- 功能03：寫有哪些區塊，為消費者提供什麼。
+<br>
 
 ![](./img/model_login.gif)
 #### `菓季-餡料食材介紹`
