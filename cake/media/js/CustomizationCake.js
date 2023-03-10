@@ -68,8 +68,9 @@ CakePic.on("click", function () {
 
     const src_Real = $(this).find("img").prop("src");
     const src_Draw = src_Real.replace(".jpg", "") + "_draw.jpg";
-    $(showDialog.children().children()[0]).prop("src", src_Real);
-    $(showDialog.children().children()[1]).prop("src", src_Draw);
+    console.log(showDialog.find("figcaption").children().children());
+    $(showDialog.find("figcaption").children().children()[1]).prop("src", src_Real);
+    $(showDialog.find("figcaption").children().children()[3]).prop("src", src_Draw);
 })
 
 /* 任意點擊關閉浮窗 */

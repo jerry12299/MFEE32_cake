@@ -98,8 +98,14 @@
 
     <dialog class="showCZcakeDetail">
         <figcaption>
-            <img class="animate-zoom" src="">
-            <img class="animate-zoom" src="">
+            <div class="animate-zoom"> 
+                <div>菓季的委託成品</div>
+                <img src="">
+            </div>
+            <div class="animate-zoom">
+                <div>客戶給的參考圖</div>
+                <img src="">
+            </div>
         </figcaption>
         <div class="animate__animated animate__fadeInUp">
             <img src="../Source/IMG/Key-Vision/orange2.png">
@@ -174,7 +180,7 @@
         </div>
     </div>
     <div id="CZ_introduce">
-        <div class="Feature_ITD animate__animated">
+        <div class="Feature_ITD wow animate__animated animate__fadeInUp" data-wow-offset="300" >
             <h4>具現化您獨一無二的回憶吧！</h4>
             <p>
                 手繪蛋糕是一種特別的客製化蛋糕，能夠將您的回憶或創意化為繪畫，呈現在蛋糕上。<br>
@@ -186,7 +192,7 @@
                 讓我們一起為您打造一個獨一無二的手繪蛋糕，讓您的特別時刻更加精彩難忘吧！
             </p>
         </div>
-        <div class="process_ITD">
+        <div class="process_ITD wow animate__animated animate__fadeInUp" data-wow-offset="20" data-wow-delay="1s">
             <h6>訂購流程</h6>
             <div class="staps">
                 <div class="stap">
@@ -348,7 +354,7 @@
                 </div>
             </footer>
 
-            <script>
+            <!-- <script>
                 const target = $('.Feature_ITD')[0];
                 const myObserve = $('.IsLogin')[0];
                 const options = {
@@ -370,8 +376,12 @@
                 console.log(myObserve);
                 let observer = new IntersectionObserver(addAni, options);
                 observer.observe(target);
-            </script>
+            </script> -->
             <script src="js/CustomizationCake.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+            <script>
+                new WOW().init();
+                </script>
             <script src="js/goTop.js"></script>
             <script src="js/drawcake.js"></script>
             <script>

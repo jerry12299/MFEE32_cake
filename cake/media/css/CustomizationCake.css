@@ -1,5 +1,6 @@
 @import "main_ginnychen19.css";
 
+
 body {
     flex-direction: column;
     background-color: var(--Green02);
@@ -52,17 +53,41 @@ body {
     align-items: center;
 
     z-index: 5;
-    
+
 }
 
 .showCZcakeDetail>figcaption {
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
-.showCZcakeDetail>figcaption>img {
-    width: 400px;
+.showCZcakeDetail>figcaption>div {
+    position: relative;
+    width: 440px;
+}
+
+.showCZcakeDetail>figcaption>div>div {
+    position: absolute;
+    left: -20px;
+    top: 10px;
+    background-color: var(--BG_MOrange);
+    transform: rotate(-10deg);
+
+    font-family: "GenJyuuGothic-B";
+    font-size: var(--pSTitle);
+    color: var(--Brown01);
+    letter-spacing: 5px;
+    padding: 10px 15px;
+    margin: 0;
+
+    border-radius: 10px;
+}
+
+.showCZcakeDetail>figcaption>div>img {
+    max-width: 400px;
+    min-width: 400px;
     min-height: 400px;
     margin: 20px;
     border-radius: 20px;
@@ -82,21 +107,27 @@ body {
     border-bottom: 3px dashed var(--Brown01);
     padding: 0 0 10px 0;
 }
-.showCZcakeDetail>div>price{
+
+.showCZcakeDetail>div>price {
     width: 100%;
     padding: 10px 0 0 0;
     display: flex;
     justify-content: flex-end;
 }
-price>h6{color: var(--BTN_Red);}
-.showCZcakeDetail>div>img:nth-of-type(1){
+
+price>h6 {
+    color: var(--BTN_Red);
+}
+
+.showCZcakeDetail>div>img:nth-of-type(1) {
     height: 150px;
     position: absolute;
     top: -60px;
     right: -60px;
-        
+
 }
-.showCZcakeDetail>div>img:nth-of-type(2){
+
+.showCZcakeDetail>div>img:nth-of-type(2) {
     height: 150px;
     position: absolute;
     bottom: -60px;
@@ -104,6 +135,7 @@ price>h6{color: var(--BTN_Red);}
     transform: rotate(-20deg);
 
 }
+
 .animate-zoom {
     animation: animatezoom 0.6s
 }
@@ -351,7 +383,7 @@ color {
     justify-content: center;
     align-items: center;
     padding: 20px 0;
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 .Feature_ITD>h4 {
