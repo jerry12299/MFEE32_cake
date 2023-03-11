@@ -41,10 +41,16 @@
 
 主視覺介紹：<br>
 babababababababababababababababababababababababababababababababababababababababa<br>
+提供資訊：<br>
+- 首頁：主打活動輪播區、顯示人氣產品。
+- 最新消息：瀏覽最新消息列表。
+- 關於我們：瀏覽網站架設理念。
+- 聯絡我們：瀏覽店家相關聯絡資訊、Google Maps 實體地址。<br>
+
 功能：<br>
-- 功能01：寫有哪些區塊，為消費者提供什麼。
-- 功能02：寫有哪些區塊，為消費者提供什麼。
-- 功能03：寫有哪些區塊，為消費者提供什麼。
+- 功能01：你引用的技術點。
+- 功能02：你引用的技術點。
+- 功能03：你引用的技術點。
 <br>
 
 
@@ -53,16 +59,17 @@ babababababababababababababababababababababababababababababababababababababababa
 
 說明：<br>
 babababababababababababababababababababababababababababababababababababababababa<br>
-
 提供資訊：<br>
-- 首頁：主打活動輪播區、顯示人氣產品。
-- 關於我們：瀏覽網站架設理念。
-- 最新消息：瀏覽最新消息列表。
-- 聯絡我們：瀏覽店家相關聯絡資訊、Google Maps 實體地址。
+- 輪播廣告：因為菓季的特色是每季會推出與小農合作的當季限定，因此購物相關頁面都會有。
+- 目錄：提供消費者選單。
+- 蛋糕展示：提供消費者蛋糕的展示。
+- 頁尾：聯絡我們。
+- 聯絡我們：放入line、mail、回最上面的功能。<br>
+
 功能：<br>
-- 功能01：寫有哪些區塊，為消費者提供什麼。
-- 功能02：寫有哪些區塊，為消費者提供什麼。
-- 功能03：寫有哪些區塊，為消費者提供什麼。
+- 功能01：你引用的技術點。
+- 功能02：你引用的技術點。
+- 功能03：你引用的技術點。
 <br>
 
 
@@ -79,8 +86,9 @@ babababababababababababababababababababababababababababababababababababababababa
 功能：<br>
 - 功能01：寫有哪些區塊，為消費者提供什麼。
 - 功能02：寫有哪些區塊，為消費者提供什麼。
-- 功能03：寫有哪些區塊，為消費者提供什麼。
-<br>
+- 功能03：寫有哪些區塊，為消費者提供什麼。<br>
+
+提供資訊：<br>
 - 會員註冊：輸入並符合欄位格式，即可註冊成功。
 - 會員登入：輸入帳號、密碼，即可登入。
 - 會員身分驗證：登入後依會員權限顯示一般權限選單／管理權限選單。
@@ -100,10 +108,6 @@ babababababababababababababababababababababababababababababababababababababababa
 ![](./img/model_login.gif)
 #### `菓季-餡料食材介紹`
 
-- 首頁：主打活動輪播區、顯示人氣產品。
-- 關於我們：瀏覽網站架設理念。
-- 最新消息：瀏覽最新消息列表。
-- 聯絡我們：瀏覽店家相關聯絡資訊、Google Maps 實體地址。
 
 
 
