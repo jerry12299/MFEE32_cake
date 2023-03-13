@@ -8,8 +8,9 @@
 |   會員     | abc123@gmail.com |   1234   |
 
 
-![](https://github.com/ginnychen19/img-folder/blob/2655aefa729f5acf6ef7f6c07bb7e4d199abebef/resuma/GUOJI_Cake%20.jpg)
-## 專案介紹
+<img src="./readmePic/Web_main.png" width="100%">
+
+## `專案介紹`
 
 希望幫助店家在網路上推廣品牌，提供消費者在網路上即可取得最新資訊且線上訂購，店家可以在後台介面管理線上訂單，
 增加管理效率。提供消費者一個清晰易用的網站，讓他們能夠輕鬆地了解店家品牌。透過手繪可愛少女風的網頁畫面，
@@ -24,10 +25,12 @@
 ⌞密碼加密技術：使用SHA-1加密機敏性資料。<br>
 
 #### `頁面架構`
-(放圖)
-#### `成員分工`
-(放圖)
+<img src="./readmePic/Website.jpg" height="500px">
 
+#### `成員分工`
+<img src="./readmePic/divisionOf Labor.JPG" height="500px">
+#### `使用技術`
+<img src="./readmePic/webTechnology.JPG" height="500px">
 
 
 
