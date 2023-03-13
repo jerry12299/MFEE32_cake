@@ -43,7 +43,8 @@
 #### `菓季-主頁`
 
 主視覺介紹：<br>
-babababababababababababababababababababababababababababababababababababababababa<br>
+採用可愛童趣的繪本風格，那會採取這個風格除了符合我們的客群外，<br>也因為我們是客製繪畫蛋糕店，扣緊這個特色而去使用手繪繪本風格。<br>
+色系採用較高明度的糖果色系。環境以自然景為主，帶出我們取材於天然美味的食材。<br>中間帶點甜食裝飾，使畫面更有童話感。以兔子角色為代表，給予品牌一個溫馨可愛的形象。<br>
 提供資訊：<br>
 - 首頁：主打活動輪播區、顯示人氣產品。
 - 最新消息：瀏覽最新消息列表。
@@ -51,9 +52,10 @@ babababababababababababababababababababababababababababababababababababababababa
 - 聯絡我們：瀏覽店家相關聯絡資訊、Google Maps 實體地址。<br>
 
 功能：<br>
-- 功能01：你引用的技術點。
-- 功能02：你引用的技術點。
-- 功能03：你引用的技術點。
+- 使用wow.js滾動監控播放動畫。<br>
+- 製作圖層視差滾動。<br>
+- 點擊按鈕，即可開啟系統內建郵件寄送郵件。<br>
+- 按鈕互動效果(QR cord彈跳視窗、回頂部)<br>
 <br>
 
 
