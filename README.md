@@ -161,13 +161,19 @@ babababababababababababababababababababababababababababababababababababababababa
 
 1. 執行 `npm install` 安裝專案所需套件。
 
+2. 在MySQL匯入最新的sql。
+
+3. 執行 `npm run start`，在 http://localhost:1802 啟動專案。
+
+<!-- 1. 執行 `npm install` 安裝專案所需套件。
+
 2. 執行 `npm run start`，在 http://localhost:3000 啟動專案。
 
 3. 執行 `npm run dev`，使用 concurrently 實現同時在 http://localhost:3000 啟動前端，並在 http://localhost:5000 啟動後端專案。
 
 4. 執行 `npm build`，在 build 資料夾建立專案 production 版本。
 
-5. 執行 `npm deploy`，在 GitHub Pages 部屬專案網站。
+5. 執行 `npm deploy`，在 GitHub Pages 部屬專案網站。 -->
 
 ## 專案前端技術
 
