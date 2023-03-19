@@ -191,7 +191,7 @@
 
 5. 執行 `npm deploy`，在 GitHub Pages 部屬專案網站。 -->
 
-## 專案前端技術
+## 專案技術
 
 #### `框架`
 
@@ -199,10 +199,13 @@
 - [ejs](https://github.com/mde/ejs)
 <!-- - [React DOM](https://www.npmjs.com/package/react-dom) -->
 
+#### `資料庫`
+- [MySQL](https://www.mysql.com/)
+
 #### `第三方套件`
 
 <!-- - [React Router DOM](https://reactrouter.com/)：使用內建 HashRouter 建立路由 -->
-- [express](https://expressjs.com/)：建立路由
+- [express](https://expressjs.com/)：使用內建Router建立路由
 - [styled-components](https://styled-components.com/)：使用 JSX 語法撰寫 CSS 樣式
 - [PropTypes](https://www.npmjs.com/package/prop-types)：型別檢查
 - [ESLint](https://eslint.org/)：檢查語法，統一程式撰寫風格
