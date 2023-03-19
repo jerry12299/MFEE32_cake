@@ -1,6 +1,6 @@
 # Guo ji 菓季 - 手做|客製蛋糕店
 
-[網站 DEMO](https://corekang.github.io/sweetbreath/#/)
+<!-- [網站 DEMO](https://corekang.github.io/sweetbreath/#/) -->
 
 | 測試用身份 | 帳號              |   密碼    |
 | --------- | ----------------- | -------- |
@@ -63,7 +63,7 @@
 #### `菓季-主題蛋糕頁`
 
 說明：<br>
-babababababababababababababababababababababababababababababababababababababababa<br>
+可購買的主題蛋糕一覽<br>
 提供資訊：<br>
 - 輪播廣告：因為菓季的特色是每季會推出與小農合作的當季限定，因此購物相關頁面都會有。
 - 目錄：提供消費者選單。
@@ -72,9 +72,7 @@ babababababababababababababababababababababababababababababababababababababababa
 - 聯絡我們：放入line、mail、回最上面的功能。<br>
 
 功能：<br>
-- 功能01：你引用的技術點。
-- 功能02：你引用的技術點。
-- 功能03：你引用的技術點。
+- 根據商品分類個別顯示
 <br>
 
 
@@ -87,31 +85,49 @@ babababababababababababababababababababababababababababababababababababababababa
 #### `菓季-蛋糕詳細頁`
 
 說明：<br>
-babababababababababababababababababababababababababababababababababababababababa<br>
+購買該蛋糕<br>
 功能：<br>
-- 功能01：寫有哪些區塊，為消費者提供什麼。
-- 功能02：寫有哪些區塊，為消費者提供什麼。
-- 功能03：寫有哪些區塊，為消費者提供什麼。<br>
+- 將該商品加入到購物車
+<br>
+<!-- 
+提供資訊：<br> -->
 
-提供資訊：<br>
-- 會員註冊：輸入並符合欄位格式，即可註冊成功。
-- 會員登入：輸入帳號、密碼，即可登入。
-- 會員身分驗證：登入後依會員權限顯示一般權限選單／管理權限選單。
-- 會員專區：會員登入後可瀏覽或編輯個人資料、檢視消費紀錄。
 
 
 ![](./img/model_login.gif)
 #### `菓季-客製蛋糕頁`
 說明：<br>
-babababababababababababababababababababababababababababababababababababababababa<br>
+提供消費者提出客製蛋糕的需求<br>
 功能：<br>
-- 功能01：寫有哪些區塊，為消費者提供什麼。
-- 功能02：寫有哪些區塊，為消費者提供什麼。
-- 功能03：寫有哪些區塊，為消費者提供什麼。
+- 填寫客製化需求表單
+- 上傳參考圖片
 <br>
 
 ![](./img/model_login.gif)
-#### `菓季-餡料食材介紹`
+#### `菓季-餡料食材介紹/常見問題`
+說明: <br>
+提供消費者查看餡料食材介紹與常見問題
+
+
+#### `菓季-登入/註冊`
+說明: <br>
+登入或註冊帳號
+
+功能:
+- 會員註冊：輸入並符合欄位格式，即可註冊成功。
+- 會員登入：輸入帳號、密碼，即可登入。
+- 會員身分驗證：登入後依會員權限顯示一般權限選單／管理權限選單。
+- 會員專區：會員登入後可瀏覽或編輯個人資料、檢視消費紀錄。
+
+#### `菓季-購物車`
+說明: <br>
+將欲購買商品加入購物車，確認後送出購買
+
+功能:
+- 使用localStorage儲存購物車資料。
+- 填寫購買資料。
+- 送出購買。
+
 
 
 
@@ -145,8 +161,8 @@ babababababababababababababababababababababababababababababababababababababababa
 
 #### `權限管理模組`
 
-- 會員搜尋功能：可瀏覽所有帳號，依照使用者 id 或名稱搜尋特定帳號。
-- 會員管理功能：可變更會員權限狀態，分為一般權限、管理權限、停權。
+<!-- - 會員搜尋功能：可瀏覽所有帳號，依照使用者 id 或名稱搜尋特定帳號。 -->
+- 會員管理功能：可變更會員權限狀態，分為一般權限、管理權限。
 
 ![](./img/model_admin_member.gif)
 
@@ -179,12 +195,14 @@ babababababababababababababababababababababababababababababababababababababababa
 
 #### `框架`
 
-- [React Hooks](https://reactjs.org/)
-- [React DOM](https://www.npmjs.com/package/react-dom)
+- [express](https://expressjs.com/)
+- [ejs](https://github.com/mde/ejs)
+<!-- - [React DOM](https://www.npmjs.com/package/react-dom) -->
 
 #### `第三方套件`
 
-- [React Router DOM](https://reactrouter.com/)：使用內建 HashRouter 建立路由
+<!-- - [React Router DOM](https://reactrouter.com/)：使用內建 HashRouter 建立路由 -->
+- [express](https://expressjs.com/)：建立路由
 - [styled-components](https://styled-components.com/)：使用 JSX 語法撰寫 CSS 樣式
 - [PropTypes](https://www.npmjs.com/package/prop-types)：型別檢查
 - [ESLint](https://eslint.org/)：檢查語法，統一程式撰寫風格
@@ -200,11 +218,11 @@ babababababababababababababababababababababababababababababababababababababababa
 
 - [Google Cloud Platform](https://cloud.google.com/)
 
-## 專案後端技術
+<!-- ## 專案後端技術
 
 「Sweet Breath 甜の呼吸 - 網路甜點工作室」後端原始碼，採用 Express、Sequelize 開發，生成 API 與前端串連。
 
-- 專案連結：[sweetbreath-backend](https://github.com/ivymuchacha/sweetbreath-backend)
+- 專案連結：[sweetbreath-backend](https://github.com/ivymuchacha/sweetbreath-backend) -->
 
 ## Resource - 資料引用來源
 
